@@ -16,7 +16,7 @@ When having saved and closed you can check by opening a command window (cmd) and
 
 set JAVA_HOME
 
-It should reply
+It should reply 
 
 JAVA_HOME=C:\Program Files\Java\jdk1.8.0_141
 
