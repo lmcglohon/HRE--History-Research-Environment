@@ -1,0 +1,27 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Usergui
+Bundle-SymbolicName: org.historyresearchenvironment.usergui;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-ClassPath: .,
+  swing2swt.jar
+Bundle-Activator: org.historyresearchenvironment.usergui.Activator
+Bundle-Vendor: History Research Environment
+Require-Bundle: org.eclipse.core.runtime,
+  org.eclipse.e4.core.di,
+  org.eclipse.e4.ui.workbench,
+  org.eclipse.e4.ui.di,
+  org.eclipse.e4.ui.model.workbench,
+  org.eclipse.jface,
+  com.opcoach.e4.preferences,
+  org.eclipse.e4.core.contexts,
+  com.ibm.icu,
+  org.eclipse.zest.core,
+  org.eclipse.zest.layouts,
+  javax.xml
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Import-Package: javax.annotation;version="1.0.0";resolution:=optional,
+  javax.inject;version="1.0.0",
+  org.eclipse.e4.core.services.events,
+  org.eclipse.ui.services
+Bundle-ActivationPolicy: lazy

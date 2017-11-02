@@ -1,0 +1,8 @@
+kt. 04, 2017 3:51:34 PM org.historyresearchenvironment.usergui.utils.UseLogger doSomeThingAndLog
+SEVERE: Info Log
+okt. 04, 2017 3:51:35 PM org.historyresearchenvironment.usergui.utils.UseLogger doSomeThingAndLog
+SEVERE: Info Log
+okt. 04, 2017 3:51:35 PM org.historyresearchenvironment.usergui.utils.UseLogger doSomeThingAndLog
+WARNING: Info Log
+okt. 04, 2017 3:51:35 PM org.historyresearchenvironment.usergui.utils.UseLogger doSomeThingAndLog
+INFO: Info Log
