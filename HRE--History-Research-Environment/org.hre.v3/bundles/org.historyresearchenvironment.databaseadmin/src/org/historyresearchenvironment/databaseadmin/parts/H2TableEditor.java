@@ -7,6 +7,7 @@ import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
+import java.util.logging.Logger;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
@@ -46,7 +47,7 @@ import org.historyresearchenvironment.databaseadmin.providers.H2TableProvider;
 /**
  * Dynamically create an editor with the fields in the database catalog.
  * 
- * @version 2018-05-19
+ * @version 2018-05-20
  * @author Michael Erichsen, &copy; History Research Environment Ltd., 2018
  *
  */
@@ -61,6 +62,7 @@ public class H2TableEditor {
 	@Inject
 	private IEventBroker eventBroker;
 
+	private final static Logger LOGGER = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 	private String tableName;
 	private int recordNum = 0;
 	private H2TableProvider provider;
@@ -128,7 +130,7 @@ public class H2TableEditor {
 								time.setTime(calendar.get(Calendar.HOUR), calendar.get(Calendar.MINUTE),
 										calendar.get(Calendar.SECOND));
 							} else {
-								System.out.println("Unimplemented type: " + type);
+								LOGGER.info("Unimplemented type: " + type);
 								System.exit(16);
 							}
 						}
@@ -174,7 +176,7 @@ public class H2TableEditor {
 								time.getHours(), time.getMinutes(), time.getSeconds(), 0);
 						columns.get(i).setValue(timeStamp);
 					} else {
-						System.out.println("Unimplemented type: " + type);
+						LOGGER.info("Unimplemented type: " + type);
 						System.exit(16);
 					}
 				}
@@ -224,7 +226,7 @@ public class H2TableEditor {
 								time.getHours(), time.getMinutes(), time.getSeconds(), 0);
 						columns.get(i).setValue(timeStamp);
 					} else {
-						System.out.println("Unimplemented type: " + type);
+						LOGGER.info("Unimplemented type: " + type);
 						System.exit(16);
 					}
 				}
@@ -283,7 +285,7 @@ public class H2TableEditor {
 						DateTime time = (DateTime) children[1];
 						time.setTime(0, 0, 0);
 					} else {
-						System.out.println("Unimplemented type: " + type);
+						LOGGER.info("Unimplemented type: " + type);
 						System.exit(16);
 					}
 				}
@@ -463,7 +465,7 @@ public class H2TableEditor {
 				lineList.add(text);
 				break;
 			default:
-				System.out.println("Unimplemented type: " + columns.get(i).getType());
+				LOGGER.info("Unimplemented type: " + columns.get(i).getType());
 				System.exit(16);
 				break;
 			}

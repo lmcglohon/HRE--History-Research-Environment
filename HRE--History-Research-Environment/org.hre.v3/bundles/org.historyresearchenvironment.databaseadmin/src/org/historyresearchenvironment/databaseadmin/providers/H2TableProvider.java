@@ -17,7 +17,7 @@ import org.historyresearchenvironment.databaseadmin.models.H2TableModel;
 /**
  * Provide H2 data to the table navigator and the table editor.
  * 
- * @version 2018-05-19
+ * @version 2018-05-20
  * @author Michael Erichsen, &copy; History Research Environment Ltd., 2018
  *
  */
@@ -90,6 +90,7 @@ public class H2TableProvider extends AbstractHreProvider implements IContentProv
 			}
 		} catch (final SQLException e) {
 			e.printStackTrace();
+			LOGGER.severe(e.getMessage());
 		}
 	}
 
@@ -109,6 +110,7 @@ public class H2TableProvider extends AbstractHreProvider implements IContentProv
 			int rows = ps.executeUpdate();
 		} catch (final SQLException e) {
 			e.printStackTrace();
+			LOGGER.severe(e.getMessage());
 			return false;
 		}
 		return true;
@@ -125,6 +127,7 @@ public class H2TableProvider extends AbstractHreProvider implements IContentProv
 			ps.executeUpdate();
 		} catch (final SQLException e) {
 			e.printStackTrace();
+			LOGGER.severe(e.getMessage());
 		}
 	}
 
@@ -162,6 +165,7 @@ public class H2TableProvider extends AbstractHreProvider implements IContentProv
 			rowCount = ps.executeUpdate();
 		} catch (final SQLException e) {
 			e.printStackTrace();
+			LOGGER.severe(e.getMessage());
 		}
 		return rowCount;
 	}
@@ -214,6 +218,7 @@ public class H2TableProvider extends AbstractHreProvider implements IContentProv
 			ps.executeUpdate();
 		} catch (final SQLException e) {
 			e.printStackTrace();
+			LOGGER.severe(e.getMessage());
 			return false;
 		}
 		return true;
@@ -356,6 +361,7 @@ public class H2TableProvider extends AbstractHreProvider implements IContentProv
 			}
 		} catch (final SQLException e) {
 			e.printStackTrace();
+			LOGGER.severe(e.getMessage());
 		}
 		return row;
 	}
@@ -389,6 +395,7 @@ public class H2TableProvider extends AbstractHreProvider implements IContentProv
 
 		} catch (final SQLException e) {
 			e.printStackTrace();
+			LOGGER.severe(e.getMessage());
 		}
 		return rowList;
 	}
@@ -425,6 +432,7 @@ public class H2TableProvider extends AbstractHreProvider implements IContentProv
 			ps.executeUpdate();
 		} catch (final SQLException e) {
 			e.printStackTrace();
+			LOGGER.severe(e.getMessage());
 			return false;
 		}
 		return true;

@@ -6,16 +6,14 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.eclipse.core.runtime.preferences.ConfigurationScope;
 import org.eclipse.jface.viewers.IContentProvider;
 import org.historyresearchenvironment.databaseadmin.HreH2ConnectionPool;
 import org.historyresearchenvironment.databaseadmin.models.H2DatabaseModel;
-import org.osgi.service.prefs.Preferences;
 
 /**
  * Provides H2 data to the database navigator
  * 
- * @version 2018-04-21
+ * @version 2018-05-20
  * @author Michael Erichsen, &copy; History Research Environment Ltd., 2018
  *
  */
@@ -31,9 +29,9 @@ public class H2DatabaseProvider extends AbstractHreProvider implements IContentP
 	 */
 	public H2DatabaseProvider() {
 		try {
-			Preferences preferences = ConfigurationScope.INSTANCE
-					.getNode("org.historyresearchenvironment.databaseadmin");
 			String dbName = preferences.get("DBNAME", "~/HRE");
+
+			LOGGER.info("Database name: " + dbName);
 
 			conn = HreH2ConnectionPool.getConnection(dbName);
 			final PreparedStatement ps = conn.prepareStatement(SELECT);
@@ -46,6 +44,7 @@ public class H2DatabaseProvider extends AbstractHreProvider implements IContentP
 			}
 		} catch (final SQLException e) {
 			e.printStackTrace();
+			LOGGER.severe(e.getMessage());
 		}
 	}
 

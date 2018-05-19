@@ -3,6 +3,7 @@ package org.historyresearchenvironment.databaseadmin.handlers;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.util.logging.Logger;
 
 import javax.inject.Inject;
 
@@ -24,7 +25,7 @@ import org.osgi.service.prefs.Preferences;
 /**
  * Create a new HRE project database and open it
  * 
- * @version 2018-05-19
+ * @version 2018-05-20
  * @author Michael Erichsen, &copy; History Research Environment Ltd., 2018
  *
  */
@@ -36,6 +37,7 @@ public class NewHandler {
 	@Inject
 	EModelService modelService;
 
+	private final static Logger LOGGER = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 	private NewDatabaseProvider provider;
 
 	/**
@@ -62,6 +64,7 @@ public class NewHandler {
 		try {
 			preferences.flush();
 		} catch (BackingStoreException e) {
+			LOGGER.severe(e.getMessage());
 			e.printStackTrace();
 		}
 
@@ -96,6 +99,7 @@ public class NewHandler {
 		} catch (final Exception e1) {
 			eventBroker.post("MESSAGE", e1.getMessage());
 			e1.printStackTrace();
+			LOGGER.severe(e1.getMessage());
 		}
 
 	}

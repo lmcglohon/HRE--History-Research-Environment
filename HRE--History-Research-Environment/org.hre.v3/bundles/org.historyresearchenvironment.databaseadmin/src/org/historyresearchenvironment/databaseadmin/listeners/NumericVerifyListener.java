@@ -30,7 +30,7 @@ public class NumericVerifyListener implements VerifyListener {
 			isFloat = false;
 		}
 
-		// System.out.println(newS);
+		// LOGGER.info(newS);
 
 		if (!isFloat) {
 			e.doit = false;

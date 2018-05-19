@@ -1,6 +1,7 @@
 package org.historyresearchenvironment.databaseadmin.parts;
 
 import java.util.List;
+import java.util.logging.Logger;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
@@ -53,6 +54,7 @@ public class H2DatabaseNavigator {
 
 	private Preferences preferences = ConfigurationScope.INSTANCE
 			.getNode("org.historyresearchenvironment.databaseadmin");
+	private final static Logger LOGGER = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 	private Table table;
 	private String dbName;
 
@@ -70,6 +72,7 @@ public class H2DatabaseNavigator {
 	 */
 	@PostConstruct
 	public void createControls(Composite parent) {
+		LOGGER.info("Creating controls");
 		parent.setLayout(new GridLayout(1, false));
 
 		final TableViewer tableViewer = new TableViewer(parent, SWT.BORDER | SWT.FULL_SELECTION);
@@ -129,6 +132,7 @@ public class H2DatabaseNavigator {
 	private void subscribeDatabaseNameUpdateTopic(
 			@UIEventTopic(org.historyresearchenvironment.databaseadmin.HreDbadminConstants.DATABASE_UPDATE_TOPIC) String dbName) {
 		this.dbName = dbName;
+		LOGGER.info(dbName);
 		updateGui();
 	}
 

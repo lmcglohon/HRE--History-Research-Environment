@@ -1,5 +1,7 @@
 package org.historyresearchenvironment.databaseadmin.parts;
 
+import java.util.logging.Logger;
+
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 
@@ -14,7 +16,7 @@ import org.eclipse.wb.swt.SWTResourceManager;
 /**
  * Status line field
  * 
- * @version 2018-04-21
+ * @version 2018-05-21
  * @author Michael Erichsen, &copy; History Research Environment Ltd., 2018
  *
  */
@@ -22,6 +24,7 @@ public class StatusToolControl {
 	@Inject
 	IEventBroker eventBroker;
 
+	private final static Logger LOGGER = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 	private Text textStatus;
 
 	/**
@@ -46,6 +49,7 @@ public class StatusToolControl {
 	@Optional
 	public void messageHandler(@UIEventTopic("MESSAGE") String s) {
 		setMessage(s);
+		LOGGER.info(s);
 	}
 
 	/**

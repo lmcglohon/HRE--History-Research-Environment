@@ -1,15 +1,15 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <units size='1'>
-  <unit id='201805191929.hrev3' version='1.0.0.2--cJwAvE7735I3C5K5K7K'>
+  <unit id='201805201446.hrev3' version='1.0.0.2--cJwAvE7735I3C735AAE'>
     <properties size='2'>
       <property name='org.eclipse.equinox.p2.name' value='HRE Mock Up V3'/>
       <property name='org.eclipse.equinox.p2.type.category' value='true'/>
     </properties>
     <provides size='1'>
-      <provided namespace='org.eclipse.equinox.p2.iu' name='201805191929.hrev3' version='1.0.0.2--cJwAvE7735I3C5K5K7K'/>
+      <provided namespace='org.eclipse.equinox.p2.iu' name='201805201446.hrev3' version='1.0.0.2--cJwAvE7735I3C735AAE'/>
     </provides>
     <requires size='1'>
-      <required namespace='org.eclipse.equinox.p2.iu' name='org.hre.feature.feature.group' range='[1.0.0.201805191929,1.0.0.201805191929]'/>
+      <required namespace='org.eclipse.equinox.p2.iu' name='org.hre.feature.feature.group' range='[1.0.0.201805201446,1.0.0.201805201446]'/>
     </requires>
     <touchpoint id='null' version='0.0.0'/>
   </unit>

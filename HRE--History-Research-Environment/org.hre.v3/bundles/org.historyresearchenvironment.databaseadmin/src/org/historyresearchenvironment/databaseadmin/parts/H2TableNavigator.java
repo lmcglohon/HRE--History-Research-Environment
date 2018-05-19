@@ -2,6 +2,7 @@ package org.historyresearchenvironment.databaseadmin.parts;
 
 import java.sql.SQLException;
 import java.util.List;
+import java.util.logging.Logger;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
@@ -45,7 +46,7 @@ import org.historyresearchenvironment.databaseadmin.providers.H2TableProvider;
  * Create a view part with a table. Create a column for each columns in the
  * catalog for the given table. Populate the table with data from H2.
  * 
- * @version 2018-05-19
+ * @version 2018-05-20
  * @author Michael Erichsen, &copy; History Research Environment Ltd., 2018
  *
  */
@@ -64,6 +65,8 @@ public class H2TableNavigator {
 	private ECommandService commandService;
 	@Inject
 	private EHandlerService handlerService;
+
+	private final static Logger LOGGER = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 	private Table table;
 	private Composite parent;
 	private String tableName;
@@ -95,12 +98,12 @@ public class H2TableNavigator {
 				final ParameterizedCommand command = commandService.createCommand(
 						"org.historyresearchenvironment.databaseadmin.v010.command.opentableeditorcommand", null);
 				handlerService.executeHandler(command);
-				System.out.println("Navigator opened editor");
+				LOGGER.info("Navigator opened editor");
 
 				eventBroker.post(
 						org.historyresearchenvironment.databaseadmin.HreDbadminConstants.TABLENAME_UPDATE_TOPIC,
 						tableName);
-				System.out.println("Navigator posted tablename " + tableName);
+				LOGGER.info("Navigator posted tablename " + tableName);
 
 				final TableItem[] selectedRows = table.getSelection();
 
@@ -112,7 +115,7 @@ public class H2TableNavigator {
 				eventBroker.post(
 						org.historyresearchenvironment.databaseadmin.HreDbadminConstants.RECORDNUM_UPDATE_TOPIC,
 						recordNum);
-				System.out.println("Navigator posted record number " + recordNum);
+				LOGGER.info("Navigator posted record number " + recordNum);
 				eventBroker.post("MESSAGE", tableName + " editor has been opened");
 			}
 		});
@@ -208,6 +211,7 @@ public class H2TableNavigator {
 				} catch (final SQLException e) {
 					eventBroker.post("MESSAGE", e.getMessage());
 					e.printStackTrace();
+					LOGGER.severe(e.getMessage());
 				}
 			}
 

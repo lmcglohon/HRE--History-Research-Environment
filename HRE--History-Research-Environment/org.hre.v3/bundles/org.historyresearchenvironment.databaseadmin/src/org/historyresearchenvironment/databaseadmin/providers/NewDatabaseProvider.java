@@ -7,7 +7,7 @@ import org.historyresearchenvironment.databaseadmin.HreH2ConnectionPool;
 /**
  * Create and open a new HRE project database
  * 
- * @version 2018-05-19
+ * @version 2018-05-20
  * @author Michael Erichsen, &copy; History Research Environment Ltd., 2018
  *
  */
@@ -316,6 +316,7 @@ public class NewDatabaseProvider extends AbstractHreProvider {
 
 		} catch (final Exception e) {
 			e.printStackTrace();
+			LOGGER.severe(e.getMessage());
 		}
 	}
 }

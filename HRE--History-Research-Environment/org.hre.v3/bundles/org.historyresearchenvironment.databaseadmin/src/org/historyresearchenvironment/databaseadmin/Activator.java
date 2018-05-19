@@ -1,17 +1,20 @@
 package org.historyresearchenvironment.databaseadmin;
 
+import java.util.logging.Logger;
+
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
 
 /**
- * Eclipse RCP lifecycle management
+ * Eclipse plug-in life cycle control. Sets up the logger.
  * 
- * @version 0.0.5
+ * @version 2018-05-20
  * @author Michael Erichsen, &copy; History Research Environment Ltd., 2018
  *
  */
 public class Activator implements BundleActivator {
 	private static BundleContext context;
+	private final static Logger LOGGER = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
 	/**
 	 * @return
@@ -29,6 +32,10 @@ public class Activator implements BundleActivator {
 	@Override
 	public void start(BundleContext bundleContext) throws Exception {
 		Activator.context = bundleContext;
+
+		HreLogger.setup();
+
+		LOGGER.info("HRE Database Administration has been started");
 	}
 
 	/*

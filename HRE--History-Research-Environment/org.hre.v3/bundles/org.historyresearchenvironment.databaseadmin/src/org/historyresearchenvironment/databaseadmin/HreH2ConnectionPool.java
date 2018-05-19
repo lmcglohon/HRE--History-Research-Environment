@@ -2,6 +2,7 @@ package org.historyresearchenvironment.databaseadmin;
 
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.logging.Logger;
 
 import org.eclipse.core.runtime.preferences.ConfigurationScope;
 import org.h2.jdbcx.JdbcConnectionPool;
@@ -12,15 +13,16 @@ import org.osgi.service.prefs.Preferences;
  * Singleton calls that instantiates a JDBC Connection Pool and returns a
  * connection to it.
  * 
- * @version 2018-05-19
+ * @version 2018-05-20
  * @author Michael Erichsen, &copy; History Research Environment Ltd., 2018
  *
  */
 public class HreH2ConnectionPool {
 	private static JdbcConnectionPool connectionPool = null;
-	private static int h2TraceLevel = 1;
 	private static Preferences preferences = ConfigurationScope.INSTANCE
 			.getNode("org.historyresearchenvironment.databaseadmin");
+	private static int h2TraceLevel = preferences.getInt("H2TRACELEVEL", 2);
+	private final static Logger LOGGER = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
 	/**
 	 * Dispose connection pool and recreate to create a new data base.
@@ -32,13 +34,14 @@ public class HreH2ConnectionPool {
 		connectionPool.dispose();
 		final String jdbcUrl = "jdbc:h2:" + dbName + ";TRACE_LEVEL_FILE=" + h2TraceLevel + ";TRACE_LEVEL_SYSTEM_OUT="
 				+ h2TraceLevel;
+		LOGGER.info("JDBC URL: " + jdbcUrl);
 		connectionPool = JdbcConnectionPool.create(jdbcUrl, "sa", "");
 		connectionPool.setMaxConnections(500);
 		preferences.put("DBNAME", dbName);
 		try {
 			preferences.flush();
 		} catch (BackingStoreException e) {
-			e.printStackTrace();
+			LOGGER.severe(e.getMessage());
 		}
 	}
 
@@ -49,7 +52,7 @@ public class HreH2ConnectionPool {
 		try {
 			connectionPool.dispose();
 		} catch (final Exception e) {
-			e.printStackTrace();
+			LOGGER.severe(e.getMessage());
 		}
 		connectionPool = null;
 	}
@@ -64,13 +67,14 @@ public class HreH2ConnectionPool {
 			if (connectionPool == null) {
 				final String jdbcUrl = "jdbc:h2:" + dbName + ";IFEXISTS=TRUE;TRACE_LEVEL_FILE=" + h2TraceLevel
 						+ ";TRACE_LEVEL_SYSTEM_OUT=" + h2TraceLevel;
+				LOGGER.info("JDBC URL: " + jdbcUrl);
 				connectionPool = JdbcConnectionPool.create(jdbcUrl, "sa", "");
 				connectionPool.setMaxConnections(500);
 			}
 
 			return connectionPool.getConnection();
 		} catch (final SQLException e) {
-			e.printStackTrace();
+			LOGGER.severe(e.getMessage());
 			return null;
 		}
 	}
@@ -86,12 +90,13 @@ public class HreH2ConnectionPool {
 		try {
 			final String jdbcUrl = "jdbc:h2:" + dbName + ";IFEXISTS=TRUE;TRACE_LEVEL_FILE=" + h2TraceLevel
 					+ ";TRACE_LEVEL_SYSTEM_OUT=" + h2TraceLevel;
+			LOGGER.info("JDBC URL: " + jdbcUrl);
 			connectionPool = JdbcConnectionPool.create(jdbcUrl, "sa", "");
 			connectionPool.setMaxConnections(500);
 
 			return connectionPool.getConnection();
 		} catch (final SQLException e) {
-			e.printStackTrace();
+			LOGGER.severe(e.getMessage());
 			return null;
 		}
 	}

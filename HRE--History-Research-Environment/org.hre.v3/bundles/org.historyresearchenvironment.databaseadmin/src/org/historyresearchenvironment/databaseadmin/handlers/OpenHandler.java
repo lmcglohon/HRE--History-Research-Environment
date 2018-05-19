@@ -2,6 +2,7 @@ package org.historyresearchenvironment.databaseadmin.handlers;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.util.logging.Logger;
 
 import javax.inject.Inject;
 
@@ -21,7 +22,7 @@ import org.osgi.service.prefs.Preferences;
 /**
  * Handler to open an existing database
  * 
- * @version 2018-05-19
+ * @version 2018-05-20
  * @author Michael Erichsen, &copy; History Research Environment Ltd., 2018
  *
  */
@@ -32,6 +33,8 @@ public class OpenHandler {
 	MApplication application;
 	@Inject
 	EModelService modelService;
+	
+	private final static Logger LOGGER = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
 	/**
 	 * Select a database and open it
@@ -51,13 +54,14 @@ public class OpenHandler {
 
 		final String shortName = dialog.getFileName();
 		final String[] parts = shortName.split("\\.");
-		final String dbName = dialog.getFilterPath() + "/" + parts[0];
+		final String dbName = dialog.getFilterPath() + "\\" + parts[0];
 		preferences.put("DBNAME", dbName);
+		LOGGER.info("Database name: " + dbName);
 
 		try {
 			preferences.flush();
 		} catch (BackingStoreException e1) {
-			e1.printStackTrace();
+			LOGGER.severe(e1.getMessage());
 		}
 
 		try {
@@ -71,7 +75,7 @@ public class OpenHandler {
 			}
 		} catch (final Exception e1) {
 			eventBroker.post("MESSAGE", e1.getMessage());
-			e1.printStackTrace();
+			LOGGER.severe(e1.getMessage());
 		}
 
 		try {
@@ -93,7 +97,7 @@ public class OpenHandler {
 			eventBroker.post("MESSAGE", "Database " + dbName + " has been opened");
 		} catch (final Exception e) {
 			eventBroker.post("MESSAGE", e.getMessage());
-			e.printStackTrace();
+			LOGGER.severe(e.getMessage());
 		}
 	}
 }
