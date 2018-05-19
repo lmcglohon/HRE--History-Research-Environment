@@ -71,8 +71,6 @@ public class H2TableEditor {
 	private int count;
 	private ScrolledComposite scrolledComposite;
 
-	// FIXME Does not scroll
-
 	/**
 	 * Constructor
 	 *
@@ -81,7 +79,7 @@ public class H2TableEditor {
 	}
 
 	/**
-	 * @param parent
+	 * @param parent Shell
 	 */
 	private void createButtons(Composite parent) {
 		// Only create once
@@ -308,6 +306,8 @@ public class H2TableEditor {
 
 	/**
 	 * Create contents of the view part.
+	 * 
+	 * @param parent Shell
 	 */
 	@PostConstruct
 	public void createControls(Composite parent) {

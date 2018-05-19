@@ -3,7 +3,7 @@ package org.historyresearchenvironment.databaseadmin.models;
 /**
  * Model for the table navigator
  * 
- * @version 2018-04-21
+ * @version 2018-05-19
  * @author Michael Erichsen, &copy; History Research Environment Ltd., 2018
  *
  */
@@ -27,9 +27,11 @@ public class H2TableModel {
 	/**
 	 * Constructor
 	 *
-	 * @param name
-	 * @param type
-	 * @param value
+	 * @param name Column name
+	 * @param type Column type
+	 * @param value Column value
+	 * @param precision Column precision
+	 * @param scale Column scale
 	 */
 	public H2TableModel(String name, String type, String value, int precision, int scale) {
 		super();

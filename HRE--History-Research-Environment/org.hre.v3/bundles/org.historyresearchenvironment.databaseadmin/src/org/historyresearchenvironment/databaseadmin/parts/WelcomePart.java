@@ -23,7 +23,7 @@ import org.eclipse.wb.swt.SWTResourceManager;
 public class WelcomePart {
 
 	/**
-	 * @param parent
+	 * @param parent Shell
 	 */
 	@PostConstruct
 	public void postConstruct(Composite parent) {

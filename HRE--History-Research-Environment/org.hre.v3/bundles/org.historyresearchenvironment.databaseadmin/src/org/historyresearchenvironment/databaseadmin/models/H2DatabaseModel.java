@@ -3,7 +3,7 @@ package org.historyresearchenvironment.databaseadmin.models;
 /**
  * Model for the H2DatabaseNavigator
  * 
- * @version 0.0.5
+ * @version 2018-05-19
  * @author Michael Erichsen, &copy; History Research Environment Ltd., 2018
  *
  */
@@ -22,8 +22,8 @@ public class H2DatabaseModel {
 	/**
 	 * Constructor
 	 *
-	 * @param tableName
-	 * @param rowCount
+	 * @param tableName Name of H2 table
+	 * @param rowCount Nyumber of rows in the table
 	 */
 	public H2DatabaseModel(String tableName, long rowCount) {
 		super();

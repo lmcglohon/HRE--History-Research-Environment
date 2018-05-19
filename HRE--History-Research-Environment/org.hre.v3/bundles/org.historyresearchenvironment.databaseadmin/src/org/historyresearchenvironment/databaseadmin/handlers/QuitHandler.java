@@ -8,7 +8,7 @@ import org.eclipse.swt.widgets.Shell;
 /**
  * Handler to quit the application
  * 
- * @version 2018-04-21
+ * @version 2018-05-19
  * @author Michael Erichsen, &copy; History Research Environment Ltd., 2018
  *
  */
@@ -18,7 +18,9 @@ public class QuitHandler {
 	 * Quit the application
 	 * 
 	 * @param workbench
+	 *            The Eclipse workbench
 	 * @param shell
+	 *            The application shell
 	 */
 	@Execute
 	public void execute(IWorkbench workbench, Shell shell) {

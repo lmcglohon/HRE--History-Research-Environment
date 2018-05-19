@@ -14,7 +14,7 @@ import org.eclipse.e4.ui.workbench.modeling.EPartService.PartState;
 /**
  * Handler to open the Table Editor
  * 
- * @version 0.0.5
+ * @version 2018-05-19
  * @author Michael Erichsen, &copy; History Research Environment Ltd., 2018
  *
  */
@@ -23,8 +23,11 @@ public class TableEditorHandler {
 	 * Open a table editor
 	 * 
 	 * @param partService
+	 *            Eclipse part service
 	 * @param application
+	 *            The application
 	 * @param modelService
+	 *            Eclipse model service
 	 */
 	@Execute
 	public void execute(EPartService partService, MApplication application, EModelService modelService) {

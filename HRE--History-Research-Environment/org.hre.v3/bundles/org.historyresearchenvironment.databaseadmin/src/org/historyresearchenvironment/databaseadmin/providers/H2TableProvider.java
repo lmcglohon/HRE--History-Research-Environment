@@ -38,6 +38,7 @@ public class H2TableProvider extends AbstractHreProvider implements IContentProv
 	 * Constructor
 	 * 
 	 * @param tableName
+	 *            Name of H2 table
 	 *
 	 */
 	public H2TableProvider(String tableName) {
@@ -96,6 +97,7 @@ public class H2TableProvider extends AbstractHreProvider implements IContentProv
 	 * Delete a row in the H2 table
 	 * 
 	 * @param recordNum
+	 *            Key field
 	 * @return If delete was successful
 	 */
 	public Boolean delete(int recordNum) {
@@ -148,7 +150,8 @@ public class H2TableProvider extends AbstractHreProvider implements IContentProv
 	 * Import a CSV file into the H2 table
 	 * 
 	 * @param fileName
-	 * @return
+	 *            Name of the CSV file
+	 * @return Number of rows imported
 	 */
 	public int importCsv(String fileName) {
 		final String IMPORTCSV = "INSERT INTO PUBLIC." + tableName + " (SELECT * from csvread('" + fileName + "'));";
@@ -166,17 +169,18 @@ public class H2TableProvider extends AbstractHreProvider implements IContentProv
 	/**
 	 * Insert a row into the H2 table
 	 * 
-	 * @param columns2
+	 * @param columns
+	 *            Number of columns in the row
 	 * 
 	 * @return If insert was successful
 	 */
-	public Boolean insert(List<H2TableModel> columns2) {
+	public Boolean insert(List<H2TableModel> columns) {
 		H2TableModel h2TableModel;
 
 		final StringBuilder sb = new StringBuilder();
 		sb.append("INSERT INTO PUBLIC." + tableName + " (");
 
-		Iterator<H2TableModel> iterator = columns2.iterator();
+		Iterator<H2TableModel> iterator = columns.iterator();
 
 		if (iterator.hasNext()) {
 			h2TableModel = iterator.next();
@@ -190,7 +194,7 @@ public class H2TableProvider extends AbstractHreProvider implements IContentProv
 
 		sb.append(") VALUES ('");
 
-		iterator = columns2.iterator();
+		iterator = columns.iterator();
 
 		if (iterator.hasNext()) {
 			h2TableModel = iterator.next();
@@ -219,6 +223,7 @@ public class H2TableProvider extends AbstractHreProvider implements IContentProv
 	 * Insert multiple rows into the H2 table
 	 * 
 	 * @param rows
+	 *            Number of rows inserted
 	 * 
 	 * @return If insert was successful
 	 */
@@ -240,7 +245,7 @@ public class H2TableProvider extends AbstractHreProvider implements IContentProv
 	/**
 	 * Select a single row from the H2 table
 	 * 
-	 * @param recordNum
+	 * @param recordNum Key field
 	 * @return List of rows
 	 */
 	public List<Object> select(int recordNum) {
@@ -261,7 +266,7 @@ public class H2TableProvider extends AbstractHreProvider implements IContentProv
 						blob.setBytes(1, ba);
 					} catch (SQLException e) {
 						e.printStackTrace();
-					} 
+					}
 					row.add(blob);
 					break;
 				case HreDbadminConstants.BOOLEAN:
@@ -274,7 +279,7 @@ public class H2TableProvider extends AbstractHreProvider implements IContentProv
 						clob.setString(1, "");
 					} catch (SQLException e) {
 						e.printStackTrace();
-					} 
+					}
 					row.add(clob);
 					break;
 				case HreDbadminConstants.DOUBLE:
@@ -347,7 +352,6 @@ public class H2TableProvider extends AbstractHreProvider implements IContentProv
 							row.add("");
 						break;
 					}
-
 				}
 			}
 		} catch (final SQLException e) {
@@ -392,7 +396,7 @@ public class H2TableProvider extends AbstractHreProvider implements IContentProv
 	/**
 	 * Update a row in the H2 table
 	 * 
-	 * @param columns
+	 * @param columns A list of field values
 	 * 
 	 * @return If update was successful
 	 */

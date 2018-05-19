@@ -291,7 +291,7 @@ public class NewDatabaseProvider extends AbstractHreProvider {
 			"ALTER TABLE PUBLIC.VIEWPOINT_ELEMENTS ADD PRIMARY KEY (RECORD_NUM);", };
 
 	/**
-	 * @param dbName
+	 * @param dbName Name of the database
 	 */
 	public NewDatabaseProvider(String dbName) {
 		super();

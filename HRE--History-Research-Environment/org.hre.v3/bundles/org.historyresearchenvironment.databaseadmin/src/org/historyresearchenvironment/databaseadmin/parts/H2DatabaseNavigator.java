@@ -35,7 +35,7 @@ import org.osgi.service.prefs.Preferences;
 /**
  * Create a view part with all tables in the database
  * 
- * @version 2018-04-21
+ * @version 2018-05-19
  * @author Michael Erichsen, &copy; History Research Environment Ltd., 2018
  *
  */
@@ -65,6 +65,8 @@ public class H2DatabaseNavigator {
 
 	/**
 	 * Create contents of the view part.
+	 * 
+	 * @param parent Shell
 	 */
 	@PostConstruct
 	public void createControls(Composite parent) {
@@ -81,7 +83,8 @@ public class H2DatabaseNavigator {
 				final ParameterizedCommand command = commandService.createCommand(
 						"org.historyresearchenvironment.databaseadmin.v010.command.opentablenavigatorcommand", null);
 				handlerService.executeHandler(command);
-				eventBroker.post(org.historyresearchenvironment.databaseadmin.HreDbadminConstants.TABLENAME_UPDATE_TOPIC,
+				eventBroker.post(
+						org.historyresearchenvironment.databaseadmin.HreDbadminConstants.TABLENAME_UPDATE_TOPIC,
 						tableName);
 				eventBroker.post("MESSAGE", tableName + " has been opened");
 			}

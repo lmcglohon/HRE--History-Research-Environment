@@ -11,6 +11,9 @@ import org.eclipse.swt.events.VerifyListener;
  *
  */
 public class HexVerifyListener implements VerifyListener {
+	/* (non-Javadoc)
+	 * @see org.eclipse.swt.events.VerifyListener#verifyText(org.eclipse.swt.events.VerifyEvent)
+	 */
 	public void verifyText(VerifyEvent event) {
 		String text = event.text.toUpperCase();
 		if (!text.matches("[0-9A-F]*")) {

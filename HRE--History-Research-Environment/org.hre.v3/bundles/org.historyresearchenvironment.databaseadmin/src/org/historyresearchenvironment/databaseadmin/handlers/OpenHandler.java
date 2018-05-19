@@ -21,7 +21,7 @@ import org.osgi.service.prefs.Preferences;
 /**
  * Handler to open an existing database
  * 
- * @version 2018-04-21
+ * @version 2018-05-19
  * @author Michael Erichsen, &copy; History Research Environment Ltd., 2018
  *
  */
@@ -35,7 +35,9 @@ public class OpenHandler {
 
 	/**
 	 * Select a database and open it
+	 * 
 	 * @param shell
+	 *            The application shell
 	 */
 	@Execute
 	public void execute(Shell shell) {
@@ -51,7 +53,7 @@ public class OpenHandler {
 		final String[] parts = shortName.split("\\.");
 		final String dbName = dialog.getFilterPath() + "/" + parts[0];
 		preferences.put("DBNAME", dbName);
-		
+
 		try {
 			preferences.flush();
 		} catch (BackingStoreException e1) {
@@ -71,7 +73,7 @@ public class OpenHandler {
 			eventBroker.post("MESSAGE", e1.getMessage());
 			e1.printStackTrace();
 		}
-		
+
 		try {
 			conn = HreH2ConnectionPool.getConnection(dbName);
 

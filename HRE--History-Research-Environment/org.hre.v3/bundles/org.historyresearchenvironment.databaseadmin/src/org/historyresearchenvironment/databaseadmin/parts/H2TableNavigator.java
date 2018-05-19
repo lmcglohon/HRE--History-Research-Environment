@@ -77,6 +77,8 @@ public class H2TableNavigator {
 
 	/**
 	 * Create contents of the view part.
+	 * 
+	 * @param parentC Shell
 	 */
 	@PostConstruct
 	public void createControls(Composite parentC) {
@@ -235,8 +237,12 @@ public class H2TableNavigator {
 
 		final Button btnEmptyTable = new Button(compositeButtons, SWT.NONE);
 		btnEmptyTable.addSelectionListener(new SelectionAdapter() {
-			/* (non-Javadoc)
-			 * @see org.eclipse.swt.events.SelectionAdapter#widgetSelected(org.eclipse.swt.events.SelectionEvent)
+			/*
+			 * (non-Javadoc)
+			 * 
+			 * @see
+			 * org.eclipse.swt.events.SelectionAdapter#widgetSelected(org.eclipse.swt.events
+			 * .SelectionEvent)
 			 */
 			@Override
 			public void widgetSelected(SelectionEvent e) {
@@ -253,8 +259,12 @@ public class H2TableNavigator {
 		final Button btnClose = new Button(compositeButtons, SWT.NONE);
 		btnClose.addSelectionListener(new SelectionAdapter() {
 
-			/* (non-Javadoc)
-			 * @see org.eclipse.swt.events.SelectionAdapter#widgetSelected(org.eclipse.swt.events.SelectionEvent)
+			/*
+			 * (non-Javadoc)
+			 * 
+			 * @see
+			 * org.eclipse.swt.events.SelectionAdapter#widgetSelected(org.eclipse.swt.events
+			 * .SelectionEvent)
 			 */
 			@Override
 			public void widgetSelected(SelectionEvent e) {

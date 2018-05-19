@@ -24,6 +24,9 @@ public class HreH2ConnectionPool {
 
 	/**
 	 * Dispose connection pool and recreate to create a new data base.
+	 * 
+	 * @param dbName
+	 *            Name of the database
 	 */
 	public static void createNew(String dbName) {
 		connectionPool.dispose();
@@ -52,8 +55,7 @@ public class HreH2ConnectionPool {
 	}
 
 	/**
-	 * @return
-	 * @throws SQLException
+	 * @return A JDBC connection
 	 */
 	public static Connection getConnection() {
 		String dbName = preferences.get("DBNAME", "~/HRE");
@@ -74,16 +76,18 @@ public class HreH2ConnectionPool {
 	}
 
 	/**
+	 * Get a JDBCconnection
+	 * 
+	 * @param dbName
+	 *            Name of database
 	 * @return A JDBC Connection
 	 */
 	public static Connection getConnection(String dbName) {
 		try {
-			// if (connectionPool == null) {
 			final String jdbcUrl = "jdbc:h2:" + dbName + ";IFEXISTS=TRUE;TRACE_LEVEL_FILE=" + h2TraceLevel
 					+ ";TRACE_LEVEL_SYSTEM_OUT=" + h2TraceLevel;
 			connectionPool = JdbcConnectionPool.create(jdbcUrl, "sa", "");
 			connectionPool.setMaxConnections(500);
-			// }
 
 			return connectionPool.getConnection();
 		} catch (final SQLException e) {

@@ -18,6 +18,7 @@ public class LengthFocusListener implements FocusListener {
 	 * Constructor
 	 *
 	 * @param maxChar
+	 *            Maximum length of character string
 	 */
 	public LengthFocusListener(int maxChar) {
 		super();

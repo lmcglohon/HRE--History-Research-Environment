@@ -27,7 +27,7 @@ public class StatusToolControl {
 	/**
 	 * Create the message text field
 	 * 
-	 * @param parent
+	 * @param parent Shell
 	 */
 	@PostConstruct
 	public void createControls(Composite parent) {
@@ -40,7 +40,7 @@ public class StatusToolControl {
 	}
 
 	/**
-	 * @param s
+	 * @param s Message string
 	 */
 	@Inject
 	@Optional
@@ -49,7 +49,7 @@ public class StatusToolControl {
 	}
 
 	/**
-	 * @param s
+	 * @param s Message string
 	 */
 	public void setMessage(String s) {
 		if (s != null) {
