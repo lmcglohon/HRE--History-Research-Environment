@@ -1,6 +1,6 @@
-This is the third iteration of the HRE Mock Up.
+This is the first iteration of the HRE DB Admin tool.
 
-It now includes executable programs for Linux, Mac and Windows, which reside at 
+It does not yet include executable programs for Linux, Mac and Windows, which reside at 
 
 https://github.com/MichaelErichsen/HRE--History-Research-Environment/tree/org.hre.v3/org.hre.v3/releng/org.hre.product/target/products
 
