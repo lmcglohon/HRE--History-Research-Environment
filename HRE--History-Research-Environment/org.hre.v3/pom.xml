@@ -1,4 +1,8 @@
-<project>
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+                      http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.hre</groupId>
 	<artifactId>org.hre.root</artifactId>
@@ -16,4 +20,16 @@
 		<module>features</module>
 		<module>releng</module>
 	</modules>
+	<issueManagement>
+		<system>Git</system>
+		<url>https://github.com/History-Research-Environment/HRE--History-Research-Environment/issues</url>
+	</issueManagement>
+	<scm>
+		<url>https://github.com/History-Research-Environment/HRE--History-Research-Environment/tree/develop</url>
+	</scm>
+	<organization>
+		<url>https://historyresearchenvironment.org/</url>
+		<name>History Research Environment, Ltd.</name>
+	</organization>
+	<name>HRE H2 Database Administration</name>
 </project>

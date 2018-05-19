@@ -13,11 +13,10 @@ import org.eclipse.e4.ui.workbench.lifecycle.ProcessRemovals;
  * <em>org.eclipse.core.runtime.products' extension point</em>) that references
  * this class.
  * 
- * @version 0.0.5
+ * @version 2018-05-19
  * @author Michael Erichsen, &copy; History Research Environment Ltd., 2018
  *
  */
-@SuppressWarnings("restriction")
 public class E4LifeCycle {
 	@PostContextCreate
 	void postContextCreate(IEclipseContext workbenchContext) {

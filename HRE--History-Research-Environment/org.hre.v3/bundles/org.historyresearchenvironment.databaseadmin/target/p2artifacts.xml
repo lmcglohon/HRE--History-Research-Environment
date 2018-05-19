@@ -1,13 +1,13 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <?artifactRepository version='1.1.0'?>
 <artifacts size='1'>
-  <artifact classifier='osgi.bundle' id='org.historyresearchenvironment.databaseadmin' version='0.1.0.201805191706'>
+  <artifact classifier='osgi.bundle' id='org.historyresearchenvironment.databaseadmin' version='1.0.0.201805191929'>
     <properties size='5'>
-      <property name='artifact.size' value='85812'/>
-      <property name='download.size' value='85812'/>
+      <property name='artifact.size' value='85871'/>
+      <property name='download.size' value='85871'/>
       <property name='maven-groupId' value='org.hre'/>
       <property name='maven-artifactId' value='org.historyresearchenvironment.databaseadmin'/>
-      <property name='maven-version' value='0.1.0-SNAPSHOT'/>
+      <property name='maven-version' value='1.0.0-SNAPSHOT'/>
     </properties>
   </artifact>
 </artifacts>

@@ -1,4 +1,8 @@
-<project>
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+                      http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.hre</groupId>
 	<artifactId>org.hre.configuration</artifactId>
@@ -6,7 +10,7 @@
 	<packaging>pom</packaging>
 
 	<properties>
-		<tycho.version>0.26.0</tycho.version>
+		<tycho.version>1.0.0</tycho.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<oxygen-repo.url>http://download.eclipse.org/releases/oxygen</oxygen-repo.url>
 	</properties>
@@ -67,15 +71,12 @@
 			<plugin>
 				<groupId>org.eclipse.tycho</groupId>
 				<artifactId>tycho-compiler-plugin</artifactId>
-				<version>0.22.0</version>
+				<version>${tycho.version}</version>
 				<configuration>
 					<compilerArgument>-warn:none</compilerArgument>
 					<compilerArgument>-err:none</compilerArgument>
 				</configuration>
 			</plugin>
-
-
-
 		</plugins>
 	</build>
 </project>
