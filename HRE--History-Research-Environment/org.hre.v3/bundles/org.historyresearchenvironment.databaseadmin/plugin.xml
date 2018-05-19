@@ -17,10 +17,6 @@
                value="platform:/plugin/org.historyresearchenvironment.databaseadmin/css/default.css">
          </property>
          <property
-               name="HRE Database Administration"
-               value="org.historyresearchenvironment.databaseadmin">
-         </property>
-         <property
                name="appName"
                value="org.historyresearchenvironment.databaseadmin">
          </property>

@@ -1,5 +1,7 @@
 package org.historyresearchenvironment.databaseadmin.providers;
 
+import java.sql.Blob;
+import java.sql.Clob;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -251,8 +253,29 @@ public class H2TableProvider extends AbstractHreProvider implements IContentProv
 				case HreDbadminConstants.BIGINT:
 					row.add(0L);
 					break;
+				case HreDbadminConstants.BLOB:
+					byte[] ba = { 0 };
+					Blob blob = null;
+					try {
+						blob = conn.createBlob();
+						blob.setBytes(1, ba);
+					} catch (SQLException e) {
+						e.printStackTrace();
+					} 
+					row.add(blob);
+					break;
 				case HreDbadminConstants.BOOLEAN:
 					row.add(Boolean.FALSE);
+					break;
+				case HreDbadminConstants.CLOB:
+					Clob clob = null;
+					try {
+						clob = conn.createClob();
+						clob.setString(1, "");
+					} catch (SQLException e) {
+						e.printStackTrace();
+					} 
+					row.add(clob);
 					break;
 				case HreDbadminConstants.DOUBLE:
 					row.add(0D);
@@ -267,8 +290,8 @@ public class H2TableProvider extends AbstractHreProvider implements IContentProv
 					row.add(new Timestamp(0L));
 					break;
 				case HreDbadminConstants.VARBINARY:
-					byte[] ba = { 0 };
-					row.add(ba);
+					byte[] ba1 = { 0 };
+					row.add(ba1);
 					break;
 				default:
 					row.add("");
