@@ -1,0 +1,46 @@
+package org.historyresearchenvironment.databaseadmin;
+
+import org.osgi.framework.BundleActivator;
+import org.osgi.framework.BundleContext;
+
+/**
+ * Eclipse RCP lifecycle management
+ * 
+ * @version 0.0.5
+ * @author Michael Erichsen, &copy; History Research Environment Ltd., 2018
+ *
+ */
+public class Activator implements BundleActivator {
+	private static BundleContext context;
+
+	/**
+	 * @return
+	 */
+	static BundleContext getContext() {
+		return context;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.osgi.framework.BundleActivator#start(org.osgi.framework.BundleContext)
+	 */
+	@Override
+	public void start(BundleContext bundleContext) throws Exception {
+		Activator.context = bundleContext;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.osgi.framework.BundleActivator#stop(org.osgi.framework.BundleContext)
+	 */
+	@Override
+	public void stop(BundleContext bundleContext) throws Exception {
+		HreH2ConnectionPool.dispose();
+		Activator.context = null;
+	}
+
+}
