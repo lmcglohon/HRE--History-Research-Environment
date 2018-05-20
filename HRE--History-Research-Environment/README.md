@@ -1,6 +1,6 @@
 This is the first iteration of the HRE DB Admin tool.
 
-It includes executable programs for Linux, Mac and Windows, which reside at 
+It includes executable programs for Linux, Mac and Windows, which (not yet) reside at 
 
 http://www.myerichsen.net/HRE/
 
