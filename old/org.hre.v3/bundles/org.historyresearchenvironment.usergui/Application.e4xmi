@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="ASCII"?>
+<application:Application xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:advanced="http://www.eclipse.org/ui/2010/UIModel/application/ui/advanced" xmlns:application="http://www.eclipse.org/ui/2010/UIModel/application" xmlns:basic="http://www.eclipse.org/ui/2010/UIModel/application/ui/basic" xmlns:menu="http://www.eclipse.org/ui/2010/UIModel/application/ui/menu" xmi:id="_HtjUcIHlEee8SKYAMSCv6g" elementId="org.historyresearchenvironment.usergui.application">
+  <children xsi:type="basic:TrimmedWindow" xmi:id="_JjgJcIHlEee8SKYAMSCv6g" elementId="org.historyresearchenvironment.usergui.trimmedwindow.historyresourceenvironmentguimockup" label="%trimmedwindow.label.1" iconURI="platform:/plugin/org.historyresearchenvironment.usergui/icons/HRE-32.png" x="100" y="100" width="1280" height="1024">
+    <children xsi:type="advanced:PerspectiveStack" xmi:id="_LnwjYIHpEee8SKYAMSCv6g" elementId="org.historyresearchenvironment.usergui.perspectivestack.0" selectedElement="_QVMgYIWuEee6qJBAbh6enw">
+      <children xsi:type="advanced:Perspective" xmi:id="_QVMgYIWuEee6qJBAbh6enw" elementId="org.historyresearchenvironment.usergui.perspective.persons" label="%perspective.label.1">
+        <children xsi:type="basic:PartSashContainer" xmi:id="_TdQdgIWuEee6qJBAbh6enw" elementId="org.historyresearchenvironment.usergui.partsashcontainer.5" horizontal="true">
+          <children xsi:type="basic:PartStack" xmi:id="_50xTMJqwEee6Ht0uoMqSNQ" elementId="org.historyresearchenvironment.usergui.partstack.1" containerData="2500" selectedElement="_8QPQEJqwEee6Ht0uoMqSNQ">
+            <children xsi:type="basic:Part" xmi:id="_8QPQEJqwEee6Ht0uoMqSNQ" elementId="org.historyresearchenvironment.usergui.part.personnavigator" contributionURI="bundleclass://org.historyresearchenvironment.usergui/org.historyresearchenvironment.usergui.parts.PersonNavigator" label="%part.label.1" iconURI="platform:/plugin/org.historyresearchenvironment.usergui/icons/personal-4.png" closeable="true"/>
+            <children xsi:type="basic:Part" xmi:id="_qXPmcJ3rEeewjo9QtREH7g" elementId="org.historyresearchenvironment.usergui.part.ancestortree" contributionURI="bundleclass://org.historyresearchenvironment.usergui/org.historyresearchenvironment.usergui.parts.AncestorTreeNavigator" label="%part.label.2" iconURI="platform:/plugin/org.historyresearchenvironment.usergui/icons/Ancestor.png" closeable="true"/>
+            <children xsi:type="basic:Part" xmi:id="_uVfksJ3rEeewjo9QtREH7g" elementId="org.historyresearchenvironment.usergui.part.descendantnavigator" contributionURI="bundleclass://org.historyresearchenvironment.usergui/org.historyresearchenvironment.usergui.parts.DescendantTreeNavigator" label="%part.label.3" iconURI="platform:/plugin/org.historyresearchenvironment.usergui/icons/Descendants.png"/>
+          </children>
+          <children xsi:type="basic:PartStack" xmi:id="_UHdREIWuEee6qJBAbh6enw" elementId="org.historyresearchenvironment.usergui.partstack.6" containerData="7500" selectedElement="_Up2zgIWuEee6qJBAbh6enw">
+            <children xsi:type="basic:Part" xmi:id="_Up2zgIWuEee6qJBAbh6enw" elementId="org.historyresearchenvironment.usergui.part.personaleventsexplorer" contributionURI="bundleclass://org.historyresearchenvironment.usergui/org.historyresearchenvironment.usergui.parts.PersonalEventExplorer" label="%part.label.4" iconURI="platform:/plugin/org.historyresearchenvironment.usergui/icons/view-calendar-upcoming-events.png" closeable="true"/>
+            <children xsi:type="basic:Part" xmi:id="_6cIG0IZnEeedltlQo7IauQ" elementId="org.historyresearchenvironment.usergui.part.personalrelativesexplorer" contributionURI="bundleclass://org.historyresearchenvironment.usergui/org.historyresearchenvironment.usergui.parts.PersonalRelativesExplorer" label="%part.label.5" iconURI="platform:/plugin/org.historyresearchenvironment.usergui/icons/Relatives.png" closeable="true"/>
+            <children xsi:type="basic:Part" xmi:id="_hY670JihEee32pTfv5UhBw" elementId="org.historyresearchenvironment.usergui.part.personalconnectionsexplorer" contributionURI="bundleclass://org.historyresearchenvironment.usergui/org.historyresearchenvironment.usergui.parts.PersonalConnectionsExplorer" label="%part.label.6" iconURI="platform:/plugin/org.historyresearchenvironment.usergui/icons/format-connect-node.png" closeable="true"/>
+            <children xsi:type="basic:Part" xmi:id="_0KYeIM1DEeeX__59lJjBrQ" elementId="org.historyresearchenvironment.usergui.part.familysearchexplorer" contributionURI="bundleclass://org.historyresearchenvironment.usergui/org.historyresearchenvironment.usergui.parts.FamilySearchExplorer" label="%part.label.7" iconURI="platform:/plugin/org.historyresearchenvironment.usergui/icons/FS16.png" tooltip="%part.tooltip.1" closeable="true"/>
+            <children xsi:type="basic:Part" xmi:id="_RG2N4MMGEeeKFKUvq_D5Pw" elementId="org.historyresearchenvironment.usergui.part.imageviewer" contributionURI="bundleclass://org.historyresearchenvironment.usergui/org.historyresearchenvironment.usergui.parts.ImageViewer" label="%part.label.8" iconURI="platform:/plugin/org.historyresearchenvironment.usergui/icons/image.png" closeable="true"/>
+            <children xsi:type="basic:Part" xmi:id="_Jq3ZULclEee2GJaHzEbtqA" elementId="org.historyresearchenvironment.usergui.part.zest" contributionURI="bundleclass://org.historyresearchenvironment.usergui/org.historyresearchenvironment.usergui.parts.ZestView" label="%part.label.9" iconURI="platform:/plugin/org.historyresearchenvironment.usergui/icons/FamilyTree.png" closeable="true"/>
+          </children>
+        </children>
+      </children>
+      <children xsi:type="advanced:Perspective" xmi:id="_5Lbh8JlVEeefx87Dd6Wcaw" elementId="org.historyresearchenvironment.usergui.perspective.events" selectedElement="_-iHSwJlVEeefx87Dd6Wcaw" label="%perspective.label.2">
+        <children xsi:type="basic:PartSashContainer" xmi:id="_-iHSwJlVEeefx87Dd6Wcaw" elementId="org.historyresearchenvironment.usergui.partsashcontainer.0" selectedElement="_QfgC8JnmEeeb9-9f5ycF9g" horizontal="true">
+          <children xsi:type="basic:PartStack" xmi:id="_QfgC8JnmEeeb9-9f5ycF9g" elementId="org.historyresearchenvironment.usergui.partstack.0">
+            <children xsi:type="basic:Part" xmi:id="_Ksyf4JlWEeefx87Dd6Wcaw" elementId="org.historyresearchenvironment.usergui.part.eventassociatesexplorer" contributionURI="bundleclass://org.historyresearchenvironment.usergui/org.historyresearchenvironment.usergui.parts.EventAssociatesExplorer" label="%part.label.10" iconURI="platform:/plugin/org.historyresearchenvironment.usergui/icons/Associates.png" closeable="true"/>
+          </children>
+        </children>
+      </children>
+      <children xsi:type="advanced:Perspective" xmi:id="_eiqhMLNMEeeoqqanj55ZCA" elementId="org.historyresearchenvironment.usergui.perspective.locations" accessibilityPhrase="" label="%perspective.label.3">
+        <children xsi:type="basic:PartSashContainer" xmi:id="_vDZvoLNMEeeoqqanj55ZCA" elementId="org.historyresearchenvironment.usergui.partsashcontainer.1" containerData="1000" horizontal="true">
+          <children xsi:type="basic:PartStack" xmi:id="_xjIhcLNMEeeoqqanj55ZCA" elementId="org.historyresearchenvironment.usergui.partstack.2" containerData="500">
+            <children xsi:type="basic:Part" xmi:id="_yNGrgLNMEeeoqqanj55ZCA" elementId="org.historyresearchenvironment.usergui.part.tmgplaces" contributionURI="bundleclass://org.historyresearchenvironment.usergui/org.historyresearchenvironment.usergui.parts.TMGPlaceExplorer" label="%part.label.11" iconURI="platform:/plugin/org.historyresearchenvironment.usergui/icons/house.png" closeable="true"/>
+          </children>
+          <children xsi:type="basic:PartStack" xmi:id="_fbzTMLNNEeeoqqanj55ZCA" elementId="org.historyresearchenvironment.usergui.partstack.3" containerData="500" selectedElement="_fw29MLNNEeeoqqanj55ZCA">
+            <children xsi:type="basic:Part" xmi:id="_fw29MLNNEeeoqqanj55ZCA" elementId="org.historyresearchenvironment.usergui.part.googlemaps" contributionURI="bundleclass://org.historyresearchenvironment.usergui/org.historyresearchenvironment.usergui.parts.GoogleMaps" label="%part.label.12" iconURI="platform:/plugin/org.historyresearchenvironment.usergui/icons/GoogleMaps.png" tooltip="%part.tooltip.2" closeable="true"/>
+            <children xsi:type="basic:Part" xmi:id="_3PsVoPMIEeecIoJP1ESCWw" elementId="org.historyresearchenvironment.usergui.part.googlegeocoding" contributionURI="bundleclass://org.historyresearchenvironment.usergui/org.historyresearchenvironment.usergui.parts.GoogleGeocodingPart" label="%part.label.13" iconURI="platform:/plugin/org.historyresearchenvironment.usergui/icons/Google.png" tooltip="%part.tooltip.3" closeable="true"/>
+          </children>
+        </children>
+      </children>
+    </children>
+    <mainMenu xmi:id="_vmeKQIHlEee8SKYAMSCv6g" elementId="org.eclipse.ui.main.menu">
+      <children xsi:type="menu:Menu" xmi:id="_xDtkUIHlEee8SKYAMSCv6g" elementId="org.historyresearchenvironment.usergui.menu.project" label="%menu.label.1">
+        <children xsi:type="menu:HandledMenuItem" xmi:id="__gf-AIHlEee8SKYAMSCv6g" elementId="org.historyresearchenvironment.usergui.handledmenuitem.open" label="%handledmenuitem.label.1" iconURI="platform:/plugin/org.historyresearchenvironment.usergui/icons/folder16.png" tooltip="" command="_KW8jIIHmEee8SKYAMSCv6g"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_rOsxYIHoEee8SKYAMSCv6g" elementId="org.historyresearchenvironment.usergui.handledmenuitem.quit" label="%handledmenuitem.label.2" iconURI="platform:/plugin/org.historyresearchenvironment.usergui/icons/application-exit16.png" command="_HLf60IHmEee8SKYAMSCv6g"/>
+        <children xsi:type="menu:MenuSeparator" xmi:id="_ggWYIJVLEeeXBfDnsjSPLA" elementId="org.historyresearchenvironment.usergui.menuseparator.0"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_hTE1kJVLEeeXBfDnsjSPLA" elementId="org.historyresearchenvironment.usergui.handledmenuitem.startembeddedserver" label="%handledmenuitem.label.3" iconURI="platform:/plugin/org.historyresearchenvironment.usergui/icons/server-database16.png" command="_I6s8gJVLEeeXBfDnsjSPLA"/>
+      </children>
+      <children xsi:type="menu:Menu" xmi:id="_qP-Z0JlWEeefx87Dd6Wcaw" elementId="org.historyresearchenvironment.usergui.menu.viewpoints" label="%menu.label.2">
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_SMJ_AJlXEeefx87Dd6Wcaw" elementId="org.historyresearchenvironment.usergui.handledmenuitem.personviewpoint" label="%handledmenuitem.label.4" command="_D8W4cJlXEeefx87Dd6Wcaw"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_WSSG4JlXEeefx87Dd6Wcaw" elementId="org.historyresearchenvironment.usergui.handledmenuitem.eventviewpoint" label="%handledmenuitem.label.5" command="_GVIGoJlXEeefx87Dd6Wcaw"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_U8LvILNMEeeoqqanj55ZCA" elementId="org.historyresearchenvironment.usergui.handledmenuitem.locationviewpoint" label="%handledmenuitem.label.6" command="_3i_nkLNLEeeoqqanj55ZCA"/>
+        <children xsi:type="menu:MenuSeparator" xmi:id="_jXnTUMx5EeeL_tcvqUsvCw" elementId="org.historyresearchenvironment.usergui.menuseparator.1"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_cU2bMMx5EeeL_tcvqUsvCw" elementId="org.historyresearchenvironment.usergui.handledmenuitem.refresh" label="%handledmenuitem.label.7" iconURI="platform:/plugin/org.historyresearchenvironment.usergui/icons/Refresh16.png" tooltip="%handledmenuitem.tooltip.1" command="_UtkgwMx5EeeL_tcvqUsvCw"/>
+      </children>
+      <children xsi:type="menu:Menu" xmi:id="_4ASU4IHlEee8SKYAMSCv6g" elementId="org.historyresearchenvironment.usergui.menu.help" label="%menu.label.3">
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_IYhDgJF8EeewA_wiy0aM9Q" elementId="org.historyresearchenvironment.usergui.handledmenuitem.preferences" label="%handledmenuitem.label.8" iconURI="platform:/plugin/org.historyresearchenvironment.usergui/icons/preferences16.png" command="_09l74JF7EeewA_wiy0aM9Q"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="__qnTcNtiEeeoXtLqL4fdvQ" elementId="org.historyresearchenvironment.usergui.handledmenuitem.updatehre" label="%handledmenuitem.label.9" iconURI="platform:/plugin/org.historyresearchenvironment.usergui/icons/update-product.png" tooltip="%handledmenuitem.tooltip.2" command="_sbBSENtiEeeoXtLqL4fdvQ"/>
+        <children xsi:type="menu:MenuSeparator" xmi:id="_smXJ8NtjEeeoXtLqL4fdvQ" elementId="org.historyresearchenvironment.usergui.menuseparator.2"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_vpYNgOGOEeewS8NLVN2otQ" elementId="org.historyresearchenvironment.usergui.handledmenuitem.helpsystem" label="%handledmenuitem.label.10" iconURI="platform:/plugin/org.historyresearchenvironment.usergui/icons/help.png" tooltip="%handledmenuitem.tooltip.3" command="_kAxLoOGOEeewS8NLVN2otQ"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_DGKVwIHpEee8SKYAMSCv6g" elementId="org.historyresearchenvironment.usergui.handledmenuitem.about" label="%handledmenuitem.label.11" iconURI="platform:/plugin/org.historyresearchenvironment.usergui/icons/help-about16.png" command="_Nokr8IHmEee8SKYAMSCv6g"/>
+      </children>
+    </mainMenu>
+    <trimBars xmi:id="_9MvZYIHqEee8SKYAMSCv6g" elementId="org.historyresearchenvironment.usergui.trimbar.0">
+      <children xsi:type="menu:ToolBar" xmi:id="__goHkIHqEee8SKYAMSCv6g" elementId="org.eclipse.ui.main.toolbar">
+        <children xsi:type="menu:HandledToolItem" xmi:id="_BW8I8IHrEee8SKYAMSCv6g" elementId="org.historyresearchenvironment.usergui.handledtoolitem.open" label="%handledtoolitem.label.1" iconURI="platform:/plugin/org.historyresearchenvironment.usergui/icons/folder32.png" tooltip="%handledtoolitem.tooltip.1" command="_KW8jIIHmEee8SKYAMSCv6g"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_QAop4MuwEeeWOsvIaAXovQ" elementId="org.historyresearchenvironment.usergui.handledtoolitem.quit" label="%handledtoolitem.label.2" iconURI="platform:/plugin/org.historyresearchenvironment.usergui/icons/application-exit32.png" tooltip="%handledtoolitem.tooltip.2" command="_HLf60IHmEee8SKYAMSCv6g"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_XTaT8MuwEeeWOsvIaAXovQ" elementId="org.historyresearchenvironment.usergui.handledtoolitem.startembeddedserver" label="%handledtoolitem.label.3" iconURI="platform:/plugin/org.historyresearchenvironment.usergui/icons/server-database32.png" tooltip="%handledtoolitem.tooltip.3" command="_I6s8gJVLEeeXBfDnsjSPLA"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_nTc2wMx5EeeL_tcvqUsvCw" elementId="org.historyresearchenvironment.usergui.handledtoolitem.refresh" label="%handledtoolitem.label.4" iconURI="platform:/plugin/org.historyresearchenvironment.usergui/icons/Refresh32.png" tooltip="%handledtoolitem.tooltip.4" command="_UtkgwMx5EeeL_tcvqUsvCw"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_YA66MMuwEeeWOsvIaAXovQ" elementId="org.historyresearchenvironment.usergui.handledtoolitem.preferences" label="%handledtoolitem.label.5" iconURI="platform:/plugin/org.historyresearchenvironment.usergui/icons/preferences-desktop32.png" tooltip="%handledtoolitem.tooltip.5" command="_09l74JF7EeewA_wiy0aM9Q"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_e5MekNU9EeeSvZD3a7mPlA" elementId="org.historyresearchenvironment.usergui.handledtoolitem.googlesearch" label="%handledtoolitem.label.6" iconURI="platform:/plugin/org.historyresearchenvironment.usergui/icons/Google32.png" tooltip="%handledtoolitem.tooltip.6" command="_CYnH8NRWEeeQMO1qF2veOA"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_Li9SQNa0EeeyMMtccZte1A" elementId="org.historyresearchenvironment.usergui.handledtoolitem.copenhagenpoliceregistry" label="%handledtoolitem.label.7" iconURI="platform:/plugin/org.historyresearchenvironment.usergui/icons/Copenhagen32.png" tooltip="%handledtoolitem.tooltip.7" command="_BZXzINa0EeeyMMtccZte1A"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_PRP68N6hEeeAPdoefQc4nA" elementId="org.historyresearchenvironment.usergui.handledtoolitem.tmg9import" label="%handledtoolitem.label.8" iconURI="platform:/plugin/org.historyresearchenvironment.usergui/icons/TMG32.png" tooltip="%handledtoolitem.tooltip.8" command="_55YlgN6gEeeAPdoefQc4nA"/>
+      </children>
+    </trimBars>
+    <trimBars xmi:id="_uVH-4I5hEeeh_Kq2hFzijQ" elementId="org.historyresearchenvironment.usergui.trimbar.1" side="Bottom">
+      <children xsi:type="menu:ToolControl" xmi:id="_v0DbAI5hEeeh_Kq2hFzijQ" elementId="org.historyresearchenvironment.usergui.toolcontrol.status" accessibilityPhrase="" contributionURI="bundleclass://org.historyresearchenvironment.usergui/org.historyresearchenvironment.usergui.parts.StatusToolControl"/>
+    </trimBars>
+  </children>
+  <handlers xmi:id="_abgL4IHmEee8SKYAMSCv6g" elementId="org.historyresearchenvironment.usergui.handler.quit" contributionURI="bundleclass://org.historyresearchenvironment.usergui/org.historyresearchenvironment.usergui.handlers.QuitHandler" command="_HLf60IHmEee8SKYAMSCv6g"/>
+  <handlers xmi:id="_rYp0EIHnEee8SKYAMSCv6g" elementId="org.historyresearchenvironment.usergui.handler.open" contributionURI="bundleclass://org.historyresearchenvironment.usergui/org.historyresearchenvironment.usergui.handlers.OpenHandler" command="_KW8jIIHmEee8SKYAMSCv6g"/>
+  <handlers xmi:id="_uAD7MIHnEee8SKYAMSCv6g" elementId="org.historyresearchenvironment.usergui.handler.save" contributionURI="bundleclass://org.historyresearchenvironment.usergui/org.historyresearchenvironment.usergui.handlers.SaveHandler" command="_LmITEIHmEee8SKYAMSCv6g"/>
+  <handlers xmi:id="_wxzqEIHnEee8SKYAMSCv6g" elementId="org.historyresearchenvironment.usergui.handler.about" contributionURI="bundleclass://org.historyresearchenvironment.usergui/org.historyresearchenvironment.usergui.handlers.AboutHandler" command="_Nokr8IHmEee8SKYAMSCv6g"/>
+  <handlers xmi:id="_Bzt5wJF8EeewA_wiy0aM9Q" elementId="E4PreferencesHandler" contributionURI="bundleclass://org.historyresearchenvironment.usergui/com.opcoach.e4.preferences.handlers.E4PreferencesHandler" command="_09l74JF7EeewA_wiy0aM9Q"/>
+  <handlers xmi:id="_Oq1vIJVLEeeXBfDnsjSPLA" elementId="org.historyresearchenvironment.usergui.handler.1" contributionURI="bundleclass://org.historyresearchenvironment.usergui/org.historyresearchenvironment.usergui.serverinterface.ServerRequestListener" command="_I6s8gJVLEeeXBfDnsjSPLA"/>
+  <handlers xmi:id="_6jG9QJiqEee32pTfv5UhBw" elementId="org.historyresearchenvironment.usergui.handler.0" contributionURI="bundleclass://org.historyresearchenvironment.usergui/org.historyresearchenvironment.usergui.handlers.PersonSelectionHandler" command="_3INjsJiqEee32pTfv5UhBw"/>
+  <handlers xmi:id="_IeNTAJlXEeefx87Dd6Wcaw" elementId="org.historyresearchenvironment.usergui.handler.2" contributionURI="bundleclass://org.historyresearchenvironment.usergui/org.historyresearchenvironment.usergui.handlers.PersonPerspectiveHandler" command="_D8W4cJlXEeefx87Dd6Wcaw"/>
+  <handlers xmi:id="_NblL8JlXEeefx87Dd6Wcaw" elementId="org.historyresearchenvironment.usergui.handler.3" contributionURI="bundleclass://org.historyresearchenvironment.usergui/org.historyresearchenvironment.usergui.handlers.EventPerspectiveHandler" command="_GVIGoJlXEeefx87Dd6Wcaw"/>
+  <handlers xmi:id="_AtSz8LNMEeeoqqanj55ZCA" elementId="org.historyresearchenvironment.usergui.handler.4" contributionURI="bundleclass://org.historyresearchenvironment.usergui/org.historyresearchenvironment.usergui.handlers.LocationPerspectiveHandler" command="_3i_nkLNLEeeoqqanj55ZCA"/>
+  <handlers xmi:id="_WrfmAMx5EeeL_tcvqUsvCw" elementId="org.historyresearchenvironment.usergui.handler.5" contributionURI="bundleclass://org.historyresearchenvironment.usergui/org.historyresearchenvironment.usergui.handlers.RefreshHandler" command="_UtkgwMx5EeeL_tcvqUsvCw"/>
+  <handlers xmi:id="_E1OUUNRWEeeQMO1qF2veOA" elementId="org.historyresearchenvironment.usergui.handler.googlesearch" contributionURI="bundleclass://org.historyresearchenvironment.usergui/org.historyresearchenvironment.usergui.handlers.GoogleSearchHandler" command="_CYnH8NRWEeeQMO1qF2veOA"/>
+  <handlers xmi:id="_GT-E4Na0EeeyMMtccZte1A" elementId="org.historyresearchenvironment.usergui.handler.6" contributionURI="bundleclass://org.historyresearchenvironment.usergui/org.historyresearchenvironment.usergui.handlers.PolRegHandler" command="_BZXzINa0EeeyMMtccZte1A"/>
+  <handlers xmi:id="_48ZU4Na1EeeyMMtccZte1A" elementId="org.historyresearchenvironment.usergui.handler.7" contributionURI="bundleclass://org.historyresearchenvironment.usergui/org.historyresearchenvironment.usergui.handlers.PolRegBrowserHandler" command="_2iA9INa1EeeyMMtccZte1A"/>
+  <handlers xmi:id="__oV8UNnSEeeezZBwvC6X7A" elementId="org.historyresearchenvironment.usergui.handler.8" contributionURI="bundleclass://org.historyresearchenvironment.usergui/org.historyresearchenvironment.usergui.handlers.PolRegLocationHandler" command="_eoX7UNnSEeeezZBwvC6X7A"/>
+  <handlers xmi:id="_wEONYNtiEeeoXtLqL4fdvQ" elementId="org.historyresearchenvironment.usergui.handler.9" contributionURI="bundleclass://org.historyresearchenvironment.usergui/org.historyresearchenvironment.usergui.handlers.UpdateHandler" command="_sbBSENtiEeeoXtLqL4fdvQ"/>
+  <handlers xmi:id="_9AeSQN6gEeeAPdoefQc4nA" elementId="org.historyresearchenvironment.usergui.handler.10" contributionURI="bundleclass://org.historyresearchenvironment.usergui/org.historyresearchenvironment.usergui.handlers.TMG9WizardHandler" command="_55YlgN6gEeeAPdoefQc4nA"/>
+  <handlers xmi:id="_miGf8OGOEeewS8NLVN2otQ" elementId="org.historyresearchenvironment.usergui.handler.11" contributionURI="bundleclass://org.historyresearchenvironment.usergui/org.historyresearchenvironment.usergui.handlers.HelpContentsHandler" command="_kAxLoOGOEeewS8NLVN2otQ"/>
+  <bindingTables xmi:id="_B3KBcIHoEee8SKYAMSCv6g" elementId="org.historyresearchenvironment.usergui.bindingtable.0" bindingContext="_Uu6cEIJgEeeL451H8FopTw">
+    <bindings xmi:id="_CkJDQIHoEee8SKYAMSCv6g" elementId="org.historyresearchenvironment.usergui.keybinding.0" keySequence="M1+Q" command="_HLf60IHmEee8SKYAMSCv6g">
+      <tags>type:user</tags>
+    </bindings>
+    <bindings xmi:id="_HnirsIHoEee8SKYAMSCv6g" elementId="org.historyresearchenvironment.usergui.keybinding.1" keySequence="M1+O" command="_KW8jIIHmEee8SKYAMSCv6g">
+      <tags>type:user</tags>
+    </bindings>
+    <bindings xmi:id="_Jg6oIIHoEee8SKYAMSCv6g" elementId="org.historyresearchenvironment.usergui.keybinding.2" keySequence="M1+S" command="_LmITEIHmEee8SKYAMSCv6g">
+      <tags>type:user</tags>
+    </bindings>
+    <bindings xmi:id="_ME-gUIHoEee8SKYAMSCv6g" elementId="org.historyresearchenvironment.usergui.keybinding.3" keySequence="M1+A" command="_Nokr8IHmEee8SKYAMSCv6g">
+      <tags>type:user</tags>
+    </bindings>
+  </bindingTables>
+  <rootContext xmi:id="_Uu6cEIJgEeeL451H8FopTw" elementId="org.eclipse.ui.contexts.dialogAndWindow" name="In Dialog and Windows">
+    <children xmi:id="_m2z1kIJgEeeL451H8FopTw" elementId="org.eclipse.ui.contexts.window" name="In Windows"/>
+    <children xmi:id="_sSmI0IJgEeeL451H8FopTw" elementId="org.eclipse.ui.contexts.dialog" name="In Dialogs"/>
+  </rootContext>
+  <commands xmi:id="_HLf60IHmEee8SKYAMSCv6g" elementId="org.eclipse.ui.file.exit" commandName="%command.commandname.1"/>
+  <commands xmi:id="_KW8jIIHmEee8SKYAMSCv6g" elementId="org.eclipse.ui.file.open" commandName="%command.commandname.2"/>
+  <commands xmi:id="_LmITEIHmEee8SKYAMSCv6g" elementId="org.eclipse.ui.file.save" commandName="%command.commandname.3"/>
+  <commands xmi:id="_Nokr8IHmEee8SKYAMSCv6g" elementId="org.eclipse.ui.help.aboutAction" commandName="%command.commandname.4"/>
+  <commands xmi:id="_09l74JF7EeewA_wiy0aM9Q" elementId="org.eclipse.ui.window.preferences" commandName="%command.commandname.5"/>
+  <commands xmi:id="_I6s8gJVLEeeXBfDnsjSPLA" elementId="org.historyresearchenvironment.usergui.command.startembeddedserver" commandName="%command.commandname.6"/>
+  <commands xmi:id="_3INjsJiqEee32pTfv5UhBw" elementId="org.historyresearchenvironment.usergui.command.selectperson" commandName="%command.commandname.7"/>
+  <commands xmi:id="_D8W4cJlXEeefx87Dd6Wcaw" elementId="org.historyresearchenvironment.usergui.command.personviewpoint" commandName="%command.commandname.8"/>
+  <commands xmi:id="_GVIGoJlXEeefx87Dd6Wcaw" elementId="org.historyresearchenvironment.usergui.command.eventviewpoint" commandName="%command.commandname.9"/>
+  <commands xmi:id="_3i_nkLNLEeeoqqanj55ZCA" elementId="org.historyresearchenvironment.usergui.command.locationviewpoint" commandName="%command.commandname.10"/>
+  <commands xmi:id="_UtkgwMx5EeeL_tcvqUsvCw" elementId="org.historyresearchenvironment.usergui.command.refresh" commandName="%command.commandname.11"/>
+  <commands xmi:id="_CYnH8NRWEeeQMO1qF2veOA" elementId="org.historyresearchenvironment.usergui.command.googlesearch" commandName="%command.commandname.12">
+    <parameters xmi:id="_3UJQ8NSBEeeam_AmvudO7g" elementId="org.historyresearchenvironment.usergui.commandparameter.0" name="searchArgument"/>
+  </commands>
+  <commands xmi:id="_BZXzINa0EeeyMMtccZte1A" elementId="org.historyresearchenvironment.usergui.command.polregsearch" commandName="%command.commandname.13"/>
+  <commands xmi:id="_2iA9INa1EeeyMMtccZte1A" elementId="org.historyresearchenvironment.usergui.command.polregbrowser" commandName="%command.commandname.14"/>
+  <commands xmi:id="_eoX7UNnSEeeezZBwvC6X7A" elementId="org.historyresearchenvironment.usergui.command.polreglocation" commandName="%command.commandname.15"/>
+  <commands xmi:id="_sbBSENtiEeeoXtLqL4fdvQ" elementId="org.historyresearchenvironment.usergui.command.updatehre" commandName="%command.commandname.16"/>
+  <commands xmi:id="_55YlgN6gEeeAPdoefQc4nA" elementId="org.historyresearchenvironment.usergui.command.tmg9wizard" commandName="%command.commandname.17"/>
+  <commands xmi:id="_kAxLoOGOEeewS8NLVN2otQ" elementId="org.historyresearchenvironment.usergui.command.helpsystem" commandName="%command.commandname.18"/>
+  <addons xmi:id="_HtjUcYHlEee8SKYAMSCv6g" elementId="org.eclipse.e4.core.commands.service" contributionURI="bundleclass://org.eclipse.e4.core.commands/org.eclipse.e4.core.commands.CommandServiceAddon"/>
+  <addons xmi:id="_HtjUcoHlEee8SKYAMSCv6g" elementId="org.eclipse.e4.ui.contexts.service" contributionURI="bundleclass://org.eclipse.e4.ui.services/org.eclipse.e4.ui.services.ContextServiceAddon"/>
+  <addons xmi:id="_HtjUc4HlEee8SKYAMSCv6g" elementId="org.eclipse.e4.ui.bindings.service" contributionURI="bundleclass://org.eclipse.e4.ui.bindings/org.eclipse.e4.ui.bindings.BindingServiceAddon"/>
+  <addons xmi:id="_HtjUdIHlEee8SKYAMSCv6g" elementId="org.eclipse.e4.ui.workbench.commands.model" contributionURI="bundleclass://org.eclipse.e4.ui.workbench/org.eclipse.e4.ui.internal.workbench.addons.CommandProcessingAddon"/>
+  <addons xmi:id="_HtjUdYHlEee8SKYAMSCv6g" elementId="org.eclipse.e4.ui.workbench.contexts.model" contributionURI="bundleclass://org.eclipse.e4.ui.workbench/org.eclipse.e4.ui.internal.workbench.addons.ContextProcessingAddon"/>
+  <addons xmi:id="_HtjUdoHlEee8SKYAMSCv6g" elementId="org.eclipse.e4.ui.workbench.bindings.model" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.swt/org.eclipse.e4.ui.workbench.swt.util.BindingProcessingAddon"/>
+  <addons xmi:id="_HtjUd4HlEee8SKYAMSCv6g" elementId="org.eclipse.e4.ui.workbench.handler.model" contributionURI="bundleclass://org.eclipse.e4.ui.workbench/org.eclipse.e4.ui.internal.workbench.addons.HandlerProcessingAddon"/>
+</application:Application>

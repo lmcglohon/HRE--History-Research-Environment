@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Bundle-SymbolicName: org.historyresearchenvironment.helpsystem;singlet
+ on:=true
+Bundle-Name: Helpsystem
+Bundle-Version: 0.0.4.201712160933
+Bundle-ManifestVersion: 2
+Bundle-Vendor: History Research Environment Ltd.
+

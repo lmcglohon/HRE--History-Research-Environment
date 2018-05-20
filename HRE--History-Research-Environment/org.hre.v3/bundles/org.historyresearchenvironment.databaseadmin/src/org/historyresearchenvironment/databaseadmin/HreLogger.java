@@ -23,7 +23,7 @@ public class HreLogger {
 	static private FileHandler handler;
 
 	/**
-	 * @throws IOException
+	 * @throws IOException When log file access fails
 	 */
 	static public void setup() throws IOException {
 		final Logger LOGGER = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);

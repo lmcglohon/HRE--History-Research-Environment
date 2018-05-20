@@ -1,0 +1,19 @@
+<project>
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>org.hre</groupId>
+	<artifactId>org.hre.root</artifactId>
+	<version>0.0.5-SNAPSHOT</version>
+	<packaging>pom</packaging>
+	<parent>
+		<groupId>org.hre</groupId>
+		<artifactId>org.hre.configuration</artifactId>
+		<version>0.0.5-SNAPSHOT</version>
+		<relativePath>./releng/org.hre.configuration</relativePath>
+	</parent>
+
+	<modules>
+		<module>bundles</module>
+		<module>features</module>
+		<module>releng</module>
+	</modules>
+</project>

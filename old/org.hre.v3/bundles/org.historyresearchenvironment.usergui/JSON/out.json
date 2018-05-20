@@ -1,0 +1,44 @@
+{
+	"Id": 1,
+	"Identity": "John ALEXANDER (10) (1812-1876)",
+	"Father": "John ALEXANDER (17) (>1770-1831",
+	"Mother": "Martha FERGUSON (18) (1784-1863)",
+	"Events": [
+		{
+			"Eventtag": "Birth",
+			"Role": "Born",
+			"Date": "11 Oct 1812",
+			"Summary": "-; Washington County, Tennessee"
+		},
+		{
+			"Eventtag": "Marriage",
+			"Role": "Groom",
+			"Date": "22 Jan 1835",
+			"Summary": "Delilah WOODS (11); -; Elizabethon, Carter County, Tennessee"
+		},
+		{
+			"Eventtag": "Son-Biological",
+			"Role": "Father",
+			"Date": "03 Oct 1838",
+			"Summary": "Frank ALEXANDER (11); Elizabethon, Carter County, Tennessee"
+		},
+		{
+			"Eventtag": "Census",
+			"Role": "Head of Household",
+			"Date": "01 Jun 1850",
+			"Summary": "-; Elizabethon, Carter County, Tennessee"
+		},
+		{
+			"Eventtag": "Occupation",
+			"Role": "Business Owner",
+			"Date": "bt 1840-1866",
+			"Summary": "Frank ALEXANDER (11); Smith County, Virginia"
+		},
+		{
+			"Eventtag": "Death",
+			"Role": "Deceased",
+			"Date": "18 Oct 1876",
+			"Summary": "-; Marion, Smith County, Virginia"
+		}
+	]
+}
