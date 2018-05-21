@@ -39,8 +39,10 @@ import org.eclipse.swt.widgets.Text;
 import org.historyresearchenvironment.databaseadmin.HreDbadminConstants;
 import org.historyresearchenvironment.databaseadmin.listeners.HexFocusListener;
 import org.historyresearchenvironment.databaseadmin.listeners.HexVerifyListener;
+import org.historyresearchenvironment.databaseadmin.listeners.IntegerListener;
 import org.historyresearchenvironment.databaseadmin.listeners.LengthFocusListener;
 import org.historyresearchenvironment.databaseadmin.listeners.NumericVerifyListener;
+import org.historyresearchenvironment.databaseadmin.listeners.SmallIntListener;
 import org.historyresearchenvironment.databaseadmin.models.H2TableModel;
 import org.historyresearchenvironment.databaseadmin.providers.H2TableProvider;
 
@@ -412,7 +414,7 @@ public class H2TableEditor {
 				break;
 			case HreDbadminConstants.INTEGER:
 				text = createFieldLine(compositeFields, i);
-				text.addVerifyListener(new NumericVerifyListener());
+				// text.addVerifyListener(new NumericVerifyListener());
 				text.addListener(SWT.Verify, new IntegerListener());
 				columns.get(i).setValue(row.get(i));
 				text.setText(Integer.toString((Integer) row.get(i)));
@@ -420,7 +422,7 @@ public class H2TableEditor {
 				break;
 			case HreDbadminConstants.SMALLINT:
 				text = createFieldLine(compositeFields, i);
-				text.addVerifyListener(new NumericVerifyListener());
+				// text.addVerifyListener(new NumericVerifyListener());
 				text.addListener(SWT.Verify, new SmallIntListener());
 				columns.get(i).setValue(row.get(i));
 				text.setText(Short.toString((Short) row.get(i)));

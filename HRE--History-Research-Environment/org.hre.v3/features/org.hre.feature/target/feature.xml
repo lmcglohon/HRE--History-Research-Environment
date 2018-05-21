@@ -2,7 +2,7 @@
 <feature
       id="org.hre.feature"
       label="HRE DB Admin Feature"
-      version="1.0.0.201805201446"
+      version="1.0.0.201805210950"
       provider-name="History Research Environment, Ltd.">
 
    <description url="http:/https://historyresearchenvironment.org/description">
@@ -40,7 +40,7 @@ Research Environment, Ltd.
          id="org.historyresearchenvironment.databaseadmin"
          download-size="87"
          install-size="209"
-         version="1.0.0.201805201446"
+         version="1.0.0.201805210950"
          unpack="false"/>
 
 </feature>

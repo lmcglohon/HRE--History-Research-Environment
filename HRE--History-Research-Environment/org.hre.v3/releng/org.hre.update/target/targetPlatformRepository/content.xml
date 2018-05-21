@@ -2872,6 +2872,45 @@
         </instructions>
       </touchpointData>
     </unit>
+    <unit id='org.historyresearchenvironment.databaseadmin' version='1.0.0.201805210950'>
+      <update id='org.historyresearchenvironment.databaseadmin' range='[0.0.0,1.0.0.201805210950)' severity='0'/>
+      <properties size='5'>
+        <property name='org.eclipse.equinox.p2.name' value='HREDBADMIN'/>
+        <property name='org.eclipse.equinox.p2.provider' value='History Research Environment Ltd.'/>
+        <property name='maven-groupId' value='org.hre'/>
+        <property name='maven-artifactId' value='org.historyresearchenvironment.databaseadmin'/>
+        <property name='maven-version' value='1.0.0-SNAPSHOT'/>
+      </properties>
+      <provides size='3'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.historyresearchenvironment.databaseadmin' version='1.0.0.201805210950'/>
+        <provided namespace='osgi.bundle' name='org.historyresearchenvironment.databaseadmin' version='1.0.0.201805210950'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+      </provides>
+      <requires size='11'>
+        <required namespace='osgi.bundle' name='org.h2' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.ui' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.core.runtime' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.e4.ui.model.workbench' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.e4.ui.workbench' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.e4.ui.di' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.e4.core.di' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.e4.core.contexts' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.e4.core.services' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.e4.core.commands' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='javax.annotation' range='0.0.0'/>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='org.historyresearchenvironment.databaseadmin' version='1.0.0.201805210950'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-SymbolicName: org.historyresearchenvironment.databaseadmin;singleton:=true&#xA;Bundle-Version: 1.0.0.201805210950
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
     <unit id='org.eclipse.ecf.filetransfer.httpclient4.feature.feature.jar' version='3.13.8.v20170715-2257'>
       <properties size='8'>
         <property name='org.eclipse.equinox.p2.name' value='ECF Httpclient4 Filetransfer Provider'/>
@@ -3103,45 +3142,6 @@
       <copyright>
         Copyright (c) 2014 Composent, Inc. and others. All rights&#xA;reserved.&#xA;This program and the accompanying materials are made available&#xA;under the terms of the Eclipse Public License v1.0 which accompanies&#xA;this distribution, and is available at &#xA;http://www.eclipse.org/legal/epl-v10.html&#xA; &#xA;Contributors: Composent, Inc. - initial API and implementation
       </copyright>
-    </unit>
-    <unit id='org.historyresearchenvironment.databaseadmin' version='1.0.0.201805201446'>
-      <update id='org.historyresearchenvironment.databaseadmin' range='[0.0.0,1.0.0.201805201446)' severity='0'/>
-      <properties size='5'>
-        <property name='org.eclipse.equinox.p2.name' value='HREDBADMIN'/>
-        <property name='org.eclipse.equinox.p2.provider' value='History Research Environment Ltd.'/>
-        <property name='maven-groupId' value='org.hre'/>
-        <property name='maven-artifactId' value='org.historyresearchenvironment.databaseadmin'/>
-        <property name='maven-version' value='1.0.0-SNAPSHOT'/>
-      </properties>
-      <provides size='3'>
-        <provided namespace='org.eclipse.equinox.p2.iu' name='org.historyresearchenvironment.databaseadmin' version='1.0.0.201805201446'/>
-        <provided namespace='osgi.bundle' name='org.historyresearchenvironment.databaseadmin' version='1.0.0.201805201446'/>
-        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
-      </provides>
-      <requires size='11'>
-        <required namespace='osgi.bundle' name='org.h2' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='org.eclipse.ui' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='org.eclipse.core.runtime' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='org.eclipse.e4.ui.model.workbench' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='org.eclipse.e4.ui.workbench' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='org.eclipse.e4.ui.di' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='org.eclipse.e4.core.di' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='org.eclipse.e4.core.contexts' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='org.eclipse.e4.core.services' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='org.eclipse.e4.core.commands' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='javax.annotation' range='0.0.0'/>
-      </requires>
-      <artifacts size='1'>
-        <artifact classifier='osgi.bundle' id='org.historyresearchenvironment.databaseadmin' version='1.0.0.201805201446'/>
-      </artifacts>
-      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
-      <touchpointData size='1'>
-        <instructions size='1'>
-          <instruction key='manifest'>
-            Bundle-SymbolicName: org.historyresearchenvironment.databaseadmin;singleton:=true&#xA;Bundle-Version: 1.0.0.201805201446
-          </instruction>
-        </instructions>
-      </touchpointData>
     </unit>
     <unit id='org.h2' version='1.3.168.v201212121212' singleton='false'>
       <update id='org.h2' range='[0.0.0,1.3.168.v201212121212)' severity='0'/>
@@ -3757,44 +3757,6 @@
       </provides>
       <touchpoint id='org.eclipse.equinox.p2.native' version='1.0.0'/>
     </unit>
-    <unit id='org.hre.feature.feature.jar' version='1.0.0.201805201446'>
-      <properties size='7'>
-        <property name='org.eclipse.equinox.p2.name' value='HRE DB Admin Feature'/>
-        <property name='org.eclipse.equinox.p2.description' value='This feature is an H2 database administration tool for HRE.'/>
-        <property name='org.eclipse.equinox.p2.description.url' value='http:/https://historyresearchenvironment.org/description'/>
-        <property name='org.eclipse.equinox.p2.provider' value='History Research Environment, Ltd.'/>
-        <property name='maven-groupId' value='org.hre'/>
-        <property name='maven-artifactId' value='org.hre.feature'/>
-        <property name='maven-version' value='1.0.0-SNAPSHOT'/>
-      </properties>
-      <provides size='3'>
-        <provided namespace='org.eclipse.equinox.p2.iu' name='org.hre.feature.feature.jar' version='1.0.0.201805201446'/>
-        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='feature' version='1.0.0'/>
-        <provided namespace='org.eclipse.update.feature' name='org.hre.feature' version='1.0.0.201805201446'/>
-      </provides>
-      <filter>
-        (org.eclipse.update.install.features=true)
-      </filter>
-      <artifacts size='1'>
-        <artifact classifier='org.eclipse.update.feature' id='org.hre.feature' version='1.0.0.201805201446'/>
-      </artifacts>
-      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
-      <touchpointData size='1'>
-        <instructions size='1'>
-          <instruction key='zipped'>
-            true
-          </instruction>
-        </instructions>
-      </touchpointData>
-      <licenses size='1'>
-        <license uri='https://www.gnu.org/licenses/agpl-3.0.html' url='https://www.gnu.org/licenses/agpl-3.0.html'>
-          The product is licensed under AGPL-3.0.
-        </license>
-      </licenses>
-      <copyright uri='http:/https://historyresearchenvironment.org/copyright' url='http:/https://historyresearchenvironment.org/copyright'>
-        This product is open source, but copyright belongs to History&#xA;Research Environment, Ltd.
-      </copyright>
-    </unit>
     <unit id='org.eclipse.e4.ui.model.workbench' version='2.0.1.v20170713-1800'>
       <update id='org.eclipse.e4.ui.model.workbench' range='[0.0.0,2.0.1.v20170713-1800)' severity='0'/>
       <properties size='8'>
@@ -4146,6 +4108,89 @@
       </licenses>
       <copyright>
         Copyright (c) 2009 Composent, Inc. and others. All rights&#xA;reserved.&#xA;This program and the accompanying materials are made available&#xA;under the terms of the Eclipse Public License v1.0 which accompanies&#xA;this distribution, and is available at &#xA;http://www.eclipse.org/legal/epl-v10.html&#xA; &#xA;Contributors: Composent, Inc. - initial API and implementation
+      </copyright>
+    </unit>
+    <unit id='org.hre.feature.feature.jar' version='1.0.0.201805210950'>
+      <properties size='7'>
+        <property name='org.eclipse.equinox.p2.name' value='HRE DB Admin Feature'/>
+        <property name='org.eclipse.equinox.p2.description' value='This feature is an H2 database administration tool for HRE.'/>
+        <property name='org.eclipse.equinox.p2.description.url' value='http:/https://historyresearchenvironment.org/description'/>
+        <property name='org.eclipse.equinox.p2.provider' value='History Research Environment, Ltd.'/>
+        <property name='maven-groupId' value='org.hre'/>
+        <property name='maven-artifactId' value='org.hre.feature'/>
+        <property name='maven-version' value='1.0.0-SNAPSHOT'/>
+      </properties>
+      <provides size='3'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.hre.feature.feature.jar' version='1.0.0.201805210950'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='feature' version='1.0.0'/>
+        <provided namespace='org.eclipse.update.feature' name='org.hre.feature' version='1.0.0.201805210950'/>
+      </provides>
+      <filter>
+        (org.eclipse.update.install.features=true)
+      </filter>
+      <artifacts size='1'>
+        <artifact classifier='org.eclipse.update.feature' id='org.hre.feature' version='1.0.0.201805210950'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='zipped'>
+            true
+          </instruction>
+        </instructions>
+      </touchpointData>
+      <licenses size='1'>
+        <license uri='https://www.gnu.org/licenses/agpl-3.0.html' url='https://www.gnu.org/licenses/agpl-3.0.html'>
+          The product is licensed under AGPL-3.0.
+        </license>
+      </licenses>
+      <copyright uri='http:/https://historyresearchenvironment.org/copyright' url='http:/https://historyresearchenvironment.org/copyright'>
+        This product is open source, but copyright belongs to History&#xA;Research Environment, Ltd.
+      </copyright>
+    </unit>
+    <unit id='org.hre.feature.feature.group' version='1.0.0.201805210950' singleton='false'>
+      <update id='org.hre.feature.feature.group' range='[0.0.0,1.0.0.201805210950)' severity='0'/>
+      <properties size='8'>
+        <property name='org.eclipse.equinox.p2.name' value='HRE DB Admin Feature'/>
+        <property name='org.eclipse.equinox.p2.description' value='This feature is an H2 database administration tool for HRE.'/>
+        <property name='org.eclipse.equinox.p2.description.url' value='http:/https://historyresearchenvironment.org/description'/>
+        <property name='org.eclipse.equinox.p2.provider' value='History Research Environment, Ltd.'/>
+        <property name='org.eclipse.equinox.p2.type.group' value='true'/>
+        <property name='maven-groupId' value='org.hre'/>
+        <property name='maven-artifactId' value='org.hre.feature'/>
+        <property name='maven-version' value='1.0.0-SNAPSHOT'/>
+      </properties>
+      <provides size='1'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.hre.feature.feature.group' version='1.0.0.201805210950'/>
+      </provides>
+      <requires size='14'>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.equinox.p2.core.feature.feature.group' range='[1.4.1.v20170928-1405,1.4.1.v20170928-1405]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.core.runtime' range='0.0.0'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.e4.ui.model.workbench' range='0.0.0'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.e4.ui.workbench' range='0.0.0'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.e4.ui.di' range='0.0.0'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.e4.core.di' range='0.0.0'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.e4.core.contexts' range='0.0.0'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.e4.core.services' range='0.0.0'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='javax.annotation' range='0.0.0'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.h2' range='0.0.0'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.ui' range='0.0.0'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.e4.core.commands' range='0.0.0'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.historyresearchenvironment.databaseadmin' range='[1.0.0.201805210950,1.0.0.201805210950]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.hre.feature.feature.jar' range='[1.0.0.201805210950,1.0.0.201805210950]'>
+          <filter>
+            (org.eclipse.update.install.features=true)
+          </filter>
+        </required>
+      </requires>
+      <touchpoint id='null' version='0.0.0'/>
+      <licenses size='1'>
+        <license uri='https://www.gnu.org/licenses/agpl-3.0.html' url='https://www.gnu.org/licenses/agpl-3.0.html'>
+          The product is licensed under AGPL-3.0.
+        </license>
+      </licenses>
+      <copyright uri='http:/https://historyresearchenvironment.org/copyright' url='http:/https://historyresearchenvironment.org/copyright'>
+        This product is open source, but copyright belongs to History&#xA;Research Environment, Ltd.
       </copyright>
     </unit>
     <unit id='javax.annotation' version='1.2.0.v201602091430' singleton='false'>
@@ -4526,51 +4571,6 @@
           </instruction>
         </instructions>
       </touchpointData>
-    </unit>
-    <unit id='org.hre.feature.feature.group' version='1.0.0.201805201446' singleton='false'>
-      <update id='org.hre.feature.feature.group' range='[0.0.0,1.0.0.201805201446)' severity='0'/>
-      <properties size='8'>
-        <property name='org.eclipse.equinox.p2.name' value='HRE DB Admin Feature'/>
-        <property name='org.eclipse.equinox.p2.description' value='This feature is an H2 database administration tool for HRE.'/>
-        <property name='org.eclipse.equinox.p2.description.url' value='http:/https://historyresearchenvironment.org/description'/>
-        <property name='org.eclipse.equinox.p2.provider' value='History Research Environment, Ltd.'/>
-        <property name='org.eclipse.equinox.p2.type.group' value='true'/>
-        <property name='maven-groupId' value='org.hre'/>
-        <property name='maven-artifactId' value='org.hre.feature'/>
-        <property name='maven-version' value='1.0.0-SNAPSHOT'/>
-      </properties>
-      <provides size='1'>
-        <provided namespace='org.eclipse.equinox.p2.iu' name='org.hre.feature.feature.group' version='1.0.0.201805201446'/>
-      </provides>
-      <requires size='14'>
-        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.equinox.p2.core.feature.feature.group' range='[1.4.1.v20170928-1405,1.4.1.v20170928-1405]'/>
-        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.core.runtime' range='0.0.0'/>
-        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.e4.ui.model.workbench' range='0.0.0'/>
-        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.e4.ui.workbench' range='0.0.0'/>
-        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.e4.ui.di' range='0.0.0'/>
-        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.e4.core.di' range='0.0.0'/>
-        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.e4.core.contexts' range='0.0.0'/>
-        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.e4.core.services' range='0.0.0'/>
-        <required namespace='org.eclipse.equinox.p2.iu' name='javax.annotation' range='0.0.0'/>
-        <required namespace='org.eclipse.equinox.p2.iu' name='org.h2' range='0.0.0'/>
-        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.ui' range='0.0.0'/>
-        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.e4.core.commands' range='0.0.0'/>
-        <required namespace='org.eclipse.equinox.p2.iu' name='org.historyresearchenvironment.databaseadmin' range='[1.0.0.201805201446,1.0.0.201805201446]'/>
-        <required namespace='org.eclipse.equinox.p2.iu' name='org.hre.feature.feature.jar' range='[1.0.0.201805201446,1.0.0.201805201446]'>
-          <filter>
-            (org.eclipse.update.install.features=true)
-          </filter>
-        </required>
-      </requires>
-      <touchpoint id='null' version='0.0.0'/>
-      <licenses size='1'>
-        <license uri='https://www.gnu.org/licenses/agpl-3.0.html' url='https://www.gnu.org/licenses/agpl-3.0.html'>
-          The product is licensed under AGPL-3.0.
-        </license>
-      </licenses>
-      <copyright uri='http:/https://historyresearchenvironment.org/copyright' url='http:/https://historyresearchenvironment.org/copyright'>
-        This product is open source, but copyright belongs to History&#xA;Research Environment, Ltd.
-      </copyright>
     </unit>
     <unit id='org.eclipse.e4.core.di.annotations' version='1.6.0.v20170119-2002' singleton='false'>
       <update id='org.eclipse.e4.core.di.annotations' range='[0.0.0,1.6.0.v20170119-2002)' severity='0'/>
