@@ -36,10 +36,13 @@ public class HreH2ConnectionPool {
 				+ h2TraceLevel;
 		LOGGER.info("JDBC URL: " + jdbcUrl);
 		connectionPool = JdbcConnectionPool.create(jdbcUrl, "sa", "");
+		LOGGER.info("Connection pool has been created");
 		connectionPool.setMaxConnections(500);
 		preferences.put("DBNAME", dbName);
+		LOGGER.info("Preferences dbname set to " + dbName);
 		try {
 			preferences.flush();
+			LOGGER.info("Preferences has been flushed");
 		} catch (BackingStoreException e) {
 			LOGGER.severe(e.getMessage());
 		}
@@ -72,6 +75,7 @@ public class HreH2ConnectionPool {
 				connectionPool.setMaxConnections(500);
 			}
 
+			LOGGER.info("Reusing connection pool");
 			return connectionPool.getConnection();
 		} catch (final SQLException e) {
 			LOGGER.severe(e.getMessage());
@@ -93,6 +97,7 @@ public class HreH2ConnectionPool {
 			LOGGER.info("JDBC URL: " + jdbcUrl);
 			connectionPool = JdbcConnectionPool.create(jdbcUrl, "sa", "");
 			connectionPool.setMaxConnections(500);
+			LOGGER.info("Connection pool has been created");
 
 			return connectionPool.getConnection();
 		} catch (final SQLException e) {

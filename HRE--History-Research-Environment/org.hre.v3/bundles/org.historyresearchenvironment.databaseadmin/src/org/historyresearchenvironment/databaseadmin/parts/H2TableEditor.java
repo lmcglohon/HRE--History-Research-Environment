@@ -47,7 +47,7 @@ import org.historyresearchenvironment.databaseadmin.providers.H2TableProvider;
 /**
  * Dynamically create an editor with the fields in the database catalog.
  * 
- * @version 2018-05-20
+ * @version 2018-05-21
  * @author Michael Erichsen, &copy; History Research Environment Ltd., 2018
  *
  */
@@ -81,7 +81,8 @@ public class H2TableEditor {
 	}
 
 	/**
-	 * @param parent Shell
+	 * @param parent
+	 *            Shell
 	 */
 	private void createButtons(Composite parent) {
 		// Only create once
@@ -309,7 +310,8 @@ public class H2TableEditor {
 	/**
 	 * Create contents of the view part.
 	 * 
-	 * @param parent Shell
+	 * @param parent
+	 *            Shell
 	 */
 	@PostConstruct
 	public void createControls(Composite parent) {
@@ -411,6 +413,7 @@ public class H2TableEditor {
 			case HreDbadminConstants.INTEGER:
 				text = createFieldLine(compositeFields, i);
 				text.addVerifyListener(new NumericVerifyListener());
+				text.addListener(SWT.Verify, new IntegerListener());
 				columns.get(i).setValue(row.get(i));
 				text.setText(Integer.toString((Integer) row.get(i)));
 				lineList.add(text);
@@ -418,6 +421,7 @@ public class H2TableEditor {
 			case HreDbadminConstants.SMALLINT:
 				text = createFieldLine(compositeFields, i);
 				text.addVerifyListener(new NumericVerifyListener());
+				text.addListener(SWT.Verify, new SmallIntListener());
 				columns.get(i).setValue(row.get(i));
 				text.setText(Short.toString((Short) row.get(i)));
 				lineList.add(text);

@@ -125,7 +125,7 @@ public class H2DatabaseNavigator {
 	}
 
 	/**
-	 * @param tableName
+	 * @param data.tableName
 	 */
 	@Inject
 	@Optional

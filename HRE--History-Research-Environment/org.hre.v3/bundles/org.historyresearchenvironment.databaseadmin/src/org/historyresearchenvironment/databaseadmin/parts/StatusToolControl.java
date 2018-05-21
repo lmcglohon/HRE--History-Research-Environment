@@ -37,7 +37,7 @@ public class StatusToolControl {
 		textStatus = new Text(parent, SWT.NONE);
 		textStatus.setBackground(SWTResourceManager.getColor(SWT.COLOR_WHITE));
 		textStatus.setEditable(false);
-		textStatus.setSize(1000, 200);
+		textStatus.setSize(1000, 298);
 		textStatus.setText("                                                                               "
 				+ "                                                                                         ");
 	}
