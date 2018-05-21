@@ -87,7 +87,7 @@ public class H2TableEditor {
 	 *            Shell
 	 */
 	private void createButtons(Composite parent) {
-		// Only create once
+		// Only create buttons once
 		if (compositeButtons != null) {
 			return;
 		}
@@ -98,50 +98,53 @@ public class H2TableEditor {
 
 		final Button btnSelect = new Button(compositeButtons, SWT.NONE);
 		btnSelect.addSelectionListener(new SelectionAdapter() {
+			/**
+			 * @param e
+			 *            Event
+			 */
 			@Override
 			public void widgetSelected(SelectionEvent e) {
 				Text text = (Text) lineList.get(0);
 				final int recordNum = Integer.parseInt(text.getText());
-				final List<Object> row = provider.select(recordNum);
+				List<Object> row;
+				try {
+					row = provider.select(recordNum);
 
-				if (row == null)
-					eventBroker.post("MESSAGE", "Record " + recordNum + " could no be selected");
-				else {
-					try {
-						for (int i = 0; i < lineList.size(); i++) {
-							Object lineObject = lineList.get(i);
-							String type = lineObject.getClass().getName();
+					for (int i = 0; i < lineList.size(); i++) {
+						Object lineObject = lineList.get(i);
+						String type = lineObject.getClass().getName();
 
-							if (type.equals("org.eclipse.swt.widgets.Button")) {
-								Button line = (Button) lineObject;
-								line.setSelection((boolean) row.get(i));
-							} else if (type.equals("org.eclipse.swt.widgets.Text")) {
-								Text line = (Text) lineObject;
-								line.setText(row.get(i).toString());
-							} else if (type.equals("org.eclipse.swt.widgets.Composite")) {
-								Timestamp timeStamp = (Timestamp) row.get(i);
-								Calendar calendar = Calendar.getInstance();
-								calendar.setTimeInMillis(timeStamp.getTime());
+						if (type.equals("org.eclipse.swt.widgets.Button")) {
+							Button line = (Button) lineObject;
+							line.setSelection((boolean) row.get(i));
+						} else if (type.equals("org.eclipse.swt.widgets.Text")) {
+							Text line = (Text) lineObject;
+							line.setText(row.get(i).toString());
+						} else if (type.equals("org.eclipse.swt.widgets.Composite")) {
+							Timestamp timeStamp = (Timestamp) row.get(i);
+							Calendar calendar = Calendar.getInstance();
+							calendar.setTimeInMillis(timeStamp.getTime());
 
-								Composite dateTime = (Composite) lineObject;
-								Control[] children = dateTime.getChildren();
+							Composite dateTime = (Composite) lineObject;
+							Control[] children = dateTime.getChildren();
 
-								DateTime date = (DateTime) children[0];
-								date.setDate(calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH),
-										calendar.get(Calendar.DATE));
-								DateTime time = (DateTime) children[1];
-								time.setTime(calendar.get(Calendar.HOUR), calendar.get(Calendar.MINUTE),
-										calendar.get(Calendar.SECOND));
-							} else {
-								LOGGER.info("Unimplemented type: " + type);
-								System.exit(16);
-							}
+							DateTime date = (DateTime) children[0];
+							date.setDate(calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH),
+									calendar.get(Calendar.DATE));
+							DateTime time = (DateTime) children[1];
+							time.setTime(calendar.get(Calendar.HOUR), calendar.get(Calendar.MINUTE),
+									calendar.get(Calendar.SECOND));
+						} else {
+							LOGGER.info("Unimplemented type: " + type);
+							System.exit(16);
 						}
-						eventBroker.post("MESSAGE", "Record " + recordNum + " has been selected");
-					} catch (Exception e1) {
-						eventBroker.post("MESSAGE", "Record " + recordNum + " could no be selected");
 					}
+					eventBroker.post("MESSAGE", "Record " + recordNum + " has been selected");
+				} catch (SQLException e2) {
+					e2.printStackTrace();
+					eventBroker.post("MESSAGE", e2.getMessage());
 				}
+
 				btnSelect.getParent().redraw();
 			}
 		});
@@ -149,6 +152,13 @@ public class H2TableEditor {
 
 		final Button btnInsert = new Button(compositeButtons, SWT.NONE);
 		btnInsert.addSelectionListener(new SelectionAdapter() {
+			/*
+			 * (non-Javadoc)
+			 * 
+			 * @see
+			 * org.eclipse.swt.events.SelectionAdapter#widgetSelected(org.eclipse.swt.events
+			 * .SelectionEvent)
+			 */
 			@Override
 			public void widgetSelected(SelectionEvent e) {
 				Text insertText = (Text) lineList.get(0);
@@ -184,21 +194,30 @@ public class H2TableEditor {
 					}
 				}
 
-				Boolean flag = provider.insert(columns);
-				if (flag) {
+				try {
+					provider.insert(columns);
 					eventBroker.post(HreDbadminConstants.DATABASE_UPDATE_TOPIC, "Dummy");
 					eventBroker.post(
 							org.historyresearchenvironment.databaseadmin.HreDbadminConstants.TABLENAME_UPDATE_TOPIC,
 							tableName);
 					eventBroker.post("MESSAGE", "Record " + insertRecordNum + " has been inserted");
-				} else
-					eventBroker.post("MESSAGE", "Record " + insertRecordNum + " could no be inserted");
+				} catch (SQLException e1) {
+					e1.printStackTrace();
+					eventBroker.post("MESSAGE", e1.getMessage());
+				}
 			}
 		});
 		btnInsert.setText("Insert");
 
 		final Button btnUpdate = new Button(compositeButtons, SWT.NONE);
 		btnUpdate.addSelectionListener(new SelectionAdapter() {
+			/*
+			 * (non-Javadoc)
+			 * 
+			 * @see
+			 * org.eclipse.swt.events.SelectionAdapter#widgetSelected(org.eclipse.swt.events
+			 * .SelectionEvent)
+			 */
 			@Override
 			public void widgetSelected(SelectionEvent e) {
 				Text updateText = (Text) lineList.get(0);
@@ -234,41 +253,59 @@ public class H2TableEditor {
 					}
 				}
 
-				Boolean flag = provider.update(columns);
-				if (flag) {
+				try {
+					provider.update(columns);
 					eventBroker.post(HreDbadminConstants.DATABASE_UPDATE_TOPIC, "Dummy");
 					eventBroker.post(
 							org.historyresearchenvironment.databaseadmin.HreDbadminConstants.TABLENAME_UPDATE_TOPIC,
 							tableName);
 					eventBroker.post("MESSAGE", "Record " + updateRecordNum + " has been updated");
-				} else
-					eventBroker.post("MESSAGE", "Record " + updateRecordNum + " could no be updated");
+				} catch (SQLException e1) {
+					e1.printStackTrace();
+					eventBroker.post("MESSAGE", e1.getMessage());
+				}
 			}
 		});
 		btnUpdate.setText("Update");
 
 		final Button btnDelete = new Button(compositeButtons, SWT.NONE);
 		btnDelete.addSelectionListener(new SelectionAdapter() {
+			/*
+			 * (non-Javadoc)
+			 * 
+			 * @see
+			 * org.eclipse.swt.events.SelectionAdapter#widgetSelected(org.eclipse.swt.events
+			 * .SelectionEvent)
+			 */
 			@Override
 			public void widgetSelected(SelectionEvent e) {
 				Text text = (Text) lineList.get(0);
 				final int recordNum = Integer.parseInt(text.getText());
-				Boolean flag = provider.delete(recordNum);
-
-				if (flag) {
+				try {
+					provider.delete(recordNum);
 					eventBroker.post(HreDbadminConstants.DATABASE_UPDATE_TOPIC, "Dummy");
 					eventBroker.post(
 							org.historyresearchenvironment.databaseadmin.HreDbadminConstants.TABLENAME_UPDATE_TOPIC,
 							tableName);
 					eventBroker.post("MESSAGE", "Record " + recordNum + " has been deleted");
-				} else
-					eventBroker.post("MESSAGE", "Record " + recordNum + " could not be deleted");
+
+				} catch (SQLException e1) {
+					e1.printStackTrace();
+					eventBroker.post("MESSAGE", e1.getMessage());
+				}
 			}
 		});
 		btnDelete.setText("Delete");
 
 		final Button btnResetDialog = new Button(compositeButtons, SWT.NONE);
 		btnResetDialog.addSelectionListener(new SelectionAdapter() {
+			/*
+			 * (non-Javadoc)
+			 * 
+			 * @see
+			 * org.eclipse.swt.events.SelectionAdapter#widgetSelected(org.eclipse.swt.events
+			 * .SelectionEvent)
+			 */
 			@Override
 			public void widgetSelected(SelectionEvent e) {
 				for (Object lineObject : lineList) {
@@ -325,15 +362,22 @@ public class H2TableEditor {
 		scrolledComposite.setExpandHorizontal(true);
 		scrolledComposite.setExpandVertical(true);
 
-		createLines(scrolledComposite);
+		try {
+			createLines(scrolledComposite);
+		} catch (SQLException e) {
+			e.printStackTrace();
+			eventBroker.post("MESSAGE", e.getMessage());
+		}
 		createButtons(parent);
 		new Label(parent, SWT.NONE);
 	}
 
 	/**
 	 * @param scrolledComposite
+	 * @throws SQLException
+	 *             When failing
 	 */
-	private void createLines(ScrolledComposite scrolledComposite) {
+	private void createLines(ScrolledComposite scrolledComposite) throws SQLException {
 		Text text;
 		Label label2;
 
@@ -371,7 +415,7 @@ public class H2TableEditor {
 					String s = new String(DatatypeConverter.printHexBinary(ba));
 					text.setText(s);
 				} catch (SQLException e) {
-					text.setText("Blob could not be displayed");
+					eventBroker.post("MESSAGE", e.getMessage());
 				}
 				lineList.add(text);
 				break;
@@ -401,7 +445,7 @@ public class H2TableEditor {
 				try {
 					text.setText(new String(clob.getSubString(1L, (int) clob.length())));
 				} catch (SQLException e) {
-					text.setText("Clob could not be displayed");
+					eventBroker.post("MESSAGE", e.getMessage());
 				}
 				lineList.add(text);
 				break;
@@ -414,7 +458,6 @@ public class H2TableEditor {
 				break;
 			case HreDbadminConstants.INTEGER:
 				text = createFieldLine(compositeFields, i);
-				// text.addVerifyListener(new NumericVerifyListener());
 				text.addListener(SWT.Verify, new IntegerListener());
 				columns.get(i).setValue(row.get(i));
 				text.setText(Integer.toString((Integer) row.get(i)));
@@ -422,7 +465,6 @@ public class H2TableEditor {
 				break;
 			case HreDbadminConstants.SMALLINT:
 				text = createFieldLine(compositeFields, i);
-				// text.addVerifyListener(new NumericVerifyListener());
 				text.addListener(SWT.Verify, new SmallIntListener());
 				columns.get(i).setValue(row.get(i));
 				text.setText(Short.toString((Short) row.get(i)));
@@ -520,6 +562,7 @@ public class H2TableEditor {
 
 	/**
 	 * @param tableName
+	 *            Name of the table
 	 */
 	@Inject
 	@Optional
@@ -533,11 +576,14 @@ public class H2TableEditor {
 
 	/**
 	 * @param recordNumString
+	 * @throws SQLException
+	 *             When failing
 	 */
 	@Inject
 	@Optional
 	private void subscribeRecordNumUpdateTopic(
-			@UIEventTopic(org.historyresearchenvironment.databaseadmin.HreDbadminConstants.RECORDNUM_UPDATE_TOPIC) String recordNumString) {
+			@UIEventTopic(org.historyresearchenvironment.databaseadmin.HreDbadminConstants.RECORDNUM_UPDATE_TOPIC) String recordNumString)
+			throws SQLException {
 		this.recordNum = Integer.parseInt(recordNumString);
 		createLines(scrolledComposite);
 	}

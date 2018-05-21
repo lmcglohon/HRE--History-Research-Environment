@@ -25,7 +25,7 @@ import org.osgi.service.prefs.Preferences;
 /**
  * Create a new HRE project database and open it
  * 
- * @version 2018-05-20
+ * @version 2018-05-21
  * @author Michael Erichsen, &copy; History Research Environment Ltd., 2018
  *
  */
@@ -70,11 +70,11 @@ public class NewHandler {
 
 		provider = new NewDatabaseProvider(dbName);
 
-		provider.provide();
-
-		Connection conn = null;
-
 		try {
+			provider.provide();
+
+			Connection conn = null;
+
 			conn = HreH2ConnectionPool.getConnection();
 
 			if (conn != null) {
@@ -98,7 +98,7 @@ public class NewHandler {
 			eventBroker.post("MESSAGE", "Database " + dbName + " has been opened");
 		} catch (final Exception e1) {
 			eventBroker.post("MESSAGE", e1.getMessage());
-			e1.printStackTrace();
+			//			e1.printStackTrace();
 			LOGGER.severe(e1.getMessage());
 		}
 

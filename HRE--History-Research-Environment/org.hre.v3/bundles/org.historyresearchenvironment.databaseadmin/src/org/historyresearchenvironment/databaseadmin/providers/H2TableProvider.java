@@ -17,7 +17,7 @@ import org.historyresearchenvironment.databaseadmin.models.H2TableModel;
 /**
  * Provide H2 data to the table navigator and the table editor.
  * 
- * @version 2018-05-20
+ * @version 2018-05-21
  * @author Michael Erichsen, &copy; History Research Environment Ltd., 2018
  *
  */
@@ -39,59 +39,61 @@ public class H2TableProvider extends AbstractHreProvider implements IContentProv
 	 * 
 	 * @param tableName
 	 *            Name of H2 table
+	 * @throws SQLException
+	 *             When failing
 	 *
 	 */
-	public H2TableProvider(String tableName) {
+	public H2TableProvider(String tableName) throws SQLException {
 		String type;
 
 		this.tableName = tableName;
 		modelList = new ArrayList<>();
 
-		try {
-			// Get number of columns in H2 table
-			ps = conn.prepareStatement(COUNT);
-			ps.setString(1, tableName);
+		// try {
+		// Get number of columns in H2 table
+		ps = conn.prepareStatement(COUNT);
+		ps.setString(1, tableName);
 
-			rs = ps.executeQuery();
+		rs = ps.executeQuery();
 
-			if (rs.next()) {
-				count = rs.getInt(1);
-			}
-
-			// Get names and other properties of columns in H2 tables
-			ps = conn.prepareStatement(COLUMNS);
-			ps.setString(1, tableName);
-			rs = ps.executeQuery();
-
-			while (rs.next()) {
-				model = new H2TableModel();
-				model.setName(rs.getString(1));
-				type = rs.getString(2);
-				model.setType(type);
-				model.setNumericType(rs.getInt(3));
-
-				switch (model.getNumericType()) {
-				case HreDbadminConstants.BIGINT:
-				case HreDbadminConstants.DOUBLE:
-				case HreDbadminConstants.SMALLINT:
-				case HreDbadminConstants.INTEGER:
-					model.setPrecision(rs.getInt(4));
-					model.setScale(rs.getInt(5));
-					break;
-				case HreDbadminConstants.VARCHAR:
-				case HreDbadminConstants.VARBINARY:
-					model.setScale(rs.getInt(6));
-					break;
-				default:
-					break;
-				}
-
-				modelList.add(model);
-			}
-		} catch (final SQLException e) {
-			e.printStackTrace();
-			LOGGER.severe(e.getMessage());
+		if (rs.next()) {
+			count = rs.getInt(1);
 		}
+
+		// Get names and other properties of columns in H2 tables
+		ps = conn.prepareStatement(COLUMNS);
+		ps.setString(1, tableName);
+		rs = ps.executeQuery();
+
+		while (rs.next()) {
+			model = new H2TableModel();
+			model.setName(rs.getString(1));
+			type = rs.getString(2);
+			model.setType(type);
+			model.setNumericType(rs.getInt(3));
+
+			switch (model.getNumericType()) {
+			case HreDbadminConstants.BIGINT:
+			case HreDbadminConstants.DOUBLE:
+			case HreDbadminConstants.SMALLINT:
+			case HreDbadminConstants.INTEGER:
+				model.setPrecision(rs.getInt(4));
+				model.setScale(rs.getInt(5));
+				break;
+			case HreDbadminConstants.VARCHAR:
+			case HreDbadminConstants.VARBINARY:
+				model.setScale(rs.getInt(6));
+				break;
+			default:
+				break;
+			}
+
+			modelList.add(model);
+		}
+		// } catch (final SQLException e) {
+		// e.printStackTrace();
+		// LOGGER.severe(e.getMessage());
+		// }
 	}
 
 	/**
@@ -100,35 +102,40 @@ public class H2TableProvider extends AbstractHreProvider implements IContentProv
 	 * @param recordNum
 	 *            Key field
 	 * @return If delete was successful
+	 * @throws SQLException
+	 *             When failing
 	 */
-	public Boolean delete(int recordNum) {
+	public void delete(int recordNum) throws SQLException {
 		final String DELETE = "DELETE FROM PUBLIC." + tableName + " WHERE RECORD_NUM = ?";
-		try {
-			ps = conn.prepareStatement(DELETE);
-			ps.setInt(1, recordNum);
-			@SuppressWarnings("unused")
-			int rows = ps.executeUpdate();
-		} catch (final SQLException e) {
-			e.printStackTrace();
-			LOGGER.severe(e.getMessage());
-			return false;
-		}
-		return true;
+		// try {
+		ps = conn.prepareStatement(DELETE);
+		ps.setInt(1, recordNum);
+		@SuppressWarnings("unused")
+		int rows = ps.executeUpdate();
+		// } catch (final SQLException e) {
+		// e.printStackTrace();
+		// LOGGER.severe(e.getMessage());
+		// return false;
+		// }
+		// return true;
 	}
 
 	/**
 	 * Delete all rows in the H2 table
+	 * 
+	 * @throws SQLException
+	 *             When failing
 	 */
-	public void deleteAll() {
+	public void deleteAll() throws SQLException {
 		final String DELETEALL = "DELETE FROM PUBLIC." + tableName;
 
-		try {
-			ps = conn.prepareStatement(DELETEALL);
-			ps.executeUpdate();
-		} catch (final SQLException e) {
-			e.printStackTrace();
-			LOGGER.severe(e.getMessage());
-		}
+		// try {
+		ps = conn.prepareStatement(DELETEALL);
+		ps.executeUpdate();
+		// } catch (final SQLException e) {
+		// e.printStackTrace();
+		// LOGGER.severe(e.getMessage());
+		// }
 	}
 
 	/**
@@ -155,18 +162,20 @@ public class H2TableProvider extends AbstractHreProvider implements IContentProv
 	 * @param fileName
 	 *            Name of the CSV file
 	 * @return Number of rows imported
+	 * @throws SQLException
+	 *             When failing
 	 */
-	public int importCsv(String fileName) {
+	public int importCsv(String fileName) throws SQLException {
 		final String IMPORTCSV = "INSERT INTO PUBLIC." + tableName + " (SELECT * from csvread('" + fileName + "'));";
 		int rowCount = 0;
 
-		try {
-			ps = conn.prepareStatement(IMPORTCSV);
-			rowCount = ps.executeUpdate();
-		} catch (final SQLException e) {
-			e.printStackTrace();
-			LOGGER.severe(e.getMessage());
-		}
+		// try {
+		ps = conn.prepareStatement(IMPORTCSV);
+		rowCount = ps.executeUpdate();
+		// } catch (final SQLException e) {
+		// e.printStackTrace();
+		// LOGGER.severe(e.getMessage());
+		// }
 		return rowCount;
 	}
 
@@ -177,8 +186,10 @@ public class H2TableProvider extends AbstractHreProvider implements IContentProv
 	 *            Number of columns in the row
 	 * 
 	 * @return If insert was successful
+	 * @throws SQLException
+	 *             When failing
 	 */
-	public Boolean insert(List<H2TableModel> columns) {
+	public void insert(List<H2TableModel> columns) throws SQLException {
 		H2TableModel h2TableModel;
 
 		final StringBuilder sb = new StringBuilder();
@@ -213,15 +224,15 @@ public class H2TableProvider extends AbstractHreProvider implements IContentProv
 		sb.append("');");
 		final String INSERT = sb.toString();
 
-		try {
-			ps = conn.prepareStatement(INSERT);
-			ps.executeUpdate();
-		} catch (final SQLException e) {
-			e.printStackTrace();
-			LOGGER.severe(e.getMessage());
-			return false;
-		}
-		return true;
+		// try {
+		ps = conn.prepareStatement(INSERT);
+		ps.executeUpdate();
+		// } catch (final SQLException e) {
+		// e.printStackTrace();
+		// LOGGER.severe(e.getMessage());
+		// return false;
+		// }
+		// return true;
 	}
 
 	/**
@@ -231,29 +242,34 @@ public class H2TableProvider extends AbstractHreProvider implements IContentProv
 	 *            Number of rows inserted
 	 * 
 	 * @return If insert was successful
+	 * @throws SQLException
+	 *             When failing
 	 */
-	public Boolean insertSet(List<List<H2TableModel>> rows) {
-		Boolean success = false;
+	public void insertSet(List<List<H2TableModel>> rows) throws SQLException {
+		// Boolean success = false;
 
 		for (int i = 0; i < rows.size(); i++) {
-			success = insert(rows.get(i));
+			insert(rows.get(i));
 
-			if (!success) {
-				return success;
-			}
+			// if (!success) {
+			// return success;
+			// }
 		}
 
-		return true;
+		// return true;
 
 	}
 
 	/**
 	 * Select a single row from the H2 table
 	 * 
-	 * @param recordNum Key field
+	 * @param recordNum
+	 *            Key field
 	 * @return List of rows
+	 * @throws SQLException
+	 *             When failing
 	 */
-	public List<Object> select(int recordNum) {
+	public List<Object> select(int recordNum) throws SQLException {
 		row = new ArrayList<>();
 		String field = "";
 
@@ -311,58 +327,58 @@ public class H2TableProvider extends AbstractHreProvider implements IContentProv
 			return row;
 		}
 
-		try {
-			final String SELECT = "SELECT * FROM PUBLIC." + tableName + " WHERE RECORD_NUM = ?";
-			ps = conn.prepareStatement(SELECT);
-			ps.setInt(1, recordNum);
-			rs = ps.executeQuery();
+		// try {
+		final String SELECT = "SELECT * FROM PUBLIC." + tableName + " WHERE RECORD_NUM = ?";
+		ps = conn.prepareStatement(SELECT);
+		ps.setInt(1, recordNum);
+		rs = ps.executeQuery();
 
-			if (rs.next()) {
-				for (int i = 1; i < (count + 1); i++) {
-					switch (modelList.get(i - 1).getNumericType()) {
-					case HreDbadminConstants.BIGINT:
-						row.add(rs.getLong(i));
-						break;
-					case HreDbadminConstants.BLOB:
-						row.add(rs.getBlob(i));
-						break;
-					case HreDbadminConstants.BOOLEAN:
-						row.add(rs.getBoolean(i));
-						break;
-					case HreDbadminConstants.CLOB:
-						row.add(rs.getClob(i));
-						break;
-					case HreDbadminConstants.DOUBLE:
-						row.add(rs.getDouble(i));
-						break;
-					case HreDbadminConstants.INTEGER:
-						row.add(rs.getInt(i));
-						break;
-					case HreDbadminConstants.SMALLINT:
-						row.add(rs.getShort(i));
-						break;
-					case HreDbadminConstants.TIMESTAMP:
-						row.add(rs.getTimestamp(i));
-						break;
-					case HreDbadminConstants.VARBINARY:
-						row.add(rs.getBytes(i));
-						break;
-					case HreDbadminConstants.VARCHAR:
-						row.add(rs.getString(i));
-						break;
-					default:
-						if ((field = rs.getString(i)) != null)
-							row.add(field);
-						else
-							row.add("");
-						break;
-					}
+		if (rs.next()) {
+			for (int i = 1; i < (count + 1); i++) {
+				switch (modelList.get(i - 1).getNumericType()) {
+				case HreDbadminConstants.BIGINT:
+					row.add(rs.getLong(i));
+					break;
+				case HreDbadminConstants.BLOB:
+					row.add(rs.getBlob(i));
+					break;
+				case HreDbadminConstants.BOOLEAN:
+					row.add(rs.getBoolean(i));
+					break;
+				case HreDbadminConstants.CLOB:
+					row.add(rs.getClob(i));
+					break;
+				case HreDbadminConstants.DOUBLE:
+					row.add(rs.getDouble(i));
+					break;
+				case HreDbadminConstants.INTEGER:
+					row.add(rs.getInt(i));
+					break;
+				case HreDbadminConstants.SMALLINT:
+					row.add(rs.getShort(i));
+					break;
+				case HreDbadminConstants.TIMESTAMP:
+					row.add(rs.getTimestamp(i));
+					break;
+				case HreDbadminConstants.VARBINARY:
+					row.add(rs.getBytes(i));
+					break;
+				case HreDbadminConstants.VARCHAR:
+					row.add(rs.getString(i));
+					break;
+				default:
+					if ((field = rs.getString(i)) != null)
+						row.add(field);
+					else
+						row.add("");
+					break;
 				}
 			}
-		} catch (final SQLException e) {
-			e.printStackTrace();
-			LOGGER.severe(e.getMessage());
 		}
+		// } catch (final SQLException e) {
+		// e.printStackTrace();
+		// LOGGER.severe(e.getMessage());
+		// }
 		return row;
 	}
 
@@ -370,44 +386,49 @@ public class H2TableProvider extends AbstractHreProvider implements IContentProv
 	 * Select all rows from the H2 table
 	 * 
 	 * @return A list of rows
+	 * @throws SQLException
+	 *             When failing
 	 */
-	public List<List<Object>> selectAll() {
+	public List<List<Object>> selectAll() throws SQLException {
 		rowList = new ArrayList<>();
 		String field = "";
 
-		try {
-			final String SELECTALL = "SELECT * FROM PUBLIC." + tableName;
-			ps = conn.prepareStatement(SELECTALL);
-			rs = ps.executeQuery();
+		// try {
+		final String SELECTALL = "SELECT * FROM PUBLIC." + tableName;
+		ps = conn.prepareStatement(SELECTALL);
+		rs = ps.executeQuery();
 
-			while (rs.next()) {
-				row = new ArrayList<>();
+		while (rs.next()) {
+			row = new ArrayList<>();
 
-				for (int i = 1; i < (count + 1); i++) {
-					if ((field = rs.getString(i)) != null) {
-						row.add(field);
-					} else {
-						row.add("");
-					}
+			for (int i = 1; i < (count + 1); i++) {
+				if ((field = rs.getString(i)) != null) {
+					row.add(field);
+				} else {
+					row.add("");
 				}
-				rowList.add(row);
 			}
-
-		} catch (final SQLException e) {
-			e.printStackTrace();
-			LOGGER.severe(e.getMessage());
+			rowList.add(row);
 		}
+
+		// } catch (final SQLException e) {
+		// e.printStackTrace();
+		// LOGGER.severe(e.getMessage());
+		// }
 		return rowList;
 	}
 
 	/**
 	 * Update a row in the H2 table
 	 * 
-	 * @param columns A list of field values
+	 * @param columns
+	 *            A list of field values
 	 * 
 	 * @return If update was successful
+	 * @throws SQLException
+	 *             When failing
 	 */
-	public Boolean update(List<H2TableModel> columns) {
+	public void update(List<H2TableModel> columns) throws SQLException {
 		H2TableModel h2TableModel;
 		final StringBuilder sb = new StringBuilder();
 		sb.append("UPDATE PUBLIC." + tableName + " SET ");
@@ -427,14 +448,14 @@ public class H2TableProvider extends AbstractHreProvider implements IContentProv
 		sb.append("' WHERE RECORD_NUM='" + columns.get(0).getValue() + "';");
 
 		final String UPDATE = sb.toString();
-		try {
-			ps = conn.prepareStatement(UPDATE);
-			ps.executeUpdate();
-		} catch (final SQLException e) {
-			e.printStackTrace();
-			LOGGER.severe(e.getMessage());
-			return false;
-		}
-		return true;
+		// try {
+		ps = conn.prepareStatement(UPDATE);
+		ps.executeUpdate();
+		// } catch (final SQLException e) {
+		// e.printStackTrace();
+		// LOGGER.severe(e.getMessage());
+		// return false;
+		// }
+		// return true;
 	}
 }

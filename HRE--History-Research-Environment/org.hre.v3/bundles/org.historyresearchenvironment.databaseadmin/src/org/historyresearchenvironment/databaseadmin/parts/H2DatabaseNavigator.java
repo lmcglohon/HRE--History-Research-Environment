@@ -1,5 +1,6 @@
 package org.historyresearchenvironment.databaseadmin.parts;
 
+import java.sql.SQLException;
 import java.util.List;
 import java.util.logging.Logger;
 
@@ -36,7 +37,7 @@ import org.osgi.service.prefs.Preferences;
 /**
  * Create a view part with all tables in the database
  * 
- * @version 2018-05-19
+ * @version 2018-05-21
  * @author Michael Erichsen, &copy; History Research Environment Ltd., 2018
  *
  */
@@ -68,7 +69,8 @@ public class H2DatabaseNavigator {
 	/**
 	 * Create contents of the view part.
 	 * 
-	 * @param parent Shell
+	 * @param parent
+	 *            Shell
 	 */
 	@PostConstruct
 	public void createControls(Composite parent) {
@@ -148,15 +150,23 @@ public class H2DatabaseNavigator {
 		window.setLabel("HRE H2 Database Administration - " + dbName);
 		table.removeAll();
 
-		final H2DatabaseProvider provider = new H2DatabaseProvider();
-		final List<H2DatabaseModel> modelList = provider.getModelList();
-		H2DatabaseModel model;
+		H2DatabaseProvider provider;
+		try {
+			provider = new H2DatabaseProvider();
 
-		for (int i = 0; i < modelList.size(); i++) {
-			model = modelList.get(i);
-			final TableItem item = new TableItem(table, SWT.NONE);
-			item.setText(0, model.getTableName());
-			item.setText(1, Long.toString(model.getRowCount()));
+			final List<H2DatabaseModel> modelList = provider.getModelList();
+			H2DatabaseModel model;
+
+			for (int i = 0; i < modelList.size(); i++) {
+				model = modelList.get(i);
+				final TableItem item = new TableItem(table, SWT.NONE);
+				item.setText(0, model.getTableName());
+				item.setText(1, Long.toString(model.getRowCount()));
+			}
+		} catch (SQLException e) {
+			eventBroker.post("MESSAGE", e.getMessage());
+			e.printStackTrace();
+			LOGGER.severe(e.getMessage());
 		}
 	}
 }

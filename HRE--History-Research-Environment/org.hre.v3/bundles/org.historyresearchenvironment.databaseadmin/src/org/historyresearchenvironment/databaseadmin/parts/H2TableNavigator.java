@@ -46,7 +46,7 @@ import org.historyresearchenvironment.databaseadmin.providers.H2TableProvider;
  * Create a view part with a table. Create a column for each columns in the
  * catalog for the given table. Populate the table with data from H2.
  * 
- * @version 2018-05-20
+ * @version 2018-05-21
  * @author Michael Erichsen, &copy; History Research Environment Ltd., 2018
  *
  */
@@ -81,7 +81,8 @@ public class H2TableNavigator {
 	/**
 	 * Create contents of the view part.
 	 * 
-	 * @param parentC Shell
+	 * @param parentC
+	 *            Shell
 	 */
 	@PostConstruct
 	public void createControls(Composite parentC) {
@@ -146,8 +147,14 @@ public class H2TableNavigator {
 				final String fileName = dialog.getFilterPath() + "/" + shortName;
 
 				if (fileName != null) {
-					final H2TableProvider provider = new H2TableProvider(tableName);
-					final int rowCount = provider.importCsv(fileName);
+					int rowCount = 0;
+					try {
+						final H2TableProvider provider = new H2TableProvider(tableName);
+						rowCount = provider.importCsv(fileName);
+					} catch (SQLException e1) {
+						e1.printStackTrace();
+						eventBroker.post("MESSAGE", e1.getMessage());
+					}
 
 					eventBroker.post("MESSAGE", rowCount + " rows has been imported from " + fileName);
 				}
@@ -166,46 +173,47 @@ public class H2TableNavigator {
 			 * @param tableName
 			 */
 			private void exportCsv(String fileName, String tableName) {
-				final H2TableProvider provider = new H2TableProvider(tableName);
-				final List<H2TableModel> modelList = provider.getModelList();
-				final List<List<Object>> rows = provider.selectAll();
-
-				final SimpleResultSet rs = new SimpleResultSet();
-
-				for (int i = 0; i < provider.getCount(); i++) {
-					switch (modelList.get(i).getNumericType()) {
-					case HreDbadminConstants.DOUBLE:
-					case HreDbadminConstants.VARBINARY:
-					case HreDbadminConstants.SMALLINT:
-					case HreDbadminConstants.INTEGER:
-					case HreDbadminConstants.BIGINT:
-						rs.addColumn(modelList.get(i).getName(), modelList.get(i).getNumericType(),
-								modelList.get(i).getPrecision(), modelList.get(i).getScale());
-						break;
-					case HreDbadminConstants.VARCHAR:
-						rs.addColumn(modelList.get(i).getName(), modelList.get(i).getNumericType(), 0,
-								modelList.get(i).getScale());
-						break;
-					default:
-						rs.addColumn(modelList.get(i).getName(), modelList.get(i).getNumericType(), 0, 0);
-						break;
-					}
-				}
-
-				Object[] oa;
-
-				for (int i = 0; i < rows.size(); i++) {
-					oa = new Object[provider.getCount()];
-					for (int j = 0; j < oa.length; j++) {
-						oa[j] = rows.get(i).get(j);
-					}
-
-					rs.addRow(oa);
-				}
-
-				final Csv csvFile = new Csv();
-				csvFile.setFieldSeparatorWrite(";");
 				try {
+					final H2TableProvider provider = new H2TableProvider(tableName);
+					final List<H2TableModel> modelList = provider.getModelList();
+					final List<List<Object>> rows = provider.selectAll();
+
+					final SimpleResultSet rs = new SimpleResultSet();
+
+					for (int i = 0; i < provider.getCount(); i++) {
+						switch (modelList.get(i).getNumericType()) {
+						case HreDbadminConstants.DOUBLE:
+						case HreDbadminConstants.VARBINARY:
+						case HreDbadminConstants.SMALLINT:
+						case HreDbadminConstants.INTEGER:
+						case HreDbadminConstants.BIGINT:
+							rs.addColumn(modelList.get(i).getName(), modelList.get(i).getNumericType(),
+									modelList.get(i).getPrecision(), modelList.get(i).getScale());
+							break;
+						case HreDbadminConstants.VARCHAR:
+							rs.addColumn(modelList.get(i).getName(), modelList.get(i).getNumericType(), 0,
+									modelList.get(i).getScale());
+							break;
+						default:
+							rs.addColumn(modelList.get(i).getName(), modelList.get(i).getNumericType(), 0, 0);
+							break;
+						}
+					}
+
+					Object[] oa;
+
+					for (int i = 0; i < rows.size(); i++) {
+						oa = new Object[provider.getCount()];
+						for (int j = 0; j < oa.length; j++) {
+							oa[j] = rows.get(i).get(j);
+						}
+
+						rs.addRow(oa);
+					}
+
+					final Csv csvFile = new Csv();
+					csvFile.setFieldSeparatorWrite(";");
+
 					csvFile.write(fileName, rs, "UTF-8");
 					eventBroker.post("MESSAGE", "Table " + tableName + " has been exported to " + fileName);
 				} catch (final SQLException e) {
@@ -250,12 +258,19 @@ public class H2TableNavigator {
 			 */
 			@Override
 			public void widgetSelected(SelectionEvent e) {
-				final H2TableProvider provider = new H2TableProvider(tableName);
-				provider.deleteAll();
+				H2TableProvider provider;
+				try {
+					provider = new H2TableProvider(tableName);
+					provider.deleteAll();
 
-				eventBroker.post(HreDbadminConstants.DATABASE_UPDATE_TOPIC, "Dummy");
-				eventBroker.post("MESSAGE", "All rows have been deleted from " + tableName);
-				updateGui();
+					eventBroker.post(HreDbadminConstants.DATABASE_UPDATE_TOPIC, "Dummy");
+					eventBroker.post("MESSAGE", "All rows have been deleted from " + tableName);
+					updateGui();
+				} catch (SQLException e1) {
+					e1.printStackTrace();
+					eventBroker.post("MESSAGE", e1.getMessage());
+					LOGGER.severe(e1.getMessage());
+				}
 			}
 		});
 		btnEmptyTable.setText("Empty Table");
@@ -320,37 +335,45 @@ public class H2TableNavigator {
 			return;
 		}
 
-		final H2TableProvider provider = new H2TableProvider(tableName);
+		try {
+			final H2TableProvider provider = new H2TableProvider(tableName);
 
-		final int count = provider.getCount();
-		parent.setLayout(new GridLayout());
+			final int count = provider.getCount();
+			parent.setLayout(new GridLayout());
 
-		if (table.getColumnCount() == 0) {
-			final TableViewerColumn[] tvc = new TableViewerColumn[count];
-			final TableColumn[] tc = new TableColumn[count];
+			if (table.getColumnCount() == 0) {
+				final TableViewerColumn[] tvc = new TableViewerColumn[count];
+				final TableColumn[] tc = new TableColumn[count];
 
-			for (int i = 0; i < count; i++) {
-				tvc[i] = new TableViewerColumn(tableViewer, SWT.NONE);
-				tc[i] = tvc[i].getColumn();
-				tc[i].setWidth(100);
-				tc[i].setText(provider.getModelList().get(i).getName());
-			}
-		}
-
-		final List<List<Object>> rowList = provider.selectAll();
-
-		table.removeAll();
-
-		for (int i = 0; i < rowList.size(); i++) {
-			final TableItem item = new TableItem(table, SWT.NONE);
-			final List<Object> row = rowList.get(i);
-			for (int j = 0; j < row.size(); j++) {
-				if (row.get(j) != null) {
-					item.setText(j, (String) row.get(j));
-				} else {
-					item.setText(j, "");
+				for (int i = 0; i < count; i++) {
+					tvc[i] = new TableViewerColumn(tableViewer, SWT.NONE);
+					tc[i] = tvc[i].getColumn();
+					tc[i].setWidth(100);
+					tc[i].setText(provider.getModelList().get(i).getName());
 				}
 			}
+
+			List<List<Object>> rowList;
+
+			rowList = provider.selectAll();
+
+			table.removeAll();
+
+			for (int i = 0; i < rowList.size(); i++) {
+				final TableItem item = new TableItem(table, SWT.NONE);
+				final List<Object> row = rowList.get(i);
+				for (int j = 0; j < row.size(); j++) {
+					if (row.get(j) != null) {
+						item.setText(j, (String) row.get(j));
+					} else {
+						item.setText(j, "");
+					}
+				}
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			eventBroker.post("MESSAGE", e.getMessage());
+			LOGGER.severe(e.getMessage());
 		}
 	}
 }

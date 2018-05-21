@@ -1,5 +1,6 @@
 package org.historyresearchenvironment.databaseadmin.providers;
 
+import java.sql.SQLException;
 import java.sql.Statement;
 
 import org.historyresearchenvironment.databaseadmin.HreH2ConnectionPool;
@@ -7,7 +8,7 @@ import org.historyresearchenvironment.databaseadmin.HreH2ConnectionPool;
 /**
  * Create and open a new HRE project database
  * 
- * @version 2018-05-20
+ * @version 2018-05-21
  * @author Michael Erichsen, &copy; History Research Environment Ltd., 2018
  *
  */
@@ -161,7 +162,8 @@ public class NewDatabaseProvider extends AbstractHreProvider {
 			"ALTER TABLE PUBLIC.BIO_NAMES ADD PRIMARY KEY (RECORD_NUM);",
 			"ALTER TABLE PUBLIC.BIO_NOTEPADS ADD PRIMARY KEY (RECORD_NUM);",
 			"ALTER TABLE PUBLIC.BIO_PARENT_SETS ADD PRIMARY KEY (RECORD_NUM);",
-			"ALTER TABLE PUBLIC.BIOS ADD PRIMARY KEY (RECORD_NUM);", "ALTER TABLE PUBLIC.CITATIONS ADD PRIMARY KEY (RECORD_NUM);",
+			"ALTER TABLE PUBLIC.BIOS ADD PRIMARY KEY (RECORD_NUM);",
+			"ALTER TABLE PUBLIC.CITATIONS ADD PRIMARY KEY (RECORD_NUM);",
 			"ALTER TABLE PUBLIC.CITN_TYPE_DEFNS ADD PRIMARY KEY (RECORD_NUM);",
 			"ALTER TABLE PUBLIC.COMMIT_ITEMS ADD PRIMARY KEY (RECORD_NUM);",
 			"ALTER TABLE PUBLIC.COMMIT_LOGS ADD PRIMARY KEY (RECORD_NUM);",
@@ -253,7 +255,7 @@ public class NewDatabaseProvider extends AbstractHreProvider {
 			"ALTER TABLE PUBLIC.SENTENCE_SET_DEFNS ADD PRIMARY KEY (RECORD_NUM);",
 			"ALTER TABLE PUBLIC.SENTENCE_STYLE_DEFNS ADD PRIMARY KEY (RECORD_NUM);",
 			"ALTER TABLE PUBLIC.SENTENCE_TYPE_DEFNS ADD PRIMARY KEY (RECORD_NUM);",
-			"ALTER TABLE PUBLIC.SESSIONS ADD PRIMARY KEY (RECORD_NUM);", 
+			"ALTER TABLE PUBLIC.SESSIONS ADD PRIMARY KEY (RECORD_NUM);",
 			"ALTER TABLE PUBLIC.SEX_DEFNS ADD PRIMARY KEY (RECORD_NUM);",
 			"ALTER TABLE PUBLIC.SUBSET_BIO_NETWORK_DEFNS ADD PRIMARY KEY (RECORD_NUM);",
 			"ALTER TABLE PUBLIC.SUBSET_DEFNS ADD PRIMARY KEY (RECORD_NUM);",
@@ -291,7 +293,8 @@ public class NewDatabaseProvider extends AbstractHreProvider {
 			"ALTER TABLE PUBLIC.VIEWPOINT_ELEMENTS ADD PRIMARY KEY (RECORD_NUM);", };
 
 	/**
-	 * @param dbName Name of the database
+	 * @param dbName
+	 *            Name of the database
 	 */
 	public NewDatabaseProvider(String dbName) {
 		super();
@@ -300,23 +303,25 @@ public class NewDatabaseProvider extends AbstractHreProvider {
 
 	/**
 	 * Provide the data
+	 * 
+	 * @throws SQLException When failing
 	 */
-	public void provide() {
-		try {
-			HreH2ConnectionPool.createNew(dbName);
-			conn = HreH2ConnectionPool.getConnection();
-			stmt = conn.createStatement();
+	public void provide() throws SQLException {
+		// try {
+		HreH2ConnectionPool.createNew(dbName);
+		conn = HreH2ConnectionPool.getConnection();
+		stmt = conn.createStatement();
 
-			for (final String element : statementArray) {
-				stmt.execute(element);
-			}
-
-			stmt.close();
-			conn.close();
-
-		} catch (final Exception e) {
-			e.printStackTrace();
-			LOGGER.severe(e.getMessage());
+		for (final String element : statementArray) {
+			stmt.execute(element);
 		}
+
+		stmt.close();
+		conn.close();
+
+		// } catch (final Exception e) {
+		// e.printStackTrace();
+		// LOGGER.severe(e.getMessage());
+		// }
 	}
 }

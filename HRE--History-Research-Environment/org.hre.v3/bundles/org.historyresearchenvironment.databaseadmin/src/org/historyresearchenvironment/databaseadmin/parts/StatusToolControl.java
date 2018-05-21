@@ -12,6 +12,8 @@ import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.wb.swt.SWTResourceManager;
+import org.eclipse.swt.layout.GridLayout;
+import org.eclipse.swt.layout.GridData;
 
 /**
  * Status line field
@@ -34,12 +36,15 @@ public class StatusToolControl {
 	 */
 	@PostConstruct
 	public void createControls(Composite parent) {
+		parent.setLayout(new GridLayout(1, false));
 		textStatus = new Text(parent, SWT.NONE);
+		GridData gd_textStatus = new GridData(SWT.FILL, SWT.CENTER, false, false, 1, 1);
+		gd_textStatus.heightHint = 24;
+		gd_textStatus.widthHint = 1920;
+		textStatus.setLayoutData(gd_textStatus);
 		textStatus.setBackground(SWTResourceManager.getColor(SWT.COLOR_WHITE));
 		textStatus.setEditable(false);
-		textStatus.setSize(1000, 298);
-		textStatus.setText("                                                                               "
-				+ "                                                                                         ");
+		textStatus.setText("");
 	}
 
 	/**
