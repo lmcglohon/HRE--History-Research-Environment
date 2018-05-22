@@ -31,8 +31,7 @@ public class H2DatabaseProvider extends AbstractHreProvider implements IContentP
 	 *
 	 */
 	public H2DatabaseProvider() throws SQLException {
-		// try {
-		String dbName = preferences.get("DBNAME", "~/HRE");
+		String dbName = preferences.get("DBNAME", "~\\HRE");
 
 		LOGGER.info("Database name: " + dbName);
 
@@ -45,10 +44,6 @@ public class H2DatabaseProvider extends AbstractHreProvider implements IContentP
 			model = new H2DatabaseModel(rs.getString(1), rs.getLong(2));
 			modelList.add(model);
 		}
-		// } catch (final SQLException e) {
-		// e.printStackTrace();
-		// LOGGER.severe(e.getMessage());
-		// }
 	}
 
 	/**
@@ -57,5 +52,4 @@ public class H2DatabaseProvider extends AbstractHreProvider implements IContentP
 	public List<H2DatabaseModel> getModelList() {
 		return modelList;
 	}
-
 }

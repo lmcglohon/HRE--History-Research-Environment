@@ -4,6 +4,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 import org.historyresearchenvironment.databaseadmin.HreH2ConnectionPool;
+import org.osgi.service.prefs.BackingStoreException;
 
 /**
  * Create and open a new HRE project database
@@ -305,9 +306,9 @@ public class NewDatabaseProvider extends AbstractHreProvider {
 	 * Provide the data
 	 * 
 	 * @throws SQLException When failing
+	 * @throws BackingStoreException Preferences file access failure
 	 */
-	public void provide() throws SQLException {
-		// try {
+	public void provide() throws SQLException, BackingStoreException {
 		HreH2ConnectionPool.createNew(dbName);
 		conn = HreH2ConnectionPool.getConnection();
 		stmt = conn.createStatement();
@@ -318,10 +319,5 @@ public class NewDatabaseProvider extends AbstractHreProvider {
 
 		stmt.close();
 		conn.close();
-
-		// } catch (final Exception e) {
-		// e.printStackTrace();
-		// LOGGER.severe(e.getMessage());
-		// }
 	}
 }

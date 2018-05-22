@@ -2,6 +2,7 @@ package org.historyresearchenvironment.databaseadmin.handlers;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.logging.Logger;
 
 import javax.inject.Inject;
@@ -22,7 +23,7 @@ import org.osgi.service.prefs.Preferences;
 /**
  * Handler to open an existing database
  * 
- * @version 2018-05-20
+ * @version 2018-05-22
  * @author Michael Erichsen, &copy; History Research Environment Ltd., 2018
  *
  */
@@ -33,7 +34,7 @@ public class OpenHandler {
 	MApplication application;
 	@Inject
 	EModelService modelService;
-	
+
 	private final static Logger LOGGER = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
 	/**
@@ -41,9 +42,13 @@ public class OpenHandler {
 	 * 
 	 * @param shell
 	 *            The application shell
+	 * @throws SQLException
+	 *             When failed
+	 * @throws BackingStoreException
+	 *             Preferences data access failure
 	 */
 	@Execute
-	public void execute(Shell shell) {
+	public void execute(Shell shell) throws SQLException, BackingStoreException {
 		Preferences preferences = ConfigurationScope.INSTANCE.getNode("org.historyresearchenvironment.databaseadmin");
 		Connection conn = null;
 
@@ -58,11 +63,7 @@ public class OpenHandler {
 		preferences.put("DBNAME", dbName);
 		LOGGER.info("Database name: " + dbName);
 
-		try {
-			preferences.flush();
-		} catch (BackingStoreException e1) {
-			LOGGER.severe(e1.getMessage());
-		}
+		preferences.flush();
 
 		try {
 			conn = HreH2ConnectionPool.getConnection();
@@ -78,26 +79,21 @@ public class OpenHandler {
 			LOGGER.severe(e1.getMessage());
 		}
 
-		try {
-			conn = HreH2ConnectionPool.getConnection(dbName);
+		conn = HreH2ConnectionPool.getConnection(dbName);
 
-			if (conn != null) {
-				final PreparedStatement ps = conn
-						.prepareStatement("SELECT TABLE_NAME, ROW_COUNT_ESTIMATE FROM INFORMATION_SCHEMA.TABLES "
-								+ "WHERE TABLE_TYPE = 'TABLE' ORDER BY TABLE_NAME");
-				ps.executeQuery();
-				conn.close();
-			}
-
-			final MWindow window = (MWindow) modelService
-					.find("org.historyresearchenvironment.databaseadmin.v010.window.main", application);
-			window.setLabel("HRE H2 Database Administration - " + dbName);
-
-			eventBroker.post(HreDbadminConstants.DATABASE_UPDATE_TOPIC, dbName);
-			eventBroker.post("MESSAGE", "Database " + dbName + " has been opened");
-		} catch (final Exception e) {
-			eventBroker.post("MESSAGE", e.getMessage());
-			LOGGER.severe(e.getMessage());
+		if (conn != null) {
+			final PreparedStatement ps = conn
+					.prepareStatement("SELECT TABLE_NAME, ROW_COUNT_ESTIMATE FROM INFORMATION_SCHEMA.TABLES "
+							+ "WHERE TABLE_TYPE = 'TABLE' ORDER BY TABLE_NAME");
+			ps.executeQuery();
+			conn.close();
 		}
+
+		final MWindow window = (MWindow) modelService
+				.find("org.historyresearchenvironment.databaseadmin.v010.window.main", application);
+		window.setLabel("HRE H2 Database Administration - " + dbName);
+
+		eventBroker.post(HreDbadminConstants.DATABASE_UPDATE_TOPIC, dbName);
+		eventBroker.post("MESSAGE", "Database " + dbName + " has been opened");
 	}
 }

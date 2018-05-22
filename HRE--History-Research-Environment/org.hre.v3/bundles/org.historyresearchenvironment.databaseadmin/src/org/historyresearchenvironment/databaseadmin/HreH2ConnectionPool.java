@@ -13,7 +13,7 @@ import org.osgi.service.prefs.Preferences;
  * Singleton calls that instantiates a JDBC Connection Pool and returns a
  * connection to it.
  * 
- * @version 2018-05-20
+ * @version 2018-05-21
  * @author Michael Erichsen, &copy; History Research Environment Ltd., 2018
  *
  */
@@ -29,8 +29,10 @@ public class HreH2ConnectionPool {
 	 * 
 	 * @param dbName
 	 *            Name of the database
+	 * @throws BackingStoreException
+	 *             Error in preferences file access
 	 */
-	public static void createNew(String dbName) {
+	public static void createNew(String dbName) throws BackingStoreException {
 		connectionPool.dispose();
 		final String jdbcUrl = "jdbc:h2:" + dbName + ";TRACE_LEVEL_FILE=" + h2TraceLevel + ";TRACE_LEVEL_SYSTEM_OUT="
 				+ h2TraceLevel;
@@ -40,47 +42,36 @@ public class HreH2ConnectionPool {
 		connectionPool.setMaxConnections(500);
 		preferences.put("DBNAME", dbName);
 		LOGGER.info("Preferences dbname set to " + dbName);
-		try {
-			preferences.flush();
-			LOGGER.info("Preferences has been flushed");
-		} catch (BackingStoreException e) {
-			LOGGER.severe(e.getMessage());
-		}
+		preferences.flush();
+		LOGGER.info("Preferences has been flushed");
 	}
 
 	/**
 	 * Dispose the connection pool.
 	 */
 	public static void dispose() {
-		try {
-			connectionPool.dispose();
-		} catch (final Exception e) {
-			LOGGER.severe(e.getMessage());
-		}
+		connectionPool.dispose();
 		connectionPool = null;
 	}
 
 	/**
 	 * @return A JDBC connection
+	 * @throws SQLException
+	 *             When failing
 	 */
-	public static Connection getConnection() {
-		String dbName = preferences.get("DBNAME", "~/HRE");
+	public static Connection getConnection() throws SQLException {
+		String dbName = preferences.get("DBNAME", "~\\HRE");
 
-		try {
-			if (connectionPool == null) {
-				final String jdbcUrl = "jdbc:h2:" + dbName + ";IFEXISTS=TRUE;TRACE_LEVEL_FILE=" + h2TraceLevel
-						+ ";TRACE_LEVEL_SYSTEM_OUT=" + h2TraceLevel;
-				LOGGER.info("JDBC URL: " + jdbcUrl);
-				connectionPool = JdbcConnectionPool.create(jdbcUrl, "sa", "");
-				connectionPool.setMaxConnections(500);
-			}
-
-			LOGGER.info("Reusing connection pool");
-			return connectionPool.getConnection();
-		} catch (final SQLException e) {
-			LOGGER.severe(e.getMessage());
-			return null;
+		if (connectionPool == null) {
+			final String jdbcUrl = "jdbc:h2:" + dbName + ";IFEXISTS=TRUE;TRACE_LEVEL_FILE=" + h2TraceLevel
+					+ ";TRACE_LEVEL_SYSTEM_OUT=" + h2TraceLevel;
+			LOGGER.info("JDBC URL: " + jdbcUrl);
+			connectionPool = JdbcConnectionPool.create(jdbcUrl, "sa", "");
+			connectionPool.setMaxConnections(500);
 		}
+
+		LOGGER.info("Reusing connection pool");
+		return connectionPool.getConnection();
 	}
 
 	/**
@@ -89,21 +80,18 @@ public class HreH2ConnectionPool {
 	 * @param dbName
 	 *            Name of database
 	 * @return A JDBC Connection
+	 * @throws SQLException
+	 *             When failing
 	 */
-	public static Connection getConnection(String dbName) {
-		try {
-			final String jdbcUrl = "jdbc:h2:" + dbName + ";IFEXISTS=TRUE;TRACE_LEVEL_FILE=" + h2TraceLevel
-					+ ";TRACE_LEVEL_SYSTEM_OUT=" + h2TraceLevel;
-			LOGGER.info("JDBC URL: " + jdbcUrl);
-			connectionPool = JdbcConnectionPool.create(jdbcUrl, "sa", "");
-			connectionPool.setMaxConnections(500);
-			LOGGER.info("Connection pool has been created");
+	public static Connection getConnection(String dbName) throws SQLException {
+		final String jdbcUrl = "jdbc:h2:" + dbName + ";IFEXISTS=TRUE;TRACE_LEVEL_FILE=" + h2TraceLevel
+				+ ";TRACE_LEVEL_SYSTEM_OUT=" + h2TraceLevel;
+		LOGGER.info("JDBC URL: " + jdbcUrl);
+		connectionPool = JdbcConnectionPool.create(jdbcUrl, "sa", "");
+		connectionPool.setMaxConnections(500);
+		LOGGER.info("Connection pool has been created");
 
-			return connectionPool.getConnection();
-		} catch (final SQLException e) {
-			LOGGER.severe(e.getMessage());
-			return null;
-		}
+		return connectionPool.getConnection();
 	}
 
 	/**

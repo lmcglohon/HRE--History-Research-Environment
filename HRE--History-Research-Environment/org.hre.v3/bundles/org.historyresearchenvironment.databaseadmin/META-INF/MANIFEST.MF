@@ -5,8 +5,7 @@ Bundle-SymbolicName: org.historyresearchenvironment.databaseadmin;singleton:=tru
 Bundle-Version: 1.0.0.qualifier
 Bundle-Activator: org.historyresearchenvironment.databaseadmin.Activator
 Bundle-Vendor: History Research Environment Ltd.
-Require-Bundle: org.h2,
- org.eclipse.ui,
+Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
  org.eclipse.e4.ui.model.workbench,
  org.eclipse.e4.ui.workbench,
@@ -15,7 +14,8 @@ Require-Bundle: org.h2,
  org.eclipse.e4.core.contexts,
  org.eclipse.e4.core.services,
  org.eclipse.e4.core.commands,
- javax.annotation
+ javax.annotation,
+ org.h2;bundle-version="1.4.197"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy
 Automatic-Module-Name: org.historyresearchenvironment.databaseadmin

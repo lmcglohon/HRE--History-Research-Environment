@@ -143,7 +143,7 @@ public class H2DatabaseNavigator {
 	 */
 	private void updateGui() {
 		if ((dbName == null) || (dbName == ""))
-			dbName = preferences.get("DBNAME", "~/HRE");
+			dbName = preferences.get("DBNAME", "~\\HRE");
 
 		final MWindow window = (MWindow) modelService
 				.find("org.historyresearchenvironment.databaseadmin.v010.window.main", application);

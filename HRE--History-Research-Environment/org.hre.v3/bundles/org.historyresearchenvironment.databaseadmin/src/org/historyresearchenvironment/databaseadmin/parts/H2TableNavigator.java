@@ -144,7 +144,7 @@ public class H2TableNavigator {
 				dialog.open();
 
 				final String shortName = dialog.getFileName();
-				final String fileName = dialog.getFilterPath() + "/" + shortName;
+				final String fileName = dialog.getFilterPath() + "\\" + shortName;
 
 				if (fileName != null) {
 					int rowCount = 0;

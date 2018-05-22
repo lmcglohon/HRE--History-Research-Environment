@@ -50,7 +50,7 @@ public class NewHandler {
 	public void execute(Shell shell) {
 		final FileDialog dialog = new FileDialog(shell, SWT.SAVE);
 		dialog.setText("Create");
-		dialog.setFilterPath("C:/temp/");
+		dialog.setFilterPath("~\\");
 		final String[] filterExt = { "*.db", "*.*" };
 		dialog.setFilterExtensions(filterExt);
 		dialog.open();

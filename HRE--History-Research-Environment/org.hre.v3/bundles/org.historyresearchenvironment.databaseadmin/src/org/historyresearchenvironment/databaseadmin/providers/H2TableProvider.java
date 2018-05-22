@@ -49,16 +49,14 @@ public class H2TableProvider extends AbstractHreProvider implements IContentProv
 		this.tableName = tableName;
 		modelList = new ArrayList<>();
 
-		// try {
 		// Get number of columns in H2 table
 		ps = conn.prepareStatement(COUNT);
 		ps.setString(1, tableName);
 
 		rs = ps.executeQuery();
 
-		if (rs.next()) {
+		if (rs.next()) 
 			count = rs.getInt(1);
-		}
 
 		// Get names and other properties of columns in H2 tables
 		ps = conn.prepareStatement(COLUMNS);
@@ -90,10 +88,6 @@ public class H2TableProvider extends AbstractHreProvider implements IContentProv
 
 			modelList.add(model);
 		}
-		// } catch (final SQLException e) {
-		// e.printStackTrace();
-		// LOGGER.severe(e.getMessage());
-		// }
 	}
 
 	/**
@@ -107,17 +101,10 @@ public class H2TableProvider extends AbstractHreProvider implements IContentProv
 	 */
 	public void delete(int recordNum) throws SQLException {
 		final String DELETE = "DELETE FROM PUBLIC." + tableName + " WHERE RECORD_NUM = ?";
-		// try {
 		ps = conn.prepareStatement(DELETE);
 		ps.setInt(1, recordNum);
 		@SuppressWarnings("unused")
 		int rows = ps.executeUpdate();
-		// } catch (final SQLException e) {
-		// e.printStackTrace();
-		// LOGGER.severe(e.getMessage());
-		// return false;
-		// }
-		// return true;
 	}
 
 	/**
@@ -129,13 +116,8 @@ public class H2TableProvider extends AbstractHreProvider implements IContentProv
 	public void deleteAll() throws SQLException {
 		final String DELETEALL = "DELETE FROM PUBLIC." + tableName;
 
-		// try {
 		ps = conn.prepareStatement(DELETEALL);
 		ps.executeUpdate();
-		// } catch (final SQLException e) {
-		// e.printStackTrace();
-		// LOGGER.severe(e.getMessage());
-		// }
 	}
 
 	/**
@@ -169,13 +151,8 @@ public class H2TableProvider extends AbstractHreProvider implements IContentProv
 		final String IMPORTCSV = "INSERT INTO PUBLIC." + tableName + " (SELECT * from csvread('" + fileName + "'));";
 		int rowCount = 0;
 
-		// try {
 		ps = conn.prepareStatement(IMPORTCSV);
 		rowCount = ps.executeUpdate();
-		// } catch (final SQLException e) {
-		// e.printStackTrace();
-		// LOGGER.severe(e.getMessage());
-		// }
 		return rowCount;
 	}
 
@@ -224,15 +201,8 @@ public class H2TableProvider extends AbstractHreProvider implements IContentProv
 		sb.append("');");
 		final String INSERT = sb.toString();
 
-		// try {
 		ps = conn.prepareStatement(INSERT);
 		ps.executeUpdate();
-		// } catch (final SQLException e) {
-		// e.printStackTrace();
-		// LOGGER.severe(e.getMessage());
-		// return false;
-		// }
-		// return true;
 	}
 
 	/**
@@ -246,18 +216,8 @@ public class H2TableProvider extends AbstractHreProvider implements IContentProv
 	 *             When failing
 	 */
 	public void insertSet(List<List<H2TableModel>> rows) throws SQLException {
-		// Boolean success = false;
-
-		for (int i = 0; i < rows.size(); i++) {
+		for (int i = 0; i < rows.size(); i++) 
 			insert(rows.get(i));
-
-			// if (!success) {
-			// return success;
-			// }
-		}
-
-		// return true;
-
 	}
 
 	/**
@@ -327,7 +287,6 @@ public class H2TableProvider extends AbstractHreProvider implements IContentProv
 			return row;
 		}
 
-		// try {
 		final String SELECT = "SELECT * FROM PUBLIC." + tableName + " WHERE RECORD_NUM = ?";
 		ps = conn.prepareStatement(SELECT);
 		ps.setInt(1, recordNum);
@@ -375,10 +334,6 @@ public class H2TableProvider extends AbstractHreProvider implements IContentProv
 				}
 			}
 		}
-		// } catch (final SQLException e) {
-		// e.printStackTrace();
-		// LOGGER.severe(e.getMessage());
-		// }
 		return row;
 	}
 
@@ -393,7 +348,6 @@ public class H2TableProvider extends AbstractHreProvider implements IContentProv
 		rowList = new ArrayList<>();
 		String field = "";
 
-		// try {
 		final String SELECTALL = "SELECT * FROM PUBLIC." + tableName;
 		ps = conn.prepareStatement(SELECTALL);
 		rs = ps.executeQuery();
@@ -410,11 +364,6 @@ public class H2TableProvider extends AbstractHreProvider implements IContentProv
 			}
 			rowList.add(row);
 		}
-
-		// } catch (final SQLException e) {
-		// e.printStackTrace();
-		// LOGGER.severe(e.getMessage());
-		// }
 		return rowList;
 	}
 
@@ -448,14 +397,7 @@ public class H2TableProvider extends AbstractHreProvider implements IContentProv
 		sb.append("' WHERE RECORD_NUM='" + columns.get(0).getValue() + "';");
 
 		final String UPDATE = sb.toString();
-		// try {
 		ps = conn.prepareStatement(UPDATE);
 		ps.executeUpdate();
-		// } catch (final SQLException e) {
-		// e.printStackTrace();
-		// LOGGER.severe(e.getMessage());
-		// return false;
-		// }
-		// return true;
 	}
 }
