@@ -25,7 +25,7 @@ import org.osgi.service.prefs.Preferences;
 /**
  * Create a new HRE project database and open it
  * 
- * @version 2018-05-21
+ * @version 2018-05-24
  * @author Michael Erichsen, &copy; History Research Environment Ltd., 2018
  *
  */
@@ -84,9 +84,12 @@ public class NewHandler {
 			}
 
 			conn = HreH2ConnectionPool.getConnection(dbName);
-			final PreparedStatement ps = conn
-					.prepareStatement("SELECT TABLE_NAME, ROW_COUNT_ESTIMATE FROM INFORMATION_SCHEMA.TABLES "
-							+ "WHERE TABLE_TYPE = 'TABLE' ORDER BY TABLE_NAME");
+			// final PreparedStatement ps = conn
+			// .prepareStatement("SELECT TABLE_NAME, ROW_COUNT_ESTIMATE FROM
+			// INFORMATION_SCHEMA.TABLES "
+			// + "WHERE TABLE_TYPE = 'TABLE' ORDER BY TABLE_NAME");
+			final PreparedStatement ps = conn.prepareStatement("SELECT TABLE_NAME, 0 FROM INFORMATION_SCHEMA.TABLES "
+					+ "WHERE TABLE_TYPE = 'TABLE' ORDER BY TABLE_NAME");
 			ps.executeQuery();
 			conn.close();
 
@@ -98,7 +101,7 @@ public class NewHandler {
 			eventBroker.post("MESSAGE", "Database " + dbName + " has been opened");
 		} catch (final Exception e1) {
 			eventBroker.post("MESSAGE", e1.getMessage());
-			//			e1.printStackTrace();
+			// e1.printStackTrace();
 			LOGGER.severe(e1.getMessage());
 		}
 

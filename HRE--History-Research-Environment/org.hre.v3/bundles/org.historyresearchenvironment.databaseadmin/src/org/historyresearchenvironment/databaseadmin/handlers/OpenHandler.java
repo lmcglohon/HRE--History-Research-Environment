@@ -23,7 +23,7 @@ import org.osgi.service.prefs.Preferences;
 /**
  * Handler to open an existing database
  * 
- * @version 2018-05-22
+ * @version 2018-05-24
  * @author Michael Erichsen, &copy; History Research Environment Ltd., 2018
  *
  */
@@ -82,9 +82,12 @@ public class OpenHandler {
 		conn = HreH2ConnectionPool.getConnection(dbName);
 
 		if (conn != null) {
-			final PreparedStatement ps = conn
-					.prepareStatement("SELECT TABLE_NAME, ROW_COUNT_ESTIMATE FROM INFORMATION_SCHEMA.TABLES "
-							+ "WHERE TABLE_TYPE = 'TABLE' ORDER BY TABLE_NAME");
+			// final PreparedStatement ps = conn
+			// .prepareStatement("SELECT TABLE_NAME, ROW_COUNT_ESTIMATE FROM
+			// INFORMATION_SCHEMA.TABLES "
+			// + "WHERE TABLE_TYPE = 'TABLE' ORDER BY TABLE_NAME");
+			final PreparedStatement ps = conn.prepareStatement("SELECT TABLE_NAME, 0 FROM INFORMATION_SCHEMA.TABLES "
+					+ "WHERE TABLE_TYPE = 'TABLE' ORDER BY TABLE_NAME");
 			ps.executeQuery();
 			conn.close();
 		}

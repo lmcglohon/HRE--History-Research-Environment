@@ -101,7 +101,7 @@ public class H2DatabaseNavigator {
 
 		final TableViewerColumn tableViewerColumn = new TableViewerColumn(tableViewer, SWT.NONE);
 		final TableColumn tblclmnTableName = tableViewerColumn.getColumn();
-		tblclmnTableName.setWidth(240);
+		tblclmnTableName.setWidth(405);
 		tblclmnTableName.setText("Table Name");
 
 		// final TableViewerColumn tableViewerColumn_1 = new

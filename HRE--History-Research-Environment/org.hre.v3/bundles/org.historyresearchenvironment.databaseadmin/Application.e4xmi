@@ -20,6 +20,12 @@
         <children xsi:type="menu:HandledMenuItem" xmi:id="_6wlLjcgZEeSyMNYR5xypkQ" elementId="org.historyresearchenvironment.databaseadmin.v010.handleditem.quit" label="Quit" command="_6wlLfMgZEeSyMNYR5xypkQ"/>
       </children>
     </mainMenu>
+    <trimBars xmi:id="_ScGvoF9REeiqLbKBsuxXgA" elementId="org.historyresearchenvironment.databaseadmin.trimbar.0">
+      <children xsi:type="menu:ToolBar" xmi:id="_UevVwF9REeiqLbKBsuxXgA" elementId="org.historyresearchenvironment.databaseadmin.toolbar.0">
+        <children xsi:type="menu:HandledToolItem" xmi:id="_v0RjgF9REeiqLbKBsuxXgA" elementId="org.historyresearchenvironment.databaseadmin.handledtoolitem.new" accessibilityPhrase="New" label="New" iconURI="platform:/plugin/org.historyresearchenvironment.databaseadmin/icons/project-development-new-template.png" tooltip="New" command="_B6t9cDwREeihivIHchfCqw"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_2tu5MF9SEeiqLbKBsuxXgA" elementId="org.historyresearchenvironment.databaseadmin.handledtoolitem.open" accessibilityPhrase="Open" label="Open" iconURI="platform:/plugin/org.historyresearchenvironment.databaseadmin/icons/project-open-2.png" tooltip="Open" command="_6wlLgMgZEeSyMNYR5xypkQ"/>
+      </children>
+    </trimBars>
     <trimBars xmi:id="_JRwsMEDiEeiO8_BtlHYUrg" elementId="org.historyresearchenvironment.databaseadmin.v010.trimbar.0" side="Bottom">
       <children xsi:type="menu:ToolControl" xmi:id="_Tkk_0EDiEeiO8_BtlHYUrg" elementId="org.historyresearchenvironment.databaseadmin.v010.toolcontrol.0" contributionURI="bundleclass://org.historyresearchenvironment.databaseadmin/org.historyresearchenvironment.databaseadmin.parts.StatusToolControl"/>
     </trimBars>
