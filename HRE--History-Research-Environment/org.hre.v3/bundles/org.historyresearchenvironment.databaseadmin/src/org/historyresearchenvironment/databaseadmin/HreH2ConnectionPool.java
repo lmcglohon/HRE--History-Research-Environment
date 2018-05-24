@@ -13,7 +13,7 @@ import org.osgi.service.prefs.Preferences;
  * Singleton calls that instantiates a JDBC Connection Pool and returns a
  * connection to it.
  * 
- * @version 2018-05-21
+ * @version 2018-05-24
  * @author Michael Erichsen, &copy; History Research Environment Ltd., 2018
  *
  */
@@ -21,7 +21,7 @@ public class HreH2ConnectionPool {
 	private static JdbcConnectionPool connectionPool = null;
 	private static Preferences preferences = ConfigurationScope.INSTANCE
 			.getNode("org.historyresearchenvironment.databaseadmin");
-	private static int h2TraceLevel = preferences.getInt("H2TRACELEVEL", 2);
+	private static int h2TraceLevel = preferences.getInt("H2TRACELEVEL", 1);
 	private final static Logger LOGGER = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
 	/**
@@ -59,7 +59,7 @@ public class HreH2ConnectionPool {
 	 * @throws SQLException
 	 *             When failing
 	 */
-	public static Connection getConnection() throws SQLException {
+	public static Connection getConnection() throws SQLException  {
 		String dbName = preferences.get("DBNAME", "~\\HRE");
 
 		if (connectionPool == null) {

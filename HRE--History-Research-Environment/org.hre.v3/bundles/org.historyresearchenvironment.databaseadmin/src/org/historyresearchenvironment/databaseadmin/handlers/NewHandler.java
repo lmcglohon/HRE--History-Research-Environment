@@ -3,6 +3,7 @@ package org.historyresearchenvironment.databaseadmin.handlers;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.logging.Logger;
 
 import javax.inject.Inject;
@@ -45,9 +46,10 @@ public class NewHandler {
 	 * 
 	 * @param shell
 	 *            The application shell
+	 * @throws SQLException When failing
 	 */
 	@Execute
-	public void execute(Shell shell) {
+	public void execute(Shell shell) throws SQLException {
 		final FileDialog dialog = new FileDialog(shell, SWT.SAVE);
 		dialog.setText("Create");
 		dialog.setFilterPath("~\\");
@@ -57,7 +59,7 @@ public class NewHandler {
 
 		final String shortName = dialog.getFileName();
 		final String[] parts = shortName.split("\\.");
-		final String dbName = dialog.getFilterPath() + "/" + parts[0];
+		final String dbName = dialog.getFilterPath() + "\\" + parts[0];
 
 		Preferences preferences = ConfigurationScope.INSTANCE.getNode("org.historyresearchenvironment.databaseadmin");
 		preferences.put("DBNAME", dbName);

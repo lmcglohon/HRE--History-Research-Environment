@@ -1,6 +1,7 @@
 package org.historyresearchenvironment.databaseadmin.providers;
 
 import java.sql.Connection;
+import java.sql.SQLException;
 import java.util.logging.Logger;
 
 import org.eclipse.core.runtime.preferences.ConfigurationScope;
@@ -10,7 +11,7 @@ import org.osgi.service.prefs.Preferences;
 /**
  * Abstract superclass for providers
  * 
- * @version 2018-05-20
+ * @version 2018-05-24
  * @author Michael Erichsen, &copy; History Research Environment Ltd., 2018
  *
  */
@@ -22,16 +23,13 @@ public abstract class AbstractHreProvider {
 
 	/**
 	 * Constructor
+	 * 
+	 * @throws SQLException
+	 *             When failed
 	 *
 	 */
-	public AbstractHreProvider() {
+	public AbstractHreProvider() throws SQLException {
 		super();
-
-		try {
-			conn = HreH2ConnectionPool.getConnection();
-		} catch (final Exception e) {
-			e.printStackTrace();
-			LOGGER.severe(e.getMessage());
-		}
+		conn = HreH2ConnectionPool.getConnection();
 	}
 }

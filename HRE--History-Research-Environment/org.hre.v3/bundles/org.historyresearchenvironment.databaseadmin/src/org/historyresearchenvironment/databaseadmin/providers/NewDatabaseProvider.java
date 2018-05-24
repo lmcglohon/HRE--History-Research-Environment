@@ -9,7 +9,7 @@ import org.osgi.service.prefs.BackingStoreException;
 /**
  * Create and open a new HRE project database
  * 
- * @version 2018-05-21
+ * @version 2018-05-24
  * @author Michael Erichsen, &copy; History Research Environment Ltd., 2018
  *
  */
@@ -294,10 +294,12 @@ public class NewDatabaseProvider extends AbstractHreProvider {
 			"ALTER TABLE PUBLIC.VIEWPOINT_ELEMENTS ADD PRIMARY KEY (RECORD_NUM);", };
 
 	/**
-	 * @param dbName
-	 *            Name of the database
+	 * Constructor
+	 *
+	 * @param dbName Name of the new database
+	 * @throws SQLException When failing
 	 */
-	public NewDatabaseProvider(String dbName) {
+	public NewDatabaseProvider(String dbName) throws SQLException {
 		super();
 		this.dbName = dbName;
 	}

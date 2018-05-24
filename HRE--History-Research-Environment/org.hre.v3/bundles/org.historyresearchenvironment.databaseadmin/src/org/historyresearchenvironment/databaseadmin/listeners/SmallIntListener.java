@@ -5,9 +5,9 @@ import org.eclipse.swt.widgets.Listener;
 import org.eclipse.swt.widgets.Text;
 
 /**
- * Limit SMALLINT fields to legel values
+ * Limit SMALLINT fields to legal values
  * 
- * @version 2018-05-21
+ * @version 2018-05-24
  * @author Michael Erichsen, &copy; History Research Environment Ltd., 2018
  *
  */

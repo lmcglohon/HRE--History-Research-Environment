@@ -166,7 +166,6 @@ public class H2DatabaseNavigator {
 			}
 		} catch (SQLException e) {
 			eventBroker.post("MESSAGE", e.getMessage());
-			e.printStackTrace();
 			LOGGER.severe(e.getMessage());
 		}
 	}

@@ -1,7 +1,7 @@
 /**
  * Visual view parts of the Eclipse RCP application
  * 
- * @version 0.0.5
+ * @version 2014-05-24
  * @author Michael Erichsen, &copy; History Research Environment Ltd., 2018
  *
  */
