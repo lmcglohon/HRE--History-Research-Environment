@@ -151,16 +151,14 @@ public class H2TableNavigator {
 					try {
 						final H2TableProvider provider = new H2TableProvider(tableName);
 						rowCount = provider.importCsv(fileName);
+						eventBroker.post("MESSAGE", rowCount + " rows has been imported from " + fileName);
+						eventBroker.post(HreDbadminConstants.DATABASE_UPDATE_TOPIC, "Dummy");
+						updateGui();
 					} catch (SQLException e1) {
 						e1.printStackTrace();
 						eventBroker.post("MESSAGE", e1.getMessage());
 					}
-
-					eventBroker.post("MESSAGE", rowCount + " rows has been imported from " + fileName);
 				}
-
-				eventBroker.post(HreDbadminConstants.DATABASE_UPDATE_TOPIC, "Dummy");
-				updateGui();
 			}
 		});
 		btnImport.setText("Import Table...");
@@ -212,7 +210,7 @@ public class H2TableNavigator {
 					}
 
 					final Csv csvFile = new Csv();
-					csvFile.setFieldSeparatorWrite(";");
+					csvFile.setFieldSeparatorWrite(",");
 
 					csvFile.write(fileName, rs, "UTF-8");
 					eventBroker.post("MESSAGE", "Table " + tableName + " has been exported to " + fileName);
