@@ -3,13 +3,12 @@ package org.historyresearchenvironment.databaseadmin.models;
 /**
  * Model for the H2DatabaseNavigator
  * 
- * @version 2018-05-19
+ * @version 2018-05-24
  * @author Michael Erichsen, &copy; History Research Environment Ltd., 2018
  *
  */
 public class H2DatabaseModel {
 	private String tableName;
-
 	private long rowCount;
 
 	/**

@@ -49,7 +49,7 @@ import org.historyresearchenvironment.databaseadmin.providers.H2TableProvider;
 /**
  * Dynamically create an editor with the fields in the database catalog.
  * 
- * @version 2018-05-21
+ * @version 2018-05-24
  * @author Michael Erichsen, &copy; History Research Environment Ltd., 2018
  *
  */
@@ -109,6 +109,11 @@ public class H2TableEditor {
 				List<Object> row;
 				try {
 					row = provider.select(recordNum);
+
+					if (row.size() == 0) {
+						eventBroker.post("MESSAGE", "Record " + recordNum + " does not exist");
+						return;
+					}
 
 					for (int i = 0; i < lineList.size(); i++) {
 						Object lineObject = lineList.get(i);

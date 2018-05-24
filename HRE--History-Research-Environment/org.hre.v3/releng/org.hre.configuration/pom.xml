@@ -21,7 +21,6 @@
 			<url>${oxygen-repo.url}</url>
 			<layout>p2</layout>
 		</repository>
-
 	</repositories>
 
 	<build>

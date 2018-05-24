@@ -15,7 +15,14 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.e4.core.services,
  org.eclipse.e4.core.commands,
  javax.annotation,
- org.h2;bundle-version="1.4.197"
+ org.h2
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy
 Automatic-Module-Name: org.historyresearchenvironment.databaseadmin
+Export-Package: org.eclipse.wb.swt,
+ org.historyresearchenvironment.databaseadmin,
+ org.historyresearchenvironment.databaseadmin.handlers,
+ org.historyresearchenvironment.databaseadmin.listeners,
+ org.historyresearchenvironment.databaseadmin.models,
+ org.historyresearchenvironment.databaseadmin.parts,
+ org.historyresearchenvironment.databaseadmin.providers

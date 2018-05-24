@@ -37,7 +37,7 @@ import org.osgi.service.prefs.Preferences;
 /**
  * Create a view part with all tables in the database
  * 
- * @version 2018-05-21
+ * @version 2018-05-24
  * @author Michael Erichsen, &copy; History Research Environment Ltd., 2018
  *
  */
@@ -104,10 +104,11 @@ public class H2DatabaseNavigator {
 		tblclmnTableName.setWidth(240);
 		tblclmnTableName.setText("Table Name");
 
-		final TableViewerColumn tableViewerColumn_1 = new TableViewerColumn(tableViewer, SWT.NONE);
-		final TableColumn tblclmnRowCount = tableViewerColumn_1.getColumn();
-		tblclmnRowCount.setWidth(70);
-		tblclmnRowCount.setText("Row Count");
+		// final TableViewerColumn tableViewerColumn_1 = new
+		// TableViewerColumn(tableViewer, SWT.NONE);
+		// final TableColumn tblclmnRowCount = tableViewerColumn_1.getColumn();
+		// tblclmnRowCount.setWidth(70);
+		// tblclmnRowCount.setText("Row Count");
 
 		updateGui();
 	}

@@ -33,14 +33,14 @@ Research Environment, Ltd.
       <import plugin="org.eclipse.e4.core.services"/>
       <import plugin="org.eclipse.e4.core.commands"/>
       <import plugin="javax.annotation"/>
-      <import plugin="org.h2" version="1.4.197" match="greaterOrEqual"/>
+      <import plugin="org.h2"/>
    </requires>
 
    <plugin
          id="org.historyresearchenvironment.databaseadmin"
          download-size="0"
          install-size="0"
-         version="1.0.0.qualifier"
+         version="0.0.0"
          unpack="false"/>
 
 </feature>
