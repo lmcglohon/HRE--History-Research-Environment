@@ -1,4 +1,4 @@
-This is the first iteration of the HRE DB Admin tool.
+This is an HRE DB Admin tool.
 
 It includes executable programs for Linux, Mac and Windows, which reside at 
 
