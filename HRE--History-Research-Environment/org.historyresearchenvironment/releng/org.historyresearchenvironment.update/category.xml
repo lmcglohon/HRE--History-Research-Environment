@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/org.historyresearchenvironment.client.feature_0.1.0.qualifier.jar" id="org.historyresearchenvironment.client.feature" version="0.1.0.qualifier">
+      <category name="historyresearchenvironment"/>
+   </feature>
+   <category-def name="historyresearchenvironment" label="History Research Environment"/>
+</site>
