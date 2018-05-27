@@ -17,6 +17,7 @@
 
     <modules>
         <module>org.historyresearchenvironment.update</module>
+        <module>org.historyresearchenvironment.client.product</module>
     </modules>
 </project>
 

@@ -16,6 +16,10 @@
                name="applicationCSS"
                value="platform:/plugin/org.historyresearchenvironment.client/css/default.css">
          </property>
+         <property
+               name="appName"
+               value="org.historyresearchenvironment.client">
+         </property>
       </product>
    </extension>
 
