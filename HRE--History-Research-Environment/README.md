@@ -1,4 +1,4 @@
-This is an HRE DB Admin tool.
+This is a skeleton of HRE V0.1 and also an HRE DB Admin tool.
 
 It includes executable programs for Linux, Mac and Windows, which reside at 
 
@@ -20,6 +20,6 @@ It should reply
 
 JAVA_HOME=C:\Program Files\Java\jdk1.8.0_141
 
-Then HREDBADMIN should be able to find Java.
+Then the executable should be able to find Java.
 
 HREDBADMIN starts up blank, but can create an empty HRE H2 database for you.

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<application:Application xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:advanced="http://www.eclipse.org/ui/2010/UIModel/application/ui/advanced" xmlns:application="http://www.eclipse.org/ui/2010/UIModel/application" xmlns:basic="http://www.eclipse.org/ui/2010/UIModel/application/ui/basic" xmlns:menu="http://www.eclipse.org/ui/2010/UIModel/application/ui/menu" xmi:id="_6wlLcMgZEeSyMNYR5xypkQ" elementId="org.historyresearchenvironment.databaseadmin.application" bindingContexts="_6wlLecgZEeSyMNYR5xypkQ">
+  <children xsi:type="basic:TrimmedWindow" xmi:id="_6wlLccgZEeSyMNYR5xypkQ" elementId="org.historyresearchenvironment.databaseadmin.v010.window.main" label="HRE H2 Database Administration">
+    <children xsi:type="advanced:PerspectiveStack" xmi:id="_CRJ1kDwTEeihivIHchfCqw" elementId="org.historyresearchenvironment.databaseadmin.v010.perspectivestack.0">
+      <children xsi:type="advanced:Perspective" xmi:id="_C9JY4DwTEeihivIHchfCqw" elementId="org.historyresearchenvironment.databaseadmin.v010.perspective.databasemanagement" label="Database Management">
+        <children xsi:type="basic:PartSashContainer" xmi:id="_Gts5YDwTEeihivIHchfCqw" elementId="org.historyresearchenvironment.databaseadmin.v010.partsashcontainer.0" horizontal="true">
+          <children xsi:type="basic:PartStack" xmi:id="_H65FQDwTEeihivIHchfCqw" elementId="org.historyresearchenvironment.databaseadmin.v010.partstack.0" containerData="350">
+            <children xsi:type="basic:Part" xmi:id="_JF-_YDwTEeihivIHchfCqw" elementId="org.historyresearchenvironment.databaseadmin.v010.part.databasetables" contributionURI="bundleclass://org.historyresearchenvironment.databaseadmin/org.historyresearchenvironment.databaseadmin.parts.H2DatabaseNavigator" label="Database Tables"/>
+          </children>
+          <children xsi:type="basic:PartStack" xmi:id="_f3XFcDwTEeihivIHchfCqw" elementId="org.historyresearchenvironment.databaseadmin.v010.partstack.1" containerData="650">
+            <children xsi:type="basic:Part" xmi:id="_7Cy8ADwTEeihivIHchfCqw" elementId="org.historyresearchenvironment.databaseadmin.v010.part.welcome" contributionURI="bundleclass://org.historyresearchenvironment.databaseadmin/org.historyresearchenvironment.databaseadmin.parts.WelcomePart" label="Welcome"/>
+          </children>
+        </children>
+      </children>
+    </children>
+    <mainMenu xmi:id="_6wlLicgZEeSyMNYR5xypkQ" elementId="org.eclipse.ui.main.menu">
+      <children xsi:type="menu:Menu" xmi:id="_6wlLisgZEeSyMNYR5xypkQ" elementId="file" label="File">
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_S5Dt4DwREeihivIHchfCqw" elementId="org.historyresearchenvironment.databaseadmin.v010.handledmenuitem.newhreproject" label="New Project..." command="_B6t9cDwREeihivIHchfCqw"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_6wlLi8gZEeSyMNYR5xypkQ" elementId="org.historyresearchenvironment.databaseadmin.v010.handleditem.file.open" label="Open Project" iconURI="" command="_6wlLgMgZEeSyMNYR5xypkQ"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_6wlLjcgZEeSyMNYR5xypkQ" elementId="org.historyresearchenvironment.databaseadmin.v010.handleditem.quit" label="Quit" command="_6wlLfMgZEeSyMNYR5xypkQ"/>
+      </children>
+    </mainMenu>
+    <trimBars xmi:id="_ScGvoF9REeiqLbKBsuxXgA" elementId="org.historyresearchenvironment.databaseadmin.trimbar.0">
+      <children xsi:type="menu:ToolBar" xmi:id="_UevVwF9REeiqLbKBsuxXgA" elementId="org.historyresearchenvironment.databaseadmin.toolbar.0">
+        <children xsi:type="menu:HandledToolItem" xmi:id="_v0RjgF9REeiqLbKBsuxXgA" elementId="org.historyresearchenvironment.databaseadmin.handledtoolitem.new" accessibilityPhrase="New" label="New" iconURI="platform:/plugin/org.historyresearchenvironment.databaseadmin/icons/project-development-new-template.png" tooltip="New" command="_B6t9cDwREeihivIHchfCqw"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_2tu5MF9SEeiqLbKBsuxXgA" elementId="org.historyresearchenvironment.databaseadmin.handledtoolitem.open" accessibilityPhrase="Open" label="Open" iconURI="platform:/plugin/org.historyresearchenvironment.databaseadmin/icons/project-open-2.png" tooltip="Open" command="_6wlLgMgZEeSyMNYR5xypkQ"/>
+      </children>
+    </trimBars>
+    <trimBars xmi:id="_JRwsMEDiEeiO8_BtlHYUrg" elementId="org.historyresearchenvironment.databaseadmin.v010.trimbar.0" side="Bottom">
+      <children xsi:type="menu:ToolControl" xmi:id="_Tkk_0EDiEeiO8_BtlHYUrg" elementId="org.historyresearchenvironment.databaseadmin.v010.toolcontrol.0" contributionURI="bundleclass://org.historyresearchenvironment.databaseadmin/org.historyresearchenvironment.databaseadmin.parts.StatusToolControl"/>
+    </trimBars>
+  </children>
+  <handlers xmi:id="_6wlLfcgZEeSyMNYR5xypkQ" elementId="org.historyresearchenvironment.databaseadmin.v010.handler.quitCommand" contributionURI="bundleclass://org.historyresearchenvironment.databaseadmin/org.historyresearchenvironment.databaseadmin.handlers.QuitHandler" command="_6wlLfMgZEeSyMNYR5xypkQ"/>
+  <handlers xmi:id="_6wlLgcgZEeSyMNYR5xypkQ" elementId="org.historyresearchenvironment.databaseadmin.v010.handler.openCommand" contributionURI="bundleclass://org.historyresearchenvironment.databaseadmin/org.historyresearchenvironment.databaseadmin.handlers.OpenHandler" command="_6wlLgMgZEeSyMNYR5xypkQ"/>
+  <handlers xmi:id="_IF7igDwREeihivIHchfCqw" elementId="org.historyresearchenvironment.databaseadmin.v010.handler.0" contributionURI="bundleclass://org.historyresearchenvironment.databaseadmin/org.historyresearchenvironment.databaseadmin.handlers.NewHandler" command="_B6t9cDwREeihivIHchfCqw"/>
+  <handlers xmi:id="___QTMD25EeiwoNtP4CSDkA" elementId="org.historyresearchenvironment.databaseadmin.v010.handler.1" contributionURI="bundleclass://org.historyresearchenvironment.databaseadmin/org.historyresearchenvironment.databaseadmin.handlers.TableNavigatorHandler" command="_BlU5ID26EeiwoNtP4CSDkA"/>
+  <handlers xmi:id="_dOnTUD-9EeiTgPNMPWgsfw" elementId="org.historyresearchenvironment.databaseadmin.v010.handler.2" contributionURI="bundleclass://org.historyresearchenvironment.databaseadmin/org.historyresearchenvironment.databaseadmin.handlers.TableEditorHandler" command="_YPZnUD-9EeiTgPNMPWgsfw"/>
+  <bindingTables xmi:id="_6wlLfsgZEeSyMNYR5xypkQ" elementId="org.historyresearchenvironment.databaseadmin.v010.bindingtable" bindingContext="_6wlLecgZEeSyMNYR5xypkQ">
+    <bindings xmi:id="_6wlLf8gZEeSyMNYR5xypkQ" elementId="org.historyresearchenvironment.databaseadmin.v010.keybinding.m1q" keySequence="M1+Q" command="_6wlLfMgZEeSyMNYR5xypkQ"/>
+    <bindings xmi:id="_6wlLgsgZEeSyMNYR5xypkQ" elementId="org.historyresearchenvironment.databaseadmin.v010.keybinding.m1o" keySequence="M1+O" command="_6wlLgMgZEeSyMNYR5xypkQ"/>
+    <bindings xmi:id="_6wlLhcgZEeSyMNYR5xypkQ" elementId="org.historyresearchenvironment.databaseadmin.v010.keybinding.m1s" keySequence="M1+N" command="_B6t9cDwREeihivIHchfCqw"/>
+  </bindingTables>
+  <rootContext xmi:id="_6wlLecgZEeSyMNYR5xypkQ" elementId="org.eclipse.ui.contexts.dialogAndWindow" name="In Dialog and Windows">
+    <children xmi:id="_6wlLesgZEeSyMNYR5xypkQ" elementId="org.eclipse.ui.contexts.window" name="In Windows"/>
+    <children xmi:id="_6wlLe8gZEeSyMNYR5xypkQ" elementId="org.eclipse.ui.contexts.dialog" name="In Dialogs"/>
+  </rootContext>
+  <commands xmi:id="_6wlLfMgZEeSyMNYR5xypkQ" elementId="org.eclipse.ui.file.exit" commandName="quitCommand"/>
+  <commands xmi:id="_6wlLgMgZEeSyMNYR5xypkQ" elementId="org.eclipse.ui.file.open" commandName="opendatabaseCommand"/>
+  <commands xmi:id="_B6t9cDwREeihivIHchfCqw" elementId="org.historyresearchenvironment.databaseadmin.v010.command.newcommand" commandName="newdatabaseCommand"/>
+  <commands xmi:id="_BlU5ID26EeiwoNtP4CSDkA" elementId="org.historyresearchenvironment.databaseadmin.v010.command.opentablenavigatorcommand" commandName="openTableNavigatorCommand"/>
+  <commands xmi:id="_YPZnUD-9EeiTgPNMPWgsfw" elementId="org.historyresearchenvironment.databaseadmin.v010.command.opentableeditorcommand" commandName="openTableEditorCommand"/>
+  <addons xmi:id="_6wlLcsgZEeSyMNYR5xypkQ" elementId="org.eclipse.e4.core.commands.service" contributionURI="bundleclass://org.eclipse.e4.core.commands/org.eclipse.e4.core.commands.CommandServiceAddon"/>
+  <addons xmi:id="_6wlLc8gZEeSyMNYR5xypkQ" elementId="org.eclipse.e4.ui.contexts.service" contributionURI="bundleclass://org.eclipse.e4.ui.services/org.eclipse.e4.ui.services.ContextServiceAddon"/>
+  <addons xmi:id="_6wlLdMgZEeSyMNYR5xypkQ" elementId="org.eclipse.e4.ui.bindings.service" contributionURI="bundleclass://org.eclipse.e4.ui.bindings/org.eclipse.e4.ui.bindings.BindingServiceAddon"/>
+  <addons xmi:id="_6wlLdcgZEeSyMNYR5xypkQ" elementId="org.eclipse.e4.ui.workbench.commands.model" contributionURI="bundleclass://org.eclipse.e4.ui.workbench/org.eclipse.e4.ui.internal.workbench.addons.CommandProcessingAddon"/>
+  <addons xmi:id="_6wlLdsgZEeSyMNYR5xypkQ" elementId="org.eclipse.e4.ui.workbench.handler.model" contributionURI="bundleclass://org.eclipse.e4.ui.workbench/org.eclipse.e4.ui.internal.workbench.addons.HandlerProcessingAddon"/>
+  <addons xmi:id="_6wlLd8gZEeSyMNYR5xypkQ" elementId="org.eclipse.e4.ui.workbench.contexts.model" contributionURI="bundleclass://org.eclipse.e4.ui.workbench/org.eclipse.e4.ui.internal.workbench.addons.ContextProcessingAddon"/>
+  <addons xmi:id="_6wlLeMgZEeSyMNYR5xypkQ" elementId="org.eclipse.e4.ui.workbench.bindings.model" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.swt/org.eclipse.e4.ui.workbench.swt.util.BindingProcessingAddon"/>
+</application:Application>
