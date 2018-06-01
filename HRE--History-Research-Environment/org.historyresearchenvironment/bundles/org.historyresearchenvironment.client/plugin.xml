@@ -22,5 +22,37 @@
          </property>
       </product>
    </extension>
+   <extension
+         point="org.eclipse.e4.ui.css.swt.theme">
+      <theme
+            basestylesheeturi="css/default.css"
+            id="org.historyresearchenvironment.client.theme1s"
+            label="Default Theme">
+      </theme>
+   </extension>
+   <extension
+         point="com.opcoach.e4.preferences.e4PreferencePages">
+      <page
+            class="org.historyresearchenvironment.client.preferences.HreClientPreferencesPage"
+            id="org.historyresearchenvironment.clientpreferences"
+            name="HRE Client Preferences">
+      </page>
+      <page
+            class="org.historyresearchenvironment.client.preferences.HreUserPreferencesPage"
+            id="org.historyresearchenvironment.client.userpreferences"
+            name="HRE User Preferences">
+      </page>
+      <page
+            class="org.historyresearchenvironment.client.preferences.HREServerPreferencesPage"
+            id="org.historyresearchenvironment.serverpreferences"
+            name="HRE Server Preferences">
+      </page>
+   </extension>
+   <extension
+         point="org.eclipse.core.runtime.preferences">
+      <initializer
+            class="org.historyresearchenvironment.client.preferences.DefaultValuesInitializer">
+      </initializer>
+   </extension>
 
 </plugin>

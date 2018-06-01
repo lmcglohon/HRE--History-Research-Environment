@@ -3,10 +3,10 @@ package org.historyresearchenvironment.client.handlers;
 
 import org.eclipse.e4.core.di.annotations.Execute;
 import org.eclipse.swt.widgets.Shell;
-import org.historyresearchenvironment.dialogs.GUI_ProjectOpenDialog;
+import org.historyresearchenvironment.client.dialogs.GUI_ProjectOpenDialog;
 
 /**
- * @version 28. maj 2018
+ * @version 1. jun. 2018
  * @author Michael Erichsen, &copy; History Research Environment Ltd., 2018
  *
  */

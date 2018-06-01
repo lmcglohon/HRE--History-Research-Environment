@@ -17,6 +17,7 @@
 
 	<modules>
 		<module>org.historyresearchenvironment.client.feature</module>
+		
 	</modules>
 </project>
 
