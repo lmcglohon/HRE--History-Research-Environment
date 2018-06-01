@@ -75,24 +75,50 @@ public class ProjectListPart {
 		Menu menu = new Menu(table);
 		table.setMenu(menu);
 
+		MenuItem mntmOpen = new MenuItem(menu, SWT.NONE);
+		mntmOpen.addSelectionListener(new SelectionAdapter() {
+			/*
+			 * (non-Javadoc)
+			 * 
+			 * @see
+			 * org.eclipse.swt.events.SelectionAdapter#widgetSelected(org.eclipse.swt.events
+			 * .SelectionEvent)
+			 */
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				ParameterizedCommand saveCommand = commandService
+						.createCommand("org.eclipse.ui.file.open", null);
+				handlerService.executeHandler(saveCommand);
+			}
+		});
+		mntmOpen.setText("Open...");
+
 		MenuItem mntmNew = new MenuItem(menu, SWT.NONE);
 		mntmNew.addSelectionListener(new SelectionAdapter() {
+			/*
+			 * (non-Javadoc)
+			 * 
+			 * @see
+			 * org.eclipse.swt.events.SelectionAdapter#widgetSelected(org.eclipse.swt.events
+			 * .SelectionEvent)
+			 */
 			@Override
 			public void widgetSelected(SelectionEvent e) {
 				ParameterizedCommand newCommand = commandService
-						.createCommand("org.historyresearchenvironment.client.command.opencommand", null);
+						.createCommand("org.eclipse.ui.file.save", null);
 				handlerService.executeHandler(newCommand);
 			}
 		});
 		mntmNew.setText("New...");
 
-		MenuItem mntmOpen = new MenuItem(menu, SWT.NONE);
-		mntmOpen.addSelectionListener(new SelectionAdapter() {
-			@Override
-			public void widgetSelected(SelectionEvent e) {
-			}
-		});
-		mntmOpen.setText("Open...");
+		MenuItem mntmNewItem = new MenuItem(menu, SWT.NONE);
+		mntmNewItem.setText("Backup...");
+
+		MenuItem mntmRestore = new MenuItem(menu, SWT.NONE);
+		mntmRestore.setText("Restore...");
+
+		MenuItem mntmCopyAs = new MenuItem(menu, SWT.NONE);
+		mntmCopyAs.setText("Copy as...");
 
 		MenuItem mntmRename = new MenuItem(menu, SWT.NONE);
 		mntmRename.setText("Rename...");

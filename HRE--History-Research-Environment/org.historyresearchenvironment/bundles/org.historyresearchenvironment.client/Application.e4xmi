@@ -20,6 +20,7 @@
         <children xsi:type="menu:HandledMenuItem" xmi:id="_PcInIGDIEeicsMpOuyVmJw" elementId="org.historyresearchenvironment.client.handledmenuitem.projectrename" label="Project Rename..." tooltip="Project Rename"/>
         <children xsi:type="menu:HandledMenuItem" xmi:id="_Rn57IGDIEeicsMpOuyVmJw" elementId="org.historyresearchenvironment.client.handledmenuitem.projectdelete" label="Project Delete..." tooltip="Project Delete"/>
         <children xsi:type="menu:MenuSeparator" xmi:id="_Um-7YGDIEeicsMpOuyVmJw" elementId="org.historyresearchenvironment.client.menuseparator.0"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_gF-zQGVzEei5HIUyv56sSA" elementId="org.historyresearchenvironment.client.handledmenuitem.closeproject" label="Close Project" tooltip="Close Project"/>
         <children xsi:type="menu:HandledMenuItem" xmi:id="_Vgbr4GDIEeicsMpOuyVmJw" elementId="org.historyresearchenvironment.client.handledmenuitem.closeandexit" label="Close and Exit..." tooltip="Close and Exit" command="_6wlLfMgZEeSyMNYR5xypkQ"/>
       </children>
       <children xsi:type="menu:Menu" xmi:id="_kEQXIGDHEeicsMpOuyVmJw" elementId="org.historyresearchenvironment.client.menu.wherewhen" label="Where and When">
@@ -97,13 +98,14 @@
       </children>
     </trimBars>
   </children>
-  <handlers xmi:id="_6wlLfcgZEeSyMNYR5xypkQ" elementId="org.historyresearchenvironment.client.handler.quitCommand" contributionURI="bundleclass://org.historyresearchenvironment.client/org.historyresearchenvironment.client.handlers.QuitHandler" command="_6wlLfMgZEeSyMNYR5xypkQ"/>
-  <handlers xmi:id="_6wlLhMgZEeSyMNYR5xypkQ" elementId="org.historyresearchenvironment.client.handler.saveCommand" contributionURI="bundleclass://org.historyresearchenvironment.client/org.historyresearchenvironment.client.handlers.SaveHandler" command="_6wlLg8gZEeSyMNYR5xypkQ"/>
   <handlers xmi:id="_6wlLh8gZEeSyMNYR5xypkQ" elementId="org.historyresearchenvironment.client.handler.aboutCommand" contributionURI="bundleclass://org.historyresearchenvironment.client/org.historyresearchenvironment.client.handlers.AboutHandler" command="_6wlLhsgZEeSyMNYR5xypkQ"/>
-  <handlers xmi:id="_UHO_MGKHEeiVaekka8CzeA" elementId="org.historyresearchenvironment.client.handler.0" contributionURI="bundleclass://org.historyresearchenvironment.client/org.historyresearchenvironment.client.handlers.ProjectOpenHandler" command="_Qfk8AGKHEeiVaekka8CzeA"/>
-  <handlers xmi:id="_4H1DsGVoEei5HIUyv56sSA" elementId="org.historyresearchenvironment.client.handler.1" contributionURI="bundleclass://org.historyresearchenvironment.client/org.historyresearchenvironment.client.handlers.ProjectListHandler" command="_zFcu8GVoEei5HIUyv56sSA"/>
   <handlers xmi:id="_Y3R8cGVpEei5HIUyv56sSA" elementId="org.historyresearchenvironment.client.handler.2" contributionURI="bundleclass://org.historyresearchenvironment.client/org.historyresearchenvironment.client.handlers.HreWebsiteHandler" command="_W0flUGVpEei5HIUyv56sSA"/>
   <handlers xmi:id="_rjTSgGVwEei5HIUyv56sSA" elementId="org.historyresearchenvironment.client.handler.3" contributionURI="bundleclass://org.historyresearchenvironment.client/org.historyresearchenvironment.client.handlers.OpenHandler" command="_pS5WIGVwEei5HIUyv56sSA"/>
+  <handlers xmi:id="_23PvIGV0Eei5HIUyv56sSA" elementId="org.historyresearchenvironment.client.handler.4" contributionURI="bundleclass://org.historyresearchenvironment.client/org.historyresearchenvironment.client.handlers.ProjectNewHandler" command="_rgBYMGV0Eei5HIUyv56sSA"/>
+  <handlers xmi:id="_4H1DsGVoEei5HIUyv56sSA" elementId="org.historyresearchenvironment.client.handler.1" contributionURI="bundleclass://org.historyresearchenvironment.client/org.historyresearchenvironment.client.handlers.ProjectListHandler" command="_zFcu8GVoEei5HIUyv56sSA"/>
+  <handlers xmi:id="_UHO_MGKHEeiVaekka8CzeA" elementId="org.historyresearchenvironment.client.handler.0" contributionURI="bundleclass://org.historyresearchenvironment.client/org.historyresearchenvironment.client.handlers.ProjectOpenHandler" command="_Qfk8AGKHEeiVaekka8CzeA"/>
+  <handlers xmi:id="_6wlLfcgZEeSyMNYR5xypkQ" elementId="org.historyresearchenvironment.client.handler.quitCommand" contributionURI="bundleclass://org.historyresearchenvironment.client/org.historyresearchenvironment.client.handlers.QuitHandler" command="_6wlLfMgZEeSyMNYR5xypkQ"/>
+  <handlers xmi:id="_6wlLhMgZEeSyMNYR5xypkQ" elementId="org.historyresearchenvironment.client.handler.saveCommand" contributionURI="bundleclass://org.historyresearchenvironment.client/org.historyresearchenvironment.client.handlers.SaveHandler" command="_6wlLg8gZEeSyMNYR5xypkQ"/>
   <bindingTables xmi:id="_6wlLfsgZEeSyMNYR5xypkQ" elementId="org.historyresearchenvironment.client.bindingtable" bindingContext="_6wlLecgZEeSyMNYR5xypkQ">
     <bindings xmi:id="_6wlLf8gZEeSyMNYR5xypkQ" elementId="org.historyresearchenvironment.client.keybinding.m1q" keySequence="M1+Q" command="_6wlLfMgZEeSyMNYR5xypkQ"/>
     <bindings xmi:id="_6wlLgsgZEeSyMNYR5xypkQ" elementId="org.historyresearchenvironment.client.keybinding.m1o" keySequence="M1+O"/>
@@ -114,13 +116,14 @@
     <children xmi:id="_6wlLesgZEeSyMNYR5xypkQ" elementId="org.eclipse.ui.contexts.window" name="In Windows"/>
     <children xmi:id="_6wlLe8gZEeSyMNYR5xypkQ" elementId="org.eclipse.ui.contexts.dialog" name="In Dialogs"/>
   </rootContext>
-  <commands xmi:id="_6wlLfMgZEeSyMNYR5xypkQ" elementId="org.eclipse.ui.file.exit" commandName="quitCommand"/>
-  <commands xmi:id="_6wlLg8gZEeSyMNYR5xypkQ" elementId="org.eclipse.ui.file.save" commandName="saveCommand"/>
   <commands xmi:id="_6wlLhsgZEeSyMNYR5xypkQ" elementId="org.eclipse.ui.help.aboutAction" commandName="aboutCommand"/>
-  <commands xmi:id="_Qfk8AGKHEeiVaekka8CzeA" elementId="org.historyresearchenvironment.client.command.projectopencommand" commandName="projectopenCommand"/>
-  <commands xmi:id="_zFcu8GVoEei5HIUyv56sSA" elementId="org.historyresearchenvironment.client.command.projectlistcommand" commandName="projectlistCommand"/>
   <commands xmi:id="_W0flUGVpEei5HIUyv56sSA" elementId="org.historyresearchenvironment.client.command.hrewebsitecommand" commandName="hrewebsiteCommand"/>
-  <commands xmi:id="_pS5WIGVwEei5HIUyv56sSA" elementId="org.historyresearchenvironment.client.command.opencommand" commandName="openCommand"/>
+  <commands xmi:id="_rgBYMGV0Eei5HIUyv56sSA" elementId="org.eclipse.ui.file.save" commandName="newCommand"/>
+  <commands xmi:id="_zFcu8GVoEei5HIUyv56sSA" elementId="org.historyresearchenvironment.client.command.projectlistcommand" commandName="projectlistCommand"/>
+  <commands xmi:id="_pS5WIGVwEei5HIUyv56sSA" elementId="org.eclipse.ui.file.open" commandName="openCommand"/>
+  <commands xmi:id="_Qfk8AGKHEeiVaekka8CzeA" elementId="org.historyresearchenvironment.client.command.projectopencommand" commandName="projectopenCommand"/>
+  <commands xmi:id="_6wlLfMgZEeSyMNYR5xypkQ" elementId="org.eclipse.ui.file.exit" commandName="quitCommand"/>
+  <commands xmi:id="_6wlLg8gZEeSyMNYR5xypkQ" elementId="org.historyresearchenvironment.client.command.savecommand" commandName="saveCommand"/>
   <addons xmi:id="_6wlLcsgZEeSyMNYR5xypkQ" elementId="org.eclipse.e4.core.commands.service" contributionURI="bundleclass://org.eclipse.e4.core.commands/org.eclipse.e4.core.commands.CommandServiceAddon"/>
   <addons xmi:id="_6wlLc8gZEeSyMNYR5xypkQ" elementId="org.eclipse.e4.ui.contexts.service" contributionURI="bundleclass://org.eclipse.e4.ui.services/org.eclipse.e4.ui.services.ContextServiceAddon"/>
   <addons xmi:id="_6wlLdMgZEeSyMNYR5xypkQ" elementId="org.eclipse.e4.ui.bindings.service" contributionURI="bundleclass://org.eclipse.e4.ui.bindings/org.eclipse.e4.ui.bindings.BindingServiceAddon"/>

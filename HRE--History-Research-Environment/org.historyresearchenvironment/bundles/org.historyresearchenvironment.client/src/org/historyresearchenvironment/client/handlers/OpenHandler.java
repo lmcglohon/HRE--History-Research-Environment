@@ -16,6 +16,7 @@ public class OpenHandler {
 	@Execute
 	public void execute(Shell shell){
 		FileDialog dialog = new FileDialog(shell);
+		dialog.setText("Open Project");
 		final String[] extensions = { "*.h2.db", "*.mv.db", "*.*" };
 		dialog.setFilterExtensions(extensions);
 		dialog.open();
