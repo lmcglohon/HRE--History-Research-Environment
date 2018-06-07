@@ -33,19 +33,57 @@
    <extension
          point="com.opcoach.e4.preferences.e4PreferencePages">
       <page
+            class="org.historyresearchenvironment.client.preferences.HrePreferencePage"
+            id="org.historyresearchenvironment.client.basepage"
+            name="History Research Environment">
+      </page>
+      <page
+            category="org.historyresearchenvironment.client.basepage"
             class="org.historyresearchenvironment.client.preferences.HreClientPreferencesPage"
             id="org.historyresearchenvironment.clientpreferences"
-            name="HRE Client Preferences">
+            name="Client">
       </page>
       <page
+            category="org.historyresearchenvironment.client.basepage"
             class="org.historyresearchenvironment.client.preferences.HreUserPreferencesPage"
             id="org.historyresearchenvironment.client.userpreferences"
-            name="HRE User Preferences">
+            name="User">
       </page>
       <page
+            category="org.historyresearchenvironment.client.basepage"
             class="org.historyresearchenvironment.client.preferences.HREServerPreferencesPage"
             id="org.historyresearchenvironment.serverpreferences"
-            name="HRE Server Preferences">
+            name="Server">
+      </page>
+      <page
+            category="org.historyresearchenvironment.client.basepage"
+            class="org.historyresearchenvironment.client.preferences.HreMonitorPreferencesPage"
+            id="org.historyresearchenvironment.client.page4"
+            name="Monitor">
+      </page>
+      <page
+            category="org.historyresearchenvironment.client.basepage"
+            class="org.historyresearchenvironment.client.preferences.HreGuiLanguagePreferencesPage"
+            id="org.historyresearchenvironment.client.page5"
+            name="GUI Language">
+      </page>
+      <page
+            category="org.historyresearchenvironment.client.basepage"
+            class="org.historyresearchenvironment.client.preferences.HreProjectPreferencesPage"
+            id="org.historyresearchenvironment.client.page6"
+            name="Project">
+      </page>
+      <page
+            category="org.historyresearchenvironment.client.basepage"
+            class="org.historyresearchenvironment.client.preferences.HreLocationPreferencesPage"
+            id="org.historyresearchenvironment.client.page7"
+            name="Location">
+      </page>
+      <page
+            category="org.historyresearchenvironment.client.basepage"
+            class="org.historyresearchenvironment.client.preferences.HreHistoricalDatePreferencesPage"
+            id="org.historyresearchenvironment.client.page8"
+            name="Historical Date">
       </page>
    </extension>
    <extension
