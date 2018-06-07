@@ -8,19 +8,9 @@
     </children>
     <mainMenu xmi:id="_6wlLicgZEeSyMNYR5xypkQ" elementId="org.eclipse.ui.main.menu">
       <children xsi:type="menu:Menu" xmi:id="_dEC5MGDGEeicsMpOuyVmJw" elementId="org.historyresearchenvironment.client.menu.project" label="Project">
-        <children xsi:type="menu:HandledMenuItem" xmi:id="_tJHTYGVoEei5HIUyv56sSA" elementId="org.historyresearchenvironment.client.handledmenuitem.projectmichaelssuggestion" label="Project (Michael's suggestion)" tooltip="Project (Michael's suggestion)" command="_zFcu8GVoEei5HIUyv56sSA"/>
-        <children xsi:type="menu:MenuSeparator" xmi:id="_mJUA8GVuEei5HIUyv56sSA" elementId="org.historyresearchenvironment.client.menuseparator.2"/>
-        <children xsi:type="menu:HandledMenuItem" xmi:id="_0Rn9oGDHEeicsMpOuyVmJw" elementId="org.historyresearchenvironment.client.handledmenuitem.open" label="Open Project..." tooltip="Open project" command="_Qfk8AGKHEeiVaekka8CzeA"/>
-        <children xsi:type="menu:HandledMenuItem" xmi:id="_4KfsoGDHEeicsMpOuyVmJw" elementId="org.historyresearchenvironment.client.handledmenuitem.recentproject" label="Recent Projects" tooltip="Recent Projects"/>
-        <children xsi:type="menu:HandledMenuItem" xmi:id="_9Pq2sGDHEeicsMpOuyVmJw" elementId="org.historyresearchenvironment.client.handledmenuitem.newproject" label="New Project..." tooltip="New Project"/>
-        <children xsi:type="menu:HandledMenuItem" xmi:id="_B6wFwGDIEeicsMpOuyVmJw" elementId="org.historyresearchenvironment.client.handledmenuitem.projectbackup" label="Project Backup..." tooltip="Project Backup"/>
-        <children xsi:type="menu:HandledMenuItem" xmi:id="_EWkn8GDIEeicsMpOuyVmJw" elementId="org.historyresearchenvironment.client.handledmenuitem.projectrestore" label="Project Restore..." tooltip="Project Restore"/>
-        <children xsi:type="menu:HandledMenuItem" xmi:id="_GiSRkGDIEeicsMpOuyVmJw" elementId="org.historyresearchenvironment.client.handledmenuitem.projectclose" label="Project Close" tooltip="Project Close"/>
-        <children xsi:type="menu:HandledMenuItem" xmi:id="_JubdcGDIEeicsMpOuyVmJw" elementId="org.historyresearchenvironment.client.handledmenuitem.projectcopyas" label="Project Copy As..." tooltip="Project Copy As"/>
-        <children xsi:type="menu:HandledMenuItem" xmi:id="_PcInIGDIEeicsMpOuyVmJw" elementId="org.historyresearchenvironment.client.handledmenuitem.projectrename" label="Project Rename..." tooltip="Project Rename"/>
-        <children xsi:type="menu:HandledMenuItem" xmi:id="_Rn57IGDIEeicsMpOuyVmJw" elementId="org.historyresearchenvironment.client.handledmenuitem.projectdelete" label="Project Delete..." tooltip="Project Delete"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_tJHTYGVoEei5HIUyv56sSA" elementId="org.historyresearchenvironment.client.handledmenuitem.projectmichaelssuggestion" label="Projects..." tooltip="Projects" command="_zFcu8GVoEei5HIUyv56sSA"/>
         <children xsi:type="menu:MenuSeparator" xmi:id="_Um-7YGDIEeicsMpOuyVmJw" elementId="org.historyresearchenvironment.client.menuseparator.0"/>
-        <children xsi:type="menu:HandledMenuItem" xmi:id="_gF-zQGVzEei5HIUyv56sSA" elementId="org.historyresearchenvironment.client.handledmenuitem.closeproject" label="Close Project" tooltip="Close Project"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_gF-zQGVzEei5HIUyv56sSA" elementId="org.historyresearchenvironment.client.handledmenuitem.closeproject" label="Close Project" tooltip="Close Project" enabled="false"/>
         <children xsi:type="menu:HandledMenuItem" xmi:id="_Vgbr4GDIEeicsMpOuyVmJw" elementId="org.historyresearchenvironment.client.handledmenuitem.closeandexit" label="Close and Exit..." tooltip="Close and Exit" command="_6wlLfMgZEeSyMNYR5xypkQ"/>
       </children>
       <children xsi:type="menu:Menu" xmi:id="_kEQXIGDHEeicsMpOuyVmJw" elementId="org.historyresearchenvironment.client.menu.wherewhen" label="Where and When">
@@ -63,19 +53,6 @@
         </children>
       </children>
       <children xsi:type="menu:Menu" xmi:id="_st8w0GDHEeicsMpOuyVmJw" elementId="org.historyresearchenvironment.client.menu.tools" label="Tools">
-        <children xsi:type="menu:HandledMenuItem" xmi:id="_-VnVcGWFEei5HIUyv56sSA" elementId="org.historyresearchenvironment.client.handledmenuitem.preferencesmichaelssu8ggestion" label="Preferences (Michael's suggestion)" tooltip="Preferences (Michael's suggestion)" command="_MaGj4GWGEei5HIUyv56sSA"/>
-        <children xsi:type="menu:MenuSeparator" xmi:id="_HucTwGWLEei5HIUyv56sSA" elementId="org.historyresearchenvironment.client.menuseparator.5"/>
-        <children xsi:type="menu:Menu" xmi:id="_UVQ_oGDQEeiQyf13ZGrzgA" elementId="org.historyresearchenvironment.client.menu.settings" label="Settings">
-          <children xsi:type="menu:HandledMenuItem" xmi:id="_bPLdwGDQEeiQyf13ZGrzgA" elementId="org.historyresearchenvironment.client.handledmenuitem.client" label="Client" tooltip="Client"/>
-          <children xsi:type="menu:HandledMenuItem" xmi:id="_cuGS0GDQEeiQyf13ZGrzgA" elementId="org.historyresearchenvironment.client.handledmenuitem.user" label="User" tooltip="User"/>
-          <children xsi:type="menu:HandledMenuItem" xmi:id="_iT758GDQEeiQyf13ZGrzgA" elementId="org.historyresearchenvironment.client.handledmenuitem.server" label="Server" tooltip="Server"/>
-          <children xsi:type="menu:HandledMenuItem" xmi:id="_kLFo0GDQEeiQyf13ZGrzgA" elementId="org.historyresearchenvironment.client.handledmenuitem.monitor" label="Monitor" tooltip="Monitor"/>
-          <children xsi:type="menu:HandledMenuItem" xmi:id="_l6IkkGDQEeiQyf13ZGrzgA" elementId="org.historyresearchenvironment.client.handledmenuitem.guilanguage" label="GUI Language" tooltip="GUI Language"/>
-          <children xsi:type="menu:HandledMenuItem" xmi:id="_nhYPMGDQEeiQyf13ZGrzgA" elementId="org.historyresearchenvironment.client.handledmenuitem.project" label="Project" tooltip="Project"/>
-          <children xsi:type="menu:HandledMenuItem" xmi:id="_pLKQcGDQEeiQyf13ZGrzgA" elementId="org.historyresearchenvironment.client.handledmenuitem.location" label="Location" tooltip="Location"/>
-          <children xsi:type="menu:HandledMenuItem" xmi:id="_rBtiYGDQEeiQyf13ZGrzgA" elementId="org.historyresearchenvironment.client.handledmenuitem.historicaldate" label="Historical Date" tooltip="Historical Date"/>
-          <children xsi:type="menu:MenuSeparator" xmi:id="_9WyVsGWFEei5HIUyv56sSA" elementId="org.historyresearchenvironment.client.menuseparator.4"/>
-        </children>
         <children xsi:type="menu:Menu" xmi:id="_XDECoGDQEeiQyf13ZGrzgA" elementId="org.historyresearchenvironment.client.menu.applicationlanguage" label="Application Language:">
           <children xsi:type="menu:HandledMenuItem" xmi:id="_vRJXQGDQEeiQyf13ZGrzgA" elementId="org.historyresearchenvironment.client.handledmenuitem.select" label="Select" tooltip="Select"/>
           <children xsi:type="menu:HandledMenuItem" xmi:id="_wDvR0GDQEeiQyf13ZGrzgA" elementId="org.historyresearchenvironment.client.handledmenuitem.delete" label="Delete" tooltip="Delete"/>
@@ -99,6 +76,9 @@
         <children xsi:type="menu:HandledToolItem" xmi:id="_6wlLl8gZEeSyMNYR5xypkQ" elementId="org.historyresearchenvironment.client.handleditem.trimbar.top.open" iconURI="platform:/plugin/org.historyresearchenvironment.client/icons/sample.png"/>
         <children xsi:type="menu:HandledToolItem" xmi:id="_6wlLmMgZEeSyMNYR5xypkQ" elementId="org.historyresearchenvironment.client.handleditem.trimbar.top.save" iconURI="platform:/plugin/org.historyresearchenvironment.client/icons/save_edit.png" command="_6wlLg8gZEeSyMNYR5xypkQ"/>
       </children>
+    </trimBars>
+    <trimBars xmi:id="_13rWcGqAEeitpISCT-bGQA" elementId="org.historyresearchenvironment.client.trimbar.0" side="Bottom">
+      <children xsi:type="menu:ToolControl" xmi:id="_3LB0sGqAEeitpISCT-bGQA" elementId="org.historyresearchenvironment.client.toolcontrol.0" contributionURI="bundleclass://org.historyresearchenvironment.client/org.historyresearchenvironment.client.parts.StatusToolControl"/>
     </trimBars>
   </children>
   <handlers xmi:id="_6wlLh8gZEeSyMNYR5xypkQ" elementId="org.historyresearchenvironment.client.handler.aboutCommand" contributionURI="bundleclass://org.historyresearchenvironment.client/org.historyresearchenvironment.client.handlers.AboutHandler" command="_6wlLhsgZEeSyMNYR5xypkQ"/>
