@@ -1,5 +1,0 @@
-menu:null?after=viewsShowIn
-
-popup:org.eclipse.ui.popup.any?before=additions
-
-popup:org.eclipse.ui.popup.any?after=additions

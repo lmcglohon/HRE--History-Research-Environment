@@ -28,6 +28,14 @@
       <import plugin="org.eclipse.e4.ui.di"/>
       <import plugin="org.eclipse.e4.core.contexts"/>
       <import plugin="org.eclipse.core.runtime"/>
+      <import plugin="org.eclipse.e4.core.commands"/>
+      <import plugin="org.eclipse.e4.ui.css.swt.theme"/>
+      <import plugin="com.opcoach.e4.preferences"/>
+      <import plugin="org.eclipse.osgi"/>
+      <import plugin="org.eclipse.e4.core.di.annotations"/>
+      <import plugin="org.eclipse.wb.swt"/>
+      <import plugin="javax.annotation"/>
+      <import plugin="org.eclipse.e4.core.services"/>
    </requires>
 
    <plugin
@@ -36,5 +44,11 @@
          install-size="0"
          version="0.0.0"
          unpack="false"/>
+
+   <plugin
+         id="org.historyresearchenvironment.databaseadmin"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"/>
 
 </feature>
