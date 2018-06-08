@@ -53,6 +53,7 @@
         </children>
       </children>
       <children xsi:type="menu:Menu" xmi:id="_st8w0GDHEeicsMpOuyVmJw" elementId="org.historyresearchenvironment.client.menu.tools" label="Tools">
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_dsuGgGr9EeitpISCT-bGQA" elementId="org.historyresearchenvironment.client.handledmenuitem.preferences" label="Preferences" tooltip="Preferences" command="_MaGj4GWGEei5HIUyv56sSA"/>
         <children xsi:type="menu:Menu" xmi:id="_XDECoGDQEeiQyf13ZGrzgA" elementId="org.historyresearchenvironment.client.menu.applicationlanguage" label="Application Language:">
           <children xsi:type="menu:HandledMenuItem" xmi:id="_vRJXQGDQEeiQyf13ZGrzgA" elementId="org.historyresearchenvironment.client.handledmenuitem.select" label="Select" tooltip="Select"/>
           <children xsi:type="menu:HandledMenuItem" xmi:id="_wDvR0GDQEeiQyf13ZGrzgA" elementId="org.historyresearchenvironment.client.handledmenuitem.delete" label="Delete" tooltip="Delete"/>
