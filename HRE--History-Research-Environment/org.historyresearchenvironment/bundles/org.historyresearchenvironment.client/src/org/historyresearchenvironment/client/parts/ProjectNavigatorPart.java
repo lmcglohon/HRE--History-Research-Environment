@@ -28,14 +28,14 @@ import org.eclipse.swt.widgets.TableItem;
  *
  */
 @SuppressWarnings("restriction")
-public class ProjectListPart {
+public class ProjectNavigatorPart {
 	@Inject
 	private ECommandService commandService;
 	@Inject
 	private EHandlerService handlerService;
 	private Table table;
 
-	public ProjectListPart() {
+	public ProjectNavigatorPart() {
 	}
 
 	/**

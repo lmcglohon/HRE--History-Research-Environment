@@ -26,7 +26,7 @@ import org.osgi.service.prefs.Preferences;
 /**
  * Create a new HRE project database and open it
  * 
- * @version 2018-05-24
+ * @version 2018-06-08
  * @author Michael Erichsen, &copy; History Research Environment Ltd., 2018
  *
  */

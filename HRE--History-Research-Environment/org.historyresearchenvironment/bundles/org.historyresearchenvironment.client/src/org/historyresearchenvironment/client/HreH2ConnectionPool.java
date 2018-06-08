@@ -19,8 +19,7 @@ import org.osgi.service.prefs.Preferences;
  */
 public class HreH2ConnectionPool {
 	private static JdbcConnectionPool connectionPool = null;
-	private static Preferences preferences = ConfigurationScope.INSTANCE
-			.getNode("org.historyresearchenvironment");
+	private static Preferences preferences = ConfigurationScope.INSTANCE.getNode("org.historyresearchenvironment");
 	private static int h2TraceLevel = preferences.getInt("H2TRACELEVEL", 1);
 	private final static Logger LOGGER = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
@@ -50,7 +49,8 @@ public class HreH2ConnectionPool {
 	 * Dispose the connection pool.
 	 */
 	public static void dispose() {
-		connectionPool.dispose();
+		if (connectionPool != null)
+			connectionPool.dispose();
 		connectionPool = null;
 	}
 
