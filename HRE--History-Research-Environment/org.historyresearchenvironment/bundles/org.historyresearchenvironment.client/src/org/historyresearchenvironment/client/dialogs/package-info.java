@@ -1,5 +1,5 @@
 /**
- * @version 28. maj 2018
+ * @version 2018-06-09
  * @author Michael Erichsen, &copy; History Research Environment Ltd., 2018
  *
  */

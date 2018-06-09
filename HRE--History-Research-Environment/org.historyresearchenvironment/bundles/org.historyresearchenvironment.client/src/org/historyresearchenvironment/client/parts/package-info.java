@@ -3,4 +3,4 @@
  * @author Michael Erichsen, &copy; History Research Environment Ltd., 2018
  *
  */
-package org.historyresearchenvironment.client.preferences;
+package org.historyresearchenvironment.client.parts;
