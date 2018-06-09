@@ -32,9 +32,8 @@ public class HREServerPreferencesPage extends FieldEditorPreferencePage {
 		stringFieldEditorServerAddress.getTextControl(composite).setText("127.0.0.1:8000");
 		addField(stringFieldEditorServerAddress);
 
-		final Composite composite1 = getFieldEditorParent();
 		final BooleanFieldEditor booleanFieldEditorTls = new BooleanFieldEditor("TLS", "Secure Connection",
-				BooleanFieldEditor.DEFAULT, getFieldEditorParent());
+				BooleanFieldEditor.DEFAULT, composite);
 		addField(booleanFieldEditorTls);
 	}
 }

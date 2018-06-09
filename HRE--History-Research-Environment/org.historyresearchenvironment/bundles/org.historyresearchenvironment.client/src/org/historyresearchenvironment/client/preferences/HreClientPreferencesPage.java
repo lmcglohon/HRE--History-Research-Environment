@@ -2,6 +2,8 @@ package org.historyresearchenvironment.client.preferences;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -9,10 +11,13 @@ import org.eclipse.core.runtime.preferences.IEclipsePreferences;
 import org.eclipse.core.runtime.preferences.InstanceScope;
 import org.eclipse.jface.preference.ComboFieldEditor;
 import org.eclipse.jface.preference.FieldEditorPreferencePage;
+import org.eclipse.jface.preference.FontFieldEditor;
+import org.eclipse.jface.preference.IntegerFieldEditor;
 import org.eclipse.jface.preference.StringFieldEditor;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.util.PropertyChangeEvent;
 import org.eclipse.swt.widgets.Composite;
+import org.historyresearchenvironment.client.HreH2ConnectionPool;
 
 /**
  * @version 2018-06-09
@@ -23,6 +28,11 @@ public class HreClientPreferencesPage extends FieldEditorPreferencePage {
 	private final Logger LOGGER = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 	private ComboFieldEditor comboFieldEditorCsMode;
 	private ComboFieldEditor comboFieldEditorLogLevel;
+	private FontFieldEditor fontFieldEditor;
+	private StringFieldEditor updateSiteFieldEditor;
+	private IntegerFieldEditor helpportIntegerFieldEditor;
+	private IntegerFieldEditor serverportIntegerFieldEditor;
+	private ComboFieldEditor comboFieldEditorH2TraceLevel;
 
 	/**
 	 * @wbp.parser.constructor
@@ -66,6 +76,12 @@ public class HreClientPreferencesPage extends FieldEditorPreferencePage {
 					StringFieldEditor.VALIDATE_ON_KEY_STROKE, getFieldEditorParent());
 			addField(stringFieldEditorPassword);
 		}
+
+		comboFieldEditorH2TraceLevel = new ComboFieldEditor("H2TRACELEVEL", "Trace Level",
+				new String[][] { { "OFF", "OFF" }, { "ERROR", "ERROR" }, { "INFO", "INFO" }, { "DEBUG", "DEBUG" } },
+				getFieldEditorParent());
+		addField(comboFieldEditorH2TraceLevel);
+
 		{
 			comboFieldEditorLogLevel = new ComboFieldEditor("LOGLEVEL", "Log Level",
 					new String[][] { { "OFF", "OFF" }, { "SEVERE", "SEVERE" }, { "WARNING", "WARNING" },
@@ -74,6 +90,21 @@ public class HreClientPreferencesPage extends FieldEditorPreferencePage {
 					getFieldEditorParent());
 			addField(comboFieldEditorLogLevel);
 		}
+
+		fontFieldEditor = new FontFieldEditor("HREFONT", "Font Selection", null, getFieldEditorParent());
+		addField(fontFieldEditor);
+
+		updateSiteFieldEditor = new StringFieldEditor("UPDATESITE", "HRE Update Site", -1,
+				StringFieldEditor.VALIDATE_ON_KEY_STROKE, getFieldEditorParent());
+		addField(updateSiteFieldEditor);
+
+		helpportIntegerFieldEditor = new IntegerFieldEditor("HELPSYSTEMPORT", "Port number for Help System",
+				getFieldEditorParent());
+		addField(helpportIntegerFieldEditor);
+
+		serverportIntegerFieldEditor = new IntegerFieldEditor("SERVERPORT", "Port Number for local HRE Server",
+				getFieldEditorParent());
+		addField(serverportIntegerFieldEditor);
 	}
 
 	/*
@@ -86,7 +117,7 @@ public class HreClientPreferencesPage extends FieldEditorPreferencePage {
 	@Override
 	public void propertyChange(PropertyChangeEvent event) {
 		super.propertyChange(event);
-		final IEclipsePreferences iep = InstanceScope.INSTANCE.getNode("org.historyresearchenvironment.usergui");
+		final IEclipsePreferences iep = InstanceScope.INSTANCE.getNode("org.historyresearchenvironment");
 
 		if (event.getSource() == comboFieldEditorCsMode) {
 			final String newValue = event.getNewValue().toString();
@@ -128,6 +159,33 @@ public class HreClientPreferencesPage extends FieldEditorPreferencePage {
 				LOGGER.setLevel(Level.INFO);
 
 			LOGGER.info("Client/server mode " + levelName);
+		} else if (event.getSource() == comboFieldEditorH2TraceLevel) {
+			int h2TraceLevel = 2;
+			String levelName = event.getNewValue().toString();
+
+			if (levelName.equals("OFF")) {
+				h2TraceLevel = 0;
+			} else if (levelName.equals("ERROR")) {
+				h2TraceLevel = 1;
+			} else {
+				h2TraceLevel = 3;
+			}
+
+			try {
+				Connection conn = HreH2ConnectionPool.getConnection();
+				PreparedStatement prep = conn.prepareStatement("SET TRACE_LEVEL_SYSTEM_OUT ?");
+				prep.setInt(1, h2TraceLevel);
+				prep.executeUpdate();
+				prep = conn.prepareStatement("SET TRACE_LEVEL_FILE ?");
+				prep.setInt(1, h2TraceLevel);
+				prep.executeUpdate();
+				prep.close();
+				conn.close();
+			} catch (final SQLException e) {
+				LOGGER.severe(e.getMessage() + ", " + e.getErrorCode() + ", " + e.getSQLState());
+			}
+
+			LOGGER.info("H2 trace level: " + h2TraceLevel);
 		}
 	}
 }
