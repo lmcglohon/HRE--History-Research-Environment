@@ -3,14 +3,14 @@ package org.historyresearchenvironment.client;
 /**
  * Constants used by the database administration system
  * 
- * @version 2018-06-08
+ * @version 2018-06-09
  * @author Michael Erichsen, &copy; History Research Environment Ltd., 2018
  *
  */
 public class HreConstants {
 	public static final String DATABASE_UPDATE_TOPIC = "DATABASE_UPDATE_TOPIC";
-	// public static final String RECORDNUM_UPDATE_TOPIC = "RECORDNUM_UPDATE_TOPIC";
-	// public static final String TABLENAME_UPDATE_TOPIC = "TABLENAME_UPDATE_TOPIC";
+	public static final String RECORDNUM_UPDATE_TOPIC = "RECORDNUM_UPDATE_TOPIC";
+	public static final String TABLENAME_UPDATE_TOPIC = "TABLENAME_UPDATE_TOPIC";
 	public static final int BIGINT = -5;
 	public static final int BLOB = 2004;
 	public static final int BOOLEAN = 16;

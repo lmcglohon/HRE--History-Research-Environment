@@ -3,6 +3,7 @@ package org.historyresearchenvironment.client.handlers;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.List;
 import java.util.logging.Logger;
 
 import javax.inject.Inject;
@@ -11,7 +12,13 @@ import org.eclipse.core.runtime.preferences.ConfigurationScope;
 import org.eclipse.e4.core.di.annotations.Execute;
 import org.eclipse.e4.core.services.events.IEventBroker;
 import org.eclipse.e4.ui.model.application.MApplication;
+import org.eclipse.e4.ui.model.application.ui.basic.MBasicFactory;
+import org.eclipse.e4.ui.model.application.ui.basic.MPart;
+import org.eclipse.e4.ui.model.application.ui.basic.MPartStack;
+import org.eclipse.e4.ui.model.application.ui.basic.MWindow;
 import org.eclipse.e4.ui.workbench.modeling.EModelService;
+import org.eclipse.e4.ui.workbench.modeling.EPartService;
+import org.eclipse.e4.ui.workbench.modeling.EPartService.PartState;
 import org.eclipse.swt.widgets.FileDialog;
 import org.eclipse.swt.widgets.Shell;
 import org.historyresearchenvironment.client.HreConstants;
@@ -22,17 +29,17 @@ import org.osgi.service.prefs.Preferences;
 /**
  * Handler to open an existing database
  * 
- * @version 2018-06-08
+ * @version 2018-06-09
  * @author Michael Erichsen, &copy; History Research Environment Ltd., 2018
  *
  */
 public class ProjectOpenHandler {
 	@Inject
 	private static IEventBroker eventBroker;
-	@Inject
-	MApplication application;
-	@Inject
-	EModelService modelService;
+	// @Inject
+	// MApplication application;
+	// @Inject
+	// EModelService modelService;
 
 	private final static Logger LOGGER = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
@@ -47,8 +54,8 @@ public class ProjectOpenHandler {
 	 *             Preferences data access failure
 	 */
 	@Execute
-	public void execute(Shell shell) throws SQLException, BackingStoreException {
-		Preferences preferences = ConfigurationScope.INSTANCE.getNode("org.historyresearchenvironment.databaseadmin");
+	public void execute(EPartService partService, MApplication application, EModelService modelService, Shell shell) throws SQLException, BackingStoreException {
+		Preferences preferences = ConfigurationScope.INSTANCE.getNode("org.historyresearchenvironment");
 		Connection conn = null;
 
 		final FileDialog dialog = new FileDialog(shell);
@@ -91,11 +98,22 @@ public class ProjectOpenHandler {
 			conn.close();
 		}
 
-		// final MWindow window = (MWindow) modelService
-		// .find("org.historyresearchenvironment.databaseadmin.v010.window.main",
-		// application);
-		// window.setLabel("HRE H2 Database Administration - " + dbName);
+		 final MWindow window = (MWindow) modelService
+		 .find("org.historyresearchenvironment.client.window.main",
+		 application);
+		 window.setLabel("HRE v0.1 - " + dbName);
 
+		final MPart part = MBasicFactory.INSTANCE.createPart();
+		part.setLabel("Table Rows");
+		part.setContainerData("650");
+		part.setCloseable(true);
+		part.setVisible(true);
+		part.setContributionURI(
+				"bundleclass://org.historyresearchenvironment.databaseadmin/org.historyresearchenvironment.databaseadmin.parts.H2DatabaseNavigator");
+		final List<MPartStack> stacks = modelService.findElements(application, null, MPartStack.class, null);
+		stacks.get(stacks.size() - 1).getChildren().add(part);
+		partService.showPart(part, PartState.ACTIVATE);
+		
 		eventBroker.post(HreConstants.DATABASE_UPDATE_TOPIC, dbName);
 		eventBroker.post("MESSAGE", "Database " + dbName + " has been opened");
 	}

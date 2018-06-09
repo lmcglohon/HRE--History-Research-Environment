@@ -96,8 +96,8 @@ public class ProjectNewHandler {
 			conn.close();
 
 			final MWindow window = (MWindow) modelService
-					.find("org.historyresearchenvironment.databaseadmin.v010.window.main", application);
-			window.setLabel("HRE H2 Database Administration - " + dbName);
+					.find("org.historyresearchenvironment.client.window.main", application);
+			window.setLabel("HRE v0.1 - " + dbName);
 
 			eventBroker.post(HreConstants.DATABASE_UPDATE_TOPIC, dbName);
 			eventBroker.post("MESSAGE", "Database " + dbName + " has been opened");

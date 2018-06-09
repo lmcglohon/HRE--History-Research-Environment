@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<site>
-   <feature url="features/org.hre.feature_1.0.0.qualifier.jar" id="org.hre.feature" version="1.0.0.qualifier">
-      <category name="hrev3"/>
-   </feature>
-   <category-def name="hrev3" label="HRE Mock Up V3"/>
-</site>
