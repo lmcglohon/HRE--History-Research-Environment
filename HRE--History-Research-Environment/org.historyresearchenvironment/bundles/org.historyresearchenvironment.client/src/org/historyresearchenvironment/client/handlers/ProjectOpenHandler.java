@@ -27,7 +27,7 @@ import org.osgi.service.prefs.BackingStoreException;
 import org.osgi.service.prefs.Preferences;
 
 /**
- * Handler to open an existing database
+ * Handler to open an existing project.
  * 
  * @version 2018-06-09
  * @author Michael Erichsen, &copy; History Research Environment Ltd., 2018
@@ -36,30 +36,27 @@ import org.osgi.service.prefs.Preferences;
 public class ProjectOpenHandler {
 	@Inject
 	private static IEventBroker eventBroker;
-	// @Inject
-	// MApplication application;
-	// @Inject
-	// EModelService modelService;
 
 	private final static Logger LOGGER = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
 	/**
 	 * Select a database and open it
 	 * 
+	 * @param partService
+	 * @param application
+	 * @param modelService
 	 * @param shell
-	 *            The application shell
 	 * @throws SQLException
-	 *             When failed
 	 * @throws BackingStoreException
-	 *             Preferences data access failure
 	 */
 	@Execute
-	public void execute(EPartService partService, MApplication application, EModelService modelService, Shell shell) throws SQLException, BackingStoreException {
+	public void execute(EPartService partService, MApplication application, EModelService modelService, Shell shell)
+			throws SQLException, BackingStoreException {
 		Preferences preferences = ConfigurationScope.INSTANCE.getNode("org.historyresearchenvironment");
 		Connection conn = null;
 
 		final FileDialog dialog = new FileDialog(shell);
-		final String[] extensions = { "*.db", "*.*" };
+		final String[] extensions = { "*.h2.db", "*.mv.db", "*.*" };
 		dialog.setFilterExtensions(extensions);
 		dialog.open();
 
@@ -98,10 +95,9 @@ public class ProjectOpenHandler {
 			conn.close();
 		}
 
-		 final MWindow window = (MWindow) modelService
-		 .find("org.historyresearchenvironment.client.window.main",
-		 application);
-		 window.setLabel("HRE v0.1 - " + dbName);
+		final MWindow window = (MWindow) modelService.find("org.historyresearchenvironment.client.window.main",
+				application);
+		window.setLabel("HRE v0.1 - " + dbName);
 
 		final MPart part = MBasicFactory.INSTANCE.createPart();
 		part.setLabel("Table Rows");
@@ -113,7 +109,7 @@ public class ProjectOpenHandler {
 		final List<MPartStack> stacks = modelService.findElements(application, null, MPartStack.class, null);
 		stacks.get(stacks.size() - 1).getChildren().add(part);
 		partService.showPart(part, PartState.ACTIVATE);
-		
+
 		eventBroker.post(HreConstants.DATABASE_UPDATE_TOPIC, dbName);
 		eventBroker.post("MESSAGE", "Database " + dbName + " has been opened");
 	}

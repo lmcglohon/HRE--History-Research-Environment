@@ -55,7 +55,7 @@ public class H2DatabaseNavigator {
 	private MApplication application;
 
 	private Preferences preferences = ConfigurationScope.INSTANCE
-			.getNode("org.historyresearchenvironment.databaseadmin");
+			.getNode("org.historyresearchenvironment");
 	private final static Logger LOGGER = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 	private Table table;
 	private String dbName;

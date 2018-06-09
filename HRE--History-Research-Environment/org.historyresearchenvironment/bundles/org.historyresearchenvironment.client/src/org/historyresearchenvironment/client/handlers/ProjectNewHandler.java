@@ -25,7 +25,7 @@ import org.osgi.service.prefs.Preferences;
 /**
  * Create a new HRE project database and open it
  * 
- * @version 2018-06-08
+ * @version 2018-06-09
  * @author Michael Erichsen, &copy; History Research Environment Ltd., 2018
  *
  */
@@ -53,15 +53,15 @@ public class ProjectNewHandler {
 		final FileDialog dialog = new FileDialog(shell, SWT.SAVE);
 		dialog.setText("Create");
 		dialog.setFilterPath("~\\");
-		final String[] filterExt = { "*.db", "*.*" };
-		dialog.setFilterExtensions(filterExt);
+		final String[] extensions = { "*.h2.db", "*.mv.db", "*.*" };
+		dialog.setFilterExtensions(extensions);
 		dialog.open();
 
 		final String shortName = dialog.getFileName();
 		final String[] parts = shortName.split("\\.");
 		final String dbName = dialog.getFilterPath() + "\\" + parts[0];
 
-		Preferences preferences = ConfigurationScope.INSTANCE.getNode("org.historyresearchenvironment.databaseadmin");
+		Preferences preferences = ConfigurationScope.INSTANCE.getNode("org.historyresearchenvironment");
 		preferences.put("DBNAME", dbName);
 		try {
 			preferences.flush();
@@ -95,8 +95,8 @@ public class ProjectNewHandler {
 			ps.executeQuery();
 			conn.close();
 
-			final MWindow window = (MWindow) modelService
-					.find("org.historyresearchenvironment.client.window.main", application);
+			final MWindow window = (MWindow) modelService.find("org.historyresearchenvironment.client.window.main",
+					application);
 			window.setLabel("HRE v0.1 - " + dbName);
 
 			eventBroker.post(HreConstants.DATABASE_UPDATE_TOPIC, dbName);
