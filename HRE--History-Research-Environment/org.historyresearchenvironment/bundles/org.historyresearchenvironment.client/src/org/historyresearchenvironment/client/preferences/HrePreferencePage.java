@@ -1,63 +1,39 @@
 package org.historyresearchenvironment.client.preferences;
 
-import org.eclipse.jface.preference.FieldEditorPreferencePage;
-import org.eclipse.jface.resource.ImageDescriptor;
+import org.eclipse.jface.preference.PreferencePage;
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.layout.RowData;
+import org.eclipse.swt.layout.RowLayout;
+import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Control;
+import org.eclipse.swt.widgets.Label;
+import org.eclipse.swt.layout.GridLayout;
+import org.eclipse.swt.layout.GridData;
 
 /**
- * @version 2018-06-07
+ * @version 2018-06-09
  * @author Michael Erichsen, &copy; History Research Environment Ltd., 2018
  *
  */
-public class HrePreferencePage extends FieldEditorPreferencePage {
-
-	/**
-	 * Constructor
-	 *
-	 */
+public class HrePreferencePage extends PreferencePage {
 	public HrePreferencePage() {
-		// TODO Auto-generated constructor stub
-	}
-
-	/**
-	 * Constructor
-	 *
-	 * @param style
-	 */
-	public HrePreferencePage(int style) {
-		super(style);
-		// TODO Auto-generated constructor stub
-	}
-
-	/**
-	 * Constructor
-	 *
-	 * @param title
-	 * @param style
-	 */
-	public HrePreferencePage(String title, int style) {
-		super(title, style);
-		// TODO Auto-generated constructor stub
-	}
-
-	/**
-	 * Constructor
-	 *
-	 * @param title
-	 * @param image
-	 * @param style
-	 */
-	public HrePreferencePage(String title, ImageDescriptor image, int style) {
-		super(title, image, style);
-		// TODO Auto-generated constructor stub
 	}
 
 	/* (non-Javadoc)
-	 * @see org.eclipse.jface.preference.FieldEditorPreferencePage#createFieldEditors()
+	 * @see org.eclipse.jface.preference.PreferencePage#createContents(org.eclipse.swt.widgets.Composite)
 	 */
 	@Override
-	protected void createFieldEditors() {
-		// TODO Auto-generated method stub
-
+	protected Control createContents(Composite parent) {
+		Composite composite = new Composite(parent, SWT.NONE);
+		composite.setLayoutData(new GridData(SWT.LEFT, SWT.TOP, true, true, 1, 2));
+		composite.setLayout(new GridLayout(1, false));
+		Label label = new Label(composite, SWT.NONE);
+		label.setLayoutData(new GridData(SWT.LEFT, SWT.TOP, false, false, 1, 1));
+		label.setText("See sub-pages for settings.");
+		
+		Composite composite_1 = new Composite(composite, SWT.NONE);
+		composite_1.setLayoutData(new GridData(SWT.LEFT, SWT.CENTER, true, true, 1, 1));
+		return null;
 	}
 
 }

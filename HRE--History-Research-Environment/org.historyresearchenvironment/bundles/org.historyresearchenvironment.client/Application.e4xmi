@@ -10,63 +10,30 @@
       <children xsi:type="menu:Menu" xmi:id="_dEC5MGDGEeicsMpOuyVmJw" elementId="org.historyresearchenvironment.client.menu.project" label="Project">
         <children xsi:type="menu:HandledMenuItem" xmi:id="_tJHTYGVoEei5HIUyv56sSA" elementId="org.historyresearchenvironment.client.handledmenuitem.projectmichaelssuggestion" label="Projects..." tooltip="Projects" command="_zFcu8GVoEei5HIUyv56sSA"/>
         <children xsi:type="menu:MenuSeparator" xmi:id="_Um-7YGDIEeicsMpOuyVmJw" elementId="org.historyresearchenvironment.client.menuseparator.0"/>
-        <children xsi:type="menu:HandledMenuItem" xmi:id="_gF-zQGVzEei5HIUyv56sSA" elementId="org.historyresearchenvironment.client.handledmenuitem.closeproject" label="Close Project" tooltip="Close Project" enabled="false"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_gF-zQGVzEei5HIUyv56sSA" elementId="org.historyresearchenvironment.client.handledmenuitem.closeproject" label="Close Project" tooltip="Close Project" enabled="false" command="_ll3TgGvuEei6UJPZ5XWbvg"/>
         <children xsi:type="menu:HandledMenuItem" xmi:id="_Vgbr4GDIEeicsMpOuyVmJw" elementId="org.historyresearchenvironment.client.handledmenuitem.closeandexit" label="Close and Exit..." tooltip="Close and Exit" command="_6wlLfMgZEeSyMNYR5xypkQ"/>
       </children>
       <children xsi:type="menu:Menu" xmi:id="_kEQXIGDHEeicsMpOuyVmJw" elementId="org.historyresearchenvironment.client.menu.wherewhen" label="Where and When">
         <children xsi:type="menu:Menu" xmi:id="_ofqygGDHEeicsMpOuyVmJw" elementId="org.historyresearchenvironment.client.menu.location" label="Location">
-          <children xsi:type="menu:HandledMenuItem" xmi:id="_UNNzsGDMEeiQyf13ZGrzgA" elementId="org.historyresearchenvironment.client.handledmenuitem.selectbyidnameelementnamestyles" label="Select by ID, Name Element, Name Styles..." tooltip="Select by ID, Name Element, Name Styles" enabled="false"/>
-          <children xsi:type="menu:HandledMenuItem" xmi:id="_WkXRQGDMEeiQyf13ZGrzgA" elementId="org.historyresearchenvironment.client.handledmenuitem.recentuse" label="Recent Use" tooltip="Recent Use" enabled="false"/>
-          <children xsi:type="menu:Menu" xmi:id="_eF2swGDMEeiQyf13ZGrzgA" elementId="org.historyresearchenvironment.client.menu.managelocations" label="Manage Locations">
-            <children xsi:type="menu:HandledMenuItem" xmi:id="_gpRrwGDMEeiQyf13ZGrzgA" elementId="org.historyresearchenvironment.client.handledmenuitem.select" label="Select" tooltip="Select" enabled="false"/>
-            <children xsi:type="menu:HandledMenuItem" xmi:id="_itlF0GDMEeiQyf13ZGrzgA" elementId="org.historyresearchenvironment.client.handledmenuitem.add" label="Add" tooltip="Add" enabled="false"/>
-            <children xsi:type="menu:HandledMenuItem" xmi:id="_kewvkGDMEeiQyf13ZGrzgA" elementId="org.historyresearchenvironment.client.handledmenuitem.delete" label="Delete" tooltip="Delete" enabled="false"/>
-            <children xsi:type="menu:HandledMenuItem" xmi:id="_mXnHkGDMEeiQyf13ZGrzgA" elementId="org.historyresearchenvironment.client.handledmenuitem.edit" label="Edit" tooltip="Edit" enabled="false"/>
-          </children>
-          <children xsi:type="menu:Menu" xmi:id="_qCcakGDMEeiQyf13ZGrzgA" elementId="org.historyresearchenvironment.client.menu.managelocationnamestyledefinitions" label="Manage Location Name Style Definitions:">
-            <children xsi:type="menu:HandledMenuItem" xmi:id="_rHCEEGDMEeiQyf13ZGrzgA" elementId="org.historyresearchenvironment.client.handledmenuitem.select" label="Select" tooltip="Select" enabled="false"/>
-            <children xsi:type="menu:HandledMenuItem" xmi:id="_tovy4GDMEeiQyf13ZGrzgA" elementId="org.historyresearchenvironment.client.handledmenuitem.add" label="Add" tooltip="Add" enabled="false"/>
-            <children xsi:type="menu:HandledMenuItem" xmi:id="_zKhZYGDMEeiQyf13ZGrzgA" elementId="org.historyresearchenvironment.client.handledmenuitem.delete" label="Delete" tooltip="Delete" enabled="false"/>
-            <children xsi:type="menu:HandledMenuItem" xmi:id="_1KtvgGDMEeiQyf13ZGrzgA" elementId="org.historyresearchenvironment.client.handledmenuitem.edit" label="Edit" tooltip="Edit" enabled="false"/>
-          </children>
-          <children xsi:type="menu:Menu" xmi:id="_8V6DgGDPEeiQyf13ZGrzgA" elementId="org.historyresearchenvironment.client.menu.managelocationflags" label="Manage Location Flags">
-            <children xsi:type="menu:HandledMenuItem" xmi:id="_CgmrMGDQEeiQyf13ZGrzgA" elementId="org.historyresearchenvironment.client.handledmenuitem.select" label="Select" tooltip="Select" enabled="false"/>
-            <children xsi:type="menu:HandledMenuItem" xmi:id="_Dnc-gGDQEeiQyf13ZGrzgA" elementId="org.historyresearchenvironment.client.handledmenuitem.add" label="Add" tooltip="Add" enabled="false"/>
-            <children xsi:type="menu:HandledMenuItem" xmi:id="_EMSw8GDQEeiQyf13ZGrzgA" elementId="org.historyresearchenvironment.client.handledmenuitem.delete" label="Delete" tooltip="Delete" enabled="false"/>
-            <children xsi:type="menu:HandledMenuItem" xmi:id="_Er1zsGDQEeiQyf13ZGrzgA" elementId="org.historyresearchenvironment.client.handledmenuitem.edit" label="Edit" tooltip="Edit" enabled="false"/>
-          </children>
-          <children xsi:type="menu:Menu" xmi:id="__ZuZ0GDPEeiQyf13ZGrzgA" elementId="org.historyresearchenvironment.client.menu.managelocationnotepads" label="Manage Location Notepads">
-            <children xsi:type="menu:HandledMenuItem" xmi:id="_GKT80GDQEeiQyf13ZGrzgA" elementId="org.historyresearchenvironment.client.handledmenuitem.select" label="Select" tooltip="Select" enabled="false"/>
-            <children xsi:type="menu:HandledMenuItem" xmi:id="_GuN7IGDQEeiQyf13ZGrzgA" elementId="org.historyresearchenvironment.client.handledmenuitem.add" label="Add" tooltip="Add" enabled="false"/>
-            <children xsi:type="menu:HandledMenuItem" xmi:id="_HT-TkGDQEeiQyf13ZGrzgA" elementId="org.historyresearchenvironment.client.handledmenuitem.delete" label="Delete" tooltip="Delete" enabled="false"/>
-            <children xsi:type="menu:HandledMenuItem" xmi:id="_HrhQ4GDQEeiQyf13ZGrzgA" elementId="org.historyresearchenvironment.client.handledmenuitem.edit" label="Edit" tooltip="Edit" enabled="false"/>
-          </children>
+          <children xsi:type="menu:HandledMenuItem" xmi:id="_UNNzsGDMEeiQyf13ZGrzgA" elementId="org.historyresearchenvironment.client.handledmenuitem.selectbyidnameelementnamestyles" label="Select by ID, Name Element, Name Styles..." tooltip="Select by ID, Name Element, Name Styles" enabled="false" command="_S7SDsGvuEei6UJPZ5XWbvg"/>
+          <children xsi:type="menu:HandledMenuItem" xmi:id="_WkXRQGDMEeiQyf13ZGrzgA" elementId="org.historyresearchenvironment.client.handledmenuitem.recentuse" label="Recent Use" tooltip="Recent Use" enabled="false" command="_S7SDsGvuEei6UJPZ5XWbvg"/>
+          <children xsi:type="menu:Menu" xmi:id="_eF2swGDMEeiQyf13ZGrzgA" elementId="org.historyresearchenvironment.client.menu.managelocations" label="Manage Locations"/>
+          <children xsi:type="menu:Menu" xmi:id="_qCcakGDMEeiQyf13ZGrzgA" elementId="org.historyresearchenvironment.client.menu.managelocationnamestyledefinitions" label="Manage Location Name Style Definitions:"/>
+          <children xsi:type="menu:Menu" xmi:id="_8V6DgGDPEeiQyf13ZGrzgA" elementId="org.historyresearchenvironment.client.menu.managelocationflags" label="Manage Location Flags"/>
+          <children xsi:type="menu:Menu" xmi:id="__ZuZ0GDPEeiQyf13ZGrzgA" elementId="org.historyresearchenvironment.client.menu.managelocationnotepads" label="Manage Location Notepads"/>
         </children>
         <children xsi:type="menu:Menu" xmi:id="_qB9EoGDHEeicsMpOuyVmJw" elementId="org.historyresearchenvironment.client.menu.historicaldate" label="Historical Date">
-          <children xsi:type="menu:HandledMenuItem" xmi:id="_LYbAcGDQEeiQyf13ZGrzgA" elementId="org.historyresearchenvironment.client.handledmenuitem.selectbydaterange" label="Select by Date Range..." tooltip="Select by Date Range" enabled="false"/>
-          <children xsi:type="menu:Menu" xmi:id="_NXc48GDQEeiQyf13ZGrzgA" elementId="org.historyresearchenvironment.client.menu.managehistoricaldate" label="Manage Historical Date">
-            <children xsi:type="menu:HandledMenuItem" xmi:id="_Qf4pgGDQEeiQyf13ZGrzgA" elementId="org.historyresearchenvironment.client.handledmenuitem.select" label="Select" tooltip="Select" enabled="false"/>
-            <children xsi:type="menu:HandledMenuItem" xmi:id="_REDtkGDQEeiQyf13ZGrzgA" elementId="org.historyresearchenvironment.client.handledmenuitem.add" label="Add" tooltip="Add" enabled="false"/>
-            <children xsi:type="menu:HandledMenuItem" xmi:id="_RoR08GDQEeiQyf13ZGrzgA" elementId="org.historyresearchenvironment.client.handledmenuitem.delete" label="Delete" tooltip="Delete" enabled="false"/>
-            <children xsi:type="menu:HandledMenuItem" xmi:id="_SFmqIGDQEeiQyf13ZGrzgA" elementId="org.historyresearchenvironment.client.handledmenuitem.edit" label="Edit" tooltip="Edit" enabled="false"/>
-          </children>
+          <children xsi:type="menu:HandledMenuItem" xmi:id="_LYbAcGDQEeiQyf13ZGrzgA" elementId="org.historyresearchenvironment.client.handledmenuitem.selectbydaterange" label="Select by Date Range..." tooltip="Select by Date Range" enabled="false" command="_U9CgEGvuEei6UJPZ5XWbvg"/>
+          <children xsi:type="menu:Menu" xmi:id="_NXc48GDQEeiQyf13ZGrzgA" elementId="org.historyresearchenvironment.client.menu.managehistoricaldate" label="Manage Historical Date"/>
         </children>
       </children>
       <children xsi:type="menu:Menu" xmi:id="_st8w0GDHEeicsMpOuyVmJw" elementId="org.historyresearchenvironment.client.menu.tools" label="Tools">
         <children xsi:type="menu:HandledMenuItem" xmi:id="_dsuGgGr9EeitpISCT-bGQA" elementId="org.historyresearchenvironment.client.handledmenuitem.preferences" label="Preferences" tooltip="Preferences" command="_MaGj4GWGEei5HIUyv56sSA"/>
-        <children xsi:type="menu:Menu" xmi:id="_XDECoGDQEeiQyf13ZGrzgA" elementId="org.historyresearchenvironment.client.menu.applicationlanguage" label="Application Language:">
-          <children xsi:type="menu:HandledMenuItem" xmi:id="_vRJXQGDQEeiQyf13ZGrzgA" elementId="org.historyresearchenvironment.client.handledmenuitem.select" label="Select" tooltip="Select" enabled="false"/>
-          <children xsi:type="menu:HandledMenuItem" xmi:id="_wDvR0GDQEeiQyf13ZGrzgA" elementId="org.historyresearchenvironment.client.handledmenuitem.delete" label="Delete" tooltip="Delete" enabled="false"/>
-          <children xsi:type="menu:HandledMenuItem" xmi:id="_xNZBgGDQEeiQyf13ZGrzgA" elementId="org.historyresearchenvironment.client.handledmenuitem.edit" label="Edit" tooltip="Edit" enabled="false"/>
-        </children>
-        <children xsi:type="menu:Menu" xmi:id="_YwLrwGDQEeiQyf13ZGrzgA" elementId="org.historyresearchenvironment.client.menu.userlanguage" label="User Language">
-          <children xsi:type="menu:HandledMenuItem" xmi:id="_x3hjoGDQEeiQyf13ZGrzgA" elementId="org.historyresearchenvironment.client.handledmenuitem.select" label="Select" tooltip="Select" enabled="false"/>
-          <children xsi:type="menu:HandledMenuItem" xmi:id="_yW5AMGDQEeiQyf13ZGrzgA" elementId="org.historyresearchenvironment.client.handledmenuitem.delete" label="Delete" tooltip="Delete" enabled="false"/>
-          <children xsi:type="menu:HandledMenuItem" xmi:id="_yxpCgGDQEeiQyf13ZGrzgA" elementId="org.historyresearchenvironment.client.handledmenuitem.edit" label="Edit" tooltip="Edit" enabled="false"/>
-        </children>
+        <children xsi:type="menu:Menu" xmi:id="_XDECoGDQEeiQyf13ZGrzgA" elementId="org.historyresearchenvironment.client.menu.applicationlanguage" label="Application Language:"/>
+        <children xsi:type="menu:Menu" xmi:id="_YwLrwGDQEeiQyf13ZGrzgA" elementId="org.historyresearchenvironment.client.menu.userlanguage" label="User Language"/>
       </children>
       <children xsi:type="menu:Menu" xmi:id="_6wlLjsgZEeSyMNYR5xypkQ" elementId="help" label="Help">
-        <children xsi:type="menu:HandledMenuItem" xmi:id="_1AMkwGDQEeiQyf13ZGrzgA" elementId="org.historyresearchenvironment.client.handledmenuitem.helpcontents" label="Help Contents" tooltip="Help Contents"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_1AMkwGDQEeiQyf13ZGrzgA" elementId="org.historyresearchenvironment.client.handledmenuitem.helpcontents" label="Help Contents" tooltip="Help Contents" command="_o2IKYGvuEei6UJPZ5XWbvg"/>
         <children xsi:type="menu:HandledMenuItem" xmi:id="_3kJvQGDQEeiQyf13ZGrzgA" elementId="org.historyresearchenvironment.client.handledmenuitem.hrewebsite" label="HRE Website" tooltip="HRE Website" command="_W0flUGVpEei5HIUyv56sSA"/>
         <children xsi:type="menu:MenuSeparator" xmi:id="_6FviQGDQEeiQyf13ZGrzgA" elementId="org.historyresearchenvironment.client.menuseparator.1"/>
         <children xsi:type="menu:HandledMenuItem" xmi:id="_6wlLj8gZEeSyMNYR5xypkQ" elementId="org.historyresearchenvironment.client.handleditem.about" label="About" command="_6wlLhsgZEeSyMNYR5xypkQ"/>
@@ -110,6 +77,10 @@
   <commands xmi:id="_6wlLfMgZEeSyMNYR5xypkQ" elementId="org.eclipse.ui.file.exit" commandName="Quit"/>
   <commands xmi:id="_6wlLg8gZEeSyMNYR5xypkQ" elementId="org.historyresearchenvironment.client.command.savecommand" commandName="Save"/>
   <commands xmi:id="_MaGj4GWGEei5HIUyv56sSA" elementId="org.eclipse.ui.window.preferences" commandName="Preferences"/>
+  <commands xmi:id="_S7SDsGvuEei6UJPZ5XWbvg" elementId="org.historyresearchenvironment.client.command.location" commandName="Location"/>
+  <commands xmi:id="_U9CgEGvuEei6UJPZ5XWbvg" elementId="org.historyresearchenvironment.client.command.historicaldate" commandName="Historical Date"/>
+  <commands xmi:id="_ll3TgGvuEei6UJPZ5XWbvg" elementId="org.historyresearchenvironment.client.command.projectclose" commandName="ProjectClose"/>
+  <commands xmi:id="_o2IKYGvuEei6UJPZ5XWbvg" elementId="org.historyresearchenvironment.client.command.helpcontents" commandName="HelpContents"/>
   <addons xmi:id="_6wlLcsgZEeSyMNYR5xypkQ" elementId="org.eclipse.e4.core.commands.service" contributionURI="bundleclass://org.eclipse.e4.core.commands/org.eclipse.e4.core.commands.CommandServiceAddon"/>
   <addons xmi:id="_6wlLc8gZEeSyMNYR5xypkQ" elementId="org.eclipse.e4.ui.contexts.service" contributionURI="bundleclass://org.eclipse.e4.ui.services/org.eclipse.e4.ui.services.ContextServiceAddon"/>
   <addons xmi:id="_6wlLdMgZEeSyMNYR5xypkQ" elementId="org.eclipse.e4.ui.bindings.service" contributionURI="bundleclass://org.eclipse.e4.ui.bindings/org.eclipse.e4.ui.bindings.BindingServiceAddon"/>
