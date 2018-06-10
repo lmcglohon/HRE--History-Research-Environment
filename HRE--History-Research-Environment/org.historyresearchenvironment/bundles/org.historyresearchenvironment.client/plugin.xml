@@ -20,6 +20,10 @@
                name="appName"
                value="org.historyresearchenvironment.client">
          </property>
+         <property
+               name="preferenceCustomization"
+               value="plugin_customization.ini">
+         </property>
       </product>
    </extension>
    <extension
@@ -85,12 +89,6 @@
             id="org.historyresearchenvironment.client.page8"
             name="Historical Date">
       </page>
-   </extension>
-   <extension
-         point="org.eclipse.core.runtime.preferences">
-      <initializer
-            class="org.historyresearchenvironment.client.preferences.DefaultValuesInitializer">
-      </initializer>
    </extension>
 
 </plugin>

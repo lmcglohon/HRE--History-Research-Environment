@@ -6,7 +6,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.logging.SimpleFormatter;
 
-import org.eclipse.core.runtime.preferences.ConfigurationScope;
+import org.eclipse.core.runtime.preferences.InstanceScope;
 import org.osgi.service.prefs.Preferences;
 
 /**
@@ -18,8 +18,8 @@ import org.osgi.service.prefs.Preferences;
  *
  */
 public class HreLogger {
-	private static Preferences preferences = ConfigurationScope.INSTANCE
-			.getNode("org.historyresearchenvironment");
+	private static Preferences preferences = InstanceScope.INSTANCE
+			.getNode("org.historyresearchenvironment.client");
 	static private FileHandler handler;
 
 	/**

@@ -8,7 +8,7 @@ import org.eclipse.jface.preference.StringFieldEditor;
 import org.eclipse.swt.widgets.Composite;
 
 /**
- * @version 2018-06-09
+ * @version 2018-06-10
  * @author Michael Erichsen, &copy; History Research Environment Ltd., 2018
  *
  */
@@ -29,7 +29,7 @@ public class HREServerPreferencesPage extends FieldEditorPreferencePage {
 
 		final StringFieldEditor stringFieldEditorServerAddress = new StringFieldEditor("SERVERADDRESS",
 				"Server IP Address and port", composite);
-		stringFieldEditorServerAddress.getTextControl(composite).setText("127.0.0.1:8000");
+		// stringFieldEditorServerAddress.getTextControl(composite).setText("127.0.0.1:8000");
 		addField(stringFieldEditorServerAddress);
 
 		final BooleanFieldEditor booleanFieldEditorTls = new BooleanFieldEditor("TLS", "Secure Connection",

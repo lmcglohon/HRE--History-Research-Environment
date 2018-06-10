@@ -7,7 +7,7 @@ import java.util.logging.Logger;
 
 import javax.inject.Inject;
 
-import org.eclipse.core.runtime.preferences.ConfigurationScope;
+import org.eclipse.core.runtime.preferences.InstanceScope;
 import org.eclipse.e4.core.di.annotations.Execute;
 import org.eclipse.e4.core.services.events.IEventBroker;
 import org.eclipse.e4.ui.model.application.MApplication;
@@ -61,7 +61,7 @@ public class ProjectNewHandler {
 		final String[] parts = shortName.split("\\.");
 		final String dbName = dialog.getFilterPath() + "\\" + parts[0];
 
-		Preferences preferences = ConfigurationScope.INSTANCE.getNode("org.historyresearchenvironment");
+		Preferences preferences = InstanceScope.INSTANCE.getNode("org.historyresearchenvironment.client");
 		preferences.put("DBNAME", dbName);
 		try {
 			preferences.flush();

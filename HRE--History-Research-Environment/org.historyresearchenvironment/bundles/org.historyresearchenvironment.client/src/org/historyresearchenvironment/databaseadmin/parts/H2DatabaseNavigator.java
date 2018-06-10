@@ -9,7 +9,7 @@ import javax.annotation.PreDestroy;
 import javax.inject.Inject;
 
 import org.eclipse.core.commands.ParameterizedCommand;
-import org.eclipse.core.runtime.preferences.ConfigurationScope;
+import org.eclipse.core.runtime.preferences.InstanceScope;
 import org.eclipse.e4.core.commands.ECommandService;
 import org.eclipse.e4.core.commands.EHandlerService;
 import org.eclipse.e4.core.di.annotations.Optional;
@@ -54,8 +54,8 @@ public class H2DatabaseNavigator {
 	@Inject
 	private MApplication application;
 
-	private Preferences preferences = ConfigurationScope.INSTANCE
-			.getNode("org.historyresearchenvironment");
+	private Preferences preferences = InstanceScope.INSTANCE
+			.getNode("org.historyresearchenvironment.client");
 	private final static Logger LOGGER = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 	private Table table;
 	private String dbName;

@@ -3,6 +3,7 @@ package org.historyresearchenvironment.client.parts;
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 
+import org.eclipse.core.runtime.preferences.InstanceScope;
 import org.eclipse.e4.ui.di.Focus;
 import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.jface.viewers.TableViewerColumn;
@@ -13,6 +14,7 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.swt.widgets.TableItem;
+import org.osgi.service.prefs.Preferences;
 
 /**
  * @version 2018-06-10
@@ -20,8 +22,16 @@ import org.eclipse.swt.widgets.TableItem;
  *
  */
 public class ProjectProperties {
+	private static Preferences preferences = InstanceScope.INSTANCE.getNode("org.historyresearchenvironment.client");
+	// private final static Logger LOGGER =
+	// Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
+
 	private Table table;
 
+	/**
+	 * Constructor
+	 *
+	 */
 	public ProjectProperties() {
 	}
 
@@ -49,22 +59,23 @@ public class ProjectProperties {
 		tblclmnLastEdited.setToolTipText("Value");
 		tblclmnLastEdited.setWidth(800);
 		tblclmnLastEdited.setText("Value");
-		
+
+		String key = new String("project." + 0 + ".name");
 		TableItem tableItem = new TableItem(table, SWT.NONE);
-		tableItem.setText(new String[] {"Project Name", "HRE"});
-		
+		tableItem.setText(new String[] { "Project Name", preferences.get(key, "?") });
+		key = new String("project." + 0 + ".lastupdated");
 		TableItem tableItem_1 = new TableItem(table, SWT.NONE);
-		tableItem_1.setText(new String[] {"Last Edited", "2018-06-10 10:49:23"});
-		
+		tableItem_1.setText(new String[] { "Last Edited", preferences.get(key, "?") });
+		key = new String("project." + 0 + ".summary");
 		TableItem tableItem_4 = new TableItem(table, SWT.NONE);
-		tableItem_4.setText(new String[] {"Summary", "This is the default project provided with the application"});
-		
+		tableItem_4.setText(new String[] { "Summary", preferences.get(key, "?") });
+		key = new String("project." + 0 + ".localserver");
 		TableItem tableItem_2 = new TableItem(table, SWT.NONE);
-		tableItem_2.setText(new String[] {"Local/Server", "LOCAL"});
-		
+		tableItem_2.setText(new String[] { "Local/Server", preferences.get(key, "?") });
+		key = new String("project." + 0 + ".path");
 		TableItem tableItem_3 = new TableItem(table, SWT.NONE);
-		tableItem_3.setText(new String[] {"Path", "c:/temp/HRE"});
-		
+		tableItem_3.setText(new String[] { "Path", preferences.get(key, "?") });
+
 	}
 
 	@PreDestroy

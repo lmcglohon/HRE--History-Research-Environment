@@ -78,13 +78,13 @@ public class HreClientPreferencesPage extends FieldEditorPreferencePage {
 			addField(stringFieldEditorPassword);
 		}
 
-		comboFieldEditorH2TraceLevel = new ComboFieldEditor("H2TRACELEVEL", "Trace Level",
+		comboFieldEditorH2TraceLevel = new ComboFieldEditor("H2TRACELEVEL", "H2 Trace Level",
 				new String[][] { { "OFF", "OFF" }, { "ERROR", "ERROR" }, { "INFO", "INFO" }, { "DEBUG", "DEBUG" } },
 				getFieldEditorParent());
 		addField(comboFieldEditorH2TraceLevel);
 
 		{
-			comboFieldEditorLogLevel = new ComboFieldEditor("LOGLEVEL", "Log Level",
+			comboFieldEditorLogLevel = new ComboFieldEditor("LOGLEVEL", "Application Log Level",
 					new String[][] { { "OFF", "OFF" }, { "SEVERE", "SEVERE" }, { "WARNING", "WARNING" },
 							{ "INFO", "INFO" }, { "CONFIG", "CONFIG" }, { "FINE", "FINE" }, { "FINER", "FINER" },
 							{ "FINEST", "FINEST" }, { "ALL", "ALL" } },
@@ -118,7 +118,7 @@ public class HreClientPreferencesPage extends FieldEditorPreferencePage {
 	@Override
 	public void propertyChange(PropertyChangeEvent event) {
 		super.propertyChange(event);
-		final IEclipsePreferences iep = InstanceScope.INSTANCE.getNode("org.historyresearchenvironment");
+		final IEclipsePreferences iep = InstanceScope.INSTANCE.getNode("org.historyresearchenvironment.client");
 
 		if (event.getSource() == comboFieldEditorCsMode) {
 			final String newValue = event.getNewValue().toString();

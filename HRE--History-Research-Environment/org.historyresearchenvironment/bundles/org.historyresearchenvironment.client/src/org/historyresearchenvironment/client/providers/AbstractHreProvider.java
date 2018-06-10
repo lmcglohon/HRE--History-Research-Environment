@@ -4,7 +4,7 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.logging.Logger;
 
-import org.eclipse.core.runtime.preferences.ConfigurationScope;
+import org.eclipse.core.runtime.preferences.InstanceScope;
 import org.historyresearchenvironment.client.HreH2ConnectionPool;
 import org.osgi.service.prefs.Preferences;
 
@@ -18,7 +18,7 @@ import org.osgi.service.prefs.Preferences;
 public abstract class AbstractHreProvider {
 	protected Connection conn = null;
 	protected final static Logger LOGGER = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
-	protected Preferences preferences = ConfigurationScope.INSTANCE.getNode("org.historyresearchenvironment");
+	protected Preferences preferences = InstanceScope.INSTANCE.getNode("org.historyresearchenvironment.client");
 
 	/**
 	 * Constructor

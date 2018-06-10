@@ -5,6 +5,7 @@ import javax.annotation.PreDestroy;
 import javax.inject.Inject;
 
 import org.eclipse.core.commands.ParameterizedCommand;
+import org.eclipse.core.runtime.preferences.InstanceScope;
 import org.eclipse.e4.core.commands.ECommandService;
 import org.eclipse.e4.core.commands.EHandlerService;
 import org.eclipse.e4.ui.di.Focus;
@@ -23,6 +24,7 @@ import org.eclipse.swt.widgets.MenuItem;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.swt.widgets.TableItem;
+import org.osgi.service.prefs.Preferences;
 
 /**
  * @version 2018-06-10
@@ -35,8 +37,16 @@ public class ProjectNavigator {
 	private ECommandService commandService;
 	@Inject
 	private EHandlerService handlerService;
-	private Table table;
+	private static Preferences preferences = InstanceScope.INSTANCE.getNode("org.historyresearchenvironment.client");
+	// private final static Logger LOGGER =
+	// Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
+	private Table table;
+	
+	/**
+	 * Constructor
+	 *
+	 */
 	public ProjectNavigator() {
 	}
 
@@ -52,6 +62,7 @@ public class ProjectNavigator {
 		table.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseDoubleClick(MouseEvent e) {
+				// TODO Selected Item
 				// final TableItem[] selectedRows = table.getSelection();
 				// final TableItem selectedRow = selectedRows[0];
 				// final String tableName = selectedRow.getText(0);
@@ -70,13 +81,14 @@ public class ProjectNavigator {
 		tblclmnProjectName.setWidth(100);
 		tblclmnProjectName.setText("Project Name");
 
-		TableItem tableItem = new TableItem(table, SWT.NONE);
-		tableItem.setText("HRE");
-		tableItem.setText(new String[] {});
+		int projectCount = preferences.getInt("projectcount", 1);
+		String key;
 
-		TableItem tableItem_1 = new TableItem(table, SWT.NONE);
-		tableItem_1.setText("Test1");
-		tableItem_1.setText(new String[] {});
+		for (int i = 0; i < projectCount; i++) {
+			TableItem tableItem = new TableItem(table, SWT.NONE);
+			key = new String("project." + i + ".name");
+			tableItem.setText(preferences.get(key, "?"));
+		}
 
 		Menu menu = new Menu(table);
 		table.setMenu(menu);
@@ -138,6 +150,7 @@ public class ProjectNavigator {
 		mntmProperties.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
+				// TODO Selected item
 				final ParameterizedCommand command = commandService
 						.createCommand("org.historyresearchenvironment.client.command.projectproperties", null);
 				handlerService.executeHandler(command);
