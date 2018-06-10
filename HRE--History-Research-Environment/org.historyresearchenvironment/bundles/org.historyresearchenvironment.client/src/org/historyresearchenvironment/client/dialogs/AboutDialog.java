@@ -19,7 +19,6 @@ import org.eclipse.wb.swt.SWTResourceManager;
  *
  */
 public class AboutDialog extends Dialog {
-	// TODO Add reference to E4Preferences
 	/**
 	 * Constructor
 	 *

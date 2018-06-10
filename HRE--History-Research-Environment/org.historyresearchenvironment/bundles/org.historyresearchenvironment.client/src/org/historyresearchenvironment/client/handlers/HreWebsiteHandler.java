@@ -13,7 +13,7 @@ import org.eclipse.e4.ui.workbench.modeling.EPartService;
 import org.eclipse.e4.ui.workbench.modeling.EPartService.PartState;
 
 /**
- * @version 31. maj 2018
+ * @version 2018-06-10
  * @author Michael Erichsen, &copy; History Research Environment Ltd., 2018
  *
  */
@@ -28,7 +28,7 @@ public class HreWebsiteHandler {
 		part.setContributionURI(
 				"bundleclass://org.historyresearchenvironment.client/org.historyresearchenvironment.client.parts.HreWebsite");
 		final List<MPartStack> stacks = modelService.findElements(application, null, MPartStack.class, null);
-		stacks.get(stacks.size() - 1).getChildren().add(part);
+		stacks.get(1).getChildren().add(part);
 		partService.showPart(part, PartState.ACTIVATE);
 
 	}

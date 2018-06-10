@@ -5,15 +5,11 @@
       <children xsi:type="advanced:Perspective" xmi:id="_UkjA8GyFEeiuuJ50peZn_A" elementId="org.historyresearchenvironment.client.perspective.historyresearchenvironment" label="HIstory Research Environment" tooltip="HIstory Research Environment">
         <children xsi:type="basic:PartSashContainer" xmi:id="_be0rcGyFEeiuuJ50peZn_A" elementId="org.historyresearchenvironment.client.partsashcontainer.0" containerData="10000" horizontal="true">
           <children xsi:type="basic:PartSashContainer" xmi:id="_d0hXgGyFEeiuuJ50peZn_A" elementId="org.historyresearchenvironment.client.partsashcontainer.1" containerData="3000">
-            <children xsi:type="basic:PartStack" xmi:id="_iZ3yAGyFEeiuuJ50peZn_A" elementId="org.historyresearchenvironment.client.partstack.0">
-              <children xsi:type="basic:Part" xmi:id="_iupIIGyFEeiuuJ50peZn_A" elementId="org.historyresearchenvironment.client.part.projects" contributionURI="bundleclass://org.historyresearchenvironment.client/org.historyresearchenvironment.client.parts.ProjectNavigator" label="Projects" tooltip="Projects" closeable="true"/>
-            </children>
+            <children xsi:type="basic:PartStack" xmi:id="_iZ3yAGyFEeiuuJ50peZn_A" elementId="org.historyresearchenvironment.client.partstack.0"/>
           </children>
           <children xsi:type="basic:PartSashContainer" xmi:id="_fkoqQGyFEeiuuJ50peZn_A" elementId="org.historyresearchenvironment.client.partsashcontainer.2" containerData="7000">
             <children xsi:type="basic:PartStack" xmi:id="_qExBIGyFEeiuuJ50peZn_A" elementId="org.historyresearchenvironment.client.partstack.1" containerData="7000"/>
-            <children xsi:type="basic:PartStack" xmi:id="_sfglQGyFEeiuuJ50peZn_A" elementId="org.historyresearchenvironment.client.partstack.2" containerData="3000">
-              <children xsi:type="basic:Part" xmi:id="_tcPTQGyFEeiuuJ50peZn_A" elementId="org.historyresearchenvironment.client.part.projectproperties" contributionURI="bundleclass://org.historyresearchenvironment.client/org.historyresearchenvironment.client.parts.ProjectProperties" label="Project Properties" tooltip="Project Properties" closeable="true"/>
-            </children>
+            <children xsi:type="basic:PartStack" xmi:id="_sfglQGyFEeiuuJ50peZn_A" elementId="org.historyresearchenvironment.client.partstack.2" containerData="3000"/>
           </children>
         </children>
       </children>
@@ -63,12 +59,13 @@
     </trimBars>
   </children>
   <handlers xmi:id="_6wlLh8gZEeSyMNYR5xypkQ" elementId="org.historyresearchenvironment.client.handler.about" contributionURI="bundleclass://org.historyresearchenvironment.client/org.historyresearchenvironment.client.handlers.AboutHandler" command="_6wlLhsgZEeSyMNYR5xypkQ"/>
-  <handlers xmi:id="_Y3R8cGVpEei5HIUyv56sSA" elementId="org.historyresearchenvironment.client.handler.hrewebsite" contributionURI="bundleclass://org.historyresearchenvironment.client/org.historyresearchenvironment.client.parts.HreWebsite" command="_W0flUGVpEei5HIUyv56sSA"/>
+  <handlers xmi:id="_Y3R8cGVpEei5HIUyv56sSA" elementId="org.historyresearchenvironment.client.handler.hrewebsite" contributionURI="bundleclass://org.historyresearchenvironment.client/org.historyresearchenvironment.client.handlers.HreWebsiteHandler" command="_W0flUGVpEei5HIUyv56sSA"/>
   <handlers xmi:id="_UOUuIGWGEei5HIUyv56sSA" elementId="org.historyresearchenvironment.client.handler.preferences" contributionURI="bundleclass://com.opcoach.e4.preferences/com.opcoach.e4.preferences.handlers.E4PreferencesHandler" command="_MaGj4GWGEei5HIUyv56sSA"/>
   <handlers xmi:id="_rjTSgGVwEei5HIUyv56sSA" elementId="org.historyresearchenvironment.client.handler.projectopen" contributionURI="bundleclass://org.historyresearchenvironment.client/org.historyresearchenvironment.client.handlers.ProjectOpenHandler" command="_pS5WIGVwEei5HIUyv56sSA"/>
   <handlers xmi:id="_23PvIGV0Eei5HIUyv56sSA" elementId="org.historyresearchenvironment.client.handler.projectnew" contributionURI="bundleclass://org.historyresearchenvironment.client/org.historyresearchenvironment.client.handlers.ProjectNewHandler" command="_rgBYMGV0Eei5HIUyv56sSA"/>
-  <handlers xmi:id="_4H1DsGVoEei5HIUyv56sSA" elementId="org.historyresearchenvironment.client.handler.projectnavigator" contributionURI="bundleclass://org.historyresearchenvironment.client/org.historyresearchenvironment.client.parts.ProjectNavigator" command="_zFcu8GVoEei5HIUyv56sSA"/>
+  <handlers xmi:id="_4H1DsGVoEei5HIUyv56sSA" elementId="org.historyresearchenvironment.client.handler.projectnavigator" contributionURI="bundleclass://org.historyresearchenvironment.client/org.historyresearchenvironment.client.handlers.ProjectNavigatorHandler" command="_zFcu8GVoEei5HIUyv56sSA"/>
   <handlers xmi:id="_6wlLfcgZEeSyMNYR5xypkQ" elementId="org.historyresearchenvironment.client.handler.quit" contributionURI="bundleclass://org.historyresearchenvironment.client/org.historyresearchenvironment.client.handlers.QuitHandler" command="_6wlLfMgZEeSyMNYR5xypkQ"/>
+  <handlers xmi:id="_AX7qwGySEeiWA6ZM115-YA" elementId="org.historyresearchenvironment.client.handler.0" contributionURI="bundleclass://org.historyresearchenvironment.client/org.historyresearchenvironment.client.handlers.ProjectPropertiesHandler" command="_9Es_cGyREeiWA6ZM115-YA"/>
   <bindingTables xmi:id="_6wlLfsgZEeSyMNYR5xypkQ" elementId="org.historyresearchenvironment.client.bindingtable" bindingContext="_6wlLecgZEeSyMNYR5xypkQ">
     <bindings xmi:id="_6wlLf8gZEeSyMNYR5xypkQ" elementId="org.historyresearchenvironment.client.keybinding.m1q" keySequence="M1+Q" command="_6wlLfMgZEeSyMNYR5xypkQ"/>
     <bindings xmi:id="_6wlLgsgZEeSyMNYR5xypkQ" elementId="org.historyresearchenvironment.client.keybinding.m1o" keySequence="M1+O" command="_pS5WIGVwEei5HIUyv56sSA"/>
@@ -86,6 +83,7 @@
   <commands xmi:id="_ll3TgGvuEei6UJPZ5XWbvg" elementId="org.historyresearchenvironment.client.command.projectclose" commandName="ProjectClose"/>
   <commands xmi:id="_rgBYMGV0Eei5HIUyv56sSA" elementId="org.eclipse.ui.file.save" commandName="ProjectNew"/>
   <commands xmi:id="_zFcu8GVoEei5HIUyv56sSA" elementId="org.historyresearchenvironment.client.command.projectnavigator" commandName="ProjectNavigator"/>
+  <commands xmi:id="_9Es_cGyREeiWA6ZM115-YA" elementId="org.historyresearchenvironment.client.command.projectproperties" commandName="ProjectProperties"/>
   <commands xmi:id="_pS5WIGVwEei5HIUyv56sSA" elementId="org.eclipse.ui.file.open" commandName="ProjectOpen"/>
   <commands xmi:id="_6wlLfMgZEeSyMNYR5xypkQ" elementId="org.eclipse.ui.file.exit" commandName="Quit"/>
   <commands xmi:id="_S7SDsGvuEei6UJPZ5XWbvg" elementId="org.historyresearchenvironment.client.command.location" commandName="Location"/>

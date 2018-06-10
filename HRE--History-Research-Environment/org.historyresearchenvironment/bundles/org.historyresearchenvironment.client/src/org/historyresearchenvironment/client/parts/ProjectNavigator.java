@@ -11,6 +11,8 @@ import org.eclipse.e4.ui.di.Focus;
 import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.jface.viewers.TableViewerColumn;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.events.MouseAdapter;
+import org.eclipse.swt.events.MouseEvent;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.layout.GridData;
@@ -47,6 +49,18 @@ public class ProjectNavigator {
 
 		TableViewer tableViewer = new TableViewer(parent, SWT.BORDER | SWT.FULL_SELECTION);
 		table = tableViewer.getTable();
+		table.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseDoubleClick(MouseEvent e) {
+				// final TableItem[] selectedRows = table.getSelection();
+				// final TableItem selectedRow = selectedRows[0];
+				// final String tableName = selectedRow.getText(0);
+
+				final ParameterizedCommand command = commandService
+						.createCommand("org.historyresearchenvironment.client.command.projectproperties", null);
+				handlerService.executeHandler(command);
+			}
+		});
 		table.setLinesVisible(true);
 		table.setHeaderVisible(true);
 		table.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
@@ -71,15 +85,15 @@ public class ProjectNavigator {
 		mntmOpen.addSelectionListener(new SelectionAdapter() {
 			/*
 			 * (non-Javadoc)
-			 * 
+			 *
 			 * @see
+			 *
 			 * org.eclipse.swt.events.SelectionAdapter#widgetSelected(org.eclipse.swt.events
 			 * .SelectionEvent)
 			 */
 			@Override
 			public void widgetSelected(SelectionEvent e) {
-				ParameterizedCommand saveCommand = commandService
-						.createCommand("org.eclipse.ui.file.open", null);
+				ParameterizedCommand saveCommand = commandService.createCommand("org.eclipse.ui.file.open", null);
 				handlerService.executeHandler(saveCommand);
 			}
 		});
@@ -89,15 +103,15 @@ public class ProjectNavigator {
 		mntmNew.addSelectionListener(new SelectionAdapter() {
 			/*
 			 * (non-Javadoc)
-			 * 
+			 *
 			 * @see
+			 *
 			 * org.eclipse.swt.events.SelectionAdapter#widgetSelected(org.eclipse.swt.events
 			 * .SelectionEvent)
 			 */
 			@Override
 			public void widgetSelected(SelectionEvent e) {
-				ParameterizedCommand newCommand = commandService
-						.createCommand("org.eclipse.ui.file.save", null);
+				ParameterizedCommand newCommand = commandService.createCommand("org.eclipse.ui.file.save", null);
 				handlerService.executeHandler(newCommand);
 			}
 		});
@@ -117,10 +131,18 @@ public class ProjectNavigator {
 
 		MenuItem mntmDelete = new MenuItem(menu, SWT.NONE);
 		mntmDelete.setText("Delete");
-		
+
 		new MenuItem(menu, SWT.SEPARATOR);
-		
+
 		MenuItem mntmProperties = new MenuItem(menu, SWT.NONE);
+		mntmProperties.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				final ParameterizedCommand command = commandService
+						.createCommand("org.historyresearchenvironment.client.command.projectproperties", null);
+				handlerService.executeHandler(command);
+			}
+		});
 		mntmProperties.setToolTipText("Properties");
 		mntmProperties.setText("Properties");
 	}

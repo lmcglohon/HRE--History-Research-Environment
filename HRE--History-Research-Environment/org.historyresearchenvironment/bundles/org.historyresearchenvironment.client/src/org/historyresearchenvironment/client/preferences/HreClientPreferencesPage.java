@@ -20,7 +20,7 @@ import org.eclipse.swt.widgets.Composite;
 import org.historyresearchenvironment.client.HreH2ConnectionPool;
 
 /**
- * @version 2018-06-09
+ * @version 2018-06-10
  * @author Michael Erichsen, &copy; History Research Environment Ltd., 2018
  *
  */
@@ -74,6 +74,7 @@ public class HreClientPreferencesPage extends FieldEditorPreferencePage {
 		{
 			final StringFieldEditor stringFieldEditorPassword = new StringFieldEditor("PASSWORD", "H2 Password", -1,
 					StringFieldEditor.VALIDATE_ON_KEY_STROKE, getFieldEditorParent());
+			stringFieldEditorPassword.getTextControl(getFieldEditorParent()).setEchoChar('*');
 			addField(stringFieldEditorPassword);
 		}
 

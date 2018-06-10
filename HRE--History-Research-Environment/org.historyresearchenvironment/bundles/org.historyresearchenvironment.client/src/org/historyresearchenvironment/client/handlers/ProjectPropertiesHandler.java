@@ -17,7 +17,7 @@ import org.eclipse.e4.ui.workbench.modeling.EPartService.PartState;
  * @author Michael Erichsen, &copy; History Research Environment Ltd., 2018
  *
  */
-public class ProjectNavigatorHandler {
+public class ProjectPropertiesHandler {
 	/**
 	 * @param partService
 	 * @param application
@@ -26,14 +26,14 @@ public class ProjectNavigatorHandler {
 	@Execute
 	public void execute(EPartService partService, MApplication application, EModelService modelService) {
 		final MPart part = MBasicFactory.INSTANCE.createPart();
-		part.setLabel("Projects");
+		part.setLabel("Project Properties");
 		part.setContainerData("650");
 		part.setCloseable(true);
 		part.setVisible(true);
 		part.setContributionURI(
-				"bundleclass://org.historyresearchenvironment.client/org.historyresearchenvironment.client.parts.ProjectNavigator");
+				"bundleclass://org.historyresearchenvironment.client/org.historyresearchenvironment.client.parts.ProjectProperties");
 		final List<MPartStack> stacks = modelService.findElements(application, null, MPartStack.class, null);
-		stacks.get(0).getChildren().add(part);
+		stacks.get(2).getChildren().add(part);
 		partService.showPart(part, PartState.ACTIVATE);
 	}
 
