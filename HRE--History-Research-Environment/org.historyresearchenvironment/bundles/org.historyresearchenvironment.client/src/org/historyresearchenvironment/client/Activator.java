@@ -38,6 +38,7 @@ public class Activator implements BundleActivator {
 		preferences.put("project.0.summary", preferences.get("project.0.summary", "This is the default project"));
 		preferences.put("project.0.localserver", preferences.get("project.0.localserver", "LOCAL"));
 		preferences.put("project.0.path", preferences.get("project.0.path", "c:/client/temp/HRE"));
+		preferences.flush();
 
 		LOGGER.info("HRE v0.1 has been started");
 	}
