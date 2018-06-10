@@ -12,9 +12,10 @@ import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.wb.swt.SWTResourceManager;
+import org.eclipse.wb.swt.ResourceManager;
 
 /**
- * @version 2018-06-09
+ * @version 2018-06-10
  * @author Michael Erichsen, &copy; History Research Environment Ltd., 2018
  *
  */
@@ -55,12 +56,8 @@ public class AboutDialog extends Dialog {
 		container.setLayout(new GridLayout(2, false));
 
 		final CLabel lblNewLabel = new CLabel(container, SWT.NONE);
+		lblNewLabel.setImage(ResourceManager.getPluginImage("org.historyresearchenvironment.client", "icons/HRE-144.png"));
 		lblNewLabel.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false, 1, 4));
-		// TODO Icon
-		// lblNewLabel
-		// .setImage(ResourceManager.getPluginImage("org.historyresearchenvironment.client",
-		// "icons/HRE-144.png"));
-		lblNewLabel.setText("");
 
 		final Label lblHistoryResearch = new Label(container, SWT.NONE);
 		lblHistoryResearch.setLayoutData(new GridData(SWT.CENTER, SWT.CENTER, false, false, 1, 1));
@@ -74,12 +71,12 @@ public class AboutDialog extends Dialog {
 
 		final Label lblBuild = new Label(container, SWT.NONE);
 		lblBuild.setLayoutData(new GridData(SWT.CENTER, SWT.CENTER, false, false, 1, 1));
-		lblBuild.setText("Build 0.0.4");
+		lblBuild.setText("Build 0.1.0");
 		lblBuild.setFont(SWTResourceManager.getFont("Calibri", 14, SWT.BOLD));
 
 		final Label label = new Label(container, SWT.NONE);
 		label.setLayoutData(new GridData(SWT.CENTER, SWT.TOP, false, false, 1, 1));
-		label.setText("2017");
+		label.setText("2018");
 		label.setFont(SWTResourceManager.getFont("Calibri", 14, SWT.BOLD));
 
 		final Label lblNewLabel_2 = new Label(container, SWT.NONE);
@@ -95,21 +92,6 @@ public class AboutDialog extends Dialog {
 		final Label label_1 = new Label(container, SWT.NONE);
 		label_1.setFont(SWTResourceManager.getFont("Calibri", 12, SWT.NORMAL));
 		new Label(container, SWT.NONE);
-
-		final Label lblIconsUsedFrom = new Label(container, SWT.NONE);
-		lblIconsUsedFrom.setLayoutData(new GridData(SWT.LEFT, SWT.CENTER, false, false, 2, 1));
-		lblIconsUsedFrom.setText("Icons used from http://www.defaulticon.com       ");
-		lblIconsUsedFrom.setFont(SWTResourceManager.getFont("Calibri", 12, SWT.NORMAL));
-
-		final Label lblCopyrightInteractivemania = new Label(container, SWT.NONE);
-		lblCopyrightInteractivemania.setLayoutData(new GridData(SWT.LEFT, SWT.CENTER, false, false, 2, 1));
-		lblCopyrightInteractivemania.setText("\u00A9 copyright interactivemania 2010-2011,   ");
-		lblCopyrightInteractivemania.setFont(SWTResourceManager.getFont("Calibri", 12, SWT.NORMAL));
-
-		final Label lblAsReleasedUnder = new Label(container, SWT.NONE);
-		lblAsReleasedUnder.setLayoutData(new GridData(SWT.LEFT, SWT.CENTER, false, false, 2, 1));
-		lblAsReleasedUnder.setText("as released under CC BY ND 3.0  ");
-		lblAsReleasedUnder.setFont(SWTResourceManager.getFont("Calibri", 12, SWT.NORMAL));
 
 		final Label label_3 = new Label(container, SWT.NONE);
 		label_3.setFont(SWTResourceManager.getFont("Calibri", 12, SWT.NORMAL));
