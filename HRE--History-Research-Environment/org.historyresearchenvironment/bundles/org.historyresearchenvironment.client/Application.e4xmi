@@ -1,12 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<application:Application xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:application="http://www.eclipse.org/ui/2010/UIModel/application" xmlns:basic="http://www.eclipse.org/ui/2010/UIModel/application/ui/basic" xmlns:menu="http://www.eclipse.org/ui/2010/UIModel/application/ui/menu" xmi:id="_6wlLcMgZEeSyMNYR5xypkQ" elementId="org.historyresearchenvironment.client.application" bindingContexts="_6wlLecgZEeSyMNYR5xypkQ">
+<application:Application xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:advanced="http://www.eclipse.org/ui/2010/UIModel/application/ui/advanced" xmlns:application="http://www.eclipse.org/ui/2010/UIModel/application" xmlns:basic="http://www.eclipse.org/ui/2010/UIModel/application/ui/basic" xmlns:menu="http://www.eclipse.org/ui/2010/UIModel/application/ui/menu" xmi:id="_6wlLcMgZEeSyMNYR5xypkQ" elementId="org.historyresearchenvironment.client.application" bindingContexts="_6wlLecgZEeSyMNYR5xypkQ">
   <children xsi:type="basic:TrimmedWindow" xmi:id="_6wlLccgZEeSyMNYR5xypkQ" elementId="org.historyresearchenvironment.client.window.main" label="History Research Environment v0.1" width="500" height="400">
-    <children xsi:type="basic:PartSashContainer" xmi:id="_6wlLksgZEeSyMNYR5xypkQ" elementId="org.historyresearchenvironment.client.partsashcontainer.sample">
-      <children xsi:type="basic:PartStack" xmi:id="_6wlLk8gZEeSyMNYR5xypkQ" elementId="org.historyresearchenvironment.client.partstack.sample"/>
+    <children xsi:type="advanced:PerspectiveStack" xmi:id="_UAbAMGyFEeiuuJ50peZn_A" elementId="org.historyresearchenvironment.client.perspectivestack.0">
+      <children xsi:type="advanced:Perspective" xmi:id="_UkjA8GyFEeiuuJ50peZn_A" elementId="org.historyresearchenvironment.client.perspective.historyresearchenvironment" label="HIstory Research Environment" tooltip="HIstory Research Environment">
+        <children xsi:type="basic:PartSashContainer" xmi:id="_be0rcGyFEeiuuJ50peZn_A" elementId="org.historyresearchenvironment.client.partsashcontainer.0" containerData="10000" horizontal="true">
+          <children xsi:type="basic:PartSashContainer" xmi:id="_d0hXgGyFEeiuuJ50peZn_A" elementId="org.historyresearchenvironment.client.partsashcontainer.1" containerData="3000">
+            <children xsi:type="basic:PartStack" xmi:id="_iZ3yAGyFEeiuuJ50peZn_A" elementId="org.historyresearchenvironment.client.partstack.0">
+              <children xsi:type="basic:Part" xmi:id="_iupIIGyFEeiuuJ50peZn_A" elementId="org.historyresearchenvironment.client.part.projects" contributionURI="bundleclass://org.historyresearchenvironment.client/org.historyresearchenvironment.client.parts.ProjectNavigator" label="Projects" tooltip="Projects" closeable="true"/>
+            </children>
+          </children>
+          <children xsi:type="basic:PartSashContainer" xmi:id="_fkoqQGyFEeiuuJ50peZn_A" elementId="org.historyresearchenvironment.client.partsashcontainer.2" containerData="7000">
+            <children xsi:type="basic:PartStack" xmi:id="_qExBIGyFEeiuuJ50peZn_A" elementId="org.historyresearchenvironment.client.partstack.1" containerData="7000"/>
+            <children xsi:type="basic:PartStack" xmi:id="_sfglQGyFEeiuuJ50peZn_A" elementId="org.historyresearchenvironment.client.partstack.2" containerData="3000">
+              <children xsi:type="basic:Part" xmi:id="_tcPTQGyFEeiuuJ50peZn_A" elementId="org.historyresearchenvironment.client.part.projectproperties" contributionURI="bundleclass://org.historyresearchenvironment.client/org.historyresearchenvironment.client.parts.ProjectProperties" label="Project Properties" tooltip="Project Properties" closeable="true"/>
+            </children>
+          </children>
+        </children>
+      </children>
     </children>
     <mainMenu xmi:id="_6wlLicgZEeSyMNYR5xypkQ" elementId="org.eclipse.ui.main.menu">
       <children xsi:type="menu:Menu" xmi:id="_dEC5MGDGEeicsMpOuyVmJw" elementId="org.historyresearchenvironment.client.menu.project" label="Project">
-        <children xsi:type="menu:HandledMenuItem" xmi:id="_tJHTYGVoEei5HIUyv56sSA" elementId="org.historyresearchenvironment.client.handledmenuitem.projectmichaelssuggestion" label="Projects..." tooltip="Projects" command="_zFcu8GVoEei5HIUyv56sSA"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_tJHTYGVoEei5HIUyv56sSA" elementId="org.historyresearchenvironment.client.handledmenuitem.projects" label="Projects" tooltip="Projects" command="_zFcu8GVoEei5HIUyv56sSA"/>
         <children xsi:type="menu:MenuSeparator" xmi:id="_Um-7YGDIEeicsMpOuyVmJw" elementId="org.historyresearchenvironment.client.menuseparator.0"/>
         <children xsi:type="menu:HandledMenuItem" xmi:id="_gF-zQGVzEei5HIUyv56sSA" elementId="org.historyresearchenvironment.client.handledmenuitem.closeproject" label="Close Project" tooltip="Close Project" enabled="false" command="_ll3TgGvuEei6UJPZ5XWbvg"/>
         <children xsi:type="menu:HandledMenuItem" xmi:id="_Vgbr4GDIEeicsMpOuyVmJw" elementId="org.historyresearchenvironment.client.handledmenuitem.closeandexit" label="Close and Exit..." tooltip="Close and Exit" command="_6wlLfMgZEeSyMNYR5xypkQ"/>
@@ -39,46 +53,43 @@
     </mainMenu>
     <trimBars xmi:id="_6wlLlcgZEeSyMNYR5xypkQ" elementId="org.historyresearchenvironment.client.trimbar.top">
       <children xsi:type="menu:ToolBar" xmi:id="_6wlLlsgZEeSyMNYR5xypkQ" elementId="org.eclipse.ui.main.toolbar">
-        <children xsi:type="menu:HandledToolItem" xmi:id="_YUFAgGtCEeiTNqYJTm8XLg" elementId="org.historyresearchenvironment.client.handledtoolitem." label="" iconURI="platform:/plugin/org.historyresearchenvironment.client/icons/ProjectNew_CLR_V4_32x32.png" tooltip="New Project" command="_rgBYMGV0Eei5HIUyv56sSA"/>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_d72hUGtCEeiTNqYJTm8XLg" elementId="org.historyresearchenvironment.client.handledtoolitem.0" iconURI="platform:/plugin/org.historyresearchenvironment.client/icons/ProjectOpen_CLR_V4_32x32.png" tooltip="Open Project" command="_pS5WIGVwEei5HIUyv56sSA"/>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_hSaNcGtCEeiTNqYJTm8XLg" elementId="org.historyresearchenvironment.client.handledtoolitem.1" iconURI="platform:/plugin/org.historyresearchenvironment.client/icons/Configuration_BW_V5_32x32.png" tooltip="Preferences" command="_MaGj4GWGEei5HIUyv56sSA"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_YUFAgGtCEeiTNqYJTm8XLg" elementId="org.historyresearchenvironment.client.handledtoolitem.toolbar.newproject" label="" iconURI="platform:/plugin/org.historyresearchenvironment.client/icons/ProjectNew_CLR_V4_32x32.png" tooltip="New Project" command="_rgBYMGV0Eei5HIUyv56sSA"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_d72hUGtCEeiTNqYJTm8XLg" elementId="org.historyresearchenvironment.client.handledtoolitem.toolbar.openproject" iconURI="platform:/plugin/org.historyresearchenvironment.client/icons/ProjectOpen_CLR_V4_32x32.png" tooltip="Open Project" command="_pS5WIGVwEei5HIUyv56sSA"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_hSaNcGtCEeiTNqYJTm8XLg" elementId="org.historyresearchenvironment.client.handledtoolitem.toolbar.preferences" label="" iconURI="platform:/plugin/org.historyresearchenvironment.client/icons/Configuration_BW_V5_32x32.png" tooltip="Preferences" command="_MaGj4GWGEei5HIUyv56sSA"/>
       </children>
     </trimBars>
     <trimBars xmi:id="_13rWcGqAEeitpISCT-bGQA" elementId="org.historyresearchenvironment.client.trimbar.0" side="Bottom">
       <children xsi:type="menu:ToolControl" xmi:id="_3LB0sGqAEeitpISCT-bGQA" elementId="org.historyresearchenvironment.client.toolcontrol.0" contributionURI="bundleclass://org.historyresearchenvironment.client/org.historyresearchenvironment.client.parts.StatusToolControl"/>
     </trimBars>
   </children>
-  <handlers xmi:id="_6wlLh8gZEeSyMNYR5xypkQ" elementId="org.historyresearchenvironment.client.handler.aboutCommand" contributionURI="bundleclass://org.historyresearchenvironment.client/org.historyresearchenvironment.client.handlers.AboutHandler" command="_6wlLhsgZEeSyMNYR5xypkQ"/>
-  <handlers xmi:id="_Y3R8cGVpEei5HIUyv56sSA" elementId="org.historyresearchenvironment.client.handler.2" contributionURI="bundleclass://org.historyresearchenvironment.client/org.historyresearchenvironment.client.handlers.HreWebsiteHandler" command="_W0flUGVpEei5HIUyv56sSA"/>
-  <handlers xmi:id="_rjTSgGVwEei5HIUyv56sSA" elementId="org.historyresearchenvironment.client.handler.3" contributionURI="bundleclass://org.historyresearchenvironment.client/org.historyresearchenvironment.client.handlers.ProjectOpenHandler" command="_pS5WIGVwEei5HIUyv56sSA"/>
-  <handlers xmi:id="_23PvIGV0Eei5HIUyv56sSA" elementId="org.historyresearchenvironment.client.handler.4" contributionURI="bundleclass://org.historyresearchenvironment.client/org.historyresearchenvironment.client.handlers.ProjectNewHandler" command="_rgBYMGV0Eei5HIUyv56sSA"/>
-  <handlers xmi:id="_4H1DsGVoEei5HIUyv56sSA" elementId="org.historyresearchenvironment.client.handler.1" contributionURI="bundleclass://org.historyresearchenvironment.client/org.historyresearchenvironment.client.handlers.ProjectNavigatorHandler" command="_zFcu8GVoEei5HIUyv56sSA"/>
-  <handlers xmi:id="_6wlLfcgZEeSyMNYR5xypkQ" elementId="org.historyresearchenvironment.client.handler.quitCommand" contributionURI="bundleclass://org.historyresearchenvironment.client/org.historyresearchenvironment.client.handlers.QuitHandler" command="_6wlLfMgZEeSyMNYR5xypkQ"/>
-  <handlers xmi:id="_6wlLhMgZEeSyMNYR5xypkQ" elementId="org.historyresearchenvironment.client.handler.saveCommand" contributionURI="bundleclass://org.historyresearchenvironment.client/org.historyresearchenvironment.client.handlers.SaveHandler" command="_6wlLg8gZEeSyMNYR5xypkQ"/>
-  <handlers xmi:id="_UOUuIGWGEei5HIUyv56sSA" elementId="org.historyresearchenvironment.client.handler.5" contributionURI="bundleclass://com.opcoach.e4.preferences/com.opcoach.e4.preferences.handlers.E4PreferencesHandler" command="_MaGj4GWGEei5HIUyv56sSA"/>
+  <handlers xmi:id="_6wlLh8gZEeSyMNYR5xypkQ" elementId="org.historyresearchenvironment.client.handler.about" contributionURI="bundleclass://org.historyresearchenvironment.client/org.historyresearchenvironment.client.handlers.AboutHandler" command="_6wlLhsgZEeSyMNYR5xypkQ"/>
+  <handlers xmi:id="_Y3R8cGVpEei5HIUyv56sSA" elementId="org.historyresearchenvironment.client.handler.hrewebsite" contributionURI="bundleclass://org.historyresearchenvironment.client/org.historyresearchenvironment.client.parts.HreWebsite" command="_W0flUGVpEei5HIUyv56sSA"/>
+  <handlers xmi:id="_UOUuIGWGEei5HIUyv56sSA" elementId="org.historyresearchenvironment.client.handler.preferences" contributionURI="bundleclass://com.opcoach.e4.preferences/com.opcoach.e4.preferences.handlers.E4PreferencesHandler" command="_MaGj4GWGEei5HIUyv56sSA"/>
+  <handlers xmi:id="_rjTSgGVwEei5HIUyv56sSA" elementId="org.historyresearchenvironment.client.handler.projectopen" contributionURI="bundleclass://org.historyresearchenvironment.client/org.historyresearchenvironment.client.handlers.ProjectOpenHandler" command="_pS5WIGVwEei5HIUyv56sSA"/>
+  <handlers xmi:id="_23PvIGV0Eei5HIUyv56sSA" elementId="org.historyresearchenvironment.client.handler.projectnew" contributionURI="bundleclass://org.historyresearchenvironment.client/org.historyresearchenvironment.client.handlers.ProjectNewHandler" command="_rgBYMGV0Eei5HIUyv56sSA"/>
+  <handlers xmi:id="_4H1DsGVoEei5HIUyv56sSA" elementId="org.historyresearchenvironment.client.handler.projectnavigator" contributionURI="bundleclass://org.historyresearchenvironment.client/org.historyresearchenvironment.client.parts.ProjectNavigator" command="_zFcu8GVoEei5HIUyv56sSA"/>
+  <handlers xmi:id="_6wlLfcgZEeSyMNYR5xypkQ" elementId="org.historyresearchenvironment.client.handler.quit" contributionURI="bundleclass://org.historyresearchenvironment.client/org.historyresearchenvironment.client.handlers.QuitHandler" command="_6wlLfMgZEeSyMNYR5xypkQ"/>
   <bindingTables xmi:id="_6wlLfsgZEeSyMNYR5xypkQ" elementId="org.historyresearchenvironment.client.bindingtable" bindingContext="_6wlLecgZEeSyMNYR5xypkQ">
     <bindings xmi:id="_6wlLf8gZEeSyMNYR5xypkQ" elementId="org.historyresearchenvironment.client.keybinding.m1q" keySequence="M1+Q" command="_6wlLfMgZEeSyMNYR5xypkQ"/>
-    <bindings xmi:id="_6wlLgsgZEeSyMNYR5xypkQ" elementId="org.historyresearchenvironment.client.keybinding.m1o" keySequence="M1+O"/>
-    <bindings xmi:id="_6wlLhcgZEeSyMNYR5xypkQ" elementId="org.historyresearchenvironment.client.keybinding.m1s" keySequence="M1+S" command="_6wlLg8gZEeSyMNYR5xypkQ"/>
+    <bindings xmi:id="_6wlLgsgZEeSyMNYR5xypkQ" elementId="org.historyresearchenvironment.client.keybinding.m1o" keySequence="M1+O" command="_pS5WIGVwEei5HIUyv56sSA"/>
+    <bindings xmi:id="_6wlLhcgZEeSyMNYR5xypkQ" elementId="org.historyresearchenvironment.client.keybinding.m1s" keySequence="M1+S" command="_rgBYMGV0Eei5HIUyv56sSA"/>
     <bindings xmi:id="_6wlLiMgZEeSyMNYR5xypkQ" elementId="org.historyresearchenvironment.client.keybinding.m1a" keySequence="M1+A" command="_6wlLhsgZEeSyMNYR5xypkQ"/>
   </bindingTables>
   <rootContext xmi:id="_6wlLecgZEeSyMNYR5xypkQ" elementId="org.eclipse.ui.contexts.dialogAndWindow" name="In Dialog and Windows">
     <children xmi:id="_6wlLesgZEeSyMNYR5xypkQ" elementId="org.eclipse.ui.contexts.window" name="In Windows"/>
     <children xmi:id="_6wlLe8gZEeSyMNYR5xypkQ" elementId="org.eclipse.ui.contexts.dialog" name="In Dialogs"/>
   </rootContext>
-  <commands xmi:id="_6wlLhsgZEeSyMNYR5xypkQ" elementId="org.eclipse.ui.help.aboutAction" commandName="About"/>
-  <commands xmi:id="_W0flUGVpEei5HIUyv56sSA" elementId="org.historyresearchenvironment.client.command.hrewebsitecommand" commandName="HREWebSite"/>
-  <commands xmi:id="_rgBYMGV0Eei5HIUyv56sSA" elementId="org.eclipse.ui.file.save" commandName="ProjectNew"/>
-  <commands xmi:id="_zFcu8GVoEei5HIUyv56sSA" elementId="org.historyresearchenvironment.client.command.projectlistcommand" commandName="ProjectNavigator"/>
-  <commands xmi:id="_pS5WIGVwEei5HIUyv56sSA" elementId="org.eclipse.ui.file.open" commandName="ProjectOpen"/>
-  <commands xmi:id="_Qfk8AGKHEeiVaekka8CzeA" elementId="org.historyresearchenvironment.client.command.projectopencommand" commandName="ProjectOpenRobin"/>
-  <commands xmi:id="_6wlLfMgZEeSyMNYR5xypkQ" elementId="org.eclipse.ui.file.exit" commandName="Quit"/>
-  <commands xmi:id="_6wlLg8gZEeSyMNYR5xypkQ" elementId="org.historyresearchenvironment.client.command.savecommand" commandName="Save"/>
+  <commands xmi:id="_6wlLhsgZEeSyMNYR5xypkQ" elementId="org.eclipse.ui.help.about" commandName="About"/>
+  <commands xmi:id="_o2IKYGvuEei6UJPZ5XWbvg" elementId="org.historyresearchenvironment.client.command.helpcontents" commandName="HelpContents"/>
+  <commands xmi:id="_W0flUGVpEei5HIUyv56sSA" elementId="org.historyresearchenvironment.client.command.hrewebsite" commandName="HREWebSite"/>
   <commands xmi:id="_MaGj4GWGEei5HIUyv56sSA" elementId="org.eclipse.ui.window.preferences" commandName="Preferences"/>
+  <commands xmi:id="_ll3TgGvuEei6UJPZ5XWbvg" elementId="org.historyresearchenvironment.client.command.projectclose" commandName="ProjectClose"/>
+  <commands xmi:id="_rgBYMGV0Eei5HIUyv56sSA" elementId="org.eclipse.ui.file.save" commandName="ProjectNew"/>
+  <commands xmi:id="_zFcu8GVoEei5HIUyv56sSA" elementId="org.historyresearchenvironment.client.command.projectnavigator" commandName="ProjectNavigator"/>
+  <commands xmi:id="_pS5WIGVwEei5HIUyv56sSA" elementId="org.eclipse.ui.file.open" commandName="ProjectOpen"/>
+  <commands xmi:id="_6wlLfMgZEeSyMNYR5xypkQ" elementId="org.eclipse.ui.file.exit" commandName="Quit"/>
   <commands xmi:id="_S7SDsGvuEei6UJPZ5XWbvg" elementId="org.historyresearchenvironment.client.command.location" commandName="Location"/>
   <commands xmi:id="_U9CgEGvuEei6UJPZ5XWbvg" elementId="org.historyresearchenvironment.client.command.historicaldate" commandName="Historical Date"/>
-  <commands xmi:id="_ll3TgGvuEei6UJPZ5XWbvg" elementId="org.historyresearchenvironment.client.command.projectclose" commandName="ProjectClose"/>
-  <commands xmi:id="_o2IKYGvuEei6UJPZ5XWbvg" elementId="org.historyresearchenvironment.client.command.helpcontents" commandName="HelpContents"/>
   <addons xmi:id="_6wlLcsgZEeSyMNYR5xypkQ" elementId="org.eclipse.e4.core.commands.service" contributionURI="bundleclass://org.eclipse.e4.core.commands/org.eclipse.e4.core.commands.CommandServiceAddon"/>
   <addons xmi:id="_6wlLc8gZEeSyMNYR5xypkQ" elementId="org.eclipse.e4.ui.contexts.service" contributionURI="bundleclass://org.eclipse.e4.ui.services/org.eclipse.e4.ui.services.ContextServiceAddon"/>
   <addons xmi:id="_6wlLdMgZEeSyMNYR5xypkQ" elementId="org.eclipse.e4.ui.bindings.service" contributionURI="bundleclass://org.eclipse.e4.ui.bindings/org.eclipse.e4.ui.bindings.BindingServiceAddon"/>

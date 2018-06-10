@@ -26,7 +26,7 @@ public class HreWebsiteHandler {
 		part.setCloseable(true);
 		part.setVisible(true);
 		part.setContributionURI(
-				"bundleclass://org.historyresearchenvironment.client/org.historyresearchenvironment.client.parts.HreWebsitePart");
+				"bundleclass://org.historyresearchenvironment.client/org.historyresearchenvironment.client.parts.HreWebsite");
 		final List<MPartStack> stacks = modelService.findElements(application, null, MPartStack.class, null);
 		stacks.get(stacks.size() - 1).getChildren().add(part);
 		partService.showPart(part, PartState.ACTIVATE);

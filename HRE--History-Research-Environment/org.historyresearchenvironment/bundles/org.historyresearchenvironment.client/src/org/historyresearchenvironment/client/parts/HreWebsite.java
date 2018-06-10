@@ -10,14 +10,15 @@ import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
 
 /**
- * @version 1. jun. 2018
+ * @version 2018-06-10
  * @author Michael Erichsen, &copy; History Research Environment Ltd., 2018
  *
  */
-public class HreWebsitePart {
+public class HreWebsite {
 
 	/**
 	 * Contruct a browser with the HRE web site
+	 * 
 	 * @param parent
 	 */
 	@PostConstruct

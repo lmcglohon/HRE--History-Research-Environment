@@ -23,19 +23,19 @@ import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.swt.widgets.TableItem;
 
 /**
- * @version 1. jun. 2018
+ * @version 2018-06-10
  * @author Michael Erichsen, &copy; History Research Environment Ltd., 2018
  *
  */
 @SuppressWarnings("restriction")
-public class ProjectNavigatorPart {
+public class ProjectNavigator {
 	@Inject
 	private ECommandService commandService;
 	@Inject
 	private EHandlerService handlerService;
 	private Table table;
 
-	public ProjectNavigatorPart() {
+	public ProjectNavigator() {
 	}
 
 	/**
@@ -56,21 +56,13 @@ public class ProjectNavigatorPart {
 		tblclmnProjectName.setWidth(100);
 		tblclmnProjectName.setText("Project Name");
 
-		TableViewerColumn tableViewerColumnLastEdited = new TableViewerColumn(tableViewer, SWT.NONE);
-		TableColumn tblclmnLastEdited = tableViewerColumnLastEdited.getColumn();
-		tblclmnLastEdited.setWidth(100);
-		tblclmnLastEdited.setText("Last Edited");
-
-		TableViewerColumn tableViewerColumnSummary = new TableViewerColumn(tableViewer, SWT.NONE);
-		TableColumn tblclmnNewColumn = tableViewerColumnSummary.getColumn();
-		tblclmnNewColumn.setWidth(229);
-		tblclmnNewColumn.setText("Summary");
-
 		TableItem tableItem = new TableItem(table, SWT.NONE);
-		tableItem.setText(new String[] { "Erichsen", "2018-05-21", "This is Michael's tree" });
+		tableItem.setText("HRE");
+		tableItem.setText(new String[] {});
 
 		TableItem tableItem_1 = new TableItem(table, SWT.NONE);
-		tableItem_1.setText(new String[] { "Sample", "2011-12-24", "This is a Sample project from HRE" });
+		tableItem_1.setText("Test1");
+		tableItem_1.setText(new String[] {});
 
 		Menu menu = new Menu(table);
 		table.setMenu(menu);
@@ -125,6 +117,12 @@ public class ProjectNavigatorPart {
 
 		MenuItem mntmDelete = new MenuItem(menu, SWT.NONE);
 		mntmDelete.setText("Delete");
+		
+		new MenuItem(menu, SWT.SEPARATOR);
+		
+		MenuItem mntmProperties = new MenuItem(menu, SWT.NONE);
+		mntmProperties.setToolTipText("Properties");
+		mntmProperties.setText("Properties");
 	}
 
 	@PreDestroy
