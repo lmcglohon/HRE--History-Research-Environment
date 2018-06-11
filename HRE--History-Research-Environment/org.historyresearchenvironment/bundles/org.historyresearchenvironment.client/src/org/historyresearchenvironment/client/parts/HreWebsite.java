@@ -11,7 +11,7 @@ import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
 
 /**
- * @version 2018-06-10
+ * @version 2018-06-11
  * @author Michael Erichsen, &copy; History Research Environment Ltd., 2018
  *
  */
@@ -39,7 +39,6 @@ public class HreWebsite {
 
 	@Focus
 	public void setFocus() {
-		// TODO Set the focus to control
 	}
 
 }

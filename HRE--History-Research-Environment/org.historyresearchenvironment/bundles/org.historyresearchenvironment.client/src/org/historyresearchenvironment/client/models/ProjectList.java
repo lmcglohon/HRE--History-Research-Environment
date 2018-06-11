@@ -19,7 +19,7 @@ import org.osgi.service.prefs.Preferences;
 /**
  * Singleton class encapsulating a list of project model objects.
  * 
- * @version 2018-06-11
+ * @version 2018-06-12
  * @author Michael Erichsen, &copy; History Research Environment Ltd., 2018
  *
  */
@@ -38,6 +38,17 @@ public class ProjectList {
 		try {
 			readPreferences();
 			models.add(model);
+			
+			int count = preferences.getInt("projectcount", 1);
+			
+			preferences.put("project." + count + ".name", model.getName());
+			final DateFormat df = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+			preferences.put("project." + count + ".lastupdated",  df.format(model.getLastEdited()));
+			preferences.put("project." + count + ".summary", model.getSummary());
+			preferences.put("project." + count + ".localserver", model.getLocalServer());
+			preferences.put("project." + count + ".path", model.getPath());
+			count++;
+			preferences.putInt("projectcount", count);					
 			preferences.flush();
 		} catch (final BackingStoreException e) {
 			LOGGER.severe(e.getMessage());

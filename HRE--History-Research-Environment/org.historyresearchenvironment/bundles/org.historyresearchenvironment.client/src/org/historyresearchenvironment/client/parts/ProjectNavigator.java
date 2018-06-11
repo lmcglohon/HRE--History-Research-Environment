@@ -30,7 +30,7 @@ import org.eclipse.swt.widgets.TableItem;
 import org.osgi.service.prefs.Preferences;
 
 /**
- * @version 2018-06-10
+ * @version 2018-06-11
  * @author Michael Erichsen, &copy; History Research Environment Ltd., 2018
  *
  */
@@ -73,8 +73,7 @@ public class ProjectNavigator {
 
 				int index = table.getSelectionIndex();
 				eventBroker.post(org.historyresearchenvironment.client.HreConstants.SELECTION_INDEX_TOPIC, index);
-				LOGGER.info("Project Navigator posted selectio0n index " + index);
-
+				LOGGER.info("Project Navigator posted selection index " + index);
 			}
 		});
 		table.setLinesVisible(true);
@@ -155,10 +154,13 @@ public class ProjectNavigator {
 		mntmProperties.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
-				// TODO Selected item
 				final ParameterizedCommand command = commandService
 						.createCommand("org.historyresearchenvironment.client.command.projectproperties", null);
 				handlerService.executeHandler(command);
+				
+				int index = table.getSelectionIndex();
+				eventBroker.post(org.historyresearchenvironment.client.HreConstants.SELECTION_INDEX_TOPIC, index);
+				LOGGER.info("Project Navigator posted selection index " + index);
 			}
 		});
 		mntmProperties.setToolTipText("Properties");

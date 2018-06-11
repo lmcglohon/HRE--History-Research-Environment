@@ -66,6 +66,7 @@ public class HreH2ConnectionPool {
 			final String jdbcUrl = "jdbc:h2:" + dbName + ";IFEXISTS=TRUE;TRACE_LEVEL_FILE=" + h2TraceLevel
 					+ ";TRACE_LEVEL_SYSTEM_OUT=" + h2TraceLevel;
 			LOGGER.info("JDBC URL: " + jdbcUrl);
+			//FIXME Get from properties
 			connectionPool = JdbcConnectionPool.create(jdbcUrl, "sa", "");
 			connectionPool.setMaxConnections(500);
 		}
