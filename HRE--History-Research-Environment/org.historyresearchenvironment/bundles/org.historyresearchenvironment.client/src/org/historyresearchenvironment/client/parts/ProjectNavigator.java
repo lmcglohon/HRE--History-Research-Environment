@@ -1,5 +1,7 @@
 package org.historyresearchenvironment.client.parts;
 
+import java.util.logging.Logger;
+
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import javax.inject.Inject;
@@ -8,6 +10,7 @@ import org.eclipse.core.commands.ParameterizedCommand;
 import org.eclipse.core.runtime.preferences.InstanceScope;
 import org.eclipse.e4.core.commands.ECommandService;
 import org.eclipse.e4.core.commands.EHandlerService;
+import org.eclipse.e4.core.services.events.IEventBroker;
 import org.eclipse.e4.ui.di.Focus;
 import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.jface.viewers.TableViewerColumn;
@@ -37,12 +40,14 @@ public class ProjectNavigator {
 	private ECommandService commandService;
 	@Inject
 	private EHandlerService handlerService;
+	@Inject
+	private IEventBroker eventBroker;
+	
 	private static Preferences preferences = InstanceScope.INSTANCE.getNode("org.historyresearchenvironment.client");
-	// private final static Logger LOGGER =
-	// Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
+	private final static Logger LOGGER = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
 	private Table table;
-	
+
 	/**
 	 * Constructor
 	 *
@@ -62,14 +67,14 @@ public class ProjectNavigator {
 		table.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseDoubleClick(MouseEvent e) {
-				// TODO Selected Item
-				// final TableItem[] selectedRows = table.getSelection();
-				// final TableItem selectedRow = selectedRows[0];
-				// final String tableName = selectedRow.getText(0);
-
 				final ParameterizedCommand command = commandService
 						.createCommand("org.historyresearchenvironment.client.command.projectproperties", null);
 				handlerService.executeHandler(command);
+
+				int index = table.getSelectionIndex();
+				eventBroker.post(org.historyresearchenvironment.client.HreConstants.SELECTION_INDEX_TOPIC, index);
+				LOGGER.info("Project Navigator posted selectio0n index " + index);
+
 			}
 		});
 		table.setLinesVisible(true);
@@ -166,6 +171,5 @@ public class ProjectNavigator {
 
 	@Focus
 	public void setFocus() {
-		// TODO Set the focus to control
 	}
 }
