@@ -7,6 +7,7 @@ import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.util.Date;
+import java.util.List;
 import java.util.logging.Logger;
 
 import javax.inject.Inject;
@@ -15,12 +16,16 @@ import org.eclipse.core.runtime.preferences.InstanceScope;
 import org.eclipse.e4.core.di.annotations.Execute;
 import org.eclipse.e4.core.services.events.IEventBroker;
 import org.eclipse.e4.ui.model.application.MApplication;
+import org.eclipse.e4.ui.model.application.ui.basic.MBasicFactory;
+import org.eclipse.e4.ui.model.application.ui.basic.MPart;
+import org.eclipse.e4.ui.model.application.ui.basic.MPartStack;
 import org.eclipse.e4.ui.model.application.ui.basic.MWindow;
 import org.eclipse.e4.ui.workbench.modeling.EModelService;
+import org.eclipse.e4.ui.workbench.modeling.EPartService;
+import org.eclipse.e4.ui.workbench.modeling.EPartService.PartState;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.FileDialog;
 import org.eclipse.swt.widgets.Shell;
-import org.historyresearchenvironment.client.HreConstants;
 import org.historyresearchenvironment.client.HreH2ConnectionPool;
 import org.historyresearchenvironment.client.dialogs.ProjectNameSummaryDialog;
 import org.historyresearchenvironment.client.models.ProjectList;
@@ -30,9 +35,9 @@ import org.osgi.service.prefs.BackingStoreException;
 import org.osgi.service.prefs.Preferences;
 
 /**
- * Create a new HRE project database and open it
+ * Create a new HRE project database.
  * 
- * @version 2018-06-11
+ * @version 2018-06-12
  * @author Michael Erichsen, &copy; History Research Environment Ltd., 2018
  *
  */
@@ -57,7 +62,8 @@ public class ProjectNewHandler {
 	 *             When failing
 	 */
 	@Execute
-	public void execute(Shell shell) throws SQLException {
+	public void execute(EPartService partService, MApplication application, EModelService modelService, Shell shell)
+			throws SQLException {
 		// Open file dialog
 		final FileDialog dialog = new FileDialog(shell, SWT.SAVE);
 		dialog.setText("Create new HRE Project");
@@ -94,7 +100,7 @@ public class ProjectNewHandler {
 				LOGGER.severe(e.getMessage());
 				e.printStackTrace();
 			}
-			
+
 			// Connect to the new database
 			conn = HreH2ConnectionPool.getConnection(dbName);
 			// Not valid before H2 V1.4
@@ -116,16 +122,39 @@ public class ProjectNewHandler {
 			ZonedDateTime zdt = now.atZone(ZoneId.systemDefault());
 			Date timestamp = Date.from(zdt.toInstant());
 			ProjectModel model = new ProjectModel(pnsDialog.getProjectName(), timestamp, pnsDialog.getProjectSummary(),
-					"LOCAL", shortName);
+					"LOCAL", dbName);
 			ProjectList.add(model);
 
 			// Set database name in title bar
 			final MWindow window = (MWindow) modelService.find("org.historyresearchenvironment.client.window.main",
 					application);
-			window.setLabel("HRE v0.1 - " + pnsDialog.getProjectName());
+			window.setLabel("HRE v0.1 - " + dbName);
 
-			eventBroker.post(HreConstants.DATABASE_UPDATE_TOPIC, dbName);
-			eventBroker.post("MESSAGE", "Database " + dbName + " has been opened");
+			// Open Project Navigator
+			final MPart pnPart = MBasicFactory.INSTANCE.createPart();
+			pnPart.setLabel("Projects");
+			pnPart.setContainerData("650");
+			pnPart.setCloseable(true);
+			pnPart.setVisible(true);
+			pnPart.setContributionURI(
+					"bundleclass://org.historyresearchenvironment.client/org.historyresearchenvironment.client.parts.ProjectNavigator");
+			final List<MPartStack> stacks = modelService.findElements(application, null, MPartStack.class, null);
+			stacks.get(0).getChildren().add(pnPart);
+			partService.showPart(pnPart, PartState.ACTIVATE);
+
+			// Open H2 Database Navigator
+			final MPart h2dnPart = MBasicFactory.INSTANCE.createPart();
+			h2dnPart.setLabel("Database Tables");
+			h2dnPart.setContainerData("650");
+			h2dnPart.setCloseable(true);
+			h2dnPart.setVisible(true);
+			h2dnPart.setContributionURI(
+					"bundleclass://org.historyresearchenvironment.client/org.historyresearchenvironment.databaseadmin.parts.H2DatabaseNavigator");
+			stacks.get(stacks.size() - 2).getChildren().add(h2dnPart);
+			partService.showPart(h2dnPart, PartState.ACTIVATE);
+
+			eventBroker.post(org.historyresearchenvironment.client.HreConstants.DATABASE_UPDATE_TOPIC, dbName);
+			eventBroker.post("MESSAGE", "Project database " + dbName + " has been created");
 		} catch (final Exception e1) {
 			eventBroker.post("MESSAGE", e1.getMessage());
 			LOGGER.severe(e1.getMessage());

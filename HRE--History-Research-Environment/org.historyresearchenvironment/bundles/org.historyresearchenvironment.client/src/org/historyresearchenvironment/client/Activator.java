@@ -8,7 +8,7 @@ import org.osgi.framework.BundleContext;
 import org.osgi.service.prefs.Preferences;
 
 /**
- * @version 2018-06-11
+ * @version 2018-06-12
  * @author Michael Erichsen, &copy; History Research Environment Ltd., 2018
  *
  */
@@ -50,6 +50,7 @@ public class Activator implements BundleActivator {
 	 * org.osgi.framework.BundleActivator#stop(org.osgi.framework.BundleContext)
 	 */
 	public void stop(BundleContext bundleContext) throws Exception {
+		preferences.flush();
 		HreH2ConnectionPool.dispose();
 		Activator.context = null;
 	}

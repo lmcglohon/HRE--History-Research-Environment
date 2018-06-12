@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <application:Application xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:advanced="http://www.eclipse.org/ui/2010/UIModel/application/ui/advanced" xmlns:application="http://www.eclipse.org/ui/2010/UIModel/application" xmlns:basic="http://www.eclipse.org/ui/2010/UIModel/application/ui/basic" xmlns:menu="http://www.eclipse.org/ui/2010/UIModel/application/ui/menu" xmi:id="_6wlLcMgZEeSyMNYR5xypkQ" elementId="org.historyresearchenvironment.client.application" bindingContexts="_6wlLecgZEeSyMNYR5xypkQ">
-  <children xsi:type="basic:TrimmedWindow" xmi:id="_6wlLccgZEeSyMNYR5xypkQ" elementId="org.historyresearchenvironment.client.window.main" label="History Research Environment v0.1" width="500" height="400">
+  <children xsi:type="basic:TrimmedWindow" xmi:id="_6wlLccgZEeSyMNYR5xypkQ" elementId="org.historyresearchenvironment.client.window.main" label="History Research Environment v0.1" x="20" y="20" width="1024" height="768">
     <children xsi:type="advanced:PerspectiveStack" xmi:id="_UAbAMGyFEeiuuJ50peZn_A" elementId="org.historyresearchenvironment.client.perspectivestack.0">
       <children xsi:type="advanced:Perspective" xmi:id="_UkjA8GyFEeiuuJ50peZn_A" elementId="org.historyresearchenvironment.client.perspective.historyresearchenvironment" label="HIstory Research Environment" tooltip="HIstory Research Environment">
         <children xsi:type="basic:PartSashContainer" xmi:id="_be0rcGyFEeiuuJ50peZn_A" elementId="org.historyresearchenvironment.client.partsashcontainer.0" containerData="10000" horizontal="true">
@@ -66,6 +66,8 @@
   <handlers xmi:id="_4H1DsGVoEei5HIUyv56sSA" elementId="org.historyresearchenvironment.client.handler.projectnavigator" contributionURI="bundleclass://org.historyresearchenvironment.client/org.historyresearchenvironment.client.handlers.ProjectNavigatorHandler" command="_zFcu8GVoEei5HIUyv56sSA"/>
   <handlers xmi:id="_6wlLfcgZEeSyMNYR5xypkQ" elementId="org.historyresearchenvironment.client.handler.quit" contributionURI="bundleclass://org.historyresearchenvironment.client/org.historyresearchenvironment.client.handlers.QuitHandler" command="_6wlLfMgZEeSyMNYR5xypkQ"/>
   <handlers xmi:id="_AX7qwGySEeiWA6ZM115-YA" elementId="org.historyresearchenvironment.client.handler.0" contributionURI="bundleclass://org.historyresearchenvironment.client/org.historyresearchenvironment.client.handlers.ProjectPropertiesHandler" command="_9Es_cGyREeiWA6ZM115-YA"/>
+  <handlers xmi:id="_jEwPAG4aEeiuNIecXZfP7Q" elementId="org.historyresearchenvironment.client.handler.opentablenavigator" contributionURI="bundleclass://org.historyresearchenvironment.client/org.historyresearchenvironment.databaseadmin.handlers.TableNavigatorHandler" command="_cC0dUG4aEeiuNIecXZfP7Q"/>
+  <handlers xmi:id="_4gPDsG4bEeiuNIecXZfP7Q" elementId="org.historyresearchenvironment.client.handler.1" contributionURI="bundleclass://org.historyresearchenvironment.client/org.historyresearchenvironment.databaseadmin.handlers.TableEditorHandler" command="_zKwMwG4bEeiuNIecXZfP7Q"/>
   <bindingTables xmi:id="_6wlLfsgZEeSyMNYR5xypkQ" elementId="org.historyresearchenvironment.client.bindingtable" bindingContext="_6wlLecgZEeSyMNYR5xypkQ">
     <bindings xmi:id="_6wlLf8gZEeSyMNYR5xypkQ" elementId="org.historyresearchenvironment.client.keybinding.m1q" keySequence="M1+Q" command="_6wlLfMgZEeSyMNYR5xypkQ"/>
     <bindings xmi:id="_6wlLgsgZEeSyMNYR5xypkQ" elementId="org.historyresearchenvironment.client.keybinding.m1o" keySequence="M1+O" command="_pS5WIGVwEei5HIUyv56sSA"/>
@@ -88,6 +90,8 @@
   <commands xmi:id="_6wlLfMgZEeSyMNYR5xypkQ" elementId="org.eclipse.ui.file.exit" commandName="Quit"/>
   <commands xmi:id="_S7SDsGvuEei6UJPZ5XWbvg" elementId="org.historyresearchenvironment.client.command.location" commandName="Location"/>
   <commands xmi:id="_U9CgEGvuEei6UJPZ5XWbvg" elementId="org.historyresearchenvironment.client.command.historicaldate" commandName="Historical Date"/>
+  <commands xmi:id="_cC0dUG4aEeiuNIecXZfP7Q" elementId="org.historyresearchenvironment.client.command.opentablenavigator" commandName="Table Navigator Open"/>
+  <commands xmi:id="_zKwMwG4bEeiuNIecXZfP7Q" elementId="org.historyresearchenvironment.client.command.opentableeditor" commandName="Table Editor Open"/>
   <addons xmi:id="_6wlLcsgZEeSyMNYR5xypkQ" elementId="org.eclipse.e4.core.commands.service" contributionURI="bundleclass://org.eclipse.e4.core.commands/org.eclipse.e4.core.commands.CommandServiceAddon"/>
   <addons xmi:id="_6wlLc8gZEeSyMNYR5xypkQ" elementId="org.eclipse.e4.ui.contexts.service" contributionURI="bundleclass://org.eclipse.e4.ui.services/org.eclipse.e4.ui.services.ContextServiceAddon"/>
   <addons xmi:id="_6wlLdMgZEeSyMNYR5xypkQ" elementId="org.eclipse.e4.ui.bindings.service" contributionURI="bundleclass://org.eclipse.e4.ui.bindings/org.eclipse.e4.ui.bindings.BindingServiceAddon"/>

@@ -46,7 +46,7 @@ import org.historyresearchenvironment.databaseadmin.providers.H2TableProvider;
  * Create a view part with a table. Create a column for each columns in the
  * catalog for the given table. Populate the table with data from H2.
  * 
- * @version 2018-05-21
+ * @version 2018-06-12
  * @author Michael Erichsen, &copy; History Research Environment Ltd., 2018
  *
  */
@@ -98,7 +98,7 @@ public class H2TableNavigator {
 
 				// Open an editor
 				final ParameterizedCommand command = commandService.createCommand(
-						"org.historyresearchenvironment.databaseadmin.v010.command.opentableeditorcommand", null);
+						"org.historyresearchenvironment.client.command.opentableeditor", null);
 				handlerService.executeHandler(command);
 				LOGGER.info("Navigator opened editor");
 
@@ -149,7 +149,8 @@ public class H2TableNavigator {
 						final H2TableProvider provider = new H2TableProvider(tableName);
 						rowCount = provider.importCsv(fileName);
 						eventBroker.post("MESSAGE", rowCount + " rows has been imported from " + fileName);
-						eventBroker.post(HreConstants.DATABASE_UPDATE_TOPIC, "Dummy");
+						eventBroker.post(org.historyresearchenvironment.client.HreConstants.DATABASE_UPDATE_TOPIC,
+								"Dummy");
 						updateGui();
 					} catch (SQLException e1) {
 						e1.printStackTrace();
@@ -258,7 +259,7 @@ public class H2TableNavigator {
 					provider = new H2TableProvider(tableName);
 					provider.deleteAll();
 
-					eventBroker.post(HreConstants.DATABASE_UPDATE_TOPIC, "Dummy");
+					eventBroker.post(org.historyresearchenvironment.client.HreConstants.DATABASE_UPDATE_TOPIC, "Dummy");
 					eventBroker.post("MESSAGE", "All rows have been deleted from " + tableName);
 					updateGui();
 				} catch (SQLException e1) {
@@ -283,7 +284,7 @@ public class H2TableNavigator {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
 				final List<MPartStack> stacks = modelService.findElements(application, null, MPartStack.class, null);
-				final MPart part = (MPart) stacks.get(stacks.size() - 1).getSelectedElement();
+				final MPart part = (MPart) stacks.get(stacks.size() - 2).getSelectedElement();
 				partService.hidePart(part, true);
 			}
 
@@ -316,7 +317,7 @@ public class H2TableNavigator {
 			@UIEventTopic(org.historyresearchenvironment.client.HreConstants.TABLENAME_UPDATE_TOPIC) String tableName) {
 		this.tableName = tableName;
 		final List<MPartStack> stacks = modelService.findElements(application, null, MPartStack.class, null);
-		final MPart part = (MPart) stacks.get(stacks.size() - 1).getSelectedElement();
+		final MPart part = (MPart) stacks.get(stacks.size() - 2).getSelectedElement();
 		part.setLabel(tableName);
 
 		updateGui();

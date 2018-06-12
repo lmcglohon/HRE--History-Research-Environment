@@ -14,7 +14,7 @@ import org.eclipse.e4.ui.workbench.modeling.EPartService.PartState;
 /**
  * Handler to open the Table Editor
  * 
- * @version 2018-05-19
+ * @version 2018-06-12
  * @author Michael Erichsen, &copy; History Research Environment Ltd., 2018
  *
  */
@@ -37,9 +37,9 @@ public class TableEditorHandler {
 		part.setCloseable(true);
 		part.setVisible(true);
 		part.setContributionURI(
-				"bundleclass://org.historyresearchenvironment.databaseadmin/org.historyresearchenvironment.databaseadmin.parts.H2TableEditor");
+				"bundleclass://org.historyresearchenvironment.client/org.historyresearchenvironment.databaseadmin.parts.H2TableEditor");
 		final List<MPartStack> stacks = modelService.findElements(application, null, MPartStack.class, null);
-		stacks.get(stacks.size() - 1).getChildren().add(part);
+		stacks.get(stacks.size() - 2).getChildren().add(part);
 		partService.showPart(part, PartState.ACTIVATE);
 	}
 }

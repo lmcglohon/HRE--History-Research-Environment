@@ -16,9 +16,6 @@ import org.eclipse.e4.core.di.annotations.Optional;
 import org.eclipse.e4.core.services.events.IEventBroker;
 import org.eclipse.e4.ui.di.Focus;
 import org.eclipse.e4.ui.di.UIEventTopic;
-import org.eclipse.e4.ui.model.application.MApplication;
-import org.eclipse.e4.ui.model.application.ui.basic.MWindow;
-import org.eclipse.e4.ui.workbench.modeling.EModelService;
 import org.eclipse.jface.viewers.DoubleClickEvent;
 import org.eclipse.jface.viewers.IDoubleClickListener;
 import org.eclipse.jface.viewers.TableViewer;
@@ -37,7 +34,7 @@ import org.osgi.service.prefs.Preferences;
 /**
  * Create a view part with all tables in the database
  * 
- * @version 2018-05-24
+ * @version 2018-06-12
  * @author Michael Erichsen, &copy; History Research Environment Ltd., 2018
  *
  */
@@ -49,13 +46,12 @@ public class H2DatabaseNavigator {
 	private EHandlerService handlerService;
 	@Inject
 	private IEventBroker eventBroker;
-	@Inject
-	private EModelService modelService;
-	@Inject
-	private MApplication application;
+	// @Inject
+	// private EModelService modelService;
+	// @Inject
+	// private MApplication application;
 
-	private Preferences preferences = InstanceScope.INSTANCE
-			.getNode("org.historyresearchenvironment.client");
+	private Preferences preferences = InstanceScope.INSTANCE.getNode("org.historyresearchenvironment.client");
 	private final static Logger LOGGER = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 	private Table table;
 	private String dbName;
@@ -86,12 +82,10 @@ public class H2DatabaseNavigator {
 				final TableItem selectedRow = selectedRows[0];
 				final String tableName = selectedRow.getText(0);
 
-				final ParameterizedCommand command = commandService.createCommand(
-						"org.historyresearchenvironment.databaseadmin.v010.command.opentablenavigatorcommand", null);
+				final ParameterizedCommand command = commandService
+						.createCommand("org.historyresearchenvironment.client.command.opentablenavigator", null);
 				handlerService.executeHandler(command);
-				eventBroker.post(
-						org.historyresearchenvironment.client.HreConstants.TABLENAME_UPDATE_TOPIC,
-						tableName);
+				eventBroker.post(org.historyresearchenvironment.client.HreConstants.TABLENAME_UPDATE_TOPIC, tableName);
 				eventBroker.post("MESSAGE", tableName + " has been opened");
 			}
 		});
@@ -105,6 +99,7 @@ public class H2DatabaseNavigator {
 		tblclmnTableName.setWidth(405);
 		tblclmnTableName.setText("Table Name");
 
+		// Not valid before H2 v1.4
 		// final TableViewerColumn tableViewerColumn_1 = new
 		// TableViewerColumn(tableViewer, SWT.NONE);
 		// final TableColumn tblclmnRowCount = tableViewerColumn_1.getColumn();
@@ -147,9 +142,9 @@ public class H2DatabaseNavigator {
 		if ((dbName == null) || (dbName == ""))
 			dbName = preferences.get("DBNAME", "~\\HRE");
 
-		final MWindow window = (MWindow) modelService
-				.find("org.historyresearchenvironment.client.window.main", application);
-		window.setLabel("HRE H2 Database Administration - " + dbName);
+		// final MWindow window = (MWindow) modelService
+		// .find("org.historyresearchenvironment.client.window.main", application);
+		// window.setLabel("HRE v0.1 - " + dbName);
 		table.removeAll();
 
 		H2DatabaseProvider provider;
