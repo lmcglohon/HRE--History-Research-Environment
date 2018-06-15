@@ -8,7 +8,7 @@ import org.osgi.framework.BundleContext;
 import org.osgi.service.prefs.Preferences;
 
 /**
- * @version 2018-06-12
+ * @version 2018-06-15
  * @author Michael Erichsen, &copy; History Research Environment Ltd., 2018
  *
  */
@@ -37,7 +37,7 @@ public class Activator implements BundleActivator {
 		preferences.put("project.0.lastupdated", preferences.get("project.0.lastupdated", "2000-01-01 01:01:01"));
 		preferences.put("project.0.summary", preferences.get("project.0.summary", "This is the default project"));
 		preferences.put("project.0.localserver", preferences.get("project.0.localserver", "LOCAL"));
-		preferences.put("project.0.path", preferences.get("project.0.path", "c:/client/temp/HRE"));
+		preferences.put("project.0.path", preferences.get("project.0.path", "~/HRE"));
 		preferences.flush();
 
 		LOGGER.info("HRE v0.1 has been started");

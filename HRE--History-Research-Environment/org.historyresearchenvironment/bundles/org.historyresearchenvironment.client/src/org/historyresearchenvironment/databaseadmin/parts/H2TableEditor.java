@@ -49,7 +49,7 @@ import org.historyresearchenvironment.databaseadmin.providers.H2TableProvider;
 /**
  * Dynamically create an editor with the fields in the database catalog.
  * 
- * @version 2018-05-24
+ * @version 2018-06-14
  * @author Michael Erichsen, &copy; History Research Environment Ltd., 2018
  *
  */
@@ -575,7 +575,7 @@ public class H2TableEditor {
 			@UIEventTopic(org.historyresearchenvironment.client.HreConstants.TABLENAME_UPDATE_TOPIC) String tableName) {
 		this.tableName = tableName;
 		final List<MPartStack> stacks = modelService.findElements(application, null, MPartStack.class, null);
-		final MPart part = (MPart) stacks.get(stacks.size() - 1).getSelectedElement();
+		final MPart part = (MPart) stacks.get(stacks.size() - 2).getSelectedElement();
 		part.setLabel(tableName);
 	}
 

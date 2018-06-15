@@ -1,5 +1,8 @@
 package org.historyresearchenvironment.client.parts;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.util.List;
 import java.util.logging.Logger;
 
 import javax.annotation.PostConstruct;
@@ -12,6 +15,14 @@ import org.eclipse.e4.core.commands.ECommandService;
 import org.eclipse.e4.core.commands.EHandlerService;
 import org.eclipse.e4.core.services.events.IEventBroker;
 import org.eclipse.e4.ui.di.Focus;
+import org.eclipse.e4.ui.model.application.MApplication;
+import org.eclipse.e4.ui.model.application.ui.basic.MBasicFactory;
+import org.eclipse.e4.ui.model.application.ui.basic.MPart;
+import org.eclipse.e4.ui.model.application.ui.basic.MPartStack;
+import org.eclipse.e4.ui.model.application.ui.basic.MWindow;
+import org.eclipse.e4.ui.workbench.modeling.EModelService;
+import org.eclipse.e4.ui.workbench.modeling.EPartService;
+import org.eclipse.e4.ui.workbench.modeling.EPartService.PartState;
 import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.jface.viewers.TableViewerColumn;
 import org.eclipse.swt.SWT;
@@ -24,27 +35,38 @@ import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Menu;
 import org.eclipse.swt.widgets.MenuItem;
+import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.swt.widgets.TableItem;
+import org.historyresearchenvironment.client.HreH2ConnectionPool;
+import org.historyresearchenvironment.client.models.ProjectList;
+import org.historyresearchenvironment.client.models.ProjectModel;
+import org.osgi.service.prefs.BackingStoreException;
 import org.osgi.service.prefs.Preferences;
 
 /**
- * @version 2018-06-11
+ * @version 2018-06-15
  * @author Michael Erichsen, &copy; History Research Environment Ltd., 2018
  *
  */
 @SuppressWarnings("restriction")
 public class ProjectNavigator {
+	private static Preferences preferences = InstanceScope.INSTANCE.getNode("org.historyresearchenvironment.client");
+	private final static Logger LOGGER = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 	@Inject
 	private ECommandService commandService;
 	@Inject
 	private EHandlerService handlerService;
 	@Inject
 	private IEventBroker eventBroker;
-	
-	private static Preferences preferences = InstanceScope.INSTANCE.getNode("org.historyresearchenvironment.client");
-	private final static Logger LOGGER = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
+	@Inject
+	private MApplication application;
+
+	@Inject
+	private EModelService modelService;
+	@Inject
+	private EPartService partService;
 
 	private Table table;
 
@@ -98,6 +120,7 @@ public class ProjectNavigator {
 		table.setMenu(menu);
 
 		MenuItem mntmOpen = new MenuItem(menu, SWT.NONE);
+		mntmOpen.setToolTipText("Open selected project");
 		mntmOpen.addSelectionListener(new SelectionAdapter() {
 			/*
 			 * (non-Javadoc)
@@ -109,11 +132,31 @@ public class ProjectNavigator {
 			 */
 			@Override
 			public void widgetSelected(SelectionEvent e) {
-				ParameterizedCommand saveCommand = commandService.createCommand("org.eclipse.ui.file.open", null);
+				openSelectedProject(parent.getShell());
+			}
+		});
+		mntmOpen.setText("Open selected");
+
+		MenuItem mntmOpenOther = new MenuItem(menu, SWT.NONE);
+		mntmOpenOther.setToolTipText("Open other");
+		mntmOpenOther.setText("Open other...");
+		mntmOpenOther.addSelectionListener(new SelectionAdapter() {
+			/*
+			 * (non-Javadoc)
+			 *
+			 * @see
+			 *
+			 * org.eclipse.swt.events.SelectionAdapter#widgetSelected(org.eclipse.swt.events
+			 * .SelectionEvent)
+			 */
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				ParameterizedCommand saveCommand = commandService
+						.createCommand("org.eclipse.ui.file.open", null);
 				handlerService.executeHandler(saveCommand);
 			}
 		});
-		mntmOpen.setText("Open...");
+		mntmOpenOther.setText("Open other...");
 
 		MenuItem mntmNew = new MenuItem(menu, SWT.NONE);
 		mntmNew.addSelectionListener(new SelectionAdapter() {
@@ -157,7 +200,7 @@ public class ProjectNavigator {
 				final ParameterizedCommand command = commandService
 						.createCommand("org.historyresearchenvironment.client.command.projectproperties", null);
 				handlerService.executeHandler(command);
-				
+
 				int index = table.getSelectionIndex();
 				eventBroker.post(org.historyresearchenvironment.client.HreConstants.SELECTION_INDEX_TOPIC, index);
 				LOGGER.info("Project Navigator posted selection index " + index);
@@ -167,10 +210,92 @@ public class ProjectNavigator {
 		mntmProperties.setText("Properties");
 	}
 
+	/**
+	 * 
+	 */
 	@PreDestroy
 	public void dispose() {
 	}
 
+	/**
+	 * Open a table navigator with the current project database.
+	 */
+	protected void openSelectedProject(Shell shell) {
+		Connection conn = null;
+
+		// Disconnect from any currently connected database
+		try {
+			conn = HreH2ConnectionPool.getConnection();
+
+			if (conn != null) {
+				conn.createStatement().execute("SHUTDOWN");
+				conn.close();
+				conn = null;
+				HreH2ConnectionPool.dispose();
+			}
+		} catch (final Exception e1) {
+			eventBroker.post("MESSAGE", e1.getMessage());
+			LOGGER.severe(e1.getMessage());
+		}
+
+		// Find selected database
+		int index = table.getSelectionIndex();
+		ProjectModel model = ProjectList.getModel(index);
+		String dbName = model.getPath();
+
+		try {
+			preferences.put("DBNAME", dbName);
+			preferences.flush();
+		} catch (BackingStoreException e) {
+			LOGGER.severe(e.getMessage());
+			e.printStackTrace();
+		}
+
+		try {
+			conn = HreH2ConnectionPool.getConnection(dbName);
+
+			if (conn != null) {
+				// Not valid before H2 V1.4
+				// final PreparedStatement ps = conn
+				// .prepareStatement("SELECT TABLE_NAME, ROW_COUNT_ESTIMATE FROM
+				// INFORMATION_SCHEMA.TABLES "
+				// + "WHERE TABLE_TYPE = 'TABLE' ORDER BY TABLE_NAME");
+				final PreparedStatement ps = conn
+						.prepareStatement("SELECT TABLE_NAME, 0 FROM INFORMATION_SCHEMA.TABLES "
+								+ "WHERE TABLE_TYPE = 'TABLE' ORDER BY TABLE_NAME");
+				ps.executeQuery();
+				conn.close();
+			}
+
+			// Set database name in title bar
+			final MWindow window = (MWindow) modelService.find("org.historyresearchenvironment.client.window.main",
+					application);
+			window.setLabel("HRE v0.1 - " + dbName);
+
+			// Open H2 Database Navigator
+			final MPart h2dnPart = MBasicFactory.INSTANCE.createPart();
+			h2dnPart.setLabel("Database Tables");
+			h2dnPart.setContainerData("650");
+			h2dnPart.setCloseable(true);
+			h2dnPart.setVisible(true);
+			h2dnPart.setContributionURI(
+					"bundleclass://org.historyresearchenvironment.client/org.historyresearchenvironment.databaseadmin.parts.H2DatabaseNavigator");
+			final List<MPartStack> stacks = modelService.findElements(application, null, MPartStack.class, null);
+			stacks.get(stacks.size() - 2).getChildren().add(h2dnPart);
+			partService.showPart(h2dnPart, PartState.ACTIVATE);
+
+			eventBroker.post(org.historyresearchenvironment.client.HreConstants.DATABASE_UPDATE_TOPIC, dbName);
+			eventBroker.post("MESSAGE", "Project database " + dbName + " has been opened");
+		} catch (final Exception e1) {
+			eventBroker.post("MESSAGE", e1.getMessage());
+			LOGGER.severe(e1.getMessage());
+			e1.printStackTrace();
+		}
+	}
+
+	/**
+	 * 
+	 */
 	@Focus
 	public void setFocus() {
 	}
