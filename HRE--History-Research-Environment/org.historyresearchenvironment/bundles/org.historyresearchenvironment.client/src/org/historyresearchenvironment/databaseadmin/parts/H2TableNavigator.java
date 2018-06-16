@@ -1,5 +1,6 @@
 package org.historyresearchenvironment.databaseadmin.parts;
 
+import java.sql.Clob;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.logging.Logger;
@@ -46,7 +47,7 @@ import org.historyresearchenvironment.databaseadmin.providers.H2TableProvider;
  * Create a view part with a table. Create a column for each columns in the
  * catalog for the given table. Populate the table with data from H2.
  * 
- * @version 2018-06-12
+ * @version 2018-06-15
  * @author Michael Erichsen, &copy; History Research Environment Ltd., 2018
  *
  */
@@ -54,6 +55,7 @@ import org.historyresearchenvironment.databaseadmin.providers.H2TableProvider;
 @SuppressWarnings("restriction")
 public class H2TableNavigator {
 	private static TableViewer tableViewer;
+	private final static Logger LOGGER = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 	@Inject
 	private EPartService partService;
 	@Inject
@@ -64,10 +66,9 @@ public class H2TableNavigator {
 	private IEventBroker eventBroker;
 	@Inject
 	private ECommandService commandService;
+
 	@Inject
 	private EHandlerService handlerService;
-
-	private final static Logger LOGGER = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 	private Table table;
 	private Composite parent;
 	private String tableName;
@@ -77,6 +78,25 @@ public class H2TableNavigator {
 	 *
 	 */
 	public H2TableNavigator() {
+	}
+
+	/**
+	 * 
+	 */
+	private void clearTable() {
+		H2TableProvider provider;
+		try {
+			provider = new H2TableProvider(tableName);
+			provider.deleteAll();
+
+			eventBroker.post(org.historyresearchenvironment.client.HreConstants.DATABASE_UPDATE_TOPIC, "Dummy");
+			eventBroker.post("MESSAGE", "All rows have been deleted from " + tableName);
+			updateGui();
+		} catch (SQLException e1) {
+			e1.printStackTrace();
+			eventBroker.post("MESSAGE", e1.getMessage());
+			LOGGER.severe(e1.getMessage());
+		}
 	}
 
 	/**
@@ -94,27 +114,7 @@ public class H2TableNavigator {
 		table.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseDoubleClick(MouseEvent e) {
-				String recordNum = "0";
-
-				// Open an editor
-				final ParameterizedCommand command = commandService.createCommand(
-						"org.historyresearchenvironment.client.command.opentableeditor", null);
-				handlerService.executeHandler(command);
-				LOGGER.info("Navigator opened editor");
-
-				eventBroker.post(org.historyresearchenvironment.client.HreConstants.TABLENAME_UPDATE_TOPIC, tableName);
-				LOGGER.info("Navigator posted tablename " + tableName);
-
-				final TableItem[] selectedRows = table.getSelection();
-
-				if (selectedRows.length > 0) {
-					final TableItem selectedRow = selectedRows[0];
-					recordNum = selectedRow.getText(0);
-				}
-
-				eventBroker.post(org.historyresearchenvironment.client.HreConstants.RECORDNUM_UPDATE_TOPIC, recordNum);
-				LOGGER.info("Navigator posted record number " + recordNum);
-				eventBroker.post("MESSAGE", tableName + " editor has been opened");
+				openTableEditor();
 			}
 		});
 		table.setLinesVisible(true);
@@ -135,89 +135,13 @@ public class H2TableNavigator {
 			 */
 			@Override
 			public void widgetSelected(SelectionEvent e) {
-				final FileDialog dialog = new FileDialog(btnImport.getShell(), SWT.OPEN);
-				final String[] extensions = { "*.csv", "*.*" };
-				dialog.setFilterExtensions(extensions);
-				dialog.open();
-
-				final String shortName = dialog.getFileName();
-				final String fileName = dialog.getFilterPath() + "\\" + shortName;
-
-				if (fileName != null) {
-					int rowCount = 0;
-					try {
-						final H2TableProvider provider = new H2TableProvider(tableName);
-						rowCount = provider.importCsv(fileName);
-						eventBroker.post("MESSAGE", rowCount + " rows has been imported from " + fileName);
-						eventBroker.post(org.historyresearchenvironment.client.HreConstants.DATABASE_UPDATE_TOPIC,
-								"Dummy");
-						updateGui();
-					} catch (SQLException e1) {
-						e1.printStackTrace();
-						eventBroker.post("MESSAGE", e1.getMessage());
-					}
-				}
+				importTable(btnImport);
 			}
 		});
 		btnImport.setText("Import Table...");
 
 		final Button btnExport = new Button(compositeButtons, SWT.NONE);
 		btnExport.addSelectionListener(new SelectionAdapter() {
-
-			/**
-			 * @param fileName
-			 * @param tableName
-			 */
-			private void exportCsv(String fileName, String tableName) {
-				try {
-					final H2TableProvider provider = new H2TableProvider(tableName);
-					final List<H2TableModel> modelList = provider.getModelList();
-					final List<List<Object>> rows = provider.selectAll();
-
-					final SimpleResultSet rs = new SimpleResultSet();
-
-					for (int i = 0; i < provider.getCount(); i++) {
-						switch (modelList.get(i).getNumericType()) {
-						case HreConstants.DOUBLE:
-						case HreConstants.VARBINARY:
-						case HreConstants.SMALLINT:
-						case HreConstants.INTEGER:
-						case HreConstants.BIGINT:
-							rs.addColumn(modelList.get(i).getName(), modelList.get(i).getNumericType(),
-									modelList.get(i).getPrecision(), modelList.get(i).getScale());
-							break;
-						case HreConstants.VARCHAR:
-							rs.addColumn(modelList.get(i).getName(), modelList.get(i).getNumericType(), 0,
-									modelList.get(i).getScale());
-							break;
-						default:
-							rs.addColumn(modelList.get(i).getName(), modelList.get(i).getNumericType(), 0, 0);
-							break;
-						}
-					}
-
-					Object[] oa;
-
-					for (int i = 0; i < rows.size(); i++) {
-						oa = new Object[provider.getCount()];
-						for (int j = 0; j < oa.length; j++) {
-							oa[j] = rows.get(i).get(j);
-						}
-
-						rs.addRow(oa);
-					}
-
-					final Csv csvFile = new Csv();
-					csvFile.setFieldSeparatorWrite(",");
-
-					csvFile.write(fileName, rs, "UTF-8");
-					eventBroker.post("MESSAGE", "Table " + tableName + " has been exported to " + fileName);
-				} catch (final SQLException e) {
-					eventBroker.post("MESSAGE", e.getMessage());
-					e.printStackTrace();
-					LOGGER.severe(e.getMessage());
-				}
-			}
 
 			/*
 			 * (non-Javadoc)
@@ -228,17 +152,7 @@ public class H2TableNavigator {
 			 */
 			@Override
 			public void widgetSelected(SelectionEvent e) {
-				final FileDialog dialog = new FileDialog(btnImport.getShell(), SWT.SAVE);
-				final String[] extensions = { "*.csv", "*.*" };
-				dialog.setFilterExtensions(extensions);
-				dialog.open();
-
-				final String shortName = dialog.getFileName();
-				final String fileName = dialog.getFilterPath() + "\\" + shortName;
-
-				if (fileName != null) {
-					exportCsv(fileName, tableName);
-				}
+				exportTable(btnImport);
 			}
 		});
 		btnExport.setText("Export Table...");
@@ -254,19 +168,7 @@ public class H2TableNavigator {
 			 */
 			@Override
 			public void widgetSelected(SelectionEvent e) {
-				H2TableProvider provider;
-				try {
-					provider = new H2TableProvider(tableName);
-					provider.deleteAll();
-
-					eventBroker.post(org.historyresearchenvironment.client.HreConstants.DATABASE_UPDATE_TOPIC, "Dummy");
-					eventBroker.post("MESSAGE", "All rows have been deleted from " + tableName);
-					updateGui();
-				} catch (SQLException e1) {
-					e1.printStackTrace();
-					eventBroker.post("MESSAGE", e1.getMessage());
-					LOGGER.severe(e1.getMessage());
-				}
+				clearTable();
 			}
 		});
 		btnEmptyTable.setText("Empty Table");
@@ -299,6 +201,137 @@ public class H2TableNavigator {
 	 */
 	@PreDestroy
 	public void dispose() {
+	}
+
+	/**
+	 * @param fileName
+	 * @param tableName
+	 */
+	private void exportCsv(String fileName, String tableName) {
+		try {
+			final H2TableProvider provider = new H2TableProvider(tableName);
+			final List<H2TableModel> modelList = provider.getModelList();
+			final List<List<Object>> rows = provider.selectAll();
+
+			final SimpleResultSet rs = new SimpleResultSet();
+
+			for (int i = 0; i < provider.getCount(); i++) {
+				switch (modelList.get(i).getNumericType()) {
+				case HreConstants.DOUBLE:
+				case HreConstants.VARBINARY:
+				case HreConstants.SMALLINT:
+				case HreConstants.INTEGER:
+				case HreConstants.BIGINT:
+					rs.addColumn(modelList.get(i).getName(), modelList.get(i).getNumericType(),
+							modelList.get(i).getPrecision(), modelList.get(i).getScale());
+					break;
+				case HreConstants.VARCHAR:
+					rs.addColumn(modelList.get(i).getName(), modelList.get(i).getNumericType(), 0,
+							modelList.get(i).getScale());
+					break;
+				default:
+					rs.addColumn(modelList.get(i).getName(), modelList.get(i).getNumericType(), 0, 0);
+					break;
+				}
+			}
+
+			Object[] oa;
+
+			for (int i = 0; i < rows.size(); i++) {
+				oa = new Object[provider.getCount()];
+				for (int j = 0; j < oa.length; j++) {
+					LOGGER.info("Column " + i + ", column " + j + ", type " + modelList.get(j).getType() + ", value "
+							+ rows.get(i).get(j));
+					if (modelList.get(j).getType().equals("CLOB")) {
+						oa[j] = (Clob) rows.get(i).get(j);
+					} else
+						oa[j] = rows.get(i).get(j);
+				}
+
+				rs.addRow(oa);
+			}
+
+			final Csv csvFile = new Csv();
+			csvFile.setFieldSeparatorWrite(",");
+
+			csvFile.write(fileName, rs, "UTF-8");
+			eventBroker.post("MESSAGE", "Table " + tableName + " has been exported to " + fileName);
+		} catch (final SQLException e) {
+			eventBroker.post("MESSAGE", e.getMessage());
+			e.printStackTrace();
+			LOGGER.severe(e.getMessage());
+		}
+	}
+
+	/**
+	 * @param btnImport
+	 */
+	private void exportTable(final Button btnImport) {
+		final FileDialog dialog = new FileDialog(btnImport.getShell(), SWT.SAVE);
+		final String[] extensions = { "*.csv", "*.*" };
+		dialog.setFilterExtensions(extensions);
+		dialog.open();
+
+		final String shortName = dialog.getFileName();
+		final String fileName = dialog.getFilterPath() + "\\" + shortName;
+
+		if (fileName != null) {
+			exportCsv(fileName, tableName);
+		}
+	}
+
+	/**
+	 * @param btnImport
+	 */
+	private void importTable(final Button btnImport) {
+		final FileDialog dialog = new FileDialog(btnImport.getShell(), SWT.OPEN);
+		final String[] extensions = { "*.csv", "*.*" };
+		dialog.setFilterExtensions(extensions);
+		dialog.open();
+
+		final String shortName = dialog.getFileName();
+		final String fileName = dialog.getFilterPath() + "\\" + shortName;
+
+		if (fileName != null) {
+			int rowCount = 0;
+			try {
+				final H2TableProvider provider = new H2TableProvider(tableName);
+				rowCount = provider.importCsv(fileName);
+				eventBroker.post("MESSAGE", rowCount + " rows has been imported from " + fileName);
+				eventBroker.post(org.historyresearchenvironment.client.HreConstants.DATABASE_UPDATE_TOPIC, "Dummy");
+				updateGui();
+			} catch (SQLException e1) {
+				e1.printStackTrace();
+				eventBroker.post("MESSAGE", e1.getMessage());
+			}
+		}
+	}
+
+	/**
+	 * 
+	 */
+	private void openTableEditor() {
+		String recordNum = "0";
+
+		// Open an editor
+		final ParameterizedCommand command = commandService
+				.createCommand("org.historyresearchenvironment.client.command.opentableeditor", null);
+		handlerService.executeHandler(command);
+		LOGGER.info("Navigator opened editor");
+
+		eventBroker.post(org.historyresearchenvironment.client.HreConstants.TABLENAME_UPDATE_TOPIC, tableName);
+		LOGGER.info("Navigator posted tablename " + tableName);
+
+		final TableItem[] selectedRows = table.getSelection();
+
+		if (selectedRows.length > 0) {
+			final TableItem selectedRow = selectedRows[0];
+			recordNum = selectedRow.getText(0);
+		}
+
+		eventBroker.post(org.historyresearchenvironment.client.HreConstants.RECORDNUM_UPDATE_TOPIC, recordNum);
+		LOGGER.info("Navigator posted record number " + recordNum);
+		eventBroker.post("MESSAGE", tableName + " editor has been opened");
 	}
 
 	/**

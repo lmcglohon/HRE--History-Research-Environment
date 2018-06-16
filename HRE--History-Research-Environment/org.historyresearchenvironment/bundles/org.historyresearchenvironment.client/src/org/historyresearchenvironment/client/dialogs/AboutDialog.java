@@ -4,15 +4,19 @@ import org.eclipse.jface.dialogs.Dialog;
 import org.eclipse.jface.dialogs.IDialogConstants;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.CLabel;
+import org.eclipse.swt.custom.StyledText;
+import org.eclipse.swt.events.MouseAdapter;
+import org.eclipse.swt.events.MouseEvent;
 import org.eclipse.swt.graphics.Point;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
+import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
-import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Shell;
-import org.eclipse.wb.swt.SWTResourceManager;
 import org.eclipse.wb.swt.ResourceManager;
+import org.eclipse.wb.swt.SWTResourceManager;
+import org.historyresearchenvironment.client.HreConstants;
 
 /**
  * @version 2018-06-10
@@ -42,6 +46,15 @@ public class AboutDialog extends Dialog {
 	 */
 	@Override
 	protected void createButtonsForButtonBar(Composite parent) {
+		createButton(parent, IDialogConstants.HELP_ID, IDialogConstants.HELP_LABEL, true);
+		Button button = createButton(parent, HreConstants.LICENSES_ID, "Licenses", true);
+		button.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseDown(MouseEvent e) {
+				final LicensesDialog dialog = new LicensesDialog(parent.getShell());
+				dialog.open();
+			}
+		});
 		createButton(parent, IDialogConstants.OK_ID, IDialogConstants.OK_LABEL, true);
 	}
 
@@ -53,84 +66,74 @@ public class AboutDialog extends Dialog {
 	@Override
 	protected Control createDialogArea(Composite parent) {
 		final Composite container = (Composite) super.createDialogArea(parent);
+		container.setBackground(SWTResourceManager.getColor(SWT.COLOR_WHITE));
 		container.setLayout(new GridLayout(2, false));
 
-		final CLabel lblNewLabel = new CLabel(container, SWT.NONE);
-		lblNewLabel.setImage(ResourceManager.getPluginImage("org.historyresearchenvironment.client", "icons/HRE-144.png"));
-		lblNewLabel.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false, 1, 4));
+		CLabel lblLogo = new CLabel(container, SWT.NONE);
+		lblLogo.setLayoutData(new GridData(SWT.LEFT, SWT.CENTER, false, false, 1, 4));
+		lblLogo.setImage(
+				ResourceManager.getPluginImage("org.historyresearchenvironment.client", "icons/HRE1.0Logo.png"));
+		lblLogo.setText("");
 
-		final Label lblHistoryResearch = new Label(container, SWT.NONE);
-		lblHistoryResearch.setLayoutData(new GridData(SWT.CENTER, SWT.CENTER, false, false, 1, 1));
-		lblHistoryResearch.setFont(SWTResourceManager.getFont("Calibri", 14, SWT.BOLD));
-		lblHistoryResearch.setText("History Research");
+		StyledText styledText_1 = new StyledText(container, SWT.WRAP);
+		styledText_1.setAlignment(SWT.CENTER);
+		styledText_1.setDoubleClickEnabled(false);
+		styledText_1.setEditable(false);
+		styledText_1.setFont(SWTResourceManager.getFont("Calibri", 28, SWT.BOLD));
+		styledText_1.setText("History Research Environment");
+		styledText_1.setLayoutData(new GridData(SWT.CENTER, SWT.FILL, true, false, 1, 1));
 
-		final Label lblNewLabel_1 = new Label(container, SWT.NONE);
-		lblNewLabel_1.setLayoutData(new GridData(SWT.CENTER, SWT.CENTER, false, false, 1, 1));
-		lblNewLabel_1.setFont(SWTResourceManager.getFont("Calibri", 14, SWT.BOLD));
-		lblNewLabel_1.setText("Environment");
+		StyledText styledText_2 = new StyledText(container, SWT.NONE);
+		styledText_2.setEnabled(false);
+		styledText_2.setAlignment(SWT.CENTER);
+		styledText_2.setDoubleClickEnabled(false);
+		styledText_2.setEditable(false);
+		styledText_2.setFont(SWTResourceManager.getFont("Calibri", 10, SWT.BOLD));
+		styledText_2.setText("Build V0.1.0\r\nRelease Date 1-Jan-2019");
+		styledText_2.setLayoutData(new GridData(SWT.CENTER, SWT.FILL, true, false, 1, 1));
 
-		final Label lblBuild = new Label(container, SWT.NONE);
-		lblBuild.setLayoutData(new GridData(SWT.CENTER, SWT.CENTER, false, false, 1, 1));
-		lblBuild.setText("Build 0.1.0");
-		lblBuild.setFont(SWTResourceManager.getFont("Calibri", 14, SWT.BOLD));
+		StyledText styledText = new StyledText(container, SWT.WRAP);
+		styledText.setFont(SWTResourceManager.getFont("Calibri", 12, SWT.BOLD));
+		styledText.setAlwaysShowScrollBars(false);
+		styledText.setEditable(false);
+		styledText.setText(
+				"History Research Environment (HRE) is a community project to create a free open source platform for recording a wide range of genealogical, historical and social research.");
+		styledText.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, false, 1, 1));
 
-		final Label label = new Label(container, SWT.NONE);
-		label.setLayoutData(new GridData(SWT.CENTER, SWT.TOP, false, false, 1, 1));
-		label.setText("2018");
-		label.setFont(SWTResourceManager.getFont("Calibri", 14, SWT.BOLD));
+		StyledText styledText_3 = new StyledText(container, SWT.WRAP);
+		styledText_3.setDoubleClickEnabled(false);
+		styledText_3.setFont(SWTResourceManager.getFont("Calibri", 12, SWT.BOLD));
+		styledText_3.setAlwaysShowScrollBars(false);
+		styledText_3.setEditable(false);
+		styledText_3.setText(
+				"The development community is supported by a non-for-profit company, History Research Environment Limited, limited by Guarantee and registered under the laws of England and Wales.");
+		styledText_3.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, false, 1, 1));
 
-		final Label lblNewLabel_2 = new Label(container, SWT.NONE);
-		lblNewLabel_2.setFont(SWTResourceManager.getFont("Calibri", 12, SWT.NORMAL));
-		lblNewLabel_2.setLayoutData(new GridData(SWT.LEFT, SWT.CENTER, false, false, 2, 1));
-		lblNewLabel_2.setText("HRE code is copyright to HRE Pty Ltd, as released");
+		StyledText styledText_6 = new StyledText(container, SWT.WRAP);
+		styledText_6.setDoubleClickEnabled(false);
+		styledText_6.setFont(SWTResourceManager.getFont("Calibri", 12, SWT.BOLD));
+		styledText_6.setAlwaysShowScrollBars(false);
+		styledText_6.setEditable(false);
+		styledText_6.setText(
+				"All code developed by HRE is copyright to individual developers, and is released under the GNU Affero Public License (GNU AGPL), https://www.gnu.org/licenses/agpl-3.0.en.html. For further details, see http://hrewiki.org/index.php?title=Why_have_we_chosen_these_licences%3F.");
+		styledText_6.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, false, 2, 1));
 
-		final Label lblUnderGnuAffero = new Label(container, SWT.NONE);
-		lblUnderGnuAffero.setLayoutData(new GridData(SWT.LEFT, SWT.CENTER, false, false, 2, 1));
-		lblUnderGnuAffero.setText("under GNU Affero General Public Licence ");
-		lblUnderGnuAffero.setFont(SWTResourceManager.getFont("Calibri", 12, SWT.NORMAL));
+		StyledText styledText_5 = new StyledText(container, SWT.WRAP);
+		styledText_5.setDoubleClickEnabled(false);
+		styledText_5.setFont(SWTResourceManager.getFont("Calibri", 12, SWT.BOLD));
+		styledText_5.setAlwaysShowScrollBars(false);
+		styledText_5.setEditable(false);
+		styledText_5.setText(
+				"Reuse of the HRE software is permitted only under the terms of the license. Using the HRE software or any derivative of the software to offer a service over the Internet is strictly prohibited.");
+		styledText_5.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, false, 2, 1));
 
-		final Label label_1 = new Label(container, SWT.NONE);
-		label_1.setFont(SWTResourceManager.getFont("Calibri", 12, SWT.NORMAL));
-		new Label(container, SWT.NONE);
-
-		final Label label_3 = new Label(container, SWT.NONE);
-		label_3.setFont(SWTResourceManager.getFont("Calibri", 12, SWT.NORMAL));
-		new Label(container, SWT.NONE);
-
-		final Label lblPreferenceCodeUsed = new Label(container, SWT.NONE);
-		lblPreferenceCodeUsed.setLayoutData(new GridData(SWT.LEFT, SWT.CENTER, false, false, 2, 1));
-		lblPreferenceCodeUsed.setText("Preference code used from");
-		lblPreferenceCodeUsed.setFont(SWTResourceManager.getFont("Calibri", 12, SWT.NORMAL));
-
-		final Label lblHttpsgithubcomopcoachepreferences = new Label(container, SWT.NONE);
-		lblHttpsgithubcomopcoachepreferences.setLayoutData(new GridData(SWT.LEFT, SWT.CENTER, false, false, 2, 1));
-		lblHttpsgithubcomopcoachepreferences.setText("https://github.com/opcoach/e4Preferences");
-		lblHttpsgithubcomopcoachepreferences.setFont(SWTResourceManager.getFont("Calibri", 12, SWT.NORMAL));
-
-		final Label lblWhichIsLicensed = new Label(container, SWT.NONE);
-		lblWhichIsLicensed.setLayoutData(new GridData(SWT.LEFT, SWT.CENTER, false, false, 2, 1));
-		lblWhichIsLicensed.setText("which is licensed under the Eclipse Public License 1.0");
-		lblWhichIsLicensed.setFont(SWTResourceManager.getFont("Calibri", 12, SWT.NORMAL));
-
-		final Label lblNewLabel_3 = new Label(container, SWT.NONE);
-		lblNewLabel_3.setLayoutData(new GridData(SWT.LEFT, SWT.CENTER, false, false, 2, 1));
-		lblNewLabel_3.setFont(SWTResourceManager.getFont("Segoe UI", 12, SWT.NORMAL));
-
-		final Label lblIfYouWish = new Label(container, SWT.NONE);
-		lblIfYouWish.setLayoutData(new GridData(SWT.LEFT, SWT.CENTER, false, false, 2, 1));
-		lblIfYouWish.setText("If you wish to donate to continued development ");
-		lblIfYouWish.setFont(SWTResourceManager.getFont("Calibri", 12, SWT.NORMAL));
-
-		final Label lblOfHrePlease = new Label(container, SWT.NONE);
-		lblOfHrePlease.setLayoutData(new GridData(SWT.LEFT, SWT.CENTER, false, false, 2, 1));
-		lblOfHrePlease.setText("of HRE, please go to our website at");
-		lblOfHrePlease.setFont(SWTResourceManager.getFont("Calibri", 12, SWT.NORMAL));
-
-		final Label lblWwwhistoryresearchenvironmentorgdonate = new Label(container, SWT.NONE);
-		lblWwwhistoryresearchenvironmentorgdonate.setLayoutData(new GridData(SWT.LEFT, SWT.CENTER, false, false, 2, 1));
-		lblWwwhistoryresearchenvironmentorgdonate.setText("www.historyresearchenvironment.org/Donate/");
-		lblWwwhistoryresearchenvironmentorgdonate.setFont(SWTResourceManager.getFont("Calibri", 12, SWT.NORMAL));
-
+		StyledText styledText_4 = new StyledText(container, SWT.WRAP);
+		styledText_4.setDoubleClickEnabled(false);
+		styledText_4.setFont(SWTResourceManager.getFont("Calibri", 12, SWT.BOLD));
+		styledText_4.setAlwaysShowScrollBars(false);
+		styledText_4.setEditable(false);
+		styledText_4.setText("Website: https://historyresearchenvironment.org/\r\nWiki: http://hrewiki.org");
+		styledText_4.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, false, 2, 1));
 		return container;
 	}
 
@@ -139,6 +142,6 @@ public class AboutDialog extends Dialog {
 	 */
 	@Override
 	protected Point getInitialSize() {
-		return new Point(456, 671);
+		return new Point(560, 598);
 	}
 }

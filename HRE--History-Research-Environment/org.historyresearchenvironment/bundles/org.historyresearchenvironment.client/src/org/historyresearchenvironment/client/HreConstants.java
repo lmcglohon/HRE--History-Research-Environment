@@ -3,7 +3,7 @@ package org.historyresearchenvironment.client;
 /**
  * Constants used by HRE.
  * 
- * @version 2018-06-11
+ * @version 2018-06-15
  * @author Michael Erichsen, &copy; History Research Environment Ltd., 2018
  *
  */
@@ -22,4 +22,8 @@ public class HreConstants {
 	public static final int TIMESTAMP = 93;
 	public static final int VARBINARY = -3;
 	public static final int VARCHAR = 12;
+	
+	// About Dialog Buttons
+    public static final int LICENSES_ID = 1025;
+    
 }
