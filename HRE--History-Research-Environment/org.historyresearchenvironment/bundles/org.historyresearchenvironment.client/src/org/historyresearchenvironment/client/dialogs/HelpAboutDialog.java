@@ -23,13 +23,13 @@ import org.historyresearchenvironment.client.HreConstants;
  * @author Michael Erichsen, &copy; History Research Environment Ltd., 2018
  *
  */
-public class AboutDialog extends Dialog {
+public class HelpAboutDialog extends Dialog {
 	/**
 	 * Constructor
 	 *
 	 * @param parentShell
 	 */
-	public AboutDialog(Shell parentShell) {
+	public HelpAboutDialog(Shell parentShell) {
 		super(parentShell);
 	}
 
@@ -51,7 +51,7 @@ public class AboutDialog extends Dialog {
 		button.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseDown(MouseEvent e) {
-				final LicensesDialog dialog = new LicensesDialog(parent.getShell());
+				final HelpLicensesDialog dialog = new HelpLicensesDialog(parent.getShell());
 				dialog.open();
 			}
 		});

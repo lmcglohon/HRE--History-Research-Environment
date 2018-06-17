@@ -16,14 +16,14 @@ import org.eclipse.wb.swt.SWTResourceManager;
  * @author Michael Erichsen, &copy; History Research Environment Ltd., 2018
  *
  */
-public class LicensesDialog extends Dialog {
+public class HelpLicensesDialog extends Dialog {
 
 	/**
 	 * Create the dialog.
 	 * 
 	 * @param parentShell
 	 */
-	public LicensesDialog(Shell parentShell) {
+	public HelpLicensesDialog(Shell parentShell) {
 		super(parentShell);
 	}
 

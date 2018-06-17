@@ -2,7 +2,7 @@ package org.historyresearchenvironment.client.handlers;
 
 import org.eclipse.e4.core.di.annotations.Execute;
 import org.eclipse.swt.widgets.Shell;
-import org.historyresearchenvironment.client.dialogs.AboutDialog;
+import org.historyresearchenvironment.client.dialogs.HelpAboutDialog;
 
 /**
  * @version 2018-06-09
@@ -15,7 +15,7 @@ public class HelpAboutHandler {
 	 */
 	@Execute
 	public void execute(Shell shell) {
-		final AboutDialog dialog = new AboutDialog(shell);
+		final HelpAboutDialog dialog = new HelpAboutDialog(shell);
 		dialog.open();
 	}
 }
