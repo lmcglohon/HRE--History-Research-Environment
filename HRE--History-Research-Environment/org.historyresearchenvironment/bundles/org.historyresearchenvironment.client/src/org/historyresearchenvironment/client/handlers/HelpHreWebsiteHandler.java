@@ -17,7 +17,7 @@ import org.eclipse.e4.ui.workbench.modeling.EPartService.PartState;
  * @author Michael Erichsen, &copy; History Research Environment Ltd., 2018
  *
  */
-public class HreWebsiteHandler {
+public class HelpHreWebsiteHandler {
 	@Execute
 	public void execute(EPartService partService, MApplication application, EModelService modelService) {
 		final MPart part = MBasicFactory.INSTANCE.createPart();

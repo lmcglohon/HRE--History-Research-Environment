@@ -31,11 +31,10 @@
       <import plugin="org.eclipse.e4.core.commands"/>
       <import plugin="org.eclipse.e4.ui.css.swt.theme"/>
       <import plugin="com.opcoach.e4.preferences"/>
-      <import plugin="org.eclipse.osgi"/>
-      <import plugin="org.eclipse.e4.core.di.annotations"/>
-      <import plugin="org.eclipse.wb.swt"/>
-      <import plugin="javax.annotation"/>
       <import plugin="org.eclipse.e4.core.services"/>
+      <import plugin="org.h2"/>
+      <import plugin="org.eclipse.e4.core.di.extensions"/>
+      <import plugin="org.eclipse.equinox.preferences"/>
    </requires>
 
    <plugin

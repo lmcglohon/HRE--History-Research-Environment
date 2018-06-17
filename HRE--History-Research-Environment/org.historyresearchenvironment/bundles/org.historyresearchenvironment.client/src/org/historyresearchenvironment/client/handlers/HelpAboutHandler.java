@@ -9,7 +9,7 @@ import org.historyresearchenvironment.client.dialogs.AboutDialog;
  * @author Michael Erichsen, &copy; History Research Environment Ltd., 2018
  *
  */
-public class AboutHandler {
+public class HelpAboutHandler {
 	/**
 	 * @param shell
 	 */
