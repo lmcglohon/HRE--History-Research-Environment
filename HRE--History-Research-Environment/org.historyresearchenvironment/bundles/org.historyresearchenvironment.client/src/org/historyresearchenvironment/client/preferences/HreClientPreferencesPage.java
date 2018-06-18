@@ -20,7 +20,7 @@ import org.eclipse.swt.widgets.Composite;
 import org.historyresearchenvironment.client.HreH2ConnectionPool;
 
 /**
- * @version 2018-06-10
+ * @version 2018-06-18
  * @author Michael Erichsen, &copy; History Research Environment Ltd., 2018
  *
  */
@@ -35,20 +35,41 @@ public class HreClientPreferencesPage extends FieldEditorPreferencePage {
 	private ComboFieldEditor comboFieldEditorH2TraceLevel;
 
 	/**
+	 * Constructor
+	 * 
 	 * @wbp.parser.constructor
+	 *
 	 */
 	public HreClientPreferencesPage() {
 		super(GRID);
 	}
 
+	/**
+	 * Constructor
+	 *
+	 * @param style
+	 */
 	public HreClientPreferencesPage(int style) {
 		super(style);
 	}
 
+	/**
+	 * Constructor
+	 *
+	 * @param title
+	 * @param style
+	 */
 	public HreClientPreferencesPage(String title, int style) {
 		super(title, style);
 	}
 
+	/**
+	 * Constructor
+	 *
+	 * @param title
+	 * @param image
+	 * @param style
+	 */
 	public HreClientPreferencesPage(String title, ImageDescriptor image, int style) {
 		super(title, image, style);
 	}
@@ -56,9 +77,8 @@ public class HreClientPreferencesPage extends FieldEditorPreferencePage {
 	@Override
 	protected void createFieldEditors() {
 		{
-			comboFieldEditorCsMode = new ComboFieldEditor(
-					"CSMODE", "Client/Server Mode", new String[][] { { "TEST (Hardcoded Values)", "TEST" },
-							{ "DIRECT (Not using TCP/IP)", "DIRECT" }, { "SERVER (Call using TCP/IP)", "SERVER" } },
+			comboFieldEditorCsMode = new ComboFieldEditor("CSMODE", "Client/Server Mode", new String[][] {
+					{ "DIRECT (Not using TCP/IP)", "DIRECT" }, { "SERVER (Call using TCP/IP)", "SERVER" } },
 					getFieldEditorParent());
 
 			addField(comboFieldEditorCsMode);

@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Dataaccess
+Bundle-SymbolicName: org.historyresearchenvironment.dataaccess
+Bundle-Version: 1.0.0.qualifier
+Export-Package: org.historyresearchenvironment.dataaccess
+Automatic-Module-Name: org.historyresearchenvironment.dataaccess
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8

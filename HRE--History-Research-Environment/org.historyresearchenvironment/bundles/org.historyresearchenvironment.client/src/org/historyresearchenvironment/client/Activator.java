@@ -8,7 +8,7 @@ import org.osgi.framework.BundleContext;
 import org.osgi.service.prefs.Preferences;
 
 /**
- * @version 2018-06-15
+ * @version 2018-06-18
  * @author Michael Erichsen, &copy; History Research Environment Ltd., 2018
  *
  */

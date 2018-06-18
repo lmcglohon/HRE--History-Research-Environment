@@ -20,10 +20,6 @@
                name="appName"
                value="org.historyresearchenvironment.client">
          </property>
-         <property
-               name="preferenceCustomization"
-               value="plugin_customization.ini">
-         </property>
       </product>
    </extension>
    <extension
