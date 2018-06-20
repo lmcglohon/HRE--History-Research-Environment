@@ -31,6 +31,7 @@ public class SubstnFilterDefn implements Serializable {
 
 
 	// @Id
+	// @GeneratedValue(strategy=GenerationType.AUTO)
 	// @Column(name="RECORD_NUM", unique=true, nullable=false)
 	public int getRecordNum() {
 		return this.recordNum;

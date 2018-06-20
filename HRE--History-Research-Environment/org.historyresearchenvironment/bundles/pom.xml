@@ -3,23 +3,24 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
                       http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
-    <artifactId>org.historyresearchenvironment.bundles</artifactId>
-    <packaging>pom</packaging>
+	<modelVersion>4.0.0</modelVersion>
+	<artifactId>org.historyresearchenvironment.bundles</artifactId>
+	<packaging>pom</packaging>
 
-    <parent>
-        <groupId>org.historyresearchenvironment</groupId>
-        <artifactId>org.historyresearchenvironment.root</artifactId>
-        <version>0.1.0-SNAPSHOT</version>
-    </parent>
+	<parent>
+		<groupId>org.historyresearchenvironment</groupId>
+		<artifactId>org.historyresearchenvironment.root</artifactId>
+		<version>0.1.0-SNAPSHOT</version>
+	</parent>
 
-    <modules>
-        <module>org.historyresearchenvironment.client</module>
-        <module>com.opcoach.e4.preferences</module>
-        <module>org.historyresearchenvironment.server</module>
-        <module>org.historyresearchenvironment.dataaccess</module>
-    </modules>
-    <version>0.1.0-SNAPSHOT</version>
-    <groupId>org.historyresearchenvironment</groupId>
+	<modules>
+		<module>com.opcoach.e4.preferences</module>
+		<module>org.historyresearchenvironment.client</module>
+		<module>org.historyresearchenvironment.dataaccess</module>
+		<module>org.historyresearchenvironment.helpsystem</module>
+		<module>org.historyresearchenvironment.server</module>
+	</modules>
+	<version>0.1.0-SNAPSHOT</version>
+	<groupId>org.historyresearchenvironment</groupId>
 </project>
 
