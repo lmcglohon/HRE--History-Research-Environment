@@ -14,7 +14,7 @@ import org.osgi.service.prefs.Preferences;
  * Eclipse plug-in life cycle control. Sets up the logger. Starts and stops the
  * Help System.
  * 
- * @version 2018-06-20
+ * @version 2018-06-22
  * @author Michael Erichsen, &copy; History Research Environment Ltd., 2018
  *
  */
@@ -41,7 +41,7 @@ public class Activator implements BundleActivator {
 
 		HreLogger.setup();
 
-		// TODO Remove when New and Open are settled
+		// TODO Remove when New and Open are settled?
 		preferences.putInt("projectcount", preferences.getInt("projectcount", 1));
 		preferences.put("project.0.name", preferences.get("project.0.name", "HRE"));
 		preferences.put("project.0.lastupdated", preferences.get("project.0.lastupdated", "2000-01-01 01:01:01"));
@@ -58,7 +58,7 @@ public class Activator implements BundleActivator {
 		EnvironmentInfo envInfo = context.getService(envRef);
 		String[] args = envInfo.getCommandLineArgs();
 		for (int i = 0; i < args.length; i++) {
-			System.out.println("CLI " + i + ": " + args[i]);
+			LOGGER.info("CLI " + i + ": " + args[i]);
 		}
 
 		String csMode = preferences.get("CSMODE", "DIRECT");
@@ -74,7 +74,7 @@ public class Activator implements BundleActivator {
 		try {
 			LOGGER.info("Help System is being started at port " + preferences.getInt("HELPSYSTEMPORT", 8081));
 			Runtime.getRuntime().exec(command);
-			LOGGER.info("Has started " + command);
+			LOGGER.info("Has been started: " + command);
 		} catch (final Exception e) {
 			LOGGER.severe(e.getClass() + ": " + e.getMessage());
 		}

@@ -17,6 +17,7 @@
     <mainMenu xmi:id="_6wlLicgZEeSyMNYR5xypkQ" elementId="org.eclipse.ui.main.menu">
       <children xsi:type="menu:Menu" xmi:id="_dEC5MGDGEeicsMpOuyVmJw" elementId="org.historyresearchenvironment.client.menu.project" label="Project">
         <children xsi:type="menu:HandledMenuItem" xmi:id="_tJHTYGVoEei5HIUyv56sSA" elementId="org.historyresearchenvironment.client.handledmenuitem.projects" label="Projects" tooltip="Projects" command="_zFcu8GVoEei5HIUyv56sSA"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_GqBjQHX7EeijF5xrdFTP1Q" elementId="org.historyresearchenvironment.client.handledmenuitem.startembeddedserver" label="Start Embedded Server" command="_V8ExAHX7EeijF5xrdFTP1Q"/>
         <children xsi:type="menu:MenuSeparator" xmi:id="_Um-7YGDIEeicsMpOuyVmJw" elementId="org.historyresearchenvironment.client.menuseparator.0"/>
         <children xsi:type="menu:HandledMenuItem" xmi:id="_gF-zQGVzEei5HIUyv56sSA" elementId="org.historyresearchenvironment.client.handledmenuitem.closeproject" label="Close Project" tooltip="Close Project" enabled="false" command="_ll3TgGvuEei6UJPZ5XWbvg"/>
         <children xsi:type="menu:HandledMenuItem" xmi:id="_Vgbr4GDIEeicsMpOuyVmJw" elementId="org.historyresearchenvironment.client.handledmenuitem.closeandexit" label="Close and Exit..." tooltip="Close and Exit" command="_6wlLfMgZEeSyMNYR5xypkQ"/>
@@ -66,6 +67,7 @@
   <handlers xmi:id="_AX7qwGySEeiWA6ZM115-YA" elementId="org.historyresearchenvironment.client.handler.0" contributionURI="bundleclass://org.historyresearchenvironment.client/org.historyresearchenvironment.client.handlers.ProjectPropertiesHandler" command="_9Es_cGyREeiWA6ZM115-YA"/>
   <handlers xmi:id="_4H1DsGVoEei5HIUyv56sSA" elementId="org.historyresearchenvironment.client.handler.projectnavigator" contributionURI="bundleclass://org.historyresearchenvironment.client/org.historyresearchenvironment.client.handlers.ProjectNavigatorHandler" command="_zFcu8GVoEei5HIUyv56sSA"/>
   <handlers xmi:id="_6wlLfcgZEeSyMNYR5xypkQ" elementId="org.historyresearchenvironment.client.handler.quit" contributionURI="bundleclass://org.historyresearchenvironment.client/org.historyresearchenvironment.client.handlers.QuitHandler" command="_6wlLfMgZEeSyMNYR5xypkQ"/>
+  <handlers xmi:id="_dgj2IHX7EeijF5xrdFTP1Q" elementId="org.historyresearchenvironment.client.handler.2" contributionURI="bundleclass://org.historyresearchenvironment.client/org.historyresearchenvironment.client.handlers.ProjectStartEmbeddedServerHandler" command="_V8ExAHX7EeijF5xrdFTP1Q"/>
   <handlers xmi:id="_4gPDsG4bEeiuNIecXZfP7Q" elementId="org.historyresearchenvironment.client.handler.1" contributionURI="bundleclass://org.historyresearchenvironment.client/org.historyresearchenvironment.databaseadmin.handlers.TableEditorHandler" command="_zKwMwG4bEeiuNIecXZfP7Q"/>
   <handlers xmi:id="_jEwPAG4aEeiuNIecXZfP7Q" elementId="org.historyresearchenvironment.client.handler.opentablenavigator" contributionURI="bundleclass://org.historyresearchenvironment.client/org.historyresearchenvironment.databaseadmin.handlers.TableNavigatorHandler" command="_cC0dUG4aEeiuNIecXZfP7Q"/>
   <handlers xmi:id="_FMyIIHRZEei2_oYlpOoxpQ" elementId="org.historyresearchenvironment.client.handler.helpconten" contributionURI="bundleclass://org.historyresearchenvironment.client/org.historyresearchenvironment.client.handlers.HelpContentsHandler" command="_o2IKYGvuEei6UJPZ5XWbvg"/>
@@ -91,6 +93,7 @@
   <commands xmi:id="_9Es_cGyREeiWA6ZM115-YA" elementId="org.historyresearchenvironment.client.command.projectproperties" commandName="ProjectProperties"/>
   <commands xmi:id="_NZJzkG_uEeihRLxzJXb_wA" elementId="org.eclipse.ui.file.open" commandName="ProjectOpen"/>
   <commands xmi:id="_6wlLfMgZEeSyMNYR5xypkQ" elementId="org.eclipse.ui.file.exit" commandName="ProjectQuit"/>
+  <commands xmi:id="_V8ExAHX7EeijF5xrdFTP1Q" elementId="org.historyresearchenvironment.client.command.projectstartembeddedserver" commandName="ProjectStartEmbeddedServer"/>
   <commands xmi:id="_zKwMwG4bEeiuNIecXZfP7Q" elementId="org.historyresearchenvironment.client.command.opentableeditor" commandName="Table Editor Open"/>
   <commands xmi:id="_cC0dUG4aEeiuNIecXZfP7Q" elementId="org.historyresearchenvironment.client.command.opentablenavigator" commandName="Table Navigator Open"/>
   <addons xmi:id="_6wlLcsgZEeSyMNYR5xypkQ" elementId="org.eclipse.e4.core.commands.service" contributionURI="bundleclass://org.eclipse.e4.core.commands/org.eclipse.e4.core.commands.CommandServiceAddon"/>

@@ -30,7 +30,7 @@ public class HreHistoricalDatePreferencesPage extends FieldEditorPreferencePage 
 
 	@Override
 	protected void createFieldEditors() {
-		addField(new StringFieldEditor("rootPageValue", "Root page value : ", getFieldEditorParent()));
+		addField(new StringFieldEditor("rootPageValue", "HreHistoricalDatePreferencesPage: ", getFieldEditorParent()));
 
 	}
 

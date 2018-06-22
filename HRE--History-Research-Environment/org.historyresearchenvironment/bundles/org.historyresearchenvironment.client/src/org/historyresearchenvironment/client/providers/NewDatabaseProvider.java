@@ -9,12 +9,11 @@ import org.osgi.service.prefs.BackingStoreException;
 /**
  * Create and open a new HRE project database
  * 
- * @version 2018-06-08
+ * @version 2018-06-21
  * @author Michael Erichsen, &copy; History Research Environment Ltd., 2018
  *
  */
 public class NewDatabaseProvider extends AbstractHreProvider {
-	private final String dbName;
 	private Statement stmt;
 
 	private final String[] statementArray = {
@@ -299,18 +298,18 @@ public class NewDatabaseProvider extends AbstractHreProvider {
 	 * @param dbName Name of the new database
 	 * @throws SQLException When failing
 	 */
-	public NewDatabaseProvider(String dbName) throws SQLException {
+	public NewDatabaseProvider() throws SQLException {
 		super();
-		this.dbName = dbName;
 	}
 
 	/**
 	 * Provide the data
+	 * @param dbName 
 	 * 
 	 * @throws SQLException When failing
 	 * @throws BackingStoreException Preferences file access failure
 	 */
-	public void provide() throws SQLException, BackingStoreException {
+	public void provide(String dbName) throws SQLException, BackingStoreException {
 		HreH2ConnectionPool.createNew(dbName);
 		conn = HreH2ConnectionPool.getConnection();
 		stmt = conn.createStatement();

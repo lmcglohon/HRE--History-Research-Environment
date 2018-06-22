@@ -1,0 +1,16 @@
+org.eclipse.wb.swt
+org.historyresearchenvironment.client
+org.historyresearchenvironment.client.dialogs
+org.historyresearchenvironment.client.handlers
+org.historyresearchenvironment.client.models
+org.historyresearchenvironment.client.parts
+org.historyresearchenvironment.client.preferences
+org.historyresearchenvironment.client.providers
+org.historyresearchenvironment.client.serverinterface
+org.historyresearchenvironment.dataaccess
+org.historyresearchenvironment.databaseadmin.handlers
+org.historyresearchenvironment.databaseadmin.listeners
+org.historyresearchenvironment.databaseadmin.models
+org.historyresearchenvironment.databaseadmin.parts
+org.historyresearchenvironment.databaseadmin.providers
+org.historyresearchenvironment.server

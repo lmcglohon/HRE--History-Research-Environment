@@ -4,6 +4,11 @@ import org.eclipse.jface.preference.FieldEditorPreferencePage;
 import org.eclipse.jface.preference.StringFieldEditor;
 import org.eclipse.jface.resource.ImageDescriptor;
 
+/**
+ * @version 2018-06-21
+ * @author Michael Erichsen, &copy; History Research Environment Ltd., 2018
+ *
+ */
 public class HreMonitorPreferencesPage extends FieldEditorPreferencePage {
 
 	/**
@@ -30,7 +35,7 @@ public class HreMonitorPreferencesPage extends FieldEditorPreferencePage {
 
 	@Override
 	protected void createFieldEditors() {
-		addField(new StringFieldEditor("rootPageValue", "Root page value : ", getFieldEditorParent()));
+		addField(new StringFieldEditor("rootPageValue", "HreMonitorPreferencesPage: ", getFieldEditorParent()));
 
 	}
 

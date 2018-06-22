@@ -49,7 +49,7 @@ import org.historyresearchenvironment.databaseadmin.providers.H2TableProvider;
 /**
  * Dynamically create an editor with the fields in the database catalog.
  * 
- * @version 2018-06-14
+ * @version 2018-06-22
  * @author Michael Erichsen, &copy; History Research Environment Ltd., 2018
  *
  */
@@ -105,8 +105,7 @@ public class H2TableEditor {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
 				Text text = (Text) lineList.get(0);
-				final int recordNum = Integer.parseInt(text.getText());
-				List<Object> row;
+				recordNum = Integer.parseInt(text.getText());
 				try {
 					row = provider.select(recordNum);
 
@@ -176,7 +175,7 @@ public class H2TableEditor {
 					if (type.equals("org.eclipse.swt.widgets.Button")) {
 						Button line = (Button) lineObject;
 						Button checkButton = (Button) lineList.get(i);
-						line.setSelection((boolean) checkButton.getSelection());
+						line.setSelection(checkButton.getSelection());
 						columns.get(i).setValue(checkButton.getSelection());
 					} else if (type.equals("org.eclipse.swt.widgets.Text")) {
 						Text line = (Text) lineObject;
@@ -202,8 +201,7 @@ public class H2TableEditor {
 				try {
 					provider.insert(columns);
 					eventBroker.post(HreConstants.DATABASE_UPDATE_TOPIC, "Dummy");
-					eventBroker.post(
-							org.historyresearchenvironment.client.HreConstants.TABLENAME_UPDATE_TOPIC,
+					eventBroker.post(org.historyresearchenvironment.client.HreConstants.TABLENAME_UPDATE_TOPIC,
 							tableName);
 					eventBroker.post("MESSAGE", "Record " + insertRecordNum + " has been inserted");
 				} catch (SQLException e1) {
@@ -235,7 +233,7 @@ public class H2TableEditor {
 					if (type.equals("org.eclipse.swt.widgets.Button")) {
 						Button line = (Button) lineObject;
 						Button checkButton = (Button) lineList.get(i);
-						line.setSelection((boolean) checkButton.getSelection());
+						line.setSelection(checkButton.getSelection());
 						columns.get(i).setValue(checkButton.getSelection());
 					} else if (type.equals("org.eclipse.swt.widgets.Text")) {
 						Text line = (Text) lineObject;
@@ -261,8 +259,7 @@ public class H2TableEditor {
 				try {
 					provider.update(columns);
 					eventBroker.post(HreConstants.DATABASE_UPDATE_TOPIC, "Dummy");
-					eventBroker.post(
-							org.historyresearchenvironment.client.HreConstants.TABLENAME_UPDATE_TOPIC,
+					eventBroker.post(org.historyresearchenvironment.client.HreConstants.TABLENAME_UPDATE_TOPIC,
 							tableName);
 					eventBroker.post("MESSAGE", "Record " + updateRecordNum + " has been updated");
 				} catch (SQLException e1) {
@@ -285,12 +282,11 @@ public class H2TableEditor {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
 				Text text = (Text) lineList.get(0);
-				final int recordNum = Integer.parseInt(text.getText());
+				recordNum = Integer.parseInt(text.getText());
 				try {
 					provider.delete(recordNum);
 					eventBroker.post(HreConstants.DATABASE_UPDATE_TOPIC, "Dummy");
-					eventBroker.post(
-							org.historyresearchenvironment.client.HreConstants.TABLENAME_UPDATE_TOPIC,
+					eventBroker.post(org.historyresearchenvironment.client.HreConstants.TABLENAME_UPDATE_TOPIC,
 							tableName);
 					eventBroker.post("MESSAGE", "Record " + recordNum + " has been deleted");
 
@@ -368,7 +364,7 @@ public class H2TableEditor {
 		scrolledComposite.setExpandVertical(true);
 
 		try {
-			createLines(scrolledComposite);
+			createLines();
 		} catch (SQLException e) {
 			e.printStackTrace();
 			eventBroker.post("MESSAGE", e.getMessage());
@@ -382,7 +378,7 @@ public class H2TableEditor {
 	 * @throws SQLException
 	 *             When failing
 	 */
-	private void createLines(ScrolledComposite scrolledComposite) throws SQLException {
+	private void createLines() throws SQLException {
 		Text text;
 		Label label2;
 
@@ -572,11 +568,11 @@ public class H2TableEditor {
 	@Inject
 	@Optional
 	private void subscribeNameUpdateTopic(
-			@UIEventTopic(org.historyresearchenvironment.client.HreConstants.TABLENAME_UPDATE_TOPIC) String tableName) {
-		this.tableName = tableName;
+			@UIEventTopic(org.historyresearchenvironment.client.HreConstants.TABLENAME_UPDATE_TOPIC) String tableName2) {
+		this.tableName = tableName2;
 		final List<MPartStack> stacks = modelService.findElements(application, null, MPartStack.class, null);
 		final MPart part = (MPart) stacks.get(stacks.size() - 2).getSelectedElement();
-		part.setLabel(tableName);
+		part.setLabel(tableName2);
 	}
 
 	/**
@@ -590,6 +586,6 @@ public class H2TableEditor {
 			@UIEventTopic(org.historyresearchenvironment.client.HreConstants.RECORDNUM_UPDATE_TOPIC) String recordNumString)
 			throws SQLException {
 		this.recordNum = Integer.parseInt(recordNumString);
-		createLines(scrolledComposite);
+		createLines();
 	}
 }

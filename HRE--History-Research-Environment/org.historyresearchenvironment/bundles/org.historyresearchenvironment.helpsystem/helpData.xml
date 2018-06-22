@@ -4,7 +4,6 @@
 		<toc id="/org.historyresearchenvironment.helpsystem/toc.xml" />
 	</tocOrder>
 	<hidden>
-		<toc id="/com.volvo.drs.dpat.nwow/toc.xml" />
 		<toc id="/org.eclipse.platform.doc.user/toc.xml" />
 		<toc id="/org.eclipse.jdt.doc.user/toc.xml" />
 		<toc id="/org.eclipse.platform.doc.isv/toc.xml" />

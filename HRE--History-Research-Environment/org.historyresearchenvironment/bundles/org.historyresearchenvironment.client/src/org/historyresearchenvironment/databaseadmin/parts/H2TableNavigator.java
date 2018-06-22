@@ -47,7 +47,7 @@ import org.historyresearchenvironment.databaseadmin.providers.H2TableProvider;
  * Create a view part with a table. Create a column for each columns in the
  * catalog for the given table. Populate the table with data from H2.
  * 
- * @version 2018-06-15
+ * @version 2018-06-22
  * @author Michael Erichsen, &copy; History Research Environment Ltd., 2018
  *
  */
@@ -207,7 +207,7 @@ public class H2TableNavigator {
 	 * @param fileName
 	 * @param tableName
 	 */
-	private void exportCsv(String fileName, String tableName) {
+	private void exportCsv(String fileName) {
 		try {
 			final H2TableProvider provider = new H2TableProvider(tableName);
 			final List<H2TableModel> modelList = provider.getModelList();
@@ -243,6 +243,7 @@ public class H2TableNavigator {
 					LOGGER.info("Column " + i + ", column " + j + ", type " + modelList.get(j).getType() + ", value "
 							+ rows.get(i).get(j));
 					if (modelList.get(j).getType().equals("CLOB")) {
+						// FIXME Unnecessary cast???
 						oa[j] = (Clob) rows.get(i).get(j);
 					} else
 						oa[j] = rows.get(i).get(j);
@@ -276,7 +277,7 @@ public class H2TableNavigator {
 		final String fileName = dialog.getFilterPath() + "\\" + shortName;
 
 		if (fileName != null) {
-			exportCsv(fileName, tableName);
+			exportCsv(fileName);
 		}
 	}
 
@@ -347,11 +348,11 @@ public class H2TableNavigator {
 	@Inject
 	@Optional
 	private void subscribeNameUpdateTopic(
-			@UIEventTopic(org.historyresearchenvironment.client.HreConstants.TABLENAME_UPDATE_TOPIC) String tableName) {
-		this.tableName = tableName;
+			@UIEventTopic(org.historyresearchenvironment.client.HreConstants.TABLENAME_UPDATE_TOPIC) String tableName2) {
+		this.tableName = tableName2;
 		final List<MPartStack> stacks = modelService.findElements(application, null, MPartStack.class, null);
 		final MPart part = (MPart) stacks.get(stacks.size() - 2).getSelectedElement();
-		part.setLabel(tableName);
+		part.setLabel(tableName2);
 
 		updateGui();
 	}

@@ -34,7 +34,7 @@ import org.osgi.service.prefs.Preferences;
 /**
  * Create a view part with all tables in the database
  * 
- * @version 2018-06-12
+ * @version 2018-06-22
  * @author Michael Erichsen, &copy; History Research Environment Ltd., 2018
  *
  */
@@ -129,9 +129,9 @@ public class H2DatabaseNavigator {
 	@Inject
 	@Optional
 	private void subscribeDatabaseNameUpdateTopic(
-			@UIEventTopic(org.historyresearchenvironment.client.HreConstants.DATABASE_UPDATE_TOPIC) String dbName) {
-		this.dbName = dbName;
-		LOGGER.info(dbName);
+			@UIEventTopic(org.historyresearchenvironment.client.HreConstants.DATABASE_UPDATE_TOPIC) String dbName2) {
+		this.dbName = dbName2;
+		LOGGER.info(dbName2);
 		updateGui();
 	}
 

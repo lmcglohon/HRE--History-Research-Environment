@@ -5,21 +5,21 @@ Bundle-SymbolicName: org.historyresearchenvironment.client;singleton:=true
 Bundle-Version: 0.1.0.qualifier
 Bundle-Activator: org.historyresearchenvironment.client.Activator
 Bundle-Vendor: History Research Environment Ltd.
-Export-Package: org.historyresearchenvironment.databaseadmin.handlers,
-  org.historyresearchenvironment.databaseadmin.listeners,
-  org.historyresearchenvironment.databaseadmin.models,
-  org.historyresearchenvironment.databaseadmin.parts,
-  org.historyresearchenvironment.databaseadmin.providers
-Require-Bundle: javax.inject;bundle-version="0.0.0",
- org.eclipse.swt;bundle-version="0.0.0",
- org.eclipse.e4.ui.model.workbench;bundle-version="0.0.0",
- org.eclipse.jface;bundle-version="0.0.0",
- org.eclipse.e4.ui.services;bundle-version="0.0.0",
- org.eclipse.e4.ui.workbench;bundle-version="0.0.0",
- org.eclipse.e4.core.di;bundle-version="0.0.0",
- org.eclipse.e4.ui.di;bundle-version="0.0.0",
- org.eclipse.e4.core.contexts;bundle-version="0.0.0",
- org.eclipse.core.runtime;bundle-version="0.0.0",
+Export-Package: org.historyresearchenvironment.databaseadmin.handlers;uses:="org.eclipse.e4.ui.model.application,org.eclipse.e4.ui.workbench.modeling",
+ org.historyresearchenvironment.databaseadmin.listeners;uses:="org.eclipse.swt.events,org.eclipse.swt.widgets",
+ org.historyresearchenvironment.databaseadmin.models,
+ org.historyresearchenvironment.databaseadmin.parts;uses:="org.eclipse.swt.widgets",
+ org.historyresearchenvironment.databaseadmin.providers;uses:="org.historyresearchenvironment.client.providers,org.eclipse.jface.viewers"
+Require-Bundle: javax.inject,
+ org.eclipse.swt,
+ org.eclipse.e4.ui.model.workbench,
+ org.eclipse.jface,
+ org.eclipse.e4.ui.services,
+ org.eclipse.e4.ui.workbench,
+ org.eclipse.e4.core.di,
+ org.eclipse.e4.ui.di,
+ org.eclipse.e4.core.contexts,
+ org.eclipse.core.runtime,
  org.eclipse.e4.core.commands,
  org.eclipse.e4.ui.css.swt.theme,
  com.opcoach.e4.preferences,
@@ -27,7 +27,8 @@ Require-Bundle: javax.inject;bundle-version="0.0.0",
  org.h2,
  org.eclipse.e4.core.di.extensions,
  org.eclipse.equinox.preferences,
- org.eclipse.help.base
+ org.eclipse.help.base,
+ org.eclipse.equinox.http.registry
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy
 Import-Package: javax.inject;version="1.0.0"

@@ -26,7 +26,7 @@ import org.historyresearchenvironment.client.models.ProjectModel;
 /**
  * GUI part displaying project properties.
  * 
- * @version 2018-06-11
+ * @version 2018-06-22
  * @author Michael Erichsen, &copy; History Research Environment Ltd., 2018
  *
  */
@@ -82,9 +82,9 @@ public class ProjectProperties {
 	@Inject
 	@Optional
 	private void subscribeSelectionIndexTopic(
-			@UIEventTopic(org.historyresearchenvironment.client.HreConstants.SELECTION_INDEX_TOPIC) int index) {
-		LOGGER.info("Received index " + index);
-		this.index = index;
+			@UIEventTopic(org.historyresearchenvironment.client.HreConstants.SELECTION_INDEX_TOPIC) int index2) {
+		LOGGER.info("Received index " + index2);
+		this.index = index2;
 		createItems(table);
 	}
 

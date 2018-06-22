@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-SymbolicName: org.historyresearchenvironment.helpsystem;singlet
  on:=true
-Bundle-Name: Help System
+Bundle-Name: HRE Help System
 Bundle-Version: 0.1.0.qualifier
 Archiver-Version: Plexus Archiver
 Built-By: michael
@@ -9,4 +9,7 @@ Bundle-ManifestVersion: 2
 Bundle-Vendor: History Research Environment Ltd.
 Created-By: Apache Maven 3.3.9
 Build-Jdk: 1.8.0_144
+Require-Bundle: org.eclipse.help.ui,
+ org.eclipse.help.webapp,
+ org.eclipse.equinox.http.jetty
 

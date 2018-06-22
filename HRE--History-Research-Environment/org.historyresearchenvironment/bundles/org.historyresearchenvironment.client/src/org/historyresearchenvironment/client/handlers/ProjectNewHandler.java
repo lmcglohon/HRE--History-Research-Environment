@@ -37,7 +37,7 @@ import org.osgi.service.prefs.Preferences;
 /**
  * Create a new HRE project database.
  * 
- * @version 2018-06-12
+ * @version 2018-06-21
  * @author Michael Erichsen, &copy; History Research Environment Ltd., 2018
  *
  */
@@ -62,7 +62,7 @@ public class ProjectNewHandler {
 	 *             When failing
 	 */
 	@Execute
-	public void execute(EPartService partService, MApplication application, EModelService modelService, Shell shell)
+	public void execute(EPartService partService,  Shell shell)
 			throws SQLException {
 		// Open file dialog
 		final FileDialog dialog = new FileDialog(shell, SWT.SAVE);
@@ -78,9 +78,10 @@ public class ProjectNewHandler {
 
 		try {
 			// Create the new database
-			provider = new NewDatabaseProvider(dbName);
+			LOGGER.info("New database name: "  + dbName);
+			provider = new NewDatabaseProvider();
 
-			provider.provide();
+			provider.provide(dbName);
 
 			// Disconnect from any currently connected database
 			Connection conn = null;
