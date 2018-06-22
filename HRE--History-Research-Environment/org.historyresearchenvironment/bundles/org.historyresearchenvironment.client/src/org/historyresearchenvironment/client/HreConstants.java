@@ -22,8 +22,8 @@ public class HreConstants {
 	public static final int TIMESTAMP = 93;
 	public static final int VARBINARY = -3;
 	public static final int VARCHAR = 12;
-	
+
 	// About Dialog Buttons
-    public static final int LICENSES_ID = 1025;
-    
+	public static final int LICENSES_ID = 1025;
+
 }

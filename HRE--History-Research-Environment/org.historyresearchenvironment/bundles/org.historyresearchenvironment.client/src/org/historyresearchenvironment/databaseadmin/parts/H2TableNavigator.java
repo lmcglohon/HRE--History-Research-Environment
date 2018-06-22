@@ -1,6 +1,5 @@
 package org.historyresearchenvironment.databaseadmin.parts;
 
-import java.sql.Clob;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.logging.Logger;
@@ -92,7 +91,7 @@ public class H2TableNavigator {
 			eventBroker.post(org.historyresearchenvironment.client.HreConstants.DATABASE_UPDATE_TOPIC, "Dummy");
 			eventBroker.post("MESSAGE", "All rows have been deleted from " + tableName);
 			updateGui();
-		} catch (SQLException e1) {
+		} catch (final SQLException e1) {
 			e1.printStackTrace();
 			eventBroker.post("MESSAGE", e1.getMessage());
 			LOGGER.severe(e1.getMessage());
@@ -244,9 +243,10 @@ public class H2TableNavigator {
 							+ rows.get(i).get(j));
 					if (modelList.get(j).getType().equals("CLOB")) {
 						// FIXME Unnecessary cast???
-						oa[j] = (Clob) rows.get(i).get(j);
-					} else
 						oa[j] = rows.get(i).get(j);
+					} else {
+						oa[j] = rows.get(i).get(j);
+					}
 				}
 
 				rs.addRow(oa);
@@ -301,7 +301,7 @@ public class H2TableNavigator {
 				eventBroker.post("MESSAGE", rowCount + " rows has been imported from " + fileName);
 				eventBroker.post(org.historyresearchenvironment.client.HreConstants.DATABASE_UPDATE_TOPIC, "Dummy");
 				updateGui();
-			} catch (SQLException e1) {
+			} catch (final SQLException e1) {
 				e1.printStackTrace();
 				eventBroker.post("MESSAGE", e1.getMessage());
 			}
@@ -400,7 +400,7 @@ public class H2TableNavigator {
 					}
 				}
 			}
-		} catch (SQLException e) {
+		} catch (final SQLException e) {
 			e.printStackTrace();
 			eventBroker.post("MESSAGE", e.getMessage());
 			LOGGER.severe(e.getMessage());

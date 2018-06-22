@@ -9,7 +9,7 @@ import org.osgi.service.prefs.BackingStoreException;
 /**
  * Create and open a new HRE project database
  * 
- * @version 2018-06-21
+ * @version 2018-06-22
  * @author Michael Erichsen, &copy; History Research Environment Ltd., 2018
  *
  */
@@ -290,13 +290,29 @@ public class NewDatabaseProvider extends AbstractHreProvider {
 			"ALTER TABLE PUBLIC.USER_TYPE_DEFNS ADD PRIMARY KEY (RECORD_NUM);",
 			"ALTER TABLE PUBLIC.USERS ADD PRIMARY KEY (RECORD_NUM);",
 			"ALTER TABLE PUBLIC.VIEWPOINT_CONFIGS ADD PRIMARY KEY (RECORD_NUM);",
-			"ALTER TABLE PUBLIC.VIEWPOINT_ELEMENTS ADD PRIMARY KEY (RECORD_NUM);", };
+			"ALTER TABLE PUBLIC.VIEWPOINT_ELEMENTS ADD PRIMARY KEY (RECORD_NUM);",
+			"CREATE VIEW PUBLIC.SAMPLE_VIEW AS\r\n"
+					+ "SELECT PUBLIC.SUBSTN_PARAM_NAMES.SUBSTN_PARAM_NAME_PID, PUBLIC.SUBSTN_PARAM_NAMES.VIEW_DATA_SCRIPT_GROUP_KEY,\r\n"
+					+ "  PUBLIC.SUBSTN_PARAM_NAMES.VIEW_DATA_SCRIPT_PID, PUBLIC.SUBSTN_PARAM_NAMES.MODIFY_DATA_SCRIPT_GROUP_KEY,\r\n"
+					+ "  PUBLIC.SUBSTN_PARAM_NAMES.MODIFY_DATA_SCRIPT_PID, PUBLIC.SUBSTN_PARAM_NAMES.DELETE_DATA_SCRIPT_GROUP_KEY,\r\n"
+					+ "  PUBLIC.SUBSTN_PARAM_NAMES.DELETE_DATA_SCRIPT_PID, PUBLIC.SUBSTN_PARAM_NAMES.DEFLT_VALUE,\r\n"
+					+ "  PUBLIC.SUBSTN_PARAM_NAMES.MUST_BE_ENTERED, PUBLIC.SUBSTN_PARAM_NAMES.DATA_TYPE_KEY,\r\n"
+					+ "  PUBLIC.SUBSTN_PARAM_NAMES.PARAM_SET_KEY, PUBLIC.SUBSTN_PARAM_NAMES.EVAL_DATA_SCRIPT_PID,\r\n"
+					+ "  PUBLIC.SUBSTN_PARAM_NAMES.EVAL_DATA_SCRIPT_GROUP_KEY, PUBLIC.SUBSTN_PARAM_VALUES.SUBSTN_PARAM_VALUE_PID,\r\n"
+					+ "  PUBLIC.SUBSTN_PARAM_VALUES.PARENT_STEP_PID, PUBLIC.SUBSTN_PARAM_VALUES.PARAM_LIST_KEY,\r\n"
+					+ "  PUBLIC.SUBSTN_PARAM_VALUES.PARAM_NAME_KEY,\r\n"
+					+ "  PUBLIC.SUBSTN_PARAM_VALUES.VALUE_IS_DATA_ALIAS, PUBLIC.SUBSTN_PARAM_VALUES.VALUE_IS_OTHER_ALIAS,\r\n"
+					+ "  PUBLIC.SUBSTN_PARAM_VALUES.ALIAS_KEY, PUBLIC.SUBSTN_PARAM_VALUES.DEFLT_PARAM_STEP_PID\r\n"
+					+ "  FROM PUBLIC.SUBSTN_PARAM_NAMES, PUBLIC.SUBSTN_PARAM_VALUES\r\n"
+					+ "  WHERE PUBLIC.SUBSTN_PARAM_NAMES.PARAM_SET_KEY = PUBLIC.SUBSTN_PARAM_VALUES.PARAM_SET_KEY;" };
 
 	/**
 	 * Constructor
 	 *
-	 * @param dbName Name of the new database
-	 * @throws SQLException When failing
+	 * @param dbName
+	 *            Name of the new database
+	 * @throws SQLException
+	 *             When failing
 	 */
 	public NewDatabaseProvider() throws SQLException {
 		super();
@@ -304,10 +320,13 @@ public class NewDatabaseProvider extends AbstractHreProvider {
 
 	/**
 	 * Provide the data
-	 * @param dbName 
 	 * 
-	 * @throws SQLException When failing
-	 * @throws BackingStoreException Preferences file access failure
+	 * @param dbName
+	 * 
+	 * @throws SQLException
+	 *             When failing
+	 * @throws BackingStoreException
+	 *             Preferences file access failure
 	 */
 	public void provide(String dbName) throws SQLException, BackingStoreException {
 		HreH2ConnectionPool.createNew(dbName);

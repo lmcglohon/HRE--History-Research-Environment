@@ -38,17 +38,17 @@ public class ProjectList {
 		try {
 			readPreferences();
 			models.add(model);
-			
+
 			int count = preferences.getInt("projectcount", 1);
-			
+
 			preferences.put("project." + count + ".name", model.getName());
 			final DateFormat df = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
-			preferences.put("project." + count + ".lastupdated",  df.format(model.getLastEdited()));
+			preferences.put("project." + count + ".lastupdated", df.format(model.getLastEdited()));
 			preferences.put("project." + count + ".summary", model.getSummary());
 			preferences.put("project." + count + ".localserver", model.getLocalServer());
 			preferences.put("project." + count + ".path", model.getPath());
 			count++;
-			preferences.putInt("projectcount", count);					
+			preferences.putInt("projectcount", count);
 			preferences.flush();
 		} catch (final BackingStoreException e) {
 			LOGGER.severe(e.getMessage());
@@ -150,10 +150,10 @@ public class ProjectList {
 	}
 
 	public static boolean verify() {
-		for (ProjectModel projectModel : models) {
+		for (final ProjectModel projectModel : models) {
 			if (projectModel.getLocalServer().equalsIgnoreCase("LOCAL")) {
-				String path = projectModel.getPath();
-				File file = new File(path);
+				final String path = projectModel.getPath();
+				final File file = new File(path);
 				if (file.exists() == false) {
 					LOGGER.severe("File " + projectModel.getName() + " does not exist");
 					eventBroker.post("MESSAGE", "File " + projectModel.getName() + " does not exist");

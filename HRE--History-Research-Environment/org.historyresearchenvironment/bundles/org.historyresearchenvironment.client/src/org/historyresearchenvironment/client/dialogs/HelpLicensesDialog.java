@@ -12,7 +12,9 @@ import org.eclipse.swt.widgets.Shell;
 import org.eclipse.wb.swt.SWTResourceManager;
 
 /**
- * @version 2018-06-15
+ * Dialog to display licenses used by HRE.
+ * 
+ * @version 2018-06-22
  * @author Michael Erichsen, &copy; History Research Environment Ltd., 2018
  *
  */
@@ -34,15 +36,25 @@ public class HelpLicensesDialog extends Dialog {
 	}
 
 	/**
+	 * Create contents of the button bar.
+	 * 
+	 * @param parent
+	 */
+	@Override
+	protected void createButtonsForButtonBar(Composite parent) {
+		createButton(parent, IDialogConstants.OK_ID, IDialogConstants.OK_LABEL, true);
+	}
+
+	/**
 	 * Create contents of the dialog.
 	 * 
 	 * @param parent
 	 */
 	@Override
 	protected Control createDialogArea(Composite parent) {
-		Composite container = (Composite) super.createDialogArea(parent);
+		final Composite container = (Composite) super.createDialogArea(parent);
 
-		StyledText styledText = new StyledText(container, SWT.BORDER | SWT.WRAP);
+		final StyledText styledText = new StyledText(container, SWT.BORDER | SWT.WRAP);
 		styledText.setDoubleClickEnabled(false);
 		styledText.setFont(SWTResourceManager.getFont("Calibri", 12, SWT.BOLD));
 		styledText.setAlwaysShowScrollBars(false);
@@ -52,16 +64,6 @@ public class HelpLicensesDialog extends Dialog {
 		styledText.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
 
 		return container;
-	}
-
-	/**
-	 * Create contents of the button bar.
-	 * 
-	 * @param parent
-	 */
-	@Override
-	protected void createButtonsForButtonBar(Composite parent) {
-		createButton(parent, IDialogConstants.OK_ID, IDialogConstants.OK_LABEL, true);
 	}
 
 	/**

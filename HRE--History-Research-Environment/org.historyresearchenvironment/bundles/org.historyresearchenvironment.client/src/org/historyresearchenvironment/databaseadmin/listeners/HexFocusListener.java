@@ -31,9 +31,10 @@ public class HexFocusListener implements FocusListener {
 	 */
 	@Override
 	public void focusLost(FocusEvent e) {
-		Text text = (Text) e.widget;
-		int length = text.getCharCount();
-		if ((length % 2) > 0)
+		final Text text = (Text) e.widget;
+		final int length = text.getCharCount();
+		if ((length % 2) > 0) {
 			text.setText("0" + text.getText());
+		}
 	}
 }

@@ -14,13 +14,12 @@ import org.eclipse.swt.widgets.Text;
 public class SmallIntListener implements Listener {
 	@Override
 	public void handleEvent(Event event) {
-		Text text = (Text) event.widget;
-		String string = text.getText() + event.text;
+		final Text text = (Text) event.widget;
+		final String string = text.getText() + event.text;
 
 		try {
-			@SuppressWarnings("unused")
-			short value = Short.parseShort(string);
-		} catch (NumberFormatException e) {
+			Short.parseShort(string);
+		} catch (final NumberFormatException e) {
 			event.doit = false;
 		}
 	}

@@ -6,13 +6,17 @@ import org.eclipse.swt.widgets.Text;
 
 /**
  * Verify that Text input is numeric
+ * 
  * @version 2018-04-21
  * @author Michael Erichsen, &copy; History Research Environment Ltd., 2018
  *
  */
 public class NumericVerifyListener implements VerifyListener {
-	/* (non-Javadoc)
-	 * @see org.eclipse.swt.events.VerifyListener#verifyText(org.eclipse.swt.events.VerifyEvent)
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see org.eclipse.swt.events.VerifyListener#verifyText(org.eclipse.swt.events.
+	 * VerifyEvent)
 	 */
 	@Override
 	public void verifyText(VerifyEvent e) {

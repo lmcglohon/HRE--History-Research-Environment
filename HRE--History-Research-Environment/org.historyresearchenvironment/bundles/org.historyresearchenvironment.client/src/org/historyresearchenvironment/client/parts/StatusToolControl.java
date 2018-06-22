@@ -23,10 +23,10 @@ import org.eclipse.wb.swt.SWTResourceManager;
  *
  */
 public class StatusToolControl {
+	private final static Logger LOGGER = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
+
 	@Inject
 	IEventBroker eventBroker;
-
-	private final static Logger LOGGER = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 	private Text textStatus;
 
 	/**
@@ -40,7 +40,7 @@ public class StatusToolControl {
 		parent.setLayout(new GridLayout(1, false));
 		textStatus = new Text(parent, SWT.NONE);
 		textStatus.setBackground(SWTResourceManager.getColor(SWT.COLOR_WHITE));
-		GridData gd_textStatus = new GridData(SWT.FILL, SWT.CENTER, false, false, 1, 1);
+		final GridData gd_textStatus = new GridData(SWT.FILL, SWT.CENTER, false, false, 1, 1);
 		gd_textStatus.heightHint = 24;
 		gd_textStatus.widthHint = 1920;
 		textStatus.setLayoutData(gd_textStatus);

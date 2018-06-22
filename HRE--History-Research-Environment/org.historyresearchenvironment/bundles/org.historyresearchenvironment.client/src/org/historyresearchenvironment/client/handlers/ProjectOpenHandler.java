@@ -55,7 +55,7 @@ public class ProjectOpenHandler {
 	 */
 	@Execute
 	public void execute(EPartService partService, MApplication application, EModelService modelService, Shell shell) {
-		Preferences preferences = InstanceScope.INSTANCE.getNode("org.historyresearchenvironment.client");
+		final Preferences preferences = InstanceScope.INSTANCE.getNode("org.historyresearchenvironment.client");
 		Connection conn = null;
 
 		// Open file dialog
@@ -86,7 +86,7 @@ public class ProjectOpenHandler {
 		try {
 			preferences.put("DBNAME", dbName);
 			preferences.flush();
-		} catch (BackingStoreException e) {
+		} catch (final BackingStoreException e) {
 			LOGGER.severe(e.getMessage());
 			e.printStackTrace();
 		}
@@ -108,8 +108,8 @@ public class ProjectOpenHandler {
 			}
 
 			// Check if project is registered
-			int projectCount = preferences.getInt("projectcount", 0);
-			String[] keylist = preferences.keys();
+			final int projectCount = preferences.getInt("projectcount", 0);
+			final String[] keylist = preferences.keys();
 			String key;
 			boolean alreadyRegistered = false;
 
@@ -125,7 +125,7 @@ public class ProjectOpenHandler {
 
 			if (!alreadyRegistered) {
 				// Open a dialog for summary
-				ProjectNameSummaryDialog pnsDialog = new ProjectNameSummaryDialog(shell);
+				final ProjectNameSummaryDialog pnsDialog = new ProjectNameSummaryDialog(shell);
 				pnsDialog.open();
 
 				// Update the HRE properties
@@ -133,8 +133,8 @@ public class ProjectOpenHandler {
 				if (file.exists() == false) {
 					file = new File(dbName + ".mv.db");
 				}
-				Date timestamp = new Date(file.lastModified());
-				ProjectModel model = new ProjectModel(pnsDialog.getProjectName(), timestamp,
+				final Date timestamp = new Date(file.lastModified());
+				final ProjectModel model = new ProjectModel(pnsDialog.getProjectName(), timestamp,
 						pnsDialog.getProjectSummary(), "LOCAL", dbName);
 				ProjectList.add(model);
 

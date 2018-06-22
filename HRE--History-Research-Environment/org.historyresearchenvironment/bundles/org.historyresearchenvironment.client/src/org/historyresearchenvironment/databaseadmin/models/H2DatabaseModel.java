@@ -21,8 +21,10 @@ public class H2DatabaseModel {
 	/**
 	 * Constructor
 	 *
-	 * @param tableName Name of H2 table
-	 * @param rowCount Nyumber of rows in the table
+	 * @param tableName
+	 *            Name of H2 table
+	 * @param rowCount
+	 *            Nyumber of rows in the table
 	 */
 	public H2DatabaseModel(String tableName, long rowCount) {
 		super();

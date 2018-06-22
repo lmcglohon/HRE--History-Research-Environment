@@ -6,6 +6,8 @@ import org.eclipse.jface.preference.StringFieldEditor;
 import org.eclipse.swt.widgets.Composite;
 
 /**
+ * Preferences for remote HRE server.
+ * 
  * @version 2018-06-15
  * @author Michael Erichsen, &copy; History Research Environment Ltd., 2018
  *

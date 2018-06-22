@@ -55,22 +55,22 @@ import org.historyresearchenvironment.databaseadmin.providers.H2TableProvider;
  */
 
 public class H2TableEditor {
+	private final static Logger LOGGER = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 	@Inject
 	private EPartService partService;
 	@Inject
 	private EModelService modelService;
 	@Inject
 	private MApplication application;
+
 	@Inject
 	private IEventBroker eventBroker;
-
-	private final static Logger LOGGER = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 	private String tableName;
 	private int recordNum = 0;
 	private H2TableProvider provider;
 	private List<Object> row;
 	private List<H2TableModel> columns;
-	private List<Object> lineList = new ArrayList<>();
+	private final List<Object> lineList = new ArrayList<>();
 	private Composite compositeButtons;
 	private int count;
 	private ScrolledComposite scrolledComposite;
@@ -104,7 +104,7 @@ public class H2TableEditor {
 			 */
 			@Override
 			public void widgetSelected(SelectionEvent e) {
-				Text text = (Text) lineList.get(0);
+				final Text text = (Text) lineList.get(0);
 				recordNum = Integer.parseInt(text.getText());
 				try {
 					row = provider.select(recordNum);
@@ -115,27 +115,27 @@ public class H2TableEditor {
 					}
 
 					for (int i = 0; i < lineList.size(); i++) {
-						Object lineObject = lineList.get(i);
-						String type = lineObject.getClass().getName();
+						final Object lineObject = lineList.get(i);
+						final String type = lineObject.getClass().getName();
 
 						if (type.equals("org.eclipse.swt.widgets.Button")) {
-							Button line = (Button) lineObject;
+							final Button line = (Button) lineObject;
 							line.setSelection((boolean) row.get(i));
 						} else if (type.equals("org.eclipse.swt.widgets.Text")) {
-							Text line = (Text) lineObject;
+							final Text line = (Text) lineObject;
 							line.setText(row.get(i).toString());
 						} else if (type.equals("org.eclipse.swt.widgets.Composite")) {
-							Timestamp timeStamp = (Timestamp) row.get(i);
-							Calendar calendar = Calendar.getInstance();
+							final Timestamp timeStamp = (Timestamp) row.get(i);
+							final Calendar calendar = Calendar.getInstance();
 							calendar.setTimeInMillis(timeStamp.getTime());
 
-							Composite dateTime = (Composite) lineObject;
-							Control[] children = dateTime.getChildren();
+							final Composite dateTime = (Composite) lineObject;
+							final Control[] children = dateTime.getChildren();
 
-							DateTime date = (DateTime) children[0];
+							final DateTime date = (DateTime) children[0];
 							date.setDate(calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH),
 									calendar.get(Calendar.DATE));
-							DateTime time = (DateTime) children[1];
+							final DateTime time = (DateTime) children[1];
 							time.setTime(calendar.get(Calendar.HOUR), calendar.get(Calendar.MINUTE),
 									calendar.get(Calendar.SECOND));
 						} else {
@@ -144,7 +144,7 @@ public class H2TableEditor {
 						}
 					}
 					eventBroker.post("MESSAGE", "Record " + recordNum + " has been selected");
-				} catch (SQLException e2) {
+				} catch (final SQLException e2) {
 					e2.printStackTrace();
 					eventBroker.post("MESSAGE", e2.getMessage());
 				}
@@ -165,31 +165,31 @@ public class H2TableEditor {
 			 */
 			@Override
 			public void widgetSelected(SelectionEvent e) {
-				Text insertText = (Text) lineList.get(0);
+				final Text insertText = (Text) lineList.get(0);
 				final int insertRecordNum = Integer.parseInt(insertText.getText());
 
 				for (int i = 0; i < lineList.size(); i++) {
-					Object lineObject = lineList.get(i);
-					String type = lineObject.getClass().getName();
+					final Object lineObject = lineList.get(i);
+					final String type = lineObject.getClass().getName();
 
 					if (type.equals("org.eclipse.swt.widgets.Button")) {
-						Button line = (Button) lineObject;
-						Button checkButton = (Button) lineList.get(i);
+						final Button line = (Button) lineObject;
+						final Button checkButton = (Button) lineList.get(i);
 						line.setSelection(checkButton.getSelection());
 						columns.get(i).setValue(checkButton.getSelection());
 					} else if (type.equals("org.eclipse.swt.widgets.Text")) {
-						Text line = (Text) lineObject;
-						Text text = (Text) lineList.get(i);
+						final Text line = (Text) lineObject;
+						final Text text = (Text) lineList.get(i);
 						line.setText(text.getText());
 						columns.get(i).setValue(text.getText());
 					} else if (type.equals("org.eclipse.swt.widgets.Composite")) {
-						Composite dateTime = (Composite) lineObject;
-						Control[] children = dateTime.getChildren();
-						DateTime date = (DateTime) children[0];
-						DateTime time = (DateTime) children[1];
+						final Composite dateTime = (Composite) lineObject;
+						final Control[] children = dateTime.getChildren();
+						final DateTime date = (DateTime) children[0];
+						final DateTime time = (DateTime) children[1];
 
 						@SuppressWarnings("deprecation")
-						Timestamp timeStamp = new Timestamp(date.getYear() - 1900, date.getMonth(), date.getDay(),
+						final Timestamp timeStamp = new Timestamp(date.getYear() - 1900, date.getMonth(), date.getDay(),
 								time.getHours(), time.getMinutes(), time.getSeconds(), 0);
 						columns.get(i).setValue(timeStamp);
 					} else {
@@ -204,7 +204,7 @@ public class H2TableEditor {
 					eventBroker.post(org.historyresearchenvironment.client.HreConstants.TABLENAME_UPDATE_TOPIC,
 							tableName);
 					eventBroker.post("MESSAGE", "Record " + insertRecordNum + " has been inserted");
-				} catch (SQLException e1) {
+				} catch (final SQLException e1) {
 					e1.printStackTrace();
 					eventBroker.post("MESSAGE", e1.getMessage());
 				}
@@ -223,31 +223,31 @@ public class H2TableEditor {
 			 */
 			@Override
 			public void widgetSelected(SelectionEvent e) {
-				Text updateText = (Text) lineList.get(0);
+				final Text updateText = (Text) lineList.get(0);
 				final int updateRecordNum = Integer.parseInt(updateText.getText());
 
 				for (int i = 0; i < lineList.size(); i++) {
-					Object lineObject = lineList.get(i);
-					String type = lineObject.getClass().getName();
+					final Object lineObject = lineList.get(i);
+					final String type = lineObject.getClass().getName();
 
 					if (type.equals("org.eclipse.swt.widgets.Button")) {
-						Button line = (Button) lineObject;
-						Button checkButton = (Button) lineList.get(i);
+						final Button line = (Button) lineObject;
+						final Button checkButton = (Button) lineList.get(i);
 						line.setSelection(checkButton.getSelection());
 						columns.get(i).setValue(checkButton.getSelection());
 					} else if (type.equals("org.eclipse.swt.widgets.Text")) {
-						Text line = (Text) lineObject;
-						Text text = (Text) lineList.get(i);
+						final Text line = (Text) lineObject;
+						final Text text = (Text) lineList.get(i);
 						line.setText(text.getText());
 						columns.get(i).setValue(text.getText());
 					} else if (type.equals("org.eclipse.swt.widgets.Composite")) {
-						Composite dateTime = (Composite) lineObject;
-						Control[] children = dateTime.getChildren();
-						DateTime date = (DateTime) children[0];
-						DateTime time = (DateTime) children[1];
+						final Composite dateTime = (Composite) lineObject;
+						final Control[] children = dateTime.getChildren();
+						final DateTime date = (DateTime) children[0];
+						final DateTime time = (DateTime) children[1];
 
 						@SuppressWarnings("deprecation")
-						Timestamp timeStamp = new Timestamp(date.getYear() - 1900, date.getMonth(), date.getDay(),
+						final Timestamp timeStamp = new Timestamp(date.getYear() - 1900, date.getMonth(), date.getDay(),
 								time.getHours(), time.getMinutes(), time.getSeconds(), 0);
 						columns.get(i).setValue(timeStamp);
 					} else {
@@ -262,7 +262,7 @@ public class H2TableEditor {
 					eventBroker.post(org.historyresearchenvironment.client.HreConstants.TABLENAME_UPDATE_TOPIC,
 							tableName);
 					eventBroker.post("MESSAGE", "Record " + updateRecordNum + " has been updated");
-				} catch (SQLException e1) {
+				} catch (final SQLException e1) {
 					e1.printStackTrace();
 					eventBroker.post("MESSAGE", e1.getMessage());
 				}
@@ -281,7 +281,7 @@ public class H2TableEditor {
 			 */
 			@Override
 			public void widgetSelected(SelectionEvent e) {
-				Text text = (Text) lineList.get(0);
+				final Text text = (Text) lineList.get(0);
 				recordNum = Integer.parseInt(text.getText());
 				try {
 					provider.delete(recordNum);
@@ -290,7 +290,7 @@ public class H2TableEditor {
 							tableName);
 					eventBroker.post("MESSAGE", "Record " + recordNum + " has been deleted");
 
-				} catch (SQLException e1) {
+				} catch (final SQLException e1) {
 					e1.printStackTrace();
 					eventBroker.post("MESSAGE", e1.getMessage());
 				}
@@ -309,21 +309,21 @@ public class H2TableEditor {
 			 */
 			@Override
 			public void widgetSelected(SelectionEvent e) {
-				for (Object lineObject : lineList) {
-					String type = lineObject.getClass().getName();
+				for (final Object lineObject : lineList) {
+					final String type = lineObject.getClass().getName();
 
 					if (type.equals("org.eclipse.swt.widgets.Button")) {
-						Button line = (Button) lineObject;
+						final Button line = (Button) lineObject;
 						line.setSelection(Boolean.FALSE);
 					} else if (type.equals("org.eclipse.swt.widgets.Text")) {
-						Text line = (Text) lineObject;
+						final Text line = (Text) lineObject;
 						line.setText("0");
 					} else if (type.equals("org.eclipse.swt.widgets.Composite")) {
-						Composite dateTime = (Composite) lineObject;
-						Control[] children = dateTime.getChildren();
-						DateTime date = (DateTime) children[0];
+						final Composite dateTime = (Composite) lineObject;
+						final Control[] children = dateTime.getChildren();
+						final DateTime date = (DateTime) children[0];
 						date.setDate(2000, 1, 1);
-						DateTime time = (DateTime) children[1];
+						final DateTime time = (DateTime) children[1];
 						time.setTime(0, 0, 0);
 					} else {
 						LOGGER.info("Unimplemented type: " + type);
@@ -358,19 +358,44 @@ public class H2TableEditor {
 		parent.setLayout(new GridLayout(1, false));
 
 		scrolledComposite = new ScrolledComposite(parent, SWT.BORDER | SWT.V_SCROLL);
-		GridData gd_scrolledComposite = new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1);
+		final GridData gd_scrolledComposite = new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1);
 		scrolledComposite.setLayoutData(gd_scrolledComposite);
 		scrolledComposite.setExpandHorizontal(true);
 		scrolledComposite.setExpandVertical(true);
 
 		try {
 			createLines();
-		} catch (SQLException e) {
+		} catch (final SQLException e) {
 			e.printStackTrace();
 			eventBroker.post("MESSAGE", e.getMessage());
 		}
 		createButtons(parent);
 		new Label(parent, SWT.NONE);
+	}
+
+	/**
+	 * @param compositeFields
+	 * @param i
+	 * @return
+	 */
+	private Text createFieldLine(Composite compositeFields, int i) {
+		final Label label = new Label(compositeFields, SWT.NONE);
+		label.setLayoutData(new GridData(SWT.LEFT, SWT.CENTER, false, false, 1, 1));
+		label.setText(columns.get(i).getName());
+
+		final Label label2 = new Label(compositeFields, SWT.NONE);
+		label2.setLayoutData(new GridData(SWT.LEFT, SWT.CENTER, false, false, 1, 1));
+		final int scale = columns.get(i).getScale();
+
+		if (scale > 0) {
+			label2.setText(columns.get(i).getType() + "(" + scale + ")");
+		} else {
+			label2.setText(columns.get(i).getType());
+		}
+
+		final Text text = new Text(compositeFields, SWT.BORDER);
+		text.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
+		return text;
 	}
 
 	/**
@@ -382,15 +407,16 @@ public class H2TableEditor {
 		Text text;
 		Label label2;
 
-		if ((tableName == null) || (tableName == ""))
+		if ((tableName == null) || (tableName == "")) {
 			return;
+		}
 
 		provider = new H2TableProvider(tableName);
 		count = provider.getCount();
 		columns = provider.getModelList();
 		row = provider.select(recordNum);
 
-		Composite compositeFields = new Composite(scrolledComposite, SWT.NONE);
+		final Composite compositeFields = new Composite(scrolledComposite, SWT.NONE);
 		compositeFields.setLayout(new GridLayout(3, false));
 
 		lineList.clear();
@@ -409,13 +435,13 @@ public class H2TableEditor {
 				text.addVerifyListener(new HexVerifyListener());
 				text.addFocusListener(new HexFocusListener());
 				columns.get(i).setValue(row.get(i));
-				Blob blob = (Blob) row.get(i);
+				final Blob blob = (Blob) row.get(i);
 
 				try {
-					byte[] ba = blob.getBytes(1L, (int) blob.length());
-					String s = new String(DatatypeConverter.printHexBinary(ba));
+					final byte[] ba = blob.getBytes(1L, (int) blob.length());
+					final String s = new String(DatatypeConverter.printHexBinary(ba));
 					text.setText(s);
-				} catch (SQLException e) {
+				} catch (final SQLException e) {
 					eventBroker.post("MESSAGE", e.getMessage());
 				}
 				lineList.add(text);
@@ -429,12 +455,13 @@ public class H2TableEditor {
 				final Button checkButton = new Button(compositeFields, SWT.CHECK);
 				checkButton.setText(columns.get(i).getName());
 
-				if (columns.get(i).getValue() == null)
+				if (columns.get(i).getValue() == null) {
 					checkButton.setSelection(false);
-				else if (columns.get(i).getValue().equals("TRUE"))
+				} else if (columns.get(i).getValue().equals("TRUE")) {
 					checkButton.setSelection(true);
-				else
+				} else {
 					checkButton.setSelection(false);
+				}
 
 				columns.get(i).setValue(checkButton.getSelection());
 				lineList.add(checkButton);
@@ -442,10 +469,10 @@ public class H2TableEditor {
 			case HreConstants.CLOB:
 				text = createFieldLine(compositeFields, i);
 				columns.get(i).setValue(row.get(i));
-				Clob clob = (Clob) row.get(i);
+				final Clob clob = (Clob) row.get(i);
 				try {
 					text.setText(new String(clob.getSubString(1L, (int) clob.length())));
-				} catch (SQLException e) {
+				} catch (final SQLException e) {
 					eventBroker.post("MESSAGE", e.getMessage());
 				}
 				lineList.add(text);
@@ -480,16 +507,16 @@ public class H2TableEditor {
 				label2.setLayoutData(new GridData(SWT.LEFT, SWT.CENTER, false, false, 1, 1));
 				label2.setText(columns.get(i).getType());
 
-				Timestamp timeStamp = (Timestamp) row.get(i);
-				Calendar calendar = Calendar.getInstance();
+				final Timestamp timeStamp = (Timestamp) row.get(i);
+				final Calendar calendar = Calendar.getInstance();
 				calendar.setTimeInMillis(timeStamp.getTime());
 
-				Composite dateTime = new Composite(compositeFields, SWT.NONE);
+				final Composite dateTime = new Composite(compositeFields, SWT.NONE);
 				dateTime.setLayout(new GridLayout(2, false));
 
-				DateTime date = new DateTime(dateTime, SWT.DATE);
+				final DateTime date = new DateTime(dateTime, SWT.DATE);
 				date.setDate(calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DATE));
-				DateTime time = new DateTime(dateTime, SWT.TIME);
+				final DateTime time = new DateTime(dateTime, SWT.TIME);
 				time.setTime(calendar.get(Calendar.HOUR), calendar.get(Calendar.MINUTE), calendar.get(Calendar.SECOND));
 				columns.get(i).setValue(row.get(i));
 				lineList.add(dateTime);
@@ -521,30 +548,6 @@ public class H2TableEditor {
 		}
 		scrolledComposite.setContent(compositeFields);
 		scrolledComposite.setMinSize(compositeFields.computeSize(SWT.DEFAULT, SWT.DEFAULT));
-	}
-
-	/**
-	 * @param compositeFields
-	 * @param i
-	 * @return
-	 */
-	private Text createFieldLine(Composite compositeFields, int i) {
-		final Label label = new Label(compositeFields, SWT.NONE);
-		label.setLayoutData(new GridData(SWT.LEFT, SWT.CENTER, false, false, 1, 1));
-		label.setText(columns.get(i).getName());
-
-		final Label label2 = new Label(compositeFields, SWT.NONE);
-		label2.setLayoutData(new GridData(SWT.LEFT, SWT.CENTER, false, false, 1, 1));
-		int scale = columns.get(i).getScale();
-
-		if (scale > 0)
-			label2.setText(columns.get(i).getType() + "(" + scale + ")");
-		else
-			label2.setText(columns.get(i).getType());
-
-		final Text text = new Text(compositeFields, SWT.BORDER);
-		text.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
-		return text;
 	}
 
 	/**

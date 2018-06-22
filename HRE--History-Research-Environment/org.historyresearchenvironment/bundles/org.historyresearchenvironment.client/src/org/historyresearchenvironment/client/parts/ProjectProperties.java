@@ -52,23 +52,47 @@ public class ProjectProperties {
 	public void createControls(Composite parent) {
 		parent.setLayout(new GridLayout(1, false));
 
-		TableViewer tableViewer = new TableViewer(parent, SWT.BORDER | SWT.FULL_SELECTION);
+		final TableViewer tableViewer = new TableViewer(parent, SWT.BORDER | SWT.FULL_SELECTION);
 		table = tableViewer.getTable();
 		table.setLinesVisible(true);
 		table.setHeaderVisible(true);
 		table.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
 
-		TableViewerColumn tableViewerColumn = new TableViewerColumn(tableViewer, SWT.NONE);
-		TableColumn tblclmnProjectName = tableViewerColumn.getColumn();
+		final TableViewerColumn tableViewerColumn = new TableViewerColumn(tableViewer, SWT.NONE);
+		final TableColumn tblclmnProjectName = tableViewerColumn.getColumn();
 		tblclmnProjectName.setToolTipText("Property");
 		tblclmnProjectName.setWidth(100);
 		tblclmnProjectName.setText("Property");
 
-		TableViewerColumn tableViewerColumn_1 = new TableViewerColumn(tableViewer, SWT.NONE);
-		TableColumn tblclmnLastEdited = tableViewerColumn_1.getColumn();
+		final TableViewerColumn tableViewerColumn_1 = new TableViewerColumn(tableViewer, SWT.NONE);
+		final TableColumn tblclmnLastEdited = tableViewerColumn_1.getColumn();
 		tblclmnLastEdited.setToolTipText("Value");
 		tblclmnLastEdited.setWidth(800);
 		tblclmnLastEdited.setText("Value");
+	}
+
+	/**
+	 * @param table2
+	 */
+	private void createItems(Table table2) {
+		final ProjectModel model = ProjectList.getModel(index);
+
+		final TableItem tableItem = new TableItem(table, SWT.NONE);
+		tableItem.setText(new String[] { "Project Name", model.getName() });
+
+		final TableItem tableItem_1 = new TableItem(table, SWT.NONE);
+		final DateFormat df = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+		tableItem_1.setText(new String[] { "Last Edited", df.format(model.getLastEdited()) });
+
+		final TableItem tableItem_4 = new TableItem(table, SWT.NONE);
+		tableItem_4.setText(new String[] { "Summary", model.getSummary() });
+
+		final TableItem tableItem_2 = new TableItem(table, SWT.NONE);
+		tableItem_2.setText(new String[] { "Local/Server", model.getLocalServer() });
+
+		final TableItem tableItem_3 = new TableItem(table, SWT.NONE);
+		tableItem_3.setText(new String[] { "Path", model.getPath() });
+
 	}
 
 	@PreDestroy
@@ -86,30 +110,6 @@ public class ProjectProperties {
 		LOGGER.info("Received index " + index2);
 		this.index = index2;
 		createItems(table);
-	}
-
-	/**
-	 * @param table2
-	 */
-	private void createItems(Table table2) {
-		ProjectModel model = ProjectList.getModel(index);
-
-		TableItem tableItem = new TableItem(table, SWT.NONE);
-		tableItem.setText(new String[] { "Project Name", model.getName() });
-
-		TableItem tableItem_1 = new TableItem(table, SWT.NONE);
-		final DateFormat df = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
-		tableItem_1.setText(new String[] { "Last Edited", df.format(model.getLastEdited()) });
-
-		TableItem tableItem_4 = new TableItem(table, SWT.NONE);
-		tableItem_4.setText(new String[] { "Summary", model.getSummary() });
-
-		TableItem tableItem_2 = new TableItem(table, SWT.NONE);
-		tableItem_2.setText(new String[] { "Local/Server", model.getLocalServer() });
-
-		TableItem tableItem_3 = new TableItem(table, SWT.NONE);
-		tableItem_3.setText(new String[] { "Path", model.getPath() });
-
 	}
 
 }

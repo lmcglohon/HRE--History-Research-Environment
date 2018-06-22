@@ -40,19 +40,19 @@ import org.osgi.service.prefs.Preferences;
  */
 @SuppressWarnings("restriction")
 public class H2DatabaseNavigator {
+	private final static Logger LOGGER = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 	@Inject
 	private ECommandService commandService;
 	@Inject
 	private EHandlerService handlerService;
+
 	@Inject
 	private IEventBroker eventBroker;
 	// @Inject
 	// private EModelService modelService;
 	// @Inject
 	// private MApplication application;
-
-	private Preferences preferences = InstanceScope.INSTANCE.getNode("org.historyresearchenvironment.client");
-	private final static Logger LOGGER = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
+	private final Preferences preferences = InstanceScope.INSTANCE.getNode("org.historyresearchenvironment.client");
 	private Table table;
 	private String dbName;
 
@@ -139,8 +139,9 @@ public class H2DatabaseNavigator {
 	 * 
 	 */
 	private void updateGui() {
-		if ((dbName == null) || (dbName == ""))
+		if ((dbName == null) || (dbName == "")) {
 			dbName = preferences.get("DBNAME", "~\\HRE");
+		}
 
 		// final MWindow window = (MWindow) modelService
 		// .find("org.historyresearchenvironment.client.window.main", application);
@@ -160,7 +161,7 @@ public class H2DatabaseNavigator {
 				item.setText(0, model.getTableName());
 				item.setText(1, Long.toString(model.getRowCount()));
 			}
-		} catch (SQLException e) {
+		} catch (final SQLException e) {
 			eventBroker.post("MESSAGE", e.getMessage());
 			LOGGER.severe(e.getMessage());
 		}

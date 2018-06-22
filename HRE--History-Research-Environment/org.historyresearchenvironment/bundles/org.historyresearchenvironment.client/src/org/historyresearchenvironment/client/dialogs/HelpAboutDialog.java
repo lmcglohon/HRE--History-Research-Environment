@@ -19,7 +19,9 @@ import org.eclipse.wb.swt.SWTResourceManager;
 import org.historyresearchenvironment.client.HreConstants;
 
 /**
- * @version 2018-06-10
+ * Dialog to display help about HRE.
+ * 
+ * @version 2018-06-22
  * @author Michael Erichsen, &copy; History Research Environment Ltd., 2018
  *
  */
@@ -47,7 +49,7 @@ public class HelpAboutDialog extends Dialog {
 	@Override
 	protected void createButtonsForButtonBar(Composite parent) {
 		createButton(parent, IDialogConstants.HELP_ID, IDialogConstants.HELP_LABEL, true);
-		Button button = createButton(parent, HreConstants.LICENSES_ID, "Licenses", true);
+		final Button button = createButton(parent, HreConstants.LICENSES_ID, "Licenses", true);
 		button.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseDown(MouseEvent e) {
@@ -69,13 +71,13 @@ public class HelpAboutDialog extends Dialog {
 		container.setBackground(SWTResourceManager.getColor(SWT.COLOR_WHITE));
 		container.setLayout(new GridLayout(2, false));
 
-		CLabel lblLogo = new CLabel(container, SWT.NONE);
+		final CLabel lblLogo = new CLabel(container, SWT.NONE);
 		lblLogo.setLayoutData(new GridData(SWT.LEFT, SWT.CENTER, false, false, 1, 4));
 		lblLogo.setImage(
 				ResourceManager.getPluginImage("org.historyresearchenvironment.client", "icons/HRE1.0Logo.png"));
 		lblLogo.setText("");
 
-		StyledText styledText_1 = new StyledText(container, SWT.WRAP);
+		final StyledText styledText_1 = new StyledText(container, SWT.WRAP);
 		styledText_1.setAlignment(SWT.CENTER);
 		styledText_1.setDoubleClickEnabled(false);
 		styledText_1.setEditable(false);
@@ -83,7 +85,7 @@ public class HelpAboutDialog extends Dialog {
 		styledText_1.setText("History Research Environment");
 		styledText_1.setLayoutData(new GridData(SWT.CENTER, SWT.FILL, true, false, 1, 1));
 
-		StyledText styledText_2 = new StyledText(container, SWT.NONE);
+		final StyledText styledText_2 = new StyledText(container, SWT.NONE);
 		styledText_2.setEnabled(false);
 		styledText_2.setAlignment(SWT.CENTER);
 		styledText_2.setDoubleClickEnabled(false);
@@ -92,7 +94,7 @@ public class HelpAboutDialog extends Dialog {
 		styledText_2.setText("Build V0.1.0\r\nRelease Date 1-Jan-2019");
 		styledText_2.setLayoutData(new GridData(SWT.CENTER, SWT.FILL, true, false, 1, 1));
 
-		StyledText styledText = new StyledText(container, SWT.WRAP);
+		final StyledText styledText = new StyledText(container, SWT.WRAP);
 		styledText.setFont(SWTResourceManager.getFont("Calibri", 12, SWT.BOLD));
 		styledText.setAlwaysShowScrollBars(false);
 		styledText.setEditable(false);
@@ -100,7 +102,7 @@ public class HelpAboutDialog extends Dialog {
 				"History Research Environment (HRE) is a community project to create a free open source platform for recording a wide range of genealogical, historical and social research.");
 		styledText.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, false, 1, 1));
 
-		StyledText styledText_3 = new StyledText(container, SWT.WRAP);
+		final StyledText styledText_3 = new StyledText(container, SWT.WRAP);
 		styledText_3.setDoubleClickEnabled(false);
 		styledText_3.setFont(SWTResourceManager.getFont("Calibri", 12, SWT.BOLD));
 		styledText_3.setAlwaysShowScrollBars(false);
@@ -109,7 +111,7 @@ public class HelpAboutDialog extends Dialog {
 				"The development community is supported by a non-for-profit company, History Research Environment Limited, limited by Guarantee and registered under the laws of England and Wales.");
 		styledText_3.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, false, 1, 1));
 
-		StyledText styledText_6 = new StyledText(container, SWT.WRAP);
+		final StyledText styledText_6 = new StyledText(container, SWT.WRAP);
 		styledText_6.setDoubleClickEnabled(false);
 		styledText_6.setFont(SWTResourceManager.getFont("Calibri", 12, SWT.BOLD));
 		styledText_6.setAlwaysShowScrollBars(false);
@@ -118,7 +120,7 @@ public class HelpAboutDialog extends Dialog {
 				"All code developed by HRE is copyright to individual developers, and is released under the GNU Affero Public License (GNU AGPL), https://www.gnu.org/licenses/agpl-3.0.en.html. For further details, see http://hrewiki.org/index.php?title=Why_have_we_chosen_these_licences%3F.");
 		styledText_6.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, false, 2, 1));
 
-		StyledText styledText_5 = new StyledText(container, SWT.WRAP);
+		final StyledText styledText_5 = new StyledText(container, SWT.WRAP);
 		styledText_5.setDoubleClickEnabled(false);
 		styledText_5.setFont(SWTResourceManager.getFont("Calibri", 12, SWT.BOLD));
 		styledText_5.setAlwaysShowScrollBars(false);
@@ -127,7 +129,7 @@ public class HelpAboutDialog extends Dialog {
 				"Reuse of the HRE software is permitted only under the terms of the license. Using the HRE software or any derivative of the software to offer a service over the Internet is strictly prohibited.");
 		styledText_5.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, false, 2, 1));
 
-		StyledText styledText_4 = new StyledText(container, SWT.WRAP);
+		final StyledText styledText_4 = new StyledText(container, SWT.WRAP);
 		styledText_4.setDoubleClickEnabled(false);
 		styledText_4.setFont(SWTResourceManager.getFont("Calibri", 12, SWT.BOLD));
 		styledText_4.setAlwaysShowScrollBars(false);

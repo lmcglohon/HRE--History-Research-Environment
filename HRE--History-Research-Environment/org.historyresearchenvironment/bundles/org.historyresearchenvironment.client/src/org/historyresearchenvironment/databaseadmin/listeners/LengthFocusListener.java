@@ -43,9 +43,10 @@ public class LengthFocusListener implements FocusListener {
 	 */
 	@Override
 	public void focusLost(FocusEvent e) {
-		Text text = (Text) e.widget;
-		int length = text.getCharCount();
-		if (length > maxChar)
+		final Text text = (Text) e.widget;
+		final int length = text.getCharCount();
+		if (length > maxChar) {
 			text.setText(text.getText().substring(0, maxChar));
+		}
 	}
 }

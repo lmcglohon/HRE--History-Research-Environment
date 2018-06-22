@@ -5,6 +5,8 @@ import org.eclipse.jface.preference.StringFieldEditor;
 import org.eclipse.jface.resource.ImageDescriptor;
 
 /**
+ * Not yet populated.
+ * 
  * @version 2018-06-21
  * @author Michael Erichsen, &copy; History Research Environment Ltd., 2018
  *
@@ -31,21 +33,21 @@ public class HreProjectPreferencesPage extends FieldEditorPreferencePage {
 	 * Constructor
 	 *
 	 * @param title
+	 * @param image
 	 * @param style
 	 */
-	public HreProjectPreferencesPage(String title, int style) {
-		super(title, style);
+	public HreProjectPreferencesPage(String title, ImageDescriptor image, int style) {
+		super(title, image, style);
 	}
 
 	/**
 	 * Constructor
 	 *
 	 * @param title
-	 * @param image
 	 * @param style
 	 */
-	public HreProjectPreferencesPage(String title, ImageDescriptor image, int style) {
-		super(title, image, style);
+	public HreProjectPreferencesPage(String title, int style) {
+		super(title, style);
 	}
 
 	@Override

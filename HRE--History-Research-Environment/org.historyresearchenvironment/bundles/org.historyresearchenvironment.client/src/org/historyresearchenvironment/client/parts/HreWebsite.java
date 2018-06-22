@@ -11,7 +11,9 @@ import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
 
 /**
- * @version 2018-06-11
+ * Embedded browser for HRE Web Site.
+ * 
+ * @version 2018-06-22
  * @author Michael Erichsen, &copy; History Research Environment Ltd., 2018
  *
  */
@@ -27,7 +29,7 @@ public class HreWebsite {
 	public void createControls(Composite parent) {
 		parent.setLayout(new GridLayout(1, false));
 
-		Browser browser = new Browser(parent, SWT.NONE);
+		final Browser browser = new Browser(parent, SWT.NONE);
 		browser.setToolTipText("HRE Web Site");
 		browser.setUrl("https://historyresearchenvironment.org/");
 		browser.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));

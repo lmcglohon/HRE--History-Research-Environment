@@ -2,6 +2,7 @@ package org.historyresearchenvironment.dataaccess;
 
 import java.io.Serializable;
 
+
 /**
  * The persistent class for the BIOS database table.
  * 
@@ -38,6 +39,7 @@ public class Bio implements Serializable {
 	public Bio() {
 	}
 
+
 	// @Id
 	// @GeneratedValue(strategy=GenerationType.AUTO)
 	// @Column(name="RECORD_NUM", unique=true, nullable=false)
@@ -49,6 +51,7 @@ public class Bio implements Serializable {
 		this.recordNum = recordNum;
 	}
 
+
 	// @Column(name="BEST_BIO_FEMALE_PARENT_PID")
 	public int getBestBioFemaleParentPid() {
 		return this.bestBioFemaleParentPid;
@@ -57,6 +60,7 @@ public class Bio implements Serializable {
 	public void setBestBioFemaleParentPid(int bestBioFemaleParentPid) {
 		this.bestBioFemaleParentPid = bestBioFemaleParentPid;
 	}
+
 
 	// @Column(name="BEST_BIO_MALE_PARENT_PID")
 	public int getBestBioMaleParentPid() {
@@ -67,6 +71,7 @@ public class Bio implements Serializable {
 		this.bestBioMaleParentPid = bestBioMaleParentPid;
 	}
 
+
 	// @Column(name="BEST_BIRTH_PID")
 	public int getBestBirthPid() {
 		return this.bestBirthPid;
@@ -75,6 +80,7 @@ public class Bio implements Serializable {
 	public void setBestBirthPid(int bestBirthPid) {
 		this.bestBirthPid = bestBirthPid;
 	}
+
 
 	// @Column(name="BEST_DEATH_PID")
 	public int getBestDeathPid() {
@@ -85,6 +91,7 @@ public class Bio implements Serializable {
 		this.bestDeathPid = bestDeathPid;
 	}
 
+
 	// @Column(name="BEST_IMAGE_PID")
 	public int getBestImagePid() {
 		return this.bestImagePid;
@@ -93,6 +100,7 @@ public class Bio implements Serializable {
 	public void setBestImagePid(int bestImagePid) {
 		this.bestImagePid = bestImagePid;
 	}
+
 
 	// @Column(name="BEST_NAME_PID")
 	public int getBestNamePid() {
@@ -103,6 +111,7 @@ public class Bio implements Serializable {
 		this.bestNamePid = bestNamePid;
 	}
 
+
 	// @Column(name="BEST_NON_BIO_PARENT1_PID")
 	public int getBestNonBioParent1Pid() {
 		return this.bestNonBioParent1Pid;
@@ -111,6 +120,7 @@ public class Bio implements Serializable {
 	public void setBestNonBioParent1Pid(int bestNonBioParent1Pid) {
 		this.bestNonBioParent1Pid = bestNonBioParent1Pid;
 	}
+
 
 	// @Column(name="BEST_NON_BIO_PARENT2_PID")
 	public int getBestNonBioParent2Pid() {
@@ -121,6 +131,7 @@ public class Bio implements Serializable {
 		this.bestNonBioParent2Pid = bestNonBioParent2Pid;
 	}
 
+
 	// @Column(name="BIO_PID", nullable=false)
 	public int getBioPid() {
 		return this.bioPid;
@@ -129,6 +140,7 @@ public class Bio implements Serializable {
 	public void setBioPid(int bioPid) {
 		this.bioPid = bioPid;
 	}
+
 
 	// @Column(name="COMMIT_PID", nullable=false)
 	public int getCommitPid() {
@@ -139,6 +151,7 @@ public class Bio implements Serializable {
 		this.commitPid = commitPid;
 	}
 
+
 	// @Column(name="EGG_PROVIDER_ISSUE_ORDER")
 	public short getEggProviderIssueOrder() {
 		return this.eggProviderIssueOrder;
@@ -148,6 +161,7 @@ public class Bio implements Serializable {
 		this.eggProviderIssueOrder = eggProviderIssueOrder;
 	}
 
+
 	public byte[] getFlags() {
 		return this.flags;
 	}
@@ -155,6 +169,7 @@ public class Bio implements Serializable {
 	public void setFlags(byte[] flags) {
 		this.flags = flags;
 	}
+
 
 	// @Column(name="IS_SYSTEM")
 	public boolean getIsSystem() {
@@ -165,6 +180,7 @@ public class Bio implements Serializable {
 		this.isSystem = isSystem;
 	}
 
+
 	// @Column(name="LIVING_KEY")
 	public short getLivingKey() {
 		return this.livingKey;
@@ -173,6 +189,7 @@ public class Bio implements Serializable {
 	public void setLivingKey(short livingKey) {
 		this.livingKey = livingKey;
 	}
+
 
 	// @Column(name="SET_KEY", nullable=false)
 	public short getSetKey() {
@@ -183,6 +200,7 @@ public class Bio implements Serializable {
 		this.setKey = setKey;
 	}
 
+
 	// @Column(name="SEX_KEY")
 	public short getSexKey() {
 		return this.sexKey;
@@ -191,6 +209,7 @@ public class Bio implements Serializable {
 	public void setSexKey(short sexKey) {
 		this.sexKey = sexKey;
 	}
+
 
 	// @Column(name="SPERM_PROVIDER_ISSUE_ORDER")
 	public short getSpermProviderIssueOrder() {
@@ -201,6 +220,7 @@ public class Bio implements Serializable {
 		this.spermProviderIssueOrder = spermProviderIssueOrder;
 	}
 
+
 	// @Column(name="SUB_TYPE_KEY")
 	public short getSubTypeKey() {
 		return this.subTypeKey;
@@ -209,6 +229,7 @@ public class Bio implements Serializable {
 	public void setSubTypeKey(short subTypeKey) {
 		this.subTypeKey = subTypeKey;
 	}
+
 
 	// @Column(length=10)
 	public String getSurety() {
@@ -219,6 +240,7 @@ public class Bio implements Serializable {
 		this.surety = surety;
 	}
 
+
 	// @Column(name="USE_BIO_FEMALE_PARENT")
 	public boolean getUseBioFemaleParent() {
 		return this.useBioFemaleParent;
@@ -228,6 +250,7 @@ public class Bio implements Serializable {
 		this.useBioFemaleParent = useBioFemaleParent;
 	}
 
+
 	// @Column(name="USE_BIO_MALE_PARENT")
 	public boolean getUseBioMaleParent() {
 		return this.useBioMaleParent;
@@ -236,6 +259,7 @@ public class Bio implements Serializable {
 	public void setUseBioMaleParent(boolean useBioMaleParent) {
 		this.useBioMaleParent = useBioMaleParent;
 	}
+
 
 	// @Column(name="VISIBLE_ID", nullable=false)
 	public int getVisibleId() {

@@ -1,5 +1,7 @@
 /**
- * @version 2018-06-09
+ * Interface to the HRE server
+ * 
+ * @version 2018-06-22
  * @author Michael Erichsen, &copy; History Research Environment Ltd., 2018
  *
  */

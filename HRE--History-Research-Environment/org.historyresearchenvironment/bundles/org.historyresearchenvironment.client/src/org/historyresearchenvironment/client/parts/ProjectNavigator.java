@@ -46,7 +46,9 @@ import org.osgi.service.prefs.BackingStoreException;
 import org.osgi.service.prefs.Preferences;
 
 /**
- * @version 2018-06-15
+ * Navigator part to display all tables in an HRE project.
+ * 
+ * @version 2018-06-22
  * @author Michael Erichsen, &copy; History Research Environment Ltd., 2018
  *
  */
@@ -84,7 +86,7 @@ public class ProjectNavigator {
 	public void createControls(Composite parent) {
 		parent.setLayout(new GridLayout(1, false));
 
-		TableViewer tableViewer = new TableViewer(parent, SWT.BORDER | SWT.FULL_SELECTION);
+		final TableViewer tableViewer = new TableViewer(parent, SWT.BORDER | SWT.FULL_SELECTION);
 		table = tableViewer.getTable();
 		table.addMouseListener(new MouseAdapter() {
 			@Override
@@ -93,7 +95,7 @@ public class ProjectNavigator {
 						.createCommand("org.historyresearchenvironment.client.command.projectproperties", null);
 				handlerService.executeHandler(command);
 
-				int index = table.getSelectionIndex();
+				final int index = table.getSelectionIndex();
 				eventBroker.post(org.historyresearchenvironment.client.HreConstants.SELECTION_INDEX_TOPIC, index);
 				LOGGER.info("Project Navigator posted selection index " + index);
 			}
@@ -102,24 +104,24 @@ public class ProjectNavigator {
 		table.setHeaderVisible(true);
 		table.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
 
-		TableViewerColumn tableViewerColumnProjectName = new TableViewerColumn(tableViewer, SWT.NONE);
-		TableColumn tblclmnProjectName = tableViewerColumnProjectName.getColumn();
+		final TableViewerColumn tableViewerColumnProjectName = new TableViewerColumn(tableViewer, SWT.NONE);
+		final TableColumn tblclmnProjectName = tableViewerColumnProjectName.getColumn();
 		tblclmnProjectName.setWidth(100);
 		tblclmnProjectName.setText("Project Name");
 
-		int projectCount = preferences.getInt("projectcount", 1);
+		final int projectCount = preferences.getInt("projectcount", 1);
 		String key;
 
 		for (int i = 0; i < projectCount; i++) {
-			TableItem tableItem = new TableItem(table, SWT.NONE);
+			final TableItem tableItem = new TableItem(table, SWT.NONE);
 			key = new String("project." + i + ".name");
 			tableItem.setText(preferences.get(key, "?"));
 		}
 
-		Menu menu = new Menu(table);
+		final Menu menu = new Menu(table);
 		table.setMenu(menu);
 
-		MenuItem mntmOpen = new MenuItem(menu, SWT.NONE);
+		final MenuItem mntmOpen = new MenuItem(menu, SWT.NONE);
 		mntmOpen.setToolTipText("Open selected project");
 		mntmOpen.addSelectionListener(new SelectionAdapter() {
 			/*
@@ -137,7 +139,7 @@ public class ProjectNavigator {
 		});
 		mntmOpen.setText("Open selected");
 
-		MenuItem mntmOpenOther = new MenuItem(menu, SWT.NONE);
+		final MenuItem mntmOpenOther = new MenuItem(menu, SWT.NONE);
 		mntmOpenOther.setToolTipText("Open other");
 		mntmOpenOther.setText("Open other...");
 		mntmOpenOther.addSelectionListener(new SelectionAdapter() {
@@ -151,14 +153,13 @@ public class ProjectNavigator {
 			 */
 			@Override
 			public void widgetSelected(SelectionEvent e) {
-				ParameterizedCommand saveCommand = commandService
-						.createCommand("org.eclipse.ui.file.open", null);
+				final ParameterizedCommand saveCommand = commandService.createCommand("org.eclipse.ui.file.open", null);
 				handlerService.executeHandler(saveCommand);
 			}
 		});
 		mntmOpenOther.setText("Open other...");
 
-		MenuItem mntmNew = new MenuItem(menu, SWT.NONE);
+		final MenuItem mntmNew = new MenuItem(menu, SWT.NONE);
 		mntmNew.addSelectionListener(new SelectionAdapter() {
 			/*
 			 * (non-Javadoc)
@@ -170,30 +171,30 @@ public class ProjectNavigator {
 			 */
 			@Override
 			public void widgetSelected(SelectionEvent e) {
-				ParameterizedCommand newCommand = commandService.createCommand("org.eclipse.ui.file.save", null);
+				final ParameterizedCommand newCommand = commandService.createCommand("org.eclipse.ui.file.save", null);
 				handlerService.executeHandler(newCommand);
 			}
 		});
 		mntmNew.setText("New...");
 
-		MenuItem mntmNewItem = new MenuItem(menu, SWT.NONE);
+		final MenuItem mntmNewItem = new MenuItem(menu, SWT.NONE);
 		mntmNewItem.setText("Backup...");
 
-		MenuItem mntmRestore = new MenuItem(menu, SWT.NONE);
+		final MenuItem mntmRestore = new MenuItem(menu, SWT.NONE);
 		mntmRestore.setText("Restore...");
 
-		MenuItem mntmCopyAs = new MenuItem(menu, SWT.NONE);
+		final MenuItem mntmCopyAs = new MenuItem(menu, SWT.NONE);
 		mntmCopyAs.setText("Copy as...");
 
-		MenuItem mntmRename = new MenuItem(menu, SWT.NONE);
+		final MenuItem mntmRename = new MenuItem(menu, SWT.NONE);
 		mntmRename.setText("Rename...");
 
-		MenuItem mntmDelete = new MenuItem(menu, SWT.NONE);
+		final MenuItem mntmDelete = new MenuItem(menu, SWT.NONE);
 		mntmDelete.setText("Delete");
 
 		new MenuItem(menu, SWT.SEPARATOR);
 
-		MenuItem mntmProperties = new MenuItem(menu, SWT.NONE);
+		final MenuItem mntmProperties = new MenuItem(menu, SWT.NONE);
 		mntmProperties.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
@@ -201,7 +202,7 @@ public class ProjectNavigator {
 						.createCommand("org.historyresearchenvironment.client.command.projectproperties", null);
 				handlerService.executeHandler(command);
 
-				int index = table.getSelectionIndex();
+				final int index = table.getSelectionIndex();
 				eventBroker.post(org.historyresearchenvironment.client.HreConstants.SELECTION_INDEX_TOPIC, index);
 				LOGGER.info("Project Navigator posted selection index " + index);
 			}
@@ -239,14 +240,14 @@ public class ProjectNavigator {
 		}
 
 		// Find selected database
-		int index = table.getSelectionIndex();
-		ProjectModel model = ProjectList.getModel(index);
-		String dbName = model.getPath();
+		final int index = table.getSelectionIndex();
+		final ProjectModel model = ProjectList.getModel(index);
+		final String dbName = model.getPath();
 
 		try {
 			preferences.put("DBNAME", dbName);
 			preferences.flush();
-		} catch (BackingStoreException e) {
+		} catch (final BackingStoreException e) {
 			LOGGER.severe(e.getMessage());
 			e.printStackTrace();
 		}

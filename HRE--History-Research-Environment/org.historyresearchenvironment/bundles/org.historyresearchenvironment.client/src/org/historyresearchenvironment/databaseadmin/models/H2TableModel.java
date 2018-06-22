@@ -27,11 +27,16 @@ public class H2TableModel {
 	/**
 	 * Constructor
 	 *
-	 * @param name Column name
-	 * @param type Column type
-	 * @param value Column value
-	 * @param precision Column precision
-	 * @param scale Column scale
+	 * @param name
+	 *            Column name
+	 * @param type
+	 *            Column type
+	 * @param value
+	 *            Column value
+	 * @param precision
+	 *            Column precision
+	 * @param scale
+	 *            Column scale
 	 */
 	public H2TableModel(String name, String type, String value, int precision, int scale) {
 		super();

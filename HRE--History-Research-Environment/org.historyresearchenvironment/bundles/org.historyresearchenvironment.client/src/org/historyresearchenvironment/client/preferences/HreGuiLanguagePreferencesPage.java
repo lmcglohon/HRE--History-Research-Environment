@@ -34,21 +34,21 @@ public class HreGuiLanguagePreferencesPage extends FieldEditorPreferencePage {
 	 * Constructor
 	 *
 	 * @param title
+	 * @param image
 	 * @param style
 	 */
-	public HreGuiLanguagePreferencesPage(String title, int style) {
-		super(title, style);
+	public HreGuiLanguagePreferencesPage(String title, ImageDescriptor image, int style) {
+		super(title, image, style);
 	}
 
 	/**
 	 * Constructor
 	 *
 	 * @param title
-	 * @param image
 	 * @param style
 	 */
-	public HreGuiLanguagePreferencesPage(String title, ImageDescriptor image, int style) {
-		super(title, image, style);
+	public HreGuiLanguagePreferencesPage(String title, int style) {
+		super(title, style);
 	}
 
 	@Override

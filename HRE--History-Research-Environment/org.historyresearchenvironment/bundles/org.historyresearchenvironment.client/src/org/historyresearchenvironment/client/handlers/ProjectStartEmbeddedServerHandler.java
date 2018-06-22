@@ -23,7 +23,7 @@ import com.sun.net.httpserver.HttpServer;
 @SuppressWarnings("restriction")
 public class ProjectStartEmbeddedServerHandler {
 	private final static Logger LOGGER = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
-	private Preferences preferences = InstanceScope.INSTANCE.getNode("org.historyresearchenvironment.client");
+	private final Preferences preferences = InstanceScope.INSTANCE.getNode("org.historyresearchenvironment.client");
 	@Inject
 	private IEventBroker eventBroker;
 

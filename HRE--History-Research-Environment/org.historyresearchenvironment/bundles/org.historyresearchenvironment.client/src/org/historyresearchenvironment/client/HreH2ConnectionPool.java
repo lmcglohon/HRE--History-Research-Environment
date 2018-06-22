@@ -49,8 +49,9 @@ public class HreH2ConnectionPool {
 	 * Dispose the connection pool.
 	 */
 	public static void dispose() {
-		if (connectionPool != null)
+		if (connectionPool != null) {
 			connectionPool.dispose();
+		}
 		connectionPool = null;
 	}
 
@@ -60,13 +61,13 @@ public class HreH2ConnectionPool {
 	 *             When failing
 	 */
 	public static Connection getConnection() throws SQLException {
-		String dbName = preferences.get("DBNAME", "~\\HRE");
+		final String dbName = preferences.get("DBNAME", "~\\HRE");
 
 		if (connectionPool == null) {
 			final String jdbcUrl = "jdbc:h2:" + dbName + ";IFEXISTS=TRUE;TRACE_LEVEL_FILE=" + h2TraceLevel
 					+ ";TRACE_LEVEL_SYSTEM_OUT=" + h2TraceLevel;
 			LOGGER.info("JDBC URL: " + jdbcUrl);
-			//FIXME Get from properties
+			// FIXME Get from properties
 			connectionPool = JdbcConnectionPool.create(jdbcUrl, "sa", "");
 			connectionPool.setMaxConnections(500);
 		}

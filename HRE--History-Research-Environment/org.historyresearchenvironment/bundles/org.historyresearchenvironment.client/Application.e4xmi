@@ -42,7 +42,8 @@
         <children xsi:type="menu:Menu" xmi:id="_YwLrwGDQEeiQyf13ZGrzgA" elementId="org.historyresearchenvironment.client.menu.userlanguage" label="User Language"/>
       </children>
       <children xsi:type="menu:Menu" xmi:id="_6wlLjsgZEeSyMNYR5xypkQ" elementId="help" label="Help">
-        <children xsi:type="menu:HandledMenuItem" xmi:id="_1AMkwGDQEeiQyf13ZGrzgA" elementId="org.historyresearchenvironment.client.handledmenuitem.helpcontents" label="Help Contents" tooltip="Help Contents" command="_o2IKYGvuEei6UJPZ5XWbvg"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_1AMkwGDQEeiQyf13ZGrzgA" elementId="org.historyresearchenvironment.client.handledmenuitem.helpcontents" label="Help Contents in External Browser" tooltip="Help Contents" command="_o2IKYGvuEei6UJPZ5XWbvg"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_IsoOMHY9EeiQzpAtpCvHVw" elementId="org.historyresearchenvironment.client.handledmenuitem.embeddedhelpbrowser" label="Embedded Help Browser" command="_M_ULYHY9EeiQzpAtpCvHVw"/>
         <children xsi:type="menu:HandledMenuItem" xmi:id="_3kJvQGDQEeiQyf13ZGrzgA" elementId="org.historyresearchenvironment.client.handledmenuitem.hrewebsite" label="HRE Website" tooltip="HRE Website" command="_W0flUGVpEei5HIUyv56sSA"/>
         <children xsi:type="menu:MenuSeparator" xmi:id="_6FviQGDQEeiQyf13ZGrzgA" elementId="org.historyresearchenvironment.client.menuseparator.1"/>
         <children xsi:type="menu:HandledMenuItem" xmi:id="_6wlLj8gZEeSyMNYR5xypkQ" elementId="org.historyresearchenvironment.client.handleditem.about" label="About" command="_6wlLhsgZEeSyMNYR5xypkQ"/>
@@ -71,6 +72,7 @@
   <handlers xmi:id="_4gPDsG4bEeiuNIecXZfP7Q" elementId="org.historyresearchenvironment.client.handler.1" contributionURI="bundleclass://org.historyresearchenvironment.client/org.historyresearchenvironment.databaseadmin.handlers.TableEditorHandler" command="_zKwMwG4bEeiuNIecXZfP7Q"/>
   <handlers xmi:id="_jEwPAG4aEeiuNIecXZfP7Q" elementId="org.historyresearchenvironment.client.handler.opentablenavigator" contributionURI="bundleclass://org.historyresearchenvironment.client/org.historyresearchenvironment.databaseadmin.handlers.TableNavigatorHandler" command="_cC0dUG4aEeiuNIecXZfP7Q"/>
   <handlers xmi:id="_FMyIIHRZEei2_oYlpOoxpQ" elementId="org.historyresearchenvironment.client.handler.helpconten" contributionURI="bundleclass://org.historyresearchenvironment.client/org.historyresearchenvironment.client.handlers.HelpContentsHandler" command="_o2IKYGvuEei6UJPZ5XWbvg"/>
+  <handlers xmi:id="_Xs_2EHY9EeiQzpAtpCvHVw" elementId="org.historyresearchenvironment.client.handler.3" contributionURI="bundleclass://org.historyresearchenvironment.client/org.historyresearchenvironment.client.handlers.HelpBrowserHandler" command="_M_ULYHY9EeiQzpAtpCvHVw"/>
   <bindingTables xmi:id="_6wlLfsgZEeSyMNYR5xypkQ" elementId="org.historyresearchenvironment.client.bindingtable" bindingContext="_6wlLecgZEeSyMNYR5xypkQ">
     <bindings xmi:id="_6wlLf8gZEeSyMNYR5xypkQ" elementId="org.historyresearchenvironment.client.keybinding.m1q" keySequence="M1+Q" command="_6wlLfMgZEeSyMNYR5xypkQ"/>
     <bindings xmi:id="_6wlLgsgZEeSyMNYR5xypkQ" elementId="org.historyresearchenvironment.client.keybinding.m1o" keySequence="M1+O"/>
@@ -82,6 +84,7 @@
     <children xmi:id="_6wlLe8gZEeSyMNYR5xypkQ" elementId="org.eclipse.ui.contexts.dialog" name="In Dialogs"/>
   </rootContext>
   <commands xmi:id="_6wlLhsgZEeSyMNYR5xypkQ" elementId="org.eclipse.ui.help.about" commandName="HelpAbout"/>
+  <commands xmi:id="_M_ULYHY9EeiQzpAtpCvHVw" elementId="org.historyresearchenvironment.client.command.helpbrowser" commandName="HelpBrowser"/>
   <commands xmi:id="_o2IKYGvuEei6UJPZ5XWbvg" elementId="org.historyresearchenvironment.client.command.helpcontents" commandName="HelpContents"/>
   <commands xmi:id="_W0flUGVpEei5HIUyv56sSA" elementId="org.historyresearchenvironment.client.command.hrewebsite" commandName="HelpHREWebSite"/>
   <commands xmi:id="_U9CgEGvuEei6UJPZ5XWbvg" elementId="org.historyresearchenvironment.client.command.historicaldate" commandName="Historical Date"/>

@@ -56,8 +56,9 @@ public class H2TableProvider extends AbstractHreProvider implements IContentProv
 
 		rs = ps.executeQuery();
 
-		if (rs.next()) 
+		if (rs.next()) {
 			count = rs.getInt(1);
+		}
 
 		// Get names and other properties of columns in H2 tables
 		ps = conn.prepareStatement(COLUMNS);
@@ -104,8 +105,7 @@ public class H2TableProvider extends AbstractHreProvider implements IContentProv
 		final String DELETE = "DELETE FROM PUBLIC." + tableName + " WHERE RECORD_NUM = ?";
 		ps = conn.prepareStatement(DELETE);
 		ps.setInt(1, recordNum);
-		@SuppressWarnings("unused")
-		int rows = ps.executeUpdate();
+		ps.executeUpdate();
 	}
 
 	/**
@@ -217,8 +217,9 @@ public class H2TableProvider extends AbstractHreProvider implements IContentProv
 	 *             When failing
 	 */
 	public void insertSet(List<List<H2TableModel>> rows) throws SQLException {
-		for (int i = 0; i < rows.size(); i++) 
+		for (int i = 0; i < rows.size(); i++) {
 			insert(rows.get(i));
+		}
 	}
 
 	/**
@@ -241,12 +242,12 @@ public class H2TableProvider extends AbstractHreProvider implements IContentProv
 					row.add(0L);
 					break;
 				case HreConstants.BLOB:
-					byte[] ba = { 0 };
+					final byte[] ba = { 0 };
 					Blob blob = null;
 					try {
 						blob = conn.createBlob();
 						blob.setBytes(1, ba);
-					} catch (SQLException e) {
+					} catch (final SQLException e) {
 						e.printStackTrace();
 					}
 					row.add(blob);
@@ -259,7 +260,7 @@ public class H2TableProvider extends AbstractHreProvider implements IContentProv
 					try {
 						clob = conn.createClob();
 						clob.setString(1, "");
-					} catch (SQLException e) {
+					} catch (final SQLException e) {
 						e.printStackTrace();
 					}
 					row.add(clob);
@@ -277,7 +278,7 @@ public class H2TableProvider extends AbstractHreProvider implements IContentProv
 					row.add(new Timestamp(0L));
 					break;
 				case HreConstants.VARBINARY:
-					byte[] ba1 = { 0 };
+					final byte[] ba1 = { 0 };
 					row.add(ba1);
 					break;
 				default:
@@ -327,10 +328,11 @@ public class H2TableProvider extends AbstractHreProvider implements IContentProv
 					row.add(rs.getString(i));
 					break;
 				default:
-					if ((field = rs.getString(i)) != null)
+					if ((field = rs.getString(i)) != null) {
 						row.add(field);
-					else
+					} else {
 						row.add("");
+					}
 					break;
 				}
 			}

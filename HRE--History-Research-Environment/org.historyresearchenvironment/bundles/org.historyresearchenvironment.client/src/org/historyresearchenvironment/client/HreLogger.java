@@ -18,12 +18,12 @@ import org.osgi.service.prefs.Preferences;
  *
  */
 public class HreLogger {
-	private static Preferences preferences = InstanceScope.INSTANCE
-			.getNode("org.historyresearchenvironment.client");
+	private static Preferences preferences = InstanceScope.INSTANCE.getNode("org.historyresearchenvironment.client");
 	static private FileHandler handler;
 
 	/**
-	 * @throws IOException When log file access fails
+	 * @throws IOException
+	 *             When log file access fails
 	 */
 	static public void setup() throws IOException {
 		final Logger LOGGER = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
@@ -59,7 +59,7 @@ public class HreLogger {
 		handler = new FileHandler(logFilePath + "hre-log.%u.%g.txt", 1024 * 1024, 10, true);
 		handler.setFormatter(new SimpleFormatter());
 		LOGGER.addHandler(handler);
-		
+
 		LOGGER.info("Log file path: " + logFilePath);
 	}
 }

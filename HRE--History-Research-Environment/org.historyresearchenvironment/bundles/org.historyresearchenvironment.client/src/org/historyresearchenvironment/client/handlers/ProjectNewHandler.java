@@ -44,13 +44,13 @@ import org.osgi.service.prefs.Preferences;
 public class ProjectNewHandler {
 	@Inject
 	private static IEventBroker eventBroker;
+	private final static Logger LOGGER = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 	@Inject
 	MApplication application;
+
 	@Inject
 	EModelService modelService;
-
-	private Preferences preferences = InstanceScope.INSTANCE.getNode("org.historyresearchenvironment.client");
-	private final static Logger LOGGER = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
+	private final Preferences preferences = InstanceScope.INSTANCE.getNode("org.historyresearchenvironment.client");
 	private NewDatabaseProvider provider;
 
 	/**
@@ -62,8 +62,7 @@ public class ProjectNewHandler {
 	 *             When failing
 	 */
 	@Execute
-	public void execute(EPartService partService,  Shell shell)
-			throws SQLException {
+	public void execute(EPartService partService, Shell shell) throws SQLException {
 		// Open file dialog
 		final FileDialog dialog = new FileDialog(shell, SWT.SAVE);
 		dialog.setText("Create new HRE Project");
@@ -78,7 +77,7 @@ public class ProjectNewHandler {
 
 		try {
 			// Create the new database
-			LOGGER.info("New database name: "  + dbName);
+			LOGGER.info("New database name: " + dbName);
 			provider = new NewDatabaseProvider();
 
 			provider.provide(dbName);
@@ -97,7 +96,7 @@ public class ProjectNewHandler {
 			try {
 				preferences.put("DBNAME", dbName);
 				preferences.flush();
-			} catch (BackingStoreException e) {
+			} catch (final BackingStoreException e) {
 				LOGGER.severe(e.getMessage());
 				e.printStackTrace();
 			}
@@ -115,15 +114,15 @@ public class ProjectNewHandler {
 			conn.close();
 
 			// Open a dialog for summary
-			ProjectNameSummaryDialog pnsDialog = new ProjectNameSummaryDialog(shell);
+			final ProjectNameSummaryDialog pnsDialog = new ProjectNameSummaryDialog(shell);
 			pnsDialog.open();
 
 			// Update the HRE properties
-			LocalDateTime now = LocalDateTime.now();
-			ZonedDateTime zdt = now.atZone(ZoneId.systemDefault());
-			Date timestamp = Date.from(zdt.toInstant());
-			ProjectModel model = new ProjectModel(pnsDialog.getProjectName(), timestamp, pnsDialog.getProjectSummary(),
-					"LOCAL", dbName);
+			final LocalDateTime now = LocalDateTime.now();
+			final ZonedDateTime zdt = now.atZone(ZoneId.systemDefault());
+			final Date timestamp = Date.from(zdt.toInstant());
+			final ProjectModel model = new ProjectModel(pnsDialog.getProjectName(), timestamp,
+					pnsDialog.getProjectSummary(), "LOCAL", dbName);
 			ProjectList.add(model);
 
 			// Set database name in title bar

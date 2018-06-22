@@ -5,6 +5,8 @@ import org.eclipse.swt.widgets.Shell;
 import org.historyresearchenvironment.client.dialogs.HelpAboutDialog;
 
 /**
+ * Handler to display the Help About dialog.
+ * 
  * @version 2018-06-09
  * @author Michael Erichsen, &copy; History Research Environment Ltd., 2018
  *

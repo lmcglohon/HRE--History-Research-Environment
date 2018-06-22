@@ -36,6 +36,7 @@ public class Activator implements BundleActivator {
 	 * @see
 	 * org.osgi.framework.BundleActivator#start(org.osgi.framework.BundleContext)
 	 */
+	@Override
 	public void start(BundleContext bundleContext) throws Exception {
 		Activator.context = bundleContext;
 
@@ -54,14 +55,14 @@ public class Activator implements BundleActivator {
 
 		LOGGER.info("Command line arguments:");
 
-		ServiceReference<EnvironmentInfo> envRef = context.getServiceReference(EnvironmentInfo.class);
-		EnvironmentInfo envInfo = context.getService(envRef);
-		String[] args = envInfo.getCommandLineArgs();
+		final ServiceReference<EnvironmentInfo> envRef = context.getServiceReference(EnvironmentInfo.class);
+		final EnvironmentInfo envInfo = context.getService(envRef);
+		final String[] args = envInfo.getCommandLineArgs();
 		for (int i = 0; i < args.length; i++) {
 			LOGGER.info("CLI " + i + ": " + args[i]);
 		}
 
-		String csMode = preferences.get("CSMODE", "DIRECT");
+		final String csMode = preferences.get("CSMODE", "DIRECT");
 		LOGGER.info("Client/server mode " + csMode);
 		LOGGER.info("HRE Absolute path: " + new File(".").getAbsolutePath());
 		LOGGER.info("HRE Font: "
@@ -86,6 +87,7 @@ public class Activator implements BundleActivator {
 	 * @see
 	 * org.osgi.framework.BundleActivator#stop(org.osgi.framework.BundleContext)
 	 */
+	@Override
 	public void stop(BundleContext bundleContext) throws Exception {
 		preferences.flush();
 		HreH2ConnectionPool.dispose();

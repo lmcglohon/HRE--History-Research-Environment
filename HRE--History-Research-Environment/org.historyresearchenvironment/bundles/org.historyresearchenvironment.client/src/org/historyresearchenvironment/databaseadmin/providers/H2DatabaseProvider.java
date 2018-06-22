@@ -13,16 +13,17 @@ import org.historyresearchenvironment.databaseadmin.models.H2DatabaseModel;
 
 /**
  * Provides H2 data to the database navigator
- * @
- * @version 2018-05-24
+ * 
+ * @ @version 2018-05-24
  * @author Michael Erichsen, &copy; History Research Environment Ltd., 2018
  *
  */
 public class H2DatabaseProvider extends AbstractHreProvider implements IContentProvider {
 	private static final String SELECT = "SELECT TABLE_NAME, 0 FROM INFORMATION_SCHEMA.TABLES "
 			+ "WHERE TABLE_TYPE = 'TABLE' ORDER BY TABLE_NAME";
-//	private static final String SELECT = "SELECT TABLE_NAME, ROW_COUNT_ESTIMATE FROM INFORMATION_SCHEMA.TABLES "
-//			+ "WHERE TABLE_TYPE = 'TABLE' ORDER BY TABLE_NAME";
+	// private static final String SELECT = "SELECT TABLE_NAME, ROW_COUNT_ESTIMATE
+	// FROM INFORMATION_SCHEMA.TABLES "
+	// + "WHERE TABLE_TYPE = 'TABLE' ORDER BY TABLE_NAME";
 	private final List<H2DatabaseModel> modelList = new ArrayList<H2DatabaseModel>();
 	private H2DatabaseModel model;
 
@@ -34,7 +35,7 @@ public class H2DatabaseProvider extends AbstractHreProvider implements IContentP
 	 *
 	 */
 	public H2DatabaseProvider() throws SQLException {
-		String dbName = preferences.get("DBNAME", "~\\HRE");
+		final String dbName = preferences.get("DBNAME", "~\\HRE");
 
 		LOGGER.info("Database name: " + dbName);
 

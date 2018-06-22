@@ -35,24 +35,10 @@ public class ProjectModel {
 	}
 
 	/**
-	 * @return the name
-	 */
-	public String getName() {
-		return name;
-	}
-
-	/**
 	 * @return the lastEdited
 	 */
 	public Date getLastEdited() {
 		return lastEdited;
-	}
-
-	/**
-	 * @return the summary
-	 */
-	public String getSummary() {
-		return summary;
 	}
 
 	/**
@@ -63,6 +49,13 @@ public class ProjectModel {
 	}
 
 	/**
+	 * @return the name
+	 */
+	public String getName() {
+		return name;
+	}
+
+	/**
 	 * @return the path
 	 */
 	public String getPath() {
@@ -70,11 +63,10 @@ public class ProjectModel {
 	}
 
 	/**
-	 * @param name
-	 *            the name to set
+	 * @return the summary
 	 */
-	public void setName(String name) {
-		this.name = name;
+	public String getSummary() {
+		return summary;
 	}
 
 	/**
@@ -86,14 +78,6 @@ public class ProjectModel {
 	}
 
 	/**
-	 * @param summary
-	 *            the summary to set
-	 */
-	public void setSummary(String summary) {
-		this.summary = summary;
-	}
-
-	/**
 	 * @param localServer
 	 *            the localServer to set
 	 */
@@ -102,11 +86,27 @@ public class ProjectModel {
 	}
 
 	/**
+	 * @param name
+	 *            the name to set
+	 */
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	/**
 	 * @param path
 	 *            the path to set
 	 */
 	public void setPath(String path) {
 		this.path = path;
+	}
+
+	/**
+	 * @param summary
+	 *            the summary to set
+	 */
+	public void setSummary(String summary) {
+		this.summary = summary;
 	}
 
 }

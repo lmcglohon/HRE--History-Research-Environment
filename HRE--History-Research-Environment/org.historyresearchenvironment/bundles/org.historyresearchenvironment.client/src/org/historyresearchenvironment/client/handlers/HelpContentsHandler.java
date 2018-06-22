@@ -9,6 +9,8 @@ import org.eclipse.help.internal.base.BaseHelpSystem;
 import org.osgi.service.prefs.Preferences;
 
 /**
+ * Handler to open the help system in an external browser.
+ * 
  * @version 2018-06-20
  * @author Michael Erichsen, &copy; History Research Environment Ltd., 2018
  *

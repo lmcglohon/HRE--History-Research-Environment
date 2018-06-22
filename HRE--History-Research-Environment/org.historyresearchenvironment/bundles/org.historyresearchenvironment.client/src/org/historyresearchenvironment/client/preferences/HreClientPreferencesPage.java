@@ -20,6 +20,8 @@ import org.eclipse.swt.widgets.Composite;
 import org.historyresearchenvironment.client.HreH2ConnectionPool;
 
 /**
+ * General client preferences page.
+ * 
  * @version 2018-06-18
  * @author Michael Erichsen, &copy; History Research Environment Ltd., 2018
  *
@@ -57,21 +59,21 @@ public class HreClientPreferencesPage extends FieldEditorPreferencePage {
 	 * Constructor
 	 *
 	 * @param title
+	 * @param image
 	 * @param style
 	 */
-	public HreClientPreferencesPage(String title, int style) {
-		super(title, style);
+	public HreClientPreferencesPage(String title, ImageDescriptor image, int style) {
+		super(title, image, style);
 	}
 
 	/**
 	 * Constructor
 	 *
 	 * @param title
-	 * @param image
 	 * @param style
 	 */
-	public HreClientPreferencesPage(String title, ImageDescriptor image, int style) {
-		super(title, image, style);
+	public HreClientPreferencesPage(String title, int style) {
+		super(title, style);
 	}
 
 	@Override
@@ -176,13 +178,14 @@ public class HreClientPreferencesPage extends FieldEditorPreferencePage {
 				LOGGER.setLevel(Level.FINEST);
 			} else if (levelName.equals("ALL")) {
 				LOGGER.setLevel(Level.ALL);
-			} else
+			} else {
 				LOGGER.setLevel(Level.INFO);
+			}
 
 			LOGGER.info("Client/server mode " + levelName);
 		} else if (event.getSource() == comboFieldEditorH2TraceLevel) {
 			int h2TraceLevel = 2;
-			String levelName = event.getNewValue().toString();
+			final String levelName = event.getNewValue().toString();
 
 			if (levelName.equals("OFF")) {
 				h2TraceLevel = 0;
@@ -193,7 +196,7 @@ public class HreClientPreferencesPage extends FieldEditorPreferencePage {
 			}
 
 			try {
-				Connection conn = HreH2ConnectionPool.getConnection();
+				final Connection conn = HreH2ConnectionPool.getConnection();
 				PreparedStatement prep = conn.prepareStatement("SET TRACE_LEVEL_SYSTEM_OUT ?");
 				prep.setInt(1, h2TraceLevel);
 				prep.executeUpdate();

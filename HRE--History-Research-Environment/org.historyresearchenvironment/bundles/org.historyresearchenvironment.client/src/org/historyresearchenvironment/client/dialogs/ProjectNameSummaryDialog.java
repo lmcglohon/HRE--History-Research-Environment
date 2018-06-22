@@ -46,7 +46,7 @@ public class ProjectNameSummaryDialog extends TitleAreaDialog {
 	 */
 	@Override
 	protected void createButtonsForButtonBar(Composite parent) {
-		Button button = createButton(parent, IDialogConstants.OK_ID, IDialogConstants.OK_LABEL, true);
+		final Button button = createButton(parent, IDialogConstants.OK_ID, IDialogConstants.OK_LABEL, true);
 		button.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseDown(MouseEvent e) {
@@ -65,18 +65,18 @@ public class ProjectNameSummaryDialog extends TitleAreaDialog {
 	protected Control createDialogArea(Composite parent) {
 		setMessage("Please enter the name and the summary of the new project");
 		setTitle("Project Name and Summary");
-		Composite area = (Composite) super.createDialogArea(parent);
-		Composite container = new Composite(area, SWT.NONE);
+		final Composite area = (Composite) super.createDialogArea(parent);
+		final Composite container = new Composite(area, SWT.NONE);
 		container.setLayout(new GridLayout(2, false));
 		container.setLayoutData(new GridData(GridData.FILL_BOTH));
 
-		Label lblProjectName = new Label(container, SWT.NONE);
+		final Label lblProjectName = new Label(container, SWT.NONE);
 		lblProjectName.setText("Project Name");
 
 		textProjectName = new Text(container, SWT.BORDER);
 		textProjectName.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
 
-		Label lblProjectSummary = new Label(container, SWT.NONE);
+		final Label lblProjectSummary = new Label(container, SWT.NONE);
 		lblProjectSummary.setLayoutData(new GridData(SWT.RIGHT, SWT.CENTER, false, false, 1, 1));
 		lblProjectSummary.setText("Project Summary");
 
