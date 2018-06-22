@@ -1,8 +1,8 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Server
-Bundle-SymbolicName: org.historyresearchenvironment.server
-Bundle-Version: 1.0.0.qualifier
+Bundle-Name: HRE Server
+Bundle-SymbolicName: org.historyresearchenvironment.server;singleton:=true
+Bundle-Version: 0.1.0.qualifier
 Bundle-Activator: org.historyresearchenvironment.server.Activator
 Bundle-Vendor: History Research Environment Ltd.
 Require-Bundle: org.eclipse.core.runtime
