@@ -13,7 +13,7 @@ import org.osgi.service.prefs.Preferences;
  * Set up logger using the path from the preferences and the file name format
  * "hre-log.%u.%g.txt".
  * 
- * @version 2018-06-22
+ * @version 2018-06-24
  * @author Michael Erichsen, &copy; History Research Environment Ltd., 2018
  *
  */
@@ -50,7 +50,7 @@ public class HreLogger {
 			LOGGER.setLevel(Level.INFO);
 		}
 
-		String logFilePath = preferences.get("LOGFILEPATH", ".");
+		String logFilePath = preferences.get("LOGFILEPATH", ".//");
 
 		if (logFilePath.endsWith(";")) {
 			logFilePath = logFilePath.substring(0, logFilePath.length() - 1);
