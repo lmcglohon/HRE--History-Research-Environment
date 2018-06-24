@@ -10,6 +10,7 @@ import java.util.logging.Logger;
 import org.eclipse.core.runtime.preferences.IEclipsePreferences;
 import org.eclipse.core.runtime.preferences.InstanceScope;
 import org.eclipse.jface.preference.ComboFieldEditor;
+import org.eclipse.jface.preference.DirectoryFieldEditor;
 import org.eclipse.jface.preference.FieldEditorPreferencePage;
 import org.eclipse.jface.preference.FontFieldEditor;
 import org.eclipse.jface.preference.IntegerFieldEditor;
@@ -22,7 +23,7 @@ import org.historyresearchenvironment.client.HreH2ConnectionPool;
 /**
  * General client preferences page.
  * 
- * @version 2018-06-18
+ * @version 2018-06-24
  * @author Michael Erichsen, &copy; History Research Environment Ltd., 2018
  *
  */
@@ -35,6 +36,7 @@ public class HreClientPreferencesPage extends FieldEditorPreferencePage {
 	private IntegerFieldEditor helpportIntegerFieldEditor;
 	private IntegerFieldEditor serverportIntegerFieldEditor;
 	private ComboFieldEditor comboFieldEditorH2TraceLevel;
+	private DirectoryFieldEditor logfileDirectoryEditor;
 
 	/**
 	 * Constructor
@@ -113,6 +115,10 @@ public class HreClientPreferencesPage extends FieldEditorPreferencePage {
 					getFieldEditorParent());
 			addField(comboFieldEditorLogLevel);
 		}
+
+		logfileDirectoryEditor = new DirectoryFieldEditor("LOGFILEPATH", "Application Log File Directory",
+				getFieldEditorParent());
+		addField(logfileDirectoryEditor);
 
 		fontFieldEditor = new FontFieldEditor("HREFONT", "Font Selection", null, getFieldEditorParent());
 		addField(fontFieldEditor);

@@ -21,7 +21,7 @@ import org.historyresearchenvironment.client.HreConstants;
 /**
  * Dialog to display help about HRE.
  * 
- * @version 2018-06-22
+ * @version 2018-06-24
  * @author Michael Erichsen, &copy; History Research Environment Ltd., 2018
  *
  */
@@ -91,7 +91,7 @@ public class HelpAboutDialog extends Dialog {
 		styledText_2.setDoubleClickEnabled(false);
 		styledText_2.setEditable(false);
 		styledText_2.setFont(SWTResourceManager.getFont("Calibri", 10, SWT.BOLD));
-		styledText_2.setText("Build V0.1.0\r\nRelease Date 1-Jan-2019");
+		styledText_2.setText("Release V0.1.0\r\nBuild Date 2018-06-24");
 		styledText_2.setLayoutData(new GridData(SWT.CENTER, SWT.FILL, true, false, 1, 1));
 
 		final StyledText styledText = new StyledText(container, SWT.WRAP);

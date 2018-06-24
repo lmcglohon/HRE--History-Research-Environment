@@ -5,9 +5,9 @@ import org.eclipse.jface.preference.StringFieldEditor;
 import org.eclipse.jface.resource.ImageDescriptor;
 
 /**
- * Not yet populated
+ * Not yet populated.
  * 
- * @version 2018-06-22
+ * @version 2018-06-24
  * @author Michael Erichsen, &copy; History Research Environment Ltd., 2018
  *
  */
@@ -27,7 +27,6 @@ public class HreHistoricalDatePreferencesPage extends FieldEditorPreferencePage 
 	 */
 	public HreHistoricalDatePreferencesPage(int style) {
 		super(style);
-		// TODO Auto-generated constructor stub
 	}
 
 	/**
@@ -39,7 +38,6 @@ public class HreHistoricalDatePreferencesPage extends FieldEditorPreferencePage 
 	 */
 	public HreHistoricalDatePreferencesPage(String title, ImageDescriptor image, int style) {
 		super(title, image, style);
-		// TODO Auto-generated constructor stub
 	}
 
 	/**
@@ -50,7 +48,6 @@ public class HreHistoricalDatePreferencesPage extends FieldEditorPreferencePage 
 	 */
 	public HreHistoricalDatePreferencesPage(String title, int style) {
 		super(title, style);
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override

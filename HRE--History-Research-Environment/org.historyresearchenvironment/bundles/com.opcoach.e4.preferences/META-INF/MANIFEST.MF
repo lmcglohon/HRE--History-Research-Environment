@@ -19,16 +19,13 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.e4.core.services,
  org.eclipse.e4.core.contexts,
  org.eclipse.e4.ui.services,
- org.eclipse.core.commands,
  org.eclipse.jface
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Automatic-Module-Name: com.opcoach.e4.preferences
 Import-Package: javax.inject,
- org.eclipse.jface.dialogs,
  org.eclipse.jface.preference,
  org.eclipse.jface.resource,
  org.eclipse.jface.util,
  org.eclipse.jface.viewers,
  org.eclipse.swt,
  org.eclipse.swt.widgets
-Bundle-ActivationPolicy: lazy
