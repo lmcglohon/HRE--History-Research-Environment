@@ -47,6 +47,10 @@
             file="xml/classstructure.xml"
             primary="false">
       </toc>
+      <toc
+            file="xml/tocrodstest.xml"
+            primary="false">
+      </toc>
    </extension>
    <extension
          point="org.eclipse.help.index">

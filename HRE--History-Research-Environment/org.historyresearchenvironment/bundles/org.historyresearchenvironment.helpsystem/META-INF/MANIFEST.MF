@@ -11,5 +11,6 @@ Created-By: Apache Maven 3.3.9
 Build-Jdk: 1.8.0_144
 Require-Bundle: org.eclipse.help.ui,
  org.eclipse.help.webapp,
- org.eclipse.equinox.http.jetty
+ org.eclipse.equinox.http.jetty,
+ org.eclipse.help
 

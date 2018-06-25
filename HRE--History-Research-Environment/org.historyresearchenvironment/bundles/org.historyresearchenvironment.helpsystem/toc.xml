@@ -14,4 +14,7 @@
    <topic href="html/development/maintopic.html" label="Development">
       <anchor id="development"/>
    </topic>
+   <topic href="html/rodstest/index.html" label="Rod&apos;s Test">
+      <anchor id="rodstest"/>
+   </topic>
 </toc>

@@ -1,272 +1,334 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="ISO-8859-1" />
-	<title>HRE Executables Downloads</title>
+<meta charset="ISO-8859-1" />
+<title>HRE Executables Downloads</title>
 </head>
 <body>
-<h1>HRE Executables Temporary Download Page</h1>
+	<h1>HRE Executables Temporary Download Page</h1>
 
-<h1>Installation instructions</h1>
+	<h1>Installation instructions</h1>
 
-<p>Download the proper v0.1 package to your machine and unzip it. Make sure that your choice of 32- or 64-bit versions matches your installed Java Runtime Environment.</p>
+	<p>Download the proper v0.1 package to your machine and unzip it.
+		Make sure that your choice of 32- or 64-bit versions matches your
+		installed Java Runtime Environment.</p>
 
-<p>In principle you can reuse the same directory, but since there are frequent changes between builds, there might be bad configuration data left over from a previous build.</p>
+	<p>In principle you can reuse the same directory, but since there
+		are frequent changes between builds, there might be bad configuration
+		data left over from a previous build.</p>
 
-<p>The unzipped directory should contain the following folders:</p>
+	<p>The unzipped directory should contain the following folders:</p>
 
-<ul>
-	<li>configuration</li>
-	<li>features</li>
-	<li>p2</li>
-	<li>plugins</li>
-</ul>
+	<ul>
+		<li>configuration</li>
+		<li>features</li>
+		<li>p2</li>
+		<li>plugins</li>
+	</ul>
 
-<p>and the following files:</p>
+	<p>and the following files:</p>
 
-<ul>
-	<li>artifacts.xml</li>
-	<li>eclipse.exe</li>
-	<li>eclipse.ini</li>
-	<li>eclipsec.exe</li>
-</ul>
+	<ul>
+		<li>artifacts.xml</li>
+		<li>eclipse.exe</li>
+		<li>eclipse.ini</li>
+		<li>eclipsec.exe</li>
+	</ul>
 
-<p>When HRE has run the first time it creates&nbsp;another folder called</p>
+	<p>When HRE has run the first time it creates&nbsp;another folder
+		called</p>
 
-<ul>
-	<li>workspace</li>
-</ul>
+	<ul>
+		<li>workspace</li>
+	</ul>
 
-<h1>Running HRE</h1>
+	<h1>Running HRE</h1>
 
-<p>You need to have a Java Runtime Environment installed on your system, and the JAVA_HOME environment variable set to point to it.</p>
+	<p>You need to have a Java Runtime Environment installed on your
+		system, and the JAVA_HOME environment variable set to point to it.</p>
 
-<h2>Windows</h2>
+	<h2>Windows</h2>
 
-<p>If you are running Windows 10, you would</p>
+	<p>If you are running Windows 10, you would</p>
 
-<ul>
-	<li>Open settings</li>
-	<li>Select System</li>
-	<li>Select About</li>
-	<li>Select System Info</li>
-	<li>Select Advanced System Settings</li>
-	<li>Select Environment Variables</li>
-	<li>User variables for New...</li>
-	<li>Variable name: JAVA_HOME</li>
-	<li>Variable value: C:\Program Files\Java\jre1.8.0_172 (or wherever your Java installation resides.</li>
-</ul>
+	<ul>
+		<li>Open settings</li>
+		<li>Select System</li>
+		<li>Select About</li>
+		<li>Select System Info</li>
+		<li>Select Advanced System Settings</li>
+		<li>Select Environment Variables</li>
+		<li>User variables for New...</li>
+		<li>Variable name: JAVA_HOME</li>
+		<li>Variable value: C:\Program Files\Java\jre1.8.0_172 (or
+			wherever your Java installation resides.</li>
+	</ul>
 
-<p>When having saved and closed you can check by opening a command window (cmd) and typing</p>
+	<p>When having saved and closed you can check by opening a command
+		window (cmd) and typing</p>
 
-<ul>
-	<li>set JAVA_HOME</li>
-</ul>
+	<ul>
+		<li>set JAVA_HOME</li>
+	</ul>
 
-<p>It should reply something like</p>
+	<p>It should reply something like</p>
 
-<ul>
-	<li>JAVA_HOME=C:\Program Files\Java\jdk1.8.0_172</li>
-</ul>
+	<ul>
+		<li>JAVA_HOME=C:\Program Files\Java\jdk1.8.0_172</li>
+	</ul>
 
-<p>HRE should then be able to find Java.</p>
+	<p>HRE should then be able to find Java.</p>
 
-<p>If the GUI is blank then either the executable is corrupted or some underlying configuration files has gone bad. In the last case it sometimes seems to help to delete the directory and to unzip the zip file again.</p>
+	<p>If the GUI is blank then either the executable is corrupted or
+		some underlying configuration files has gone bad. In the last case it
+		sometimes seems to help to delete the directory and to unzip the zip
+		file again.</p>
 
-<p>To debug you could open a command window (cmd.exe), drill down to the HRE directory and run</p>
+	<p>To debug you could open a command window (cmd.exe), drill down
+		to the HRE directory and run</p>
 
-<ul>
-	<li>eclipsec.exe</li>
-</ul>
+	<ul>
+		<li>eclipsec.exe</li>
+	</ul>
 
-<p>The output in the command window might help to identify the problem.</p>
+	<p>The output in the command window might help to identify the
+		problem.</p>
 
-<h2>How to run on Mac</h2>
+	<h2>How to run on Mac</h2>
 
-<p>Unzip the package.</p>
+	<p>Unzip the package.</p>
 
-<p>Drill down into folders:</p>
+	<p>Drill down into folders:</p>
 
-<ul>
-	<li>eclipse.app</li>
-	<li>Contents</li>
-	<li>MacOS</li>
-</ul>
+	<ul>
+		<li>eclipse.app</li>
+		<li>Contents</li>
+		<li>MacOS</li>
+	</ul>
 
-<p>chmod 644 to 755 for file eclipse</p>
+	<p>chmod 644 to 755 for file eclipse</p>
 
-<p>Then you can run it.</p>
+	<p>Then you can run it.</p>
 
-<h1>Troubleshooting</h1>
+	<h1>Troubleshooting</h1>
 
-<p>Please check the JAVA_HOME environment variable.</p>
+	<p>Please check the JAVA_HOME environment variable.</p>
 
-<p>Please check the contents of the installation package.</p>
+	<p>Please check the contents of the installation package.</p>
 
-<p>Please try to run</p>
+	<p>Please try to run</p>
 
-<p>eclipsec.exe</p>
+	<p>eclipsec.exe</p>
 
-<p>and examine the output in the character-based command window to see it it gives an understandable explanation.</p>
+	<p>and examine the output in the character-based command window to
+		see it it gives an understandable explanation.</p>
 
-<p>Otherwise please feel free to report an issue in</p>
+	<p>Otherwise please feel free to report an issue in</p>
 
-<p><a href="https://github.com/History-Research-Environment/HRE--History-Research-Environment/issues">https://github.com/History-Research-Environment/HRE--History-Research-Environment/issues</a></p>
+	<p>
+		<a
+			href="https://github.com/History-Research-Environment/HRE--History-Research-Environment/issues">https://github.com/History-Research-Environment/HRE--History-Research-Environment/issues</a>
+	</p>
 
-<h1>Error reporting</h1>
+	<h1>Error reporting</h1>
 
-<p>When reporting an error it would help to have the following information.</p>
+	<p>When reporting an error it would help to have the following
+		information.</p>
 
-<p>The paths assume that you have installed HRE in a directory called</p>
+	<p>The paths assume that you have installed HRE in a directory
+		called</p>
 
-<ul>
-	<li>C:\Temp\HRE Client-win32.win32.x86_64</li>
-</ul>
+	<ul>
+		<li>C:\Temp\HRE Client-win32.win32.x86_64</li>
+	</ul>
 
-<p>Please change your search according to your own installation directory.</p>
+	<p>Please change your search according to your own installation
+		directory.</p>
 
-<h2>HRE Build Version</h2>
+	<h2>HRE Build Version</h2>
 
-<p>In</p>
+	<p>In</p>
 
-<ul>
-	<li>C:\Temp\HRE Client-win32.win32.x86_64\plugins</li>
-</ul>
+	<ul>
+		<li>C:\Temp\HRE Client-win32.win32.x86_64\plugins</li>
+	</ul>
 
-<p>you should find a lot of files, including</p>
+	<p>you should find a lot of files, including</p>
 
-<ul>
-	<li>org.historyresearchenvironment.client_0.1.0.201806221900.jar</li>
-	<li>org.historyresearchenvironment.dataaccess_0.1.0.201806221900.jar</li>
-	<li>org.historyresearchenvironment.helpsystem_0.1.0.201806221900.jar</li>
-	<li>org.historyresearchenvironment.server_0.1.0.201806221900.jar</li>
-</ul>
+	<ul>
+		<li>org.historyresearchenvironment.client_0.1.0.201806221900.jar</li>
+		<li>org.historyresearchenvironment.dataaccess_0.1.0.201806221900.jar</li>
+		<li>org.historyresearchenvironment.helpsystem_0.1.0.201806221900.jar</li>
+		<li>org.historyresearchenvironment.server_0.1.0.201806221900.jar</li>
+	</ul>
 
-<p>The last part of the names of the jar files will change with each build of HRE.</p>
+	<p>The last part of the names of the jar files will change with
+		each build of HRE.</p>
 
-<p>Please note which build you use, e.g. 0.1.0.201806221900</p>
+	<p>Please note which build you use, e.g. 0.1.0.201806221900</p>
 
-<h2>HRE log file</h2>
+	<h2>HRE log file</h2>
 
-<p>After running HRE you should be able to find a log file in</p>
+	<p>After running HRE you should be able to find a log file in</p>
 
-<ul>
-	<li>C:\Temp\HRE Client-win32.win32.x86_64\configuration</li>
-</ul>
+	<ul>
+		<li>C:\Temp\HRE Client-win32.win32.x86_64\configuration</li>
+	</ul>
 
-<p>with a name like</p>
+	<p>with a name like</p>
 
-<ul>
-	<li>1529745653555.log</li>
-</ul>
+	<ul>
+		<li>1529745653555.log</li>
+	</ul>
 
-<p>Please attach the content of this file, or at least the statement like</p>
+	<p>Please attach the content of this file, or at least the
+		statement like</p>
 
-<blockquote>
-<p>Root exception:<br />
-java.nio.file.NoSuchFileException: c:\temp\hre-log.0.0.txt.lck</p>
-</blockquote>
+	<blockquote>
+		<p>
+			Root exception:<br /> java.nio.file.NoSuchFileException:
+			c:\temp\hre-log.0.0.txt.lck
+		</p>
+	</blockquote>
 
-<h2>Another HRE log file</h2>
+	<h2>Another HRE log file</h2>
 
-<p>You might have a log file in</p>
+	<p>You might have a log file in</p>
 
-<ul>
-	<li>C:\Temp\HRE Client-win32.win32.x86_64\workspace\.metadata</li>
-</ul>
+	<ul>
+		<li>C:\Temp\HRE Client-win32.win32.x86_64\workspace\.metadata</li>
+	</ul>
+
+	<p>called something like</p>
 
-<p>called something like</p>
+	<ul>
+		<li>26690.log</li>
+	</ul>
 
-<ul>
-	<li>26690.log</li>
-</ul>
+	<p>Please attach the content of this file.</p>
+
+	<h2>HRE Preferences</h2>
 
-<p>Please attach the content of this file.</p>
-
-<h2>HRE Preferences</h2>
-
-<p>Please drill down to the preferences in a subfolder under&nbsp;the workspace folder, which is created the first time HRE&nbsp;runs:</p>
-
-<ul>
-	<li>C:\Temp\HRE Client-win32.win32.x86_64\workspace\.metadata\.plugins\org.eclipse.core.runtime\.settings</li>
-</ul>
-
-<p>HRE stores its preferences in a file called</p>
-
-<ul>
-	<li>org.historyresearchenvironment.client.prefs</li>
-</ul>
-
-<p>Please attach this one too.</p>
-
-<h1>Installation packages</h1>
-
-<p><a href="http://www.myerichsen.net/HRE/HRE%20Client-linux.gtk.x86.zip">Linux 32 bit v0.1 Client</a></p>
-
-<p><a href="http://www.myerichsen.net/HRE/HRE%20Client-linux.gtk.x86_64.zip">Linux 64 bit v0.1 Client</a></p>
-
-<p><a href="http://www.myerichsen.net/HRE/HRE%20Client-macosx.cocoa.x86_64.zip">Mac v0.1 Client</a></p>
-
-<p><a href="http://www.myerichsen.net/HRE/HRE%20Client-win32.win32.x86.zip">Windows 32 bit v0.1 Client</a></p>
-
-<p><a href="http://www.myerichsen.net/HRE/HRE%20Client-win32.win32.x86_64.zip">Windows 64 bit v0.1 Client</a></p>
-
-<h1>Change log</h1>
-
-<table border="1">
-	<tbody>
-		<tr>
-			<th>Date</th>
-			<th>Change</th>
-		</tr>
-		<tr>
-			<td>22. 06. 2018</td>
-			<td>Help system added. Starting embedded server added. Some bugs fixed.</td>
-		</tr>
-		<tr>
-			<td>
-			<p>19. 06. 2018<br />
-			&nbsp;</p>
-
-			<p><br />
-			&nbsp;</p>
-			</td>
-			<td>
-			<p>Old mock up links removed from the download list to avoid confusion. The files are still available at</p>
-
-			<p><br />
-			http://www.myerichsen.net/HRE/HRE%20Mockup%20Product-linux.gtk.x86.zip</p>
-
-			<p>http://www.myerichsen.net/HRE/HRE%20Mockup%20Product-linux.gtk.x86_64.zip</p>
-
-			<p>http://www.myerichsen.net/HRE/HRE%20Mockup%20Product-macosx.cocoa.x86_64.zip</p>
-
-			<p>http://www.myerichsen.net/HRE/HRE%20Mockup%20Product-win32.win32.x86.zip</p>
-
-			<p>and http://www.myerichsen.net/HRE/HRE%20Mockup%20Product-win32.win32.x86_64.zip</p>
-			</td>
-		</tr>
-		<tr>
-			<td>15. 06. 2018</td>
-			<td>Project - &quot;Open selected&quot; and Project - &quot;Open other&quot; added. &quot;Open other&quot; opens an H2 file that has no HRE metadata and adds it to the Properties with metadata from a dialog box.</td>
-		</tr>
-		<tr>
-			<td>10. 06. 2018</td>
-			<td>More small updates.</td>
-		</tr>
-		<tr>
-			<td>09. 06. 2018</td>
-			<td>Various updates.</td>
-		</tr>
-		<tr>
-			<td>08. 06. 2018</td>
-			<td>HRE v0.1 updated.</td>
-		</tr>
-		<tr>
-			<td>28. 05. 2018</td>
-			<td>A very early HRE v0.1 client added with a dummy part and the Open Projects dialog.</td>
-		</tr>
-	</tbody>
-</table>
+	<p>Please drill down to the preferences in a subfolder
+		under&nbsp;the workspace folder, which is created the first time
+		HRE&nbsp;runs:</p>
+
+	<ul>
+		<li>C:\Temp\HRE
+			Client-win32.win32.x86_64\workspace\.metadata\.plugins\org.eclipse.core.runtime\.settings</li>
+	</ul>
+
+	<p>HRE stores its preferences in a file called</p>
+
+	<ul>
+		<li>org.historyresearchenvironment.client.prefs</li>
+	</ul>
+
+	<p>Please attach this one too.</p>
+
+	<h1>Change log</h1>
+
+	<table border="1">
+		<tbody>
+			<tr>
+				<th>Date</th>
+				<th>Change</th>
+			</tr>
+			<tr>
+				<td>28. 05. 2018</td>
+				<td>A very early HRE v0.1 client added with a dummy part and
+					the Open Projects dialog.</td>
+			</tr>
+			<tr>
+				<td>08. 06. 2018</td>
+				<td>HRE v0.1 updated.</td>
+			</tr>
+			<tr>
+				<td>09. 06. 2018</td>
+				<td>Various updates.</td>
+			</tr>
+			<tr>
+				<td>10. 06. 2018</td>
+				<td>More small updates.</td>
+			</tr>
+			<tr>
+				<td>15. 06. 2018</td>
+				<td>Project - &quot;Open selected&quot; and Project -
+					&quot;Open other&quot; added. &quot;Open other&quot; opens an H2
+					file that has no HRE metadata and adds it to the Properties with
+					metadata from a dialog box.</td>
+			</tr>
+			<tr>
+				<td>
+					<p>19. 06. 2018</p>
+				</td>
+				<td>
+					<p>Old mock up links removed from the download list to avoid
+						confusion. The files are still available at</p>
+
+					<p>http://www.myerichsen.net/HRE/HRE%20Mockup%20Product-linux.gtk.x86.zip</p>
+
+					<p>http://www.myerichsen.net/HRE/HRE%20Mockup%20Product-linux.gtk.x86_64.zip</p>
+
+					<p>http://www.myerichsen.net/HRE/HRE%20Mockup%20Product-macosx.cocoa.x86_64.zip</p>
+
+					<p>http://www.myerichsen.net/HRE/HRE%20Mockup%20Product-win32.win32.x86.zip</p>
+
+					<p>and
+						http://www.myerichsen.net/HRE/HRE%20Mockup%20Product-win32.win32.x86_64.zip</p>
+				</td>
+			</tr>
+			<tr>
+				<td>22. 06. 2018</td>
+				<td>Help system added. Starting embedded server added. Some
+					bugs fixed.</td>
+			</tr>
+			<tr>
+				<td>24. 06. 2018</td>
+				<td>Build 0.1.0.201806241508 uploaded&nbsp;to fix issues <a
+					href="https://github.com/History-Research-Environment/HRE--History-Research-Environment/issues/27">27</a>
+					and <a
+					href="https://github.com/History-Research-Environment/HRE--History-Research-Environment/issues/34">34</a></td>
+			</tr>
+			<tr>
+				<td>25. 06. 2018</td>
+				<td>Build 0.1.0.201806251903 adds a set of test pages to the
+					help system. Issue <a
+					href="https://github.com/History-Research-Environment/HRE--History-Research-Environment/issues/22">22</a>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+
+	<h1>Installation packages</h1>
+
+	<p>
+		<a href="http://www.myerichsen.net/HRE/HRE%20Client-linux.gtk.x86.zip">Linux
+			32 bit v0.1 Client</a>
+	</p>
+
+	<p>
+		<a
+			href="http://www.myerichsen.net/HRE/HRE%20Client-linux.gtk.x86_64.zip">Linux
+			64 bit v0.1 Client</a>
+	</p>
+
+	<p>
+		<a
+			href="http://www.myerichsen.net/HRE/HRE%20Client-macosx.cocoa.x86_64.zip">Mac
+			v0.1 Client</a>
+	</p>
+
+	<p>
+		<a
+			href="http://www.myerichsen.net/HRE/HRE%20Client-win32.win32.x86.zip">Windows
+			32 bit v0.1 Client</a>
+	</p>
+
+	<p>
+		<a
+			href="http://www.myerichsen.net/HRE/HRE%20Client-win32.win32.x86_64.zip">Windows
+			64 bit v0.1 Client</a>
+	</p>
 </body>
 </html>
