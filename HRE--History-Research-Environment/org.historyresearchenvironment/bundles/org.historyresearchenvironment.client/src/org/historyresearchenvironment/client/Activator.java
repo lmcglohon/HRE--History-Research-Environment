@@ -5,6 +5,7 @@ import java.util.logging.Logger;
 
 import org.eclipse.core.runtime.preferences.InstanceScope;
 import org.eclipse.osgi.service.environment.EnvironmentInfo;
+import org.historyresearchenvironment.dataaccess.models.HreH2ConnectionPool;
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.ServiceReference;
@@ -14,7 +15,7 @@ import org.osgi.service.prefs.Preferences;
  * Eclipse plug-in life cycle control. Sets up the logger. Starts and stops the
  * Help System.
  * 
- * @version 2018-06-24
+ * @version 2018-06-26
  * @author Michael Erichsen, &copy; History Research Environment Ltd., 2018
  *
  */

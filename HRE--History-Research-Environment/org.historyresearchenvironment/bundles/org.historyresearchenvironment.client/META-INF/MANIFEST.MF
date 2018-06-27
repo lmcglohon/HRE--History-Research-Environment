@@ -7,9 +7,7 @@ Bundle-Activator: org.historyresearchenvironment.client.Activator
 Bundle-Vendor: History Research Environment Ltd.
 Export-Package: org.historyresearchenvironment.databaseadmin.handlers;uses:="org.eclipse.e4.ui.model.application,org.eclipse.e4.ui.workbench.modeling",
  org.historyresearchenvironment.databaseadmin.listeners;uses:="org.eclipse.swt.events,org.eclipse.swt.widgets",
- org.historyresearchenvironment.databaseadmin.models,
- org.historyresearchenvironment.databaseadmin.parts;uses:="org.eclipse.swt.widgets",
- org.historyresearchenvironment.databaseadmin.providers;uses:="org.historyresearchenvironment.client.providers,org.eclipse.jface.viewers"
+ org.historyresearchenvironment.databaseadmin.parts;uses:="org.eclipse.swt.widgets"
 Require-Bundle: javax.inject,
  org.eclipse.swt,
  org.eclipse.e4.ui.model.workbench,
@@ -28,8 +26,11 @@ Require-Bundle: javax.inject,
  org.eclipse.e4.core.di.extensions,
  org.eclipse.equinox.preferences,
  org.eclipse.help.base,
- org.eclipse.equinox.http.registry
+ org.eclipse.equinox.http.registry,
+ org.historyresearchenvironment.dataaccess
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy
-Import-Package: javax.inject;version="1.0.0"
+Import-Package: javax.inject;version="1.0.0",
+ org.historyresearchenvironment.dataaccess.models.models,
+ org.historyresearchenvironment.dataaccess.models.providers
 Automatic-Module-Name: org.historyresearchenvironment.client

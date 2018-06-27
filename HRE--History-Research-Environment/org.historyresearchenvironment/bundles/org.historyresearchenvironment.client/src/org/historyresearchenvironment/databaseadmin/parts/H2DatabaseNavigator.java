@@ -27,8 +27,8 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.swt.widgets.TableItem;
-import org.historyresearchenvironment.databaseadmin.models.H2DatabaseModel;
-import org.historyresearchenvironment.databaseadmin.providers.H2DatabaseProvider;
+import org.historyresearchenvironment.dataaccess.models.models.H2DatabaseModel;
+import org.historyresearchenvironment.dataaccess.models.providers.H2DatabaseProvider;
 import org.osgi.service.prefs.Preferences;
 
 /**

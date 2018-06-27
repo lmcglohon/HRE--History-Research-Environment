@@ -26,18 +26,18 @@ import org.eclipse.e4.ui.workbench.modeling.EPartService.PartState;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.FileDialog;
 import org.eclipse.swt.widgets.Shell;
-import org.historyresearchenvironment.client.HreH2ConnectionPool;
 import org.historyresearchenvironment.client.dialogs.ProjectNameSummaryDialog;
 import org.historyresearchenvironment.client.models.ProjectList;
 import org.historyresearchenvironment.client.models.ProjectModel;
-import org.historyresearchenvironment.client.providers.NewDatabaseProvider;
+import org.historyresearchenvironment.dataaccess.models.HreH2ConnectionPool;
+import org.historyresearchenvironment.dataaccess.models.providers.NewDatabaseProvider;
 import org.osgi.service.prefs.BackingStoreException;
 import org.osgi.service.prefs.Preferences;
 
 /**
  * Create a new HRE project database.
  * 
- * @version 2018-06-21
+ * @version 2018-06-26
  * @author Michael Erichsen, &copy; History Research Environment Ltd., 2018
  *
  */

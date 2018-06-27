@@ -39,8 +39,8 @@ import org.eclipse.swt.widgets.TableItem;
 import org.h2.tools.Csv;
 import org.h2.tools.SimpleResultSet;
 import org.historyresearchenvironment.client.HreConstants;
-import org.historyresearchenvironment.databaseadmin.models.H2TableModel;
-import org.historyresearchenvironment.databaseadmin.providers.H2TableProvider;
+import org.historyresearchenvironment.dataaccess.models.models.H2TableModel;
+import org.historyresearchenvironment.dataaccess.models.providers.H2TableProvider;
 
 /**
  * Create a view part with a table. Create a column for each columns in the

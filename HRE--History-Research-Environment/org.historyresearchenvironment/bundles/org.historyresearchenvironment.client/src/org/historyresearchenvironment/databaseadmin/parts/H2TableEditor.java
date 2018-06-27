@@ -37,19 +37,19 @@ import org.eclipse.swt.widgets.DateTime;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
 import org.historyresearchenvironment.client.HreConstants;
+import org.historyresearchenvironment.dataaccess.models.models.H2TableModel;
+import org.historyresearchenvironment.dataaccess.models.providers.H2TableProvider;
 import org.historyresearchenvironment.databaseadmin.listeners.HexFocusListener;
 import org.historyresearchenvironment.databaseadmin.listeners.HexVerifyListener;
 import org.historyresearchenvironment.databaseadmin.listeners.IntegerListener;
 import org.historyresearchenvironment.databaseadmin.listeners.LengthFocusListener;
 import org.historyresearchenvironment.databaseadmin.listeners.NumericVerifyListener;
 import org.historyresearchenvironment.databaseadmin.listeners.SmallIntListener;
-import org.historyresearchenvironment.databaseadmin.models.H2TableModel;
-import org.historyresearchenvironment.databaseadmin.providers.H2TableProvider;
 
 /**
  * Dynamically create an editor with the fields in the database catalog.
  * 
- * @version 2018-06-22
+ * @version 2018-06-26
  * @author Michael Erichsen, &copy; History Research Environment Ltd., 2018
  *
  */
