@@ -2,14 +2,14 @@ package org.historyresearchenvironment.dataaccess.models;
 
 import java.io.Serializable;
 
-
 /**
  * The persistent class for the SCRIPT_GROUP_DEFNS database table.
  * 
  */
 // @Entity
 // @Table(name="SCRIPT_GROUP_DEFNS")
-// @NamedQuery(name="ScriptGroupDefn.findAll", query="SELECT s FROM ScriptGroupDefn s")
+// @NamedQuery(name="ScriptGroupDefn.findAll", query="SELECT s FROM
+// ScriptGroupDefn s")
 public class ScriptGroupDefn implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private int recordNum;
@@ -27,6 +27,35 @@ public class ScriptGroupDefn implements Serializable {
 	public ScriptGroupDefn() {
 	}
 
+	// @Column(name="ACTION_TYPE_KEY")
+	public short getActionTypeKey() {
+		return this.actionTypeKey;
+	}
+
+	// @Column(name="COMMIT_PID", nullable=false)
+	public int getCommitPid() {
+		return this.commitPid;
+	}
+
+	// @Column(name="DISPLAY_ORDER")
+	public short getDisplayOrder() {
+		return this.displayOrder;
+	}
+
+	// @Column(name="INPUT_FOCUS_TYPE_KEY")
+	public short getInputFocusTypeKey() {
+		return this.inputFocusTypeKey;
+	}
+
+	// @Column(name="INPUT_SUB_TYPE_KEY")
+	public short getInputSubTypeKey() {
+		return this.inputSubTypeKey;
+	}
+
+	// @Column(name="IS_DEFAULT")
+	public boolean getIsDefault() {
+		return this.isDefault;
+	}
 
 	// @Id
 	// @GeneratedValue(strategy=GenerationType.AUTO)
@@ -35,104 +64,64 @@ public class ScriptGroupDefn implements Serializable {
 		return this.recordNum;
 	}
 
-	public void setRecordNum(int recordNum) {
-		this.recordNum = recordNum;
-	}
-
-
-	// @Column(name="ACTION_TYPE_KEY")
-	public short getActionTypeKey() {
-		return this.actionTypeKey;
-	}
-
-	public void setActionTypeKey(short actionTypeKey) {
-		this.actionTypeKey = actionTypeKey;
-	}
-
-
-	// @Column(name="COMMIT_PID", nullable=false)
-	public int getCommitPid() {
-		return this.commitPid;
-	}
-
-	public void setCommitPid(int commitPid) {
-		this.commitPid = commitPid;
-	}
-
-
-	// @Column(name="DISPLAY_ORDER")
-	public short getDisplayOrder() {
-		return this.displayOrder;
-	}
-
-	public void setDisplayOrder(short displayOrder) {
-		this.displayOrder = displayOrder;
-	}
-
-
-	// @Column(name="INPUT_FOCUS_TYPE_KEY")
-	public short getInputFocusTypeKey() {
-		return this.inputFocusTypeKey;
-	}
-
-	public void setInputFocusTypeKey(short inputFocusTypeKey) {
-		this.inputFocusTypeKey = inputFocusTypeKey;
-	}
-
-
-	// @Column(name="INPUT_SUB_TYPE_KEY")
-	public short getInputSubTypeKey() {
-		return this.inputSubTypeKey;
-	}
-
-	public void setInputSubTypeKey(short inputSubTypeKey) {
-		this.inputSubTypeKey = inputSubTypeKey;
-	}
-
-
-	// @Column(name="IS_DEFAULT")
-	public boolean getIsDefault() {
-		return this.isDefault;
-	}
-
-	public void setIsDefault(boolean isDefault) {
-		this.isDefault = isDefault;
-	}
-
-
 	// @Column(name="REMINDER_KEY")
 	public short getReminderKey() {
 		return this.reminderKey;
 	}
-
-	public void setReminderKey(short reminderKey) {
-		this.reminderKey = reminderKey;
-	}
-
 
 	// @Column(name="SCRIPT_GROUP_DEFN_PID", nullable=false)
 	public int getScriptGroupDefnPid() {
 		return this.scriptGroupDefnPid;
 	}
 
-	public void setScriptGroupDefnPid(int scriptGroupDefnPid) {
-		this.scriptGroupDefnPid = scriptGroupDefnPid;
-	}
-
-
 	// @Column(name="SET_KEY", nullable=false)
 	public short getSetKey() {
 		return this.setKey;
 	}
 
-	public void setSetKey(short setKey) {
-		this.setKey = setKey;
-	}
-
-
 	// @Column(name="\"SHOW\"")
 	public boolean getShow() {
 		return this.show;
+	}
+
+	public void setActionTypeKey(short actionTypeKey) {
+		this.actionTypeKey = actionTypeKey;
+	}
+
+	public void setCommitPid(int commitPid) {
+		this.commitPid = commitPid;
+	}
+
+	public void setDisplayOrder(short displayOrder) {
+		this.displayOrder = displayOrder;
+	}
+
+	public void setInputFocusTypeKey(short inputFocusTypeKey) {
+		this.inputFocusTypeKey = inputFocusTypeKey;
+	}
+
+	public void setInputSubTypeKey(short inputSubTypeKey) {
+		this.inputSubTypeKey = inputSubTypeKey;
+	}
+
+	public void setIsDefault(boolean isDefault) {
+		this.isDefault = isDefault;
+	}
+
+	public void setRecordNum(int recordNum) {
+		this.recordNum = recordNum;
+	}
+
+	public void setReminderKey(short reminderKey) {
+		this.reminderKey = reminderKey;
+	}
+
+	public void setScriptGroupDefnPid(int scriptGroupDefnPid) {
+		this.scriptGroupDefnPid = scriptGroupDefnPid;
+	}
+
+	public void setSetKey(short setKey) {
+		this.setKey = setKey;
 	}
 
 	public void setShow(boolean show) {

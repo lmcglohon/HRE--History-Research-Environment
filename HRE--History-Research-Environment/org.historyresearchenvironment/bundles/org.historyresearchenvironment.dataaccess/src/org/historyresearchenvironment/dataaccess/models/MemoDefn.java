@@ -2,7 +2,6 @@ package org.historyresearchenvironment.dataaccess.models;
 
 import java.io.Serializable;
 
-
 /**
  * The persistent class for the MEMO_DEFNS database table.
  * 
@@ -27,6 +26,35 @@ public class MemoDefn implements Serializable {
 	public MemoDefn() {
 	}
 
+	// @Column(name="COMMIT_PID", nullable=false)
+	public int getCommitPid() {
+		return this.commitPid;
+	}
+
+	// @Column(name="IS_SYSTEM")
+	public boolean getIsSystem() {
+		return this.isSystem;
+	}
+
+	// @Column(name="MEMO_DEFN_PID", nullable=false)
+	public int getMemoDefnPid() {
+		return this.memoDefnPid;
+	}
+
+	// @Column(name="MEMO_SET_KEY")
+	public short getMemoSetKey() {
+		return this.memoSetKey;
+	}
+
+	// @Column(name="PLUGIN_KEY")
+	public short getPluginKey() {
+		return this.pluginKey;
+	}
+
+	// @Column(name="PUBLISH_TYPE_KEY")
+	public short getPublishTypeKey() {
+		return this.publishTypeKey;
+	}
 
 	// @Id
 	// @GeneratedValue(strategy=GenerationType.AUTO)
@@ -35,104 +63,64 @@ public class MemoDefn implements Serializable {
 		return this.recordNum;
 	}
 
-	public void setRecordNum(int recordNum) {
-		this.recordNum = recordNum;
-	}
-
-
-	// @Column(name="COMMIT_PID", nullable=false)
-	public int getCommitPid() {
-		return this.commitPid;
-	}
-
-	public void setCommitPid(int commitPid) {
-		this.commitPid = commitPid;
-	}
-
-
-	// @Column(name="IS_SYSTEM")
-	public boolean getIsSystem() {
-		return this.isSystem;
-	}
-
-	public void setIsSystem(boolean isSystem) {
-		this.isSystem = isSystem;
-	}
-
-
-	// @Column(name="MEMO_DEFN_PID", nullable=false)
-	public int getMemoDefnPid() {
-		return this.memoDefnPid;
-	}
-
-	public void setMemoDefnPid(int memoDefnPid) {
-		this.memoDefnPid = memoDefnPid;
-	}
-
-
-	// @Column(name="MEMO_SET_KEY")
-	public short getMemoSetKey() {
-		return this.memoSetKey;
-	}
-
-	public void setMemoSetKey(short memoSetKey) {
-		this.memoSetKey = memoSetKey;
-	}
-
-
-	// @Column(name="PLUGIN_KEY")
-	public short getPluginKey() {
-		return this.pluginKey;
-	}
-
-	public void setPluginKey(short pluginKey) {
-		this.pluginKey = pluginKey;
-	}
-
-
-	// @Column(name="PUBLISH_TYPE_KEY")
-	public short getPublishTypeKey() {
-		return this.publishTypeKey;
-	}
-
-	public void setPublishTypeKey(short publishTypeKey) {
-		this.publishTypeKey = publishTypeKey;
-	}
-
-
 	// @Column(name="REQUESTER_PID")
 	public int getRequesterPid() {
 		return this.requesterPid;
 	}
-
-	public void setRequesterPid(int requesterPid) {
-		this.requesterPid = requesterPid;
-	}
-
 
 	// @Column(name="REQUESTER_SUB_TYPE_KEY")
 	public short getRequesterSubTypeKey() {
 		return this.requesterSubTypeKey;
 	}
 
-	public void setRequesterSubTypeKey(short requesterSubTypeKey) {
-		this.requesterSubTypeKey = requesterSubTypeKey;
-	}
-
-
 	// @Column(name="REQUESTER_TYPE_KEY")
 	public short getRequesterTypeKey() {
 		return this.requesterTypeKey;
 	}
 
-	public void setRequesterTypeKey(short requesterTypeKey) {
-		this.requesterTypeKey = requesterTypeKey;
-	}
-
-
 	// @Column(name="SET_KEY", nullable=false)
 	public short getSetKey() {
 		return this.setKey;
+	}
+
+	public void setCommitPid(int commitPid) {
+		this.commitPid = commitPid;
+	}
+
+	public void setIsSystem(boolean isSystem) {
+		this.isSystem = isSystem;
+	}
+
+	public void setMemoDefnPid(int memoDefnPid) {
+		this.memoDefnPid = memoDefnPid;
+	}
+
+	public void setMemoSetKey(short memoSetKey) {
+		this.memoSetKey = memoSetKey;
+	}
+
+	public void setPluginKey(short pluginKey) {
+		this.pluginKey = pluginKey;
+	}
+
+	public void setPublishTypeKey(short publishTypeKey) {
+		this.publishTypeKey = publishTypeKey;
+	}
+
+	public void setRecordNum(int recordNum) {
+		this.recordNum = recordNum;
+	}
+
+	public void setRequesterPid(int requesterPid) {
+		this.requesterPid = requesterPid;
+	}
+
+	public void setRequesterSubTypeKey(short requesterSubTypeKey) {
+		this.requesterSubTypeKey = requesterSubTypeKey;
+	}
+
+	public void setRequesterTypeKey(short requesterTypeKey) {
+		this.requesterTypeKey = requesterTypeKey;
 	}
 
 	public void setSetKey(short setKey) {

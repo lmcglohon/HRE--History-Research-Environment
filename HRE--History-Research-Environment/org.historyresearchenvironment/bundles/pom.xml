@@ -19,6 +19,14 @@
 		<module>org.historyresearchenvironment.dataaccess</module>
 		<module>org.historyresearchenvironment.helpsystem</module>
 		<module>org.historyresearchenvironment.server</module>
+		<module>org.historyresearchenvironment.sample.client</module>
+		<module>org.historyresearchenvironment.sample.dataaccess</module>
+		<module>org.historyresearchenvironment.sample.help</module>
+		<module>org.historyresearchenvironment.sample.server</module>
+				<module>org.historyresearchenvironment.databaseadmin.client</module>
+		<module>org.historyresearchenvironment.databaseadmin.dataaccess</module>
+		<module>org.historyresearchenvironment.databaseadmin.help</module>
+		<module>org.historyresearchenvironment.databaseadmin.server</module>
 	</modules>
 	<version>0.1.0-SNAPSHOT</version>
 	<groupId>org.historyresearchenvironment</groupId>

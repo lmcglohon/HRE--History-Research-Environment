@@ -3,7 +3,6 @@ package org.historyresearchenvironment.dataaccess.models;
 import java.io.Serializable;
 import java.sql.Timestamp;
 
-
 /**
  * The persistent class for the PROJECTS database table.
  * 
@@ -22,6 +21,19 @@ public class Project implements Serializable {
 	public Project() {
 	}
 
+	public Timestamp getCommenced() {
+		return this.commenced;
+	}
+
+	// @Column(name="COMMIT_PID", nullable=false)
+	public int getCommitPid() {
+		return this.commitPid;
+	}
+
+	// @Column(name="PROJECT_PID", nullable=false)
+	public int getProjectPid() {
+		return this.projectPid;
+	}
 
 	// @Id
 	// @GeneratedValue(strategy=GenerationType.AUTO)
@@ -30,43 +42,25 @@ public class Project implements Serializable {
 		return this.recordNum;
 	}
 
-	public void setRecordNum(int recordNum) {
-		this.recordNum = recordNum;
-	}
-
-
-	public Timestamp getCommenced() {
-		return this.commenced;
+	// @Column(name="SET_KEY", nullable=false)
+	public short getSetKey() {
+		return this.setKey;
 	}
 
 	public void setCommenced(Timestamp commenced) {
 		this.commenced = commenced;
 	}
 
-
-	// @Column(name="COMMIT_PID", nullable=false)
-	public int getCommitPid() {
-		return this.commitPid;
-	}
-
 	public void setCommitPid(int commitPid) {
 		this.commitPid = commitPid;
-	}
-
-
-	// @Column(name="PROJECT_PID", nullable=false)
-	public int getProjectPid() {
-		return this.projectPid;
 	}
 
 	public void setProjectPid(int projectPid) {
 		this.projectPid = projectPid;
 	}
 
-
-	// @Column(name="SET_KEY", nullable=false)
-	public short getSetKey() {
-		return this.setKey;
+	public void setRecordNum(int recordNum) {
+		this.recordNum = recordNum;
 	}
 
 	public void setSetKey(short setKey) {

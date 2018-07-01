@@ -2,7 +2,6 @@ package org.historyresearchenvironment.dataaccess.models;
 
 import java.io.Serializable;
 
-
 /**
  * The persistent class for the NOTEPAD_DEFNS database table.
  * 
@@ -31,6 +30,54 @@ public class NotepadDefn implements Serializable {
 	public NotepadDefn() {
 	}
 
+	// @Column(name="COMMIT_PID", nullable=false)
+	public int getCommitPid() {
+		return this.commitPid;
+	}
+
+	// @Column(name="DISPLAY_ORDER")
+	public short getDisplayOrder() {
+		return this.displayOrder;
+	}
+
+	// @Column(name="FIELD_TYPE_KEY")
+	public short getFieldTypeKey() {
+		return this.fieldTypeKey;
+	}
+
+	// @Column(name="IS_DEFAULT")
+	public boolean getIsDefault() {
+		return this.isDefault;
+	}
+
+	// @Column(name="IS_SYSTEM")
+	public boolean getIsSystem() {
+		return this.isSystem;
+	}
+
+	public short getLength() {
+		return this.length;
+	}
+
+	// @Column(name="NOTEPAD_DEFN_PID", nullable=false)
+	public int getNotepadDefnPid() {
+		return this.notepadDefnPid;
+	}
+
+	// @Column(name="NOTEPAD_STORAGE_KEY")
+	public short getNotepadStorageKey() {
+		return this.notepadStorageKey;
+	}
+
+	// @Column(name="PARENT_SUB_TYPE_KEY")
+	public short getParentSubTypeKey() {
+		return this.parentSubTypeKey;
+	}
+
+	// @Column(name="PARENT_TYPE_KEY")
+	public short getParentTypeKey() {
+		return this.parentTypeKey;
+	}
 
 	// @Id
 	// @GeneratedValue(strategy=GenerationType.AUTO)
@@ -39,143 +86,80 @@ public class NotepadDefn implements Serializable {
 		return this.recordNum;
 	}
 
-	public void setRecordNum(int recordNum) {
-		this.recordNum = recordNum;
-	}
-
-
-	// @Column(name="COMMIT_PID", nullable=false)
-	public int getCommitPid() {
-		return this.commitPid;
-	}
-
-	public void setCommitPid(int commitPid) {
-		this.commitPid = commitPid;
-	}
-
-
-	// @Column(name="DISPLAY_ORDER")
-	public short getDisplayOrder() {
-		return this.displayOrder;
-	}
-
-	public void setDisplayOrder(short displayOrder) {
-		this.displayOrder = displayOrder;
-	}
-
-
-	// @Column(name="FIELD_TYPE_KEY")
-	public short getFieldTypeKey() {
-		return this.fieldTypeKey;
-	}
-
-	public void setFieldTypeKey(short fieldTypeKey) {
-		this.fieldTypeKey = fieldTypeKey;
-	}
-
-
-	// @Column(name="IS_DEFAULT")
-	public boolean getIsDefault() {
-		return this.isDefault;
-	}
-
-	public void setIsDefault(boolean isDefault) {
-		this.isDefault = isDefault;
-	}
-
-
-	// @Column(name="IS_SYSTEM")
-	public boolean getIsSystem() {
-		return this.isSystem;
-	}
-
-	public void setIsSystem(boolean isSystem) {
-		this.isSystem = isSystem;
-	}
-
-
-	public short getLength() {
-		return this.length;
-	}
-
-	public void setLength(short length) {
-		this.length = length;
-	}
-
-
-	// @Column(name="NOTEPAD_DEFN_PID", nullable=false)
-	public int getNotepadDefnPid() {
-		return this.notepadDefnPid;
-	}
-
-	public void setNotepadDefnPid(int notepadDefnPid) {
-		this.notepadDefnPid = notepadDefnPid;
-	}
-
-
-	// @Column(name="NOTEPAD_STORAGE_KEY")
-	public short getNotepadStorageKey() {
-		return this.notepadStorageKey;
-	}
-
-	public void setNotepadStorageKey(short notepadStorageKey) {
-		this.notepadStorageKey = notepadStorageKey;
-	}
-
-
-	// @Column(name="PARENT_SUB_TYPE_KEY")
-	public short getParentSubTypeKey() {
-		return this.parentSubTypeKey;
-	}
-
-	public void setParentSubTypeKey(short parentSubTypeKey) {
-		this.parentSubTypeKey = parentSubTypeKey;
-	}
-
-
-	// @Column(name="PARENT_TYPE_KEY")
-	public short getParentTypeKey() {
-		return this.parentTypeKey;
-	}
-
-	public void setParentTypeKey(short parentTypeKey) {
-		this.parentTypeKey = parentTypeKey;
-	}
-
-
 	// @Column(name="REMINDER_KEY")
 	public short getReminderKey() {
 		return this.reminderKey;
 	}
-
-	public void setReminderKey(short reminderKey) {
-		this.reminderKey = reminderKey;
-	}
-
 
 	// @Column(name="SET_KEY", nullable=false)
 	public short getSetKey() {
 		return this.setKey;
 	}
 
-	public void setSetKey(short setKey) {
-		this.setKey = setKey;
-	}
-
-
 	// @Column(name="\"SHOW\"")
 	public boolean getShow() {
 		return this.show;
 	}
 
-	public void setShow(boolean show) {
-		this.show = show;
-	}
-
-
 	// @Column(name="UNITS_KEY")
 	public short getUnitsKey() {
 		return this.unitsKey;
+	}
+
+	public void setCommitPid(int commitPid) {
+		this.commitPid = commitPid;
+	}
+
+	public void setDisplayOrder(short displayOrder) {
+		this.displayOrder = displayOrder;
+	}
+
+	public void setFieldTypeKey(short fieldTypeKey) {
+		this.fieldTypeKey = fieldTypeKey;
+	}
+
+	public void setIsDefault(boolean isDefault) {
+		this.isDefault = isDefault;
+	}
+
+	public void setIsSystem(boolean isSystem) {
+		this.isSystem = isSystem;
+	}
+
+	public void setLength(short length) {
+		this.length = length;
+	}
+
+	public void setNotepadDefnPid(int notepadDefnPid) {
+		this.notepadDefnPid = notepadDefnPid;
+	}
+
+	public void setNotepadStorageKey(short notepadStorageKey) {
+		this.notepadStorageKey = notepadStorageKey;
+	}
+
+	public void setParentSubTypeKey(short parentSubTypeKey) {
+		this.parentSubTypeKey = parentSubTypeKey;
+	}
+
+	public void setParentTypeKey(short parentTypeKey) {
+		this.parentTypeKey = parentTypeKey;
+	}
+
+	public void setRecordNum(int recordNum) {
+		this.recordNum = recordNum;
+	}
+
+	public void setReminderKey(short reminderKey) {
+		this.reminderKey = reminderKey;
+	}
+
+	public void setSetKey(short setKey) {
+		this.setKey = setKey;
+	}
+
+	public void setShow(boolean show) {
+		this.show = show;
 	}
 
 	public void setUnitsKey(short unitsKey) {

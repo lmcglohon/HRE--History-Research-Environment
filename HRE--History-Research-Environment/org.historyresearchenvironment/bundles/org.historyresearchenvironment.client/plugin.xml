@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?eclipse version="3.4"?>
 <plugin>
 
    <extension
-         id="product"
          point="org.eclipse.core.runtime.products">
       <product
             name="org.historyresearchenvironment.client"
@@ -25,66 +23,98 @@
    <extension
          point="org.eclipse.e4.ui.css.swt.theme">
       <theme
+            label="Default Theme"
             basestylesheeturi="css/default.css"
-            id="org.historyresearchenvironment.client.theme1s"
-            label="Default Theme">
+            id="org.historyresearchenvironment.client.theme1s">
       </theme>
    </extension>
    <extension
          point="com.opcoach.e4.preferences.e4PreferencePages">
       <page
+            name="History Research Environment"
             class="org.historyresearchenvironment.client.preferences.HrePreferencePage"
-            id="org.historyresearchenvironment.client.basepage"
-            name="History Research Environment">
+            id="org.historyresearchenvironment.client.basepage">
       </page>
       <page
+            name="Client"
             category="org.historyresearchenvironment.client.basepage"
             class="org.historyresearchenvironment.client.preferences.HreClientPreferencesPage"
-            id="org.historyresearchenvironment.clientpreferences"
-            name="Client">
+            id="org.historyresearchenvironment.clientpreferences">
       </page>
       <page
+            name="User"
             category="org.historyresearchenvironment.client.basepage"
             class="org.historyresearchenvironment.client.preferences.HreUserPreferencesPage"
-            id="org.historyresearchenvironment.client.userpreferences"
-            name="User">
+            id="org.historyresearchenvironment.client.userpreferences">
       </page>
       <page
+            name="Server"
             category="org.historyresearchenvironment.client.basepage"
             class="org.historyresearchenvironment.client.preferences.HREServerPreferencesPage"
-            id="org.historyresearchenvironment.serverpreferences"
-            name="Server">
+            id="org.historyresearchenvironment.serverpreferences">
       </page>
       <page
+            name="Monitor"
             category="org.historyresearchenvironment.client.basepage"
             class="org.historyresearchenvironment.client.preferences.HreMonitorPreferencesPage"
-            id="org.historyresearchenvironment.client.page4"
-            name="Monitor">
+            id="org.historyresearchenvironment.client.page4">
       </page>
       <page
+            name="GUI Language"
             category="org.historyresearchenvironment.client.basepage"
             class="org.historyresearchenvironment.client.preferences.HreGuiLanguagePreferencesPage"
-            id="org.historyresearchenvironment.client.page5"
-            name="GUI Language">
+            id="org.historyresearchenvironment.client.page5">
       </page>
       <page
+            name="Project"
             category="org.historyresearchenvironment.client.basepage"
             class="org.historyresearchenvironment.client.preferences.HreProjectPreferencesPage"
-            id="org.historyresearchenvironment.client.page6"
-            name="Project">
+            id="org.historyresearchenvironment.client.page6">
       </page>
       <page
+            name="Location"
             category="org.historyresearchenvironment.client.basepage"
             class="org.historyresearchenvironment.client.preferences.HreLocationPreferencesPage"
-            id="org.historyresearchenvironment.client.page7"
-            name="Location">
+            id="org.historyresearchenvironment.client.page7">
       </page>
       <page
+            name="Historical Date"
             category="org.historyresearchenvironment.client.basepage"
             class="org.historyresearchenvironment.client.preferences.HreHistoricalDatePreferencesPage"
-            id="org.historyresearchenvironment.client.page8"
-            name="Historical Date">
+            id="org.historyresearchenvironment.client.page8">
       </page>
+   </extension>
+   <extension
+         id="product"
+         point="org.eclipse.core.runtime.products">
+      <product
+            application="org.eclipse.e4.ui.workbench.swt.E4Application"
+            name="org.historyresearchenvironment">
+         <property
+               name="appName"
+               value="org.historyresearchenvironment">
+         </property>
+         <property
+               name="applicationCSS"
+               value="platform:/plugin/org.historyresearchenvironment.client/css/default.css">
+         </property>
+      </product>
+   </extension>
+   <extension
+         id="HRE"
+         point="org.eclipse.core.runtime.products">
+      <product
+            application="org.eclipse.e4.ui.workbench.swt.E4Application"
+            name="org.historyresearchenvironment">
+      </product>
+   </extension>
+   <extension
+         id="produc"
+         point="org.eclipse.core.runtime.products">
+      <product
+            application="org.eclipse.e4.ui.workbench.swt.E4Application"
+            name="HRE">
+      </product>
    </extension>
 
 </plugin>

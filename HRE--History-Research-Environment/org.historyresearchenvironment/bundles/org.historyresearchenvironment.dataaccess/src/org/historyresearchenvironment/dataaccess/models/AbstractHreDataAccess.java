@@ -9,12 +9,13 @@ import java.util.ArrayList;
 import java.util.logging.Logger;
 
 import org.eclipse.core.runtime.preferences.InstanceScope;
+import org.historyresearchenvironment.dataaccess.HreH2ConnectionPool;
 import org.osgi.service.prefs.Preferences;
 
 /**
  * Abstract superclass for H2 data access models.
  * 
- * @version 2018-06-26
+ * @version 2018-06-30
  * @author Michael Erichsen, &copy; History Research Environment Ltd., 2018
  *
  */
@@ -52,6 +53,7 @@ public abstract class AbstractHreDataAccess implements Serializable {
 
 	/**
 	 * Get all records.
+	 * 
 	 * @param <E>
 	 * 
 	 * @return

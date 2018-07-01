@@ -1,0 +1,21 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: HRE Sample Client
+Bundle-SymbolicName: org.historyresearchenvironment.sample.client;singleton:=true
+Bundle-Version: 0.1.0.qualifier
+Bundle-Activator: org.historyresearchenvironment.sample.client.Activator
+Bundle-Vendor: History Research Environment Ltd.
+Require-Bundle: javax.inject,
+ org.eclipse.osgi,
+ org.eclipse.jface,
+ org.eclipse.e4.ui.model.workbench,
+ org.eclipse.e4.ui.di,
+ org.eclipse.e4.ui.services,
+ org.eclipse.e4.core.di.annotations,
+ org.eclipse.core.runtime,
+ org.historyresearchenvironment.client,
+ org.historyresearchenvironment.server
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Automatic-Module-Name: org.historyresearchenvironment.sample.client
+Import-Package: javax.annotation;version="1.2.0"
+Bundle-ActivationPolicy: lazy

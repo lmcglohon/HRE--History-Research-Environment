@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="ASCII"?>
+<fragment:ModelFragments xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:advanced="http://www.eclipse.org/ui/2010/UIModel/application/ui/advanced" xmlns:basic="http://www.eclipse.org/ui/2010/UIModel/application/ui/basic" xmlns:commands="http://www.eclipse.org/ui/2010/UIModel/application/commands" xmlns:fragment="http://www.eclipse.org/ui/2010/UIModel/fragment" xmlns:menu="http://www.eclipse.org/ui/2010/UIModel/application/ui/menu" xmi:id="_Dm8ekHxjEei8I8MlktFKsw">
+  <fragments xsi:type="fragment:StringModelFragment" xmi:id="_CK2ekHxkEei8I8MlktFKsw" featurename="commands" parentElementId="org.historyresearchenvironment.client.application">
+    <elements xsi:type="commands:Command" xmi:id="_Q8zIUH0GEeiesK64SdEsBQ" elementId="org.historyresearchenvironment.databaseadmin.client.command.perspectivedbadmin" commandName="PerspectiveDbadmin"/>
+    <elements xsi:type="commands:Command" xmi:id="_HbMW0HxkEei8I8MlktFKsw" elementId="org.historyresearchenvironment.databaseadmin.client.command.tableeditoropen" commandName="Table Editor Open"/>
+    <elements xsi:type="commands:Command" xmi:id="_zHkBYHxqEeikP7Mrub0BrQ" elementId="org.historyresearchenvironment.databaseadmin.client.command.tablenavigatoropen" commandName="Table Navigator Open"/>
+  </fragments>
+  <fragments xsi:type="fragment:StringModelFragment" xmi:id="_PX9ZEHxkEei8I8MlktFKsw" featurename="handlers" parentElementId="org.historyresearchenvironment.client.application">
+    <elements xsi:type="commands:Handler" xmi:id="_ad2n0H0GEeiesK64SdEsBQ" elementId="org.historyresearchenvironment.databaseadmin.client.handler.2" contributionURI="bundleclass://org.historyresearchenvironment.databaseadmin.client/org.historyresearchenvironment.databaseadmin.handlers.AdministrationPerspectiveHandler" command="_Q8zIUH0GEeiesK64SdEsBQ"/>
+    <elements xsi:type="commands:Handler" xmi:id="_STdg4HxkEei8I8MlktFKsw" elementId="org.historyresearchenvironment.databaseadmin.client.handler.0" contributionURI="bundleclass://org.historyresearchenvironment.databaseadmin.client/org.historyresearchenvironment.databaseadmin.handlers.TableEditorHandler" command="_HbMW0HxkEei8I8MlktFKsw"/>
+    <elements xsi:type="commands:Handler" xmi:id="_4Uq_cHxqEeikP7Mrub0BrQ" elementId="org.historyresearchenvironment.databaseadmin.client.handler.1" contributionURI="bundleclass://org.historyresearchenvironment.databaseadmin.client/org.historyresearchenvironment.databaseadmin.handlers.TableNavigatorHandler" command="_zHkBYHxqEeikP7Mrub0BrQ"/>
+  </fragments>
+  <fragments xsi:type="fragment:StringModelFragment" xmi:id="_ZClEQHxkEei8I8MlktFKsw" featurename="children" parentElementId="org.historyresearchenvironment.client.menu.perspectives">
+    <elements xsi:type="menu:HandledMenuItem" xmi:id="_pNmZwH0GEeiesK64SdEsBQ" elementId="org.historyresearchenvironment.databaseadmin.client.handledmenuitem.databaseadministrationperspective" label="Database Administration Perspective" tooltip="Database Administration Perspective" command="_Q8zIUH0GEeiesK64SdEsBQ"/>
+  </fragments>
+  <fragments xsi:type="fragment:StringModelFragment" xmi:id="_eFgV4H0EEeiesK64SdEsBQ" featurename="children" parentElementId="org.historyresearchenvironment.client.perspectivestack.0">
+    <elements xsi:type="advanced:Perspective" xmi:id="_lZx0wH0EEeiesK64SdEsBQ" elementId="org.historyresearchenvironment.perspective.databaseadministration" label="Database Administration" tooltip="Database Administration">
+      <children xsi:type="basic:PartSashContainer" xmi:id="_tYGWMH0EEeiesK64SdEsBQ" elementId="org.historyresearchenvironment.databaseadmin.client.partsashcontainer.0" containerData="10000" horizontal="true">
+        <children xsi:type="basic:PartSashContainer" xmi:id="_uXqVwH0EEeiesK64SdEsBQ" elementId="org.historyresearchenvironment.databaseadmin.client.partsashcontainer.1" containerData="3000">
+          <children xsi:type="basic:PartStack" xmi:id="_xgB04H0EEeiesK64SdEsBQ" elementId="org.historyresearchenvironment.databaseadmin.client.partstack.0">
+            <children xsi:type="basic:Part" xmi:id="_zV0l8H0REei1fZ1dnw5g4Q" elementId="org.historyresearchenvironment.databaseadmin.client.part.tables" contributionURI="bundleclass://org.historyresearchenvironment.databaseadmin.client/org.historyresearchenvironment.databaseadmin.parts.H2DatabaseNavigator" label="Tables" tooltip="Tables" closeable="true"/>
+          </children>
+        </children>
+        <children xsi:type="basic:PartSashContainer" xmi:id="_upu9MH0EEeiesK64SdEsBQ" elementId="org.historyresearchenvironment.databaseadmin.client.partsashcontainer.2" containerData="7000">
+          <children xsi:type="basic:PartStack" xmi:id="_y5PDgH0EEeiesK64SdEsBQ" elementId="org.historyresearchenvironment.databaseadmin.client.partstack.1" containerData="8000">
+            <children xsi:type="basic:Part" xmi:id="_DGgQcH0SEei1fZ1dnw5g4Q" elementId="org.historyresearchenvironment.databaseadmin.client.part.welcome" contributionURI="bundleclass://org.historyresearchenvironment.databaseadmin.client/org.historyresearchenvironment.databaseadmin.parts.WelcomePart" label="Welcome" tooltip="Welcome" closeable="true"/>
+          </children>
+          <children xsi:type="basic:PartStack" xmi:id="_zqUiMH0EEeiesK64SdEsBQ" elementId="org.historyresearchenvironment.databaseadmin.client.partstack.2" containerData="2000"/>
+        </children>
+      </children>
+    </elements>
+  </fragments>
+</fragment:ModelFragments>

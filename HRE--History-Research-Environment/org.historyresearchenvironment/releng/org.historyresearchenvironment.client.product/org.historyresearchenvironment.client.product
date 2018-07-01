@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?pde version="3.5"?>
 
-<product name="org.historyresearchenvironment.client" uid="HRE Client" id="org.historyresearchenvironment.client.product" application="org.eclipse.e4.ui.workbench.swt.E4Application" version="0.1.0.qualifier" useFeatures="true" includeLaunchers="true">
+<product name="org.historyresearchenvironment" uid="HRE" id="org.historyresearchenvironment.client.product" application="org.eclipse.e4.ui.workbench.swt.E4Application" version="0.1.0.qualifier" useFeatures="true" includeLaunchers="true">
 
    <configIni use="default">
    </configIni>
@@ -17,6 +17,15 @@
 
    <splash
       location="org.historyresearchenvironment.client" />
+   <launcher>
+      <win useIco="false">
+         <bmp/>
+      </win>
+   </launcher>
+
+   <vm>
+   </vm>
+
    <plugins>
       <plugin id="com.ibm.icu"/>
       <plugin id="javax.annotation"/>
@@ -95,6 +104,8 @@
       <feature id="org.eclipse.e4.rcp"/>
       <feature id="org.eclipse.emf.ecore"/>
       <feature id="org.eclipse.emf.common"/>
+      <feature id="org.historyresearchenvironment.sample.feature" version="0.1.0.qualifier"/>
+      <feature id="org.historyresearchenvironment.databaseadmin.feature" version="0.1.0.qualifier"/>
    </features>
 
    <configurations>
@@ -104,5 +115,13 @@
       <plugin id="org.eclipse.equinox.event" autoStart="true" startLevel="2" />
       <plugin id="org.eclipse.equinox.simpleconfigurator" autoStart="true" startLevel="1" />
    </configurations>
+
+   <preferencesInfo>
+      <targetfile overwrite="false"/>
+   </preferencesInfo>
+
+   <cssInfo>
+      <file path="/org.historyresearchenvironment.client/css/default.css"/>
+   </cssInfo>
 
 </product>

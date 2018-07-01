@@ -23,3 +23,11 @@ JAVA_HOME=C:\Program Files\Java\jdk1.8.0_164
 Then the executable should be able to find Java.
 
 HRE starts up blank, but can create an empty HRE H2 database for you.
+
+Troubleshooting
+
+If you get this error:
+
+Unresolved requirement: Require-Capability: osgi.extender
+
+Then you need to edit the Plug-ins tab on the Run Configuration, check org.eclipse.equinox.ds and click "Add Required Plug-ins". 

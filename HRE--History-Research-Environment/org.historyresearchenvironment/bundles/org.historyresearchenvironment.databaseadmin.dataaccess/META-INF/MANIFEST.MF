@@ -1,0 +1,14 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Dataaccess
+Bundle-SymbolicName: org.historyresearchenvironment.databaseadmin.dataaccess
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: org.historyresearchenvironment.databaseadmin.dataaccess.Activator
+Require-Bundle: org.eclipse.core.runtime,
+ org.historyresearchenvironment.dataaccess,
+ org.eclipse.jface
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Automatic-Module-Name: org.historyresearchenvironment.databaseadmin.dataaccess
+Bundle-ActivationPolicy: lazy
+Export-Package: org.historyresearchenvironment.databaseadmin.dataaccess.models,
+ org.historyresearchenvironment.databaseadmin.dataaccess.providers

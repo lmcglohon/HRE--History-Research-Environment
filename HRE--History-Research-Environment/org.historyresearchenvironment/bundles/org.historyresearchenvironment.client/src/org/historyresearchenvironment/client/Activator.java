@@ -5,7 +5,7 @@ import java.util.logging.Logger;
 
 import org.eclipse.core.runtime.preferences.InstanceScope;
 import org.eclipse.osgi.service.environment.EnvironmentInfo;
-import org.historyresearchenvironment.dataaccess.models.HreH2ConnectionPool;
+import org.historyresearchenvironment.dataaccess.HreH2ConnectionPool;
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.ServiceReference;

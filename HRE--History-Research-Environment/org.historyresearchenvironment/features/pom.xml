@@ -17,7 +17,8 @@
 
 	<modules>
 		<module>org.historyresearchenvironment.client.feature</module>
-		
+		<module>org.historyresearchenvironment.sample.feature</module>
+		<module>org.historyresearchenvironment.databaseadmin.feature</module>
 	</modules>
 </project>
 

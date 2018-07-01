@@ -2,7 +2,6 @@ package org.historyresearchenvironment.dataaccess.models;
 
 import java.io.Serializable;
 
-
 /**
  * The persistent class for the THEME_DEFNS database table.
  * 
@@ -30,6 +29,50 @@ public class ThemeDefn implements Serializable {
 	public ThemeDefn() {
 	}
 
+	// @Column(name="COMMIT_PID", nullable=false)
+	public int getCommitPid() {
+		return this.commitPid;
+	}
+
+	// @Column(name="DISPLAY_ORDER")
+	public short getDisplayOrder() {
+		return this.displayOrder;
+	}
+
+	// @Column(name="ENTITY_SUB_TYPE_KEY")
+	public short getEntitySubTypeKey() {
+		return this.entitySubTypeKey;
+	}
+
+	// @Column(name="ENTITY_TYPE_KEY")
+	public short getEntityTypeKey() {
+		return this.entityTypeKey;
+	}
+
+	// @Column(name="IS_DEFAULT")
+	public boolean getIsDefault() {
+		return this.isDefault;
+	}
+
+	// @Column(name="IS_MAIN_THEME")
+	public boolean getIsMainTheme() {
+		return this.isMainTheme;
+	}
+
+	// @Column(name="IS_SYSTEM")
+	public boolean getIsSystem() {
+		return this.isSystem;
+	}
+
+	// @Column(name="MAIN_THEME_KEY")
+	public short getMainThemeKey() {
+		return this.mainThemeKey;
+	}
+
+	// @Column(name="PLUGIN_KEY")
+	public short getPluginKey() {
+		return this.pluginKey;
+	}
 
 	// @Id
 	// @GeneratedValue(strategy=GenerationType.AUTO)
@@ -38,134 +81,76 @@ public class ThemeDefn implements Serializable {
 		return this.recordNum;
 	}
 
-	public void setRecordNum(int recordNum) {
-		this.recordNum = recordNum;
-	}
-
-
-	// @Column(name="COMMIT_PID", nullable=false)
-	public int getCommitPid() {
-		return this.commitPid;
-	}
-
-	public void setCommitPid(int commitPid) {
-		this.commitPid = commitPid;
-	}
-
-
-	// @Column(name="DISPLAY_ORDER")
-	public short getDisplayOrder() {
-		return this.displayOrder;
-	}
-
-	public void setDisplayOrder(short displayOrder) {
-		this.displayOrder = displayOrder;
-	}
-
-
-	// @Column(name="ENTITY_SUB_TYPE_KEY")
-	public short getEntitySubTypeKey() {
-		return this.entitySubTypeKey;
-	}
-
-	public void setEntitySubTypeKey(short entitySubTypeKey) {
-		this.entitySubTypeKey = entitySubTypeKey;
-	}
-
-
-	// @Column(name="ENTITY_TYPE_KEY")
-	public short getEntityTypeKey() {
-		return this.entityTypeKey;
-	}
-
-	public void setEntityTypeKey(short entityTypeKey) {
-		this.entityTypeKey = entityTypeKey;
-	}
-
-
-	// @Column(name="IS_DEFAULT")
-	public boolean getIsDefault() {
-		return this.isDefault;
-	}
-
-	public void setIsDefault(boolean isDefault) {
-		this.isDefault = isDefault;
-	}
-
-
-	// @Column(name="IS_MAIN_THEME")
-	public boolean getIsMainTheme() {
-		return this.isMainTheme;
-	}
-
-	public void setIsMainTheme(boolean isMainTheme) {
-		this.isMainTheme = isMainTheme;
-	}
-
-
-	// @Column(name="IS_SYSTEM")
-	public boolean getIsSystem() {
-		return this.isSystem;
-	}
-
-	public void setIsSystem(boolean isSystem) {
-		this.isSystem = isSystem;
-	}
-
-
-	// @Column(name="MAIN_THEME_KEY")
-	public short getMainThemeKey() {
-		return this.mainThemeKey;
-	}
-
-	public void setMainThemeKey(short mainThemeKey) {
-		this.mainThemeKey = mainThemeKey;
-	}
-
-
-	// @Column(name="PLUGIN_KEY")
-	public short getPluginKey() {
-		return this.pluginKey;
-	}
-
-	public void setPluginKey(short pluginKey) {
-		this.pluginKey = pluginKey;
-	}
-
-
 	// @Column(name="REMINDER_KEY")
 	public short getReminderKey() {
 		return this.reminderKey;
 	}
-
-	public void setReminderKey(short reminderKey) {
-		this.reminderKey = reminderKey;
-	}
-
 
 	// @Column(name="SET_KEY", nullable=false)
 	public short getSetKey() {
 		return this.setKey;
 	}
 
-	public void setSetKey(short setKey) {
-		this.setKey = setKey;
-	}
-
-
 	// @Column(name="\"SHOW\"")
 	public boolean getShow() {
 		return this.show;
 	}
 
-	public void setShow(boolean show) {
-		this.show = show;
-	}
-
-
 	// @Column(name="THEME_DEFN_PID", nullable=false)
 	public int getThemeDefnPid() {
 		return this.themeDefnPid;
+	}
+
+	public void setCommitPid(int commitPid) {
+		this.commitPid = commitPid;
+	}
+
+	public void setDisplayOrder(short displayOrder) {
+		this.displayOrder = displayOrder;
+	}
+
+	public void setEntitySubTypeKey(short entitySubTypeKey) {
+		this.entitySubTypeKey = entitySubTypeKey;
+	}
+
+	public void setEntityTypeKey(short entityTypeKey) {
+		this.entityTypeKey = entityTypeKey;
+	}
+
+	public void setIsDefault(boolean isDefault) {
+		this.isDefault = isDefault;
+	}
+
+	public void setIsMainTheme(boolean isMainTheme) {
+		this.isMainTheme = isMainTheme;
+	}
+
+	public void setIsSystem(boolean isSystem) {
+		this.isSystem = isSystem;
+	}
+
+	public void setMainThemeKey(short mainThemeKey) {
+		this.mainThemeKey = mainThemeKey;
+	}
+
+	public void setPluginKey(short pluginKey) {
+		this.pluginKey = pluginKey;
+	}
+
+	public void setRecordNum(int recordNum) {
+		this.recordNum = recordNum;
+	}
+
+	public void setReminderKey(short reminderKey) {
+		this.reminderKey = reminderKey;
+	}
+
+	public void setSetKey(short setKey) {
+		this.setKey = setKey;
+	}
+
+	public void setShow(boolean show) {
+		this.show = show;
 	}
 
 	public void setThemeDefnPid(int themeDefnPid) {

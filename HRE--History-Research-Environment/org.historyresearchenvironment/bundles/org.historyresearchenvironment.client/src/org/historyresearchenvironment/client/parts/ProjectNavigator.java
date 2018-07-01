@@ -41,7 +41,7 @@ import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.swt.widgets.TableItem;
 import org.historyresearchenvironment.client.models.ProjectList;
 import org.historyresearchenvironment.client.models.ProjectModel;
-import org.historyresearchenvironment.dataaccess.models.HreH2ConnectionPool;
+import org.historyresearchenvironment.dataaccess.HreH2ConnectionPool;
 import org.osgi.service.prefs.BackingStoreException;
 import org.osgi.service.prefs.Preferences;
 

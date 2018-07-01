@@ -5,15 +5,15 @@ Bundle-SymbolicName: com.opcoach.e4.preferences;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-Vendor: OPCOACH
 Export-Package: com.opcoach.e4.preferences;
-   uses:="org.eclipse.core.runtime,
-    org.eclipse.jface.util,
-    org.eclipse.e4.core.contexts,
-    org.eclipse.jface.preference,
-    org.eclipse.swt.widgets,
-    org.eclipse.core.runtime.preferences,
-    org.eclipse.e4.core.services.log,
-    org.eclipse.core.commands.common",
-  com.opcoach.e4.preferences.handlers;uses:="com.opcoach.e4.preferences,org.eclipse.swt.widgets"
+  uses:="org.eclipse.core.runtime,
+   org.eclipse.jface.util,
+   org.eclipse.e4.core.contexts,
+   org.eclipse.jface.preference,
+   org.eclipse.swt.widgets,
+   org.eclipse.core.runtime.preferences,
+   org.eclipse.e4.core.services.log,
+   org.eclipse.core.commands.common",
+ com.opcoach.e4.preferences.handlers;uses:="com.opcoach.e4.preferences,org.eclipse.swt.widgets"
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.e4.core.di,
  org.eclipse.e4.core.services,

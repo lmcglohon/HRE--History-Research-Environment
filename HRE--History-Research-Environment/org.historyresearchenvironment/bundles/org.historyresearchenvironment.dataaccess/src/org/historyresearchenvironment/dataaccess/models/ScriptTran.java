@@ -2,7 +2,6 @@ package org.historyresearchenvironment.dataaccess.models;
 
 import java.io.Serializable;
 
-
 /**
  * The persistent class for the SCRIPT_TRANS database table.
  * 
@@ -23,6 +22,20 @@ public class ScriptTran implements Serializable {
 	public ScriptTran() {
 	}
 
+	// @Column(name="COMMIT_PID", nullable=false)
+	public int getCommitPid() {
+		return this.commitPid;
+	}
+
+	// @Column(name="LANG_CODE", length=4)
+	public String getLangCode() {
+		return this.langCode;
+	}
+
+	// @Column(name="PARENT_PID")
+	public int getParentPid() {
+		return this.parentPid;
+	}
 
 	// @Id
 	// @GeneratedValue(strategy=GenerationType.AUTO)
@@ -31,64 +44,43 @@ public class ScriptTran implements Serializable {
 		return this.recordNum;
 	}
 
-	public void setRecordNum(int recordNum) {
-		this.recordNum = recordNum;
-	}
-
-
-	// @Column(name="COMMIT_PID", nullable=false)
-	public int getCommitPid() {
-		return this.commitPid;
-	}
-
-	public void setCommitPid(int commitPid) {
-		this.commitPid = commitPid;
-	}
-
-
-	// @Column(name="LANG_CODE", length=4)
-	public String getLangCode() {
-		return this.langCode;
-	}
-
-	public void setLangCode(String langCode) {
-		this.langCode = langCode;
-	}
-
-
-	// @Column(name="PARENT_PID")
-	public int getParentPid() {
-		return this.parentPid;
-	}
-
-	public void setParentPid(int parentPid) {
-		this.parentPid = parentPid;
-	}
-
-
 	// @Column(length=32000)
 	public String getScript() {
 		return this.script;
 	}
-
-	public void setScript(String script) {
-		this.script = script;
-	}
-
 
 	// @Column(name="SCRIPT_TRAN_PID", nullable=false)
 	public int getScriptTranPid() {
 		return this.scriptTranPid;
 	}
 
-	public void setScriptTranPid(int scriptTranPid) {
-		this.scriptTranPid = scriptTranPid;
-	}
-
-
 	// @Column(name="SET_KEY", nullable=false)
 	public short getSetKey() {
 		return this.setKey;
+	}
+
+	public void setCommitPid(int commitPid) {
+		this.commitPid = commitPid;
+	}
+
+	public void setLangCode(String langCode) {
+		this.langCode = langCode;
+	}
+
+	public void setParentPid(int parentPid) {
+		this.parentPid = parentPid;
+	}
+
+	public void setRecordNum(int recordNum) {
+		this.recordNum = recordNum;
+	}
+
+	public void setScript(String script) {
+		this.script = script;
+	}
+
+	public void setScriptTranPid(int scriptTranPid) {
+		this.scriptTranPid = scriptTranPid;
 	}
 
 	public void setSetKey(short setKey) {

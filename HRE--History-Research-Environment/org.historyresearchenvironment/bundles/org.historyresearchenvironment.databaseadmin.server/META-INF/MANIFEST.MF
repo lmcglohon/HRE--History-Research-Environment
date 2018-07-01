@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: HRE Database Admin Server
+Bundle-SymbolicName: org.historyresearchenvironment.databaseadmin.server
+Bundle-Version: 0.1.0.qualifier
+Bundle-Activator: org.historyresearchenvironment.databaseadmin.server.Activator
+Require-Bundle: org.eclipse.core.runtime
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Automatic-Module-Name: org.historyresearchenvironment.databaseadmin.server
+Bundle-ActivationPolicy: lazy

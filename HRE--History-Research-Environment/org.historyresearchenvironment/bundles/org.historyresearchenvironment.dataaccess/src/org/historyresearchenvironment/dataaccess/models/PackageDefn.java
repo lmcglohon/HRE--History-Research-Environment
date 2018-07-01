@@ -2,7 +2,6 @@ package org.historyresearchenvironment.dataaccess.models;
 
 import java.io.Serializable;
 
-
 /**
  * The persistent class for the PACKAGE_DEFNS database table.
  * 
@@ -28,6 +27,40 @@ public class PackageDefn implements Serializable {
 	public PackageDefn() {
 	}
 
+	// @Column(name="COMMIT_PID", nullable=false)
+	public int getCommitPid() {
+		return this.commitPid;
+	}
+
+	// @Column(name="DISPLAY_ORDER")
+	public short getDisplayOrder() {
+		return this.displayOrder;
+	}
+
+	// @Column(name="IS_DEFAULT")
+	public boolean getIsDefault() {
+		return this.isDefault;
+	}
+
+	// @Column(name="IS_MAIN_PCKG")
+	public boolean getIsMainPckg() {
+		return this.isMainPckg;
+	}
+
+	// @Column(name="IS_NATIVE")
+	public boolean getIsNative() {
+		return this.isNative;
+	}
+
+	// @Column(name="PACKAGE_DEFN_PID", nullable=false)
+	public int getPackageDefnPid() {
+		return this.packageDefnPid;
+	}
+
+	// @Column(name="PARENT_SCHEMA_KEY")
+	public short getParentSchemaKey() {
+		return this.parentSchemaKey;
+	}
 
 	// @Id
 	// @GeneratedValue(strategy=GenerationType.AUTO)
@@ -36,114 +69,68 @@ public class PackageDefn implements Serializable {
 		return this.recordNum;
 	}
 
-	public void setRecordNum(int recordNum) {
-		this.recordNum = recordNum;
-	}
-
-
-	// @Column(name="COMMIT_PID", nullable=false)
-	public int getCommitPid() {
-		return this.commitPid;
-	}
-
-	public void setCommitPid(int commitPid) {
-		this.commitPid = commitPid;
-	}
-
-
-	// @Column(name="DISPLAY_ORDER")
-	public short getDisplayOrder() {
-		return this.displayOrder;
-	}
-
-	public void setDisplayOrder(short displayOrder) {
-		this.displayOrder = displayOrder;
-	}
-
-
-	// @Column(name="IS_DEFAULT")
-	public boolean getIsDefault() {
-		return this.isDefault;
-	}
-
-	public void setIsDefault(boolean isDefault) {
-		this.isDefault = isDefault;
-	}
-
-
-	// @Column(name="IS_MAIN_PCKG")
-	public boolean getIsMainPckg() {
-		return this.isMainPckg;
-	}
-
-	public void setIsMainPckg(boolean isMainPckg) {
-		this.isMainPckg = isMainPckg;
-	}
-
-
-	// @Column(name="IS_NATIVE")
-	public boolean getIsNative() {
-		return this.isNative;
-	}
-
-	public void setIsNative(boolean isNative) {
-		this.isNative = isNative;
-	}
-
-
-	// @Column(name="PACKAGE_DEFN_PID", nullable=false)
-	public int getPackageDefnPid() {
-		return this.packageDefnPid;
-	}
-
-	public void setPackageDefnPid(int packageDefnPid) {
-		this.packageDefnPid = packageDefnPid;
-	}
-
-
-	// @Column(name="PARENT_SCHEMA_KEY")
-	public short getParentSchemaKey() {
-		return this.parentSchemaKey;
-	}
-
-	public void setParentSchemaKey(short parentSchemaKey) {
-		this.parentSchemaKey = parentSchemaKey;
-	}
-
-
 	// @Column(name="REMINDER_KEY")
 	public short getReminderKey() {
 		return this.reminderKey;
 	}
-
-	public void setReminderKey(short reminderKey) {
-		this.reminderKey = reminderKey;
-	}
-
 
 	// @Column(name="SET_KEY", nullable=false)
 	public short getSetKey() {
 		return this.setKey;
 	}
 
-	public void setSetKey(short setKey) {
-		this.setKey = setKey;
-	}
-
-
 	// @Column(name="\"SHOW\"")
 	public boolean getShow() {
 		return this.show;
 	}
 
-	public void setShow(boolean show) {
-		this.show = show;
-	}
-
-
 	// @Column(name="VERSON_NAME", length=160)
 	public String getVersonName() {
 		return this.versonName;
+	}
+
+	public void setCommitPid(int commitPid) {
+		this.commitPid = commitPid;
+	}
+
+	public void setDisplayOrder(short displayOrder) {
+		this.displayOrder = displayOrder;
+	}
+
+	public void setIsDefault(boolean isDefault) {
+		this.isDefault = isDefault;
+	}
+
+	public void setIsMainPckg(boolean isMainPckg) {
+		this.isMainPckg = isMainPckg;
+	}
+
+	public void setIsNative(boolean isNative) {
+		this.isNative = isNative;
+	}
+
+	public void setPackageDefnPid(int packageDefnPid) {
+		this.packageDefnPid = packageDefnPid;
+	}
+
+	public void setParentSchemaKey(short parentSchemaKey) {
+		this.parentSchemaKey = parentSchemaKey;
+	}
+
+	public void setRecordNum(int recordNum) {
+		this.recordNum = recordNum;
+	}
+
+	public void setReminderKey(short reminderKey) {
+		this.reminderKey = reminderKey;
+	}
+
+	public void setSetKey(short setKey) {
+		this.setKey = setKey;
+	}
+
+	public void setShow(boolean show) {
+		this.show = show;
 	}
 
 	public void setVersonName(String versonName) {

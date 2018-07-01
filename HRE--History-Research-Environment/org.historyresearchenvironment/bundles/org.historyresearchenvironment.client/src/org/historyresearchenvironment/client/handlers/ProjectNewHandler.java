@@ -29,15 +29,15 @@ import org.eclipse.swt.widgets.Shell;
 import org.historyresearchenvironment.client.dialogs.ProjectNameSummaryDialog;
 import org.historyresearchenvironment.client.models.ProjectList;
 import org.historyresearchenvironment.client.models.ProjectModel;
-import org.historyresearchenvironment.dataaccess.models.HreH2ConnectionPool;
-import org.historyresearchenvironment.dataaccess.models.providers.NewDatabaseProvider;
+import org.historyresearchenvironment.dataaccess.HreH2ConnectionPool;
+import org.historyresearchenvironment.dataaccess.providers.NewDatabaseProvider;
 import org.osgi.service.prefs.BackingStoreException;
 import org.osgi.service.prefs.Preferences;
 
 /**
  * Create a new HRE project database.
  * 
- * @version 2018-06-26
+ * @version 2018-06-30
  * @author Michael Erichsen, &copy; History Research Environment Ltd., 2018
  *
  */
@@ -149,7 +149,7 @@ public class ProjectNewHandler {
 			h2dnPart.setCloseable(true);
 			h2dnPart.setVisible(true);
 			h2dnPart.setContributionURI(
-					"bundleclass://org.historyresearchenvironment.client/org.historyresearchenvironment.databaseadmin.parts.H2DatabaseNavigator");
+					"bundleclass://org.historyresearchenvironment.databaseadmin.client/org.historyresearchenvironment.databaseadmin.parts.H2DatabaseNavigator");
 			stacks.get(stacks.size() - 2).getChildren().add(h2dnPart);
 			partService.showPart(h2dnPart, PartState.ACTIVATE);
 

@@ -5,32 +5,41 @@ Bundle-SymbolicName: org.historyresearchenvironment.client;singleton:=true
 Bundle-Version: 0.1.0.qualifier
 Bundle-Activator: org.historyresearchenvironment.client.Activator
 Bundle-Vendor: History Research Environment Ltd.
-Export-Package: org.historyresearchenvironment.databaseadmin.handlers;uses:="org.eclipse.e4.ui.model.application,org.eclipse.e4.ui.workbench.modeling",
- org.historyresearchenvironment.databaseadmin.listeners;uses:="org.eclipse.swt.events,org.eclipse.swt.widgets",
- org.historyresearchenvironment.databaseadmin.parts;uses:="org.eclipse.swt.widgets"
-Require-Bundle: javax.inject,
- org.eclipse.swt,
- org.eclipse.e4.ui.model.workbench,
+Export-Package: org.eclipse.wb.swt;uses:="org.eclipse.swt.graphics,org.eclipse.jface.resource",
+ org.historyresearchenvironment.client;uses:="org.osgi.framework,org.eclipse.e4.core.contexts",
+ org.historyresearchenvironment.client.dialogs;uses:="org.eclipse.swt.graphics,org.eclipse.swt.widgets,org.eclipse.jface.dialogs",
+ org.historyresearchenvironment.client.handlers;
+  uses:="org.eclipse.e4.ui.model.application,
+   org.eclipse.swt.widgets,
+   org.eclipse.e4.ui.workbench,
+   org.eclipse.e4.ui.workbench.modeling",
+ org.historyresearchenvironment.client.models,
+ org.historyresearchenvironment.client.parts;
+  uses:="org.osgi.service.prefs,
+   org.eclipse.swt.graphics,
+   org.eclipse.swt.widgets,
+   org.eclipse.e4.core.services.events,
+   org.historyresearchenvironment.client.serverinterface,
+   org.historyresearchenvironment.server",
+ org.historyresearchenvironment.client.preferences;
+  uses:="org.eclipse.jface.util,
+   org.eclipse.jface.resource,
+   org.eclipse.jface.preference,
+   org.eclipse.swt.widgets",
+ org.historyresearchenvironment.client.serverinterface;uses:="org.historyresearchenvironment.server"
+Require-Bundle: org.eclipse.e4.ui.model.workbench,
  org.eclipse.jface,
- org.eclipse.e4.ui.services,
  org.eclipse.e4.ui.workbench,
  org.eclipse.e4.core.di,
  org.eclipse.e4.ui.di,
  org.eclipse.e4.core.contexts,
  org.eclipse.core.runtime,
  org.eclipse.e4.core.commands,
- org.eclipse.e4.ui.css.swt.theme,
  com.opcoach.e4.preferences,
  org.eclipse.e4.core.services,
- org.h2,
- org.eclipse.e4.core.di.extensions,
- org.eclipse.equinox.preferences,
  org.eclipse.help.base,
- org.eclipse.equinox.http.registry,
- org.historyresearchenvironment.dataaccess
+ org.historyresearchenvironment.dataaccess,
+ org.historyresearchenvironment.server
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy
-Import-Package: javax.inject;version="1.0.0",
- org.historyresearchenvironment.dataaccess.models.models,
- org.historyresearchenvironment.dataaccess.models.providers
 Automatic-Module-Name: org.historyresearchenvironment.client

@@ -18,7 +18,7 @@ import org.eclipse.jface.preference.StringFieldEditor;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.util.PropertyChangeEvent;
 import org.eclipse.swt.widgets.Composite;
-import org.historyresearchenvironment.dataaccess.models.HreH2ConnectionPool;
+import org.historyresearchenvironment.dataaccess.HreH2ConnectionPool;
 
 /**
  * General client preferences page.

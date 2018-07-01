@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: HRE Database Admin Help
+Bundle-SymbolicName: org.historyresearchenvironment.databaseadmin.help;singleton:=true
+Bundle-Version: 0.1.0.qualifier
+Bundle-Activator: org.historyresearchenvironment.databaseadmin.help.Activator
+Require-Bundle: org.eclipse.core.runtime
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Automatic-Module-Name: org.historyresearchenvironment.databaseadmin.help
+Bundle-ActivationPolicy: lazy
