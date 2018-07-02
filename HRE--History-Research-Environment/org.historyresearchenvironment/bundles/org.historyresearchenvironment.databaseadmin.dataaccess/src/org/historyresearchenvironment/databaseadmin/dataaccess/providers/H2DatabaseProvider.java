@@ -22,7 +22,7 @@ import org.osgi.service.prefs.Preferences;
  *
  */
 public class H2DatabaseProvider implements IContentProvider {
-	private Preferences preferences = InstanceScope.INSTANCE.getNode("org.historyresearchenvironment.client");
+	private Preferences preferences = InstanceScope.INSTANCE.getNode("org.historyresearchenvironment");
 	private final static Logger LOGGER = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 	private Connection conn = null;
 

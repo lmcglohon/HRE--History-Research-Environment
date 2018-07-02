@@ -22,7 +22,7 @@ import org.osgi.service.prefs.Preferences;
 public abstract class AbstractHreDataAccess implements Serializable {
 	private static final long serialVersionUID = 1L;
 	protected final static Logger LOGGER = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
-	protected Preferences preferences = InstanceScope.INSTANCE.getNode("org.historyresearchenvironment.client");
+	protected Preferences preferences = InstanceScope.INSTANCE.getNode("org.historyresearchenvironment");
 	protected PreparedStatement ps;
 	protected ResultSet rs;
 	protected Connection conn;

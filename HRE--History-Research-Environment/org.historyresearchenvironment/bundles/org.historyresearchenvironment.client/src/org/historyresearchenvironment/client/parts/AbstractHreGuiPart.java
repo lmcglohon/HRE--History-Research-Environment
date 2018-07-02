@@ -21,7 +21,7 @@ import org.osgi.service.prefs.Preferences;
  *
  */
 public abstract class AbstractHreGuiPart {
-	protected static Preferences preferences = InstanceScope.INSTANCE.getNode("org.historyresearchenvironment.client");
+	protected static Preferences preferences = InstanceScope.INSTANCE.getNode("org.historyresearchenvironment");
 
 	protected final static Logger LOGGER = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 	@Inject

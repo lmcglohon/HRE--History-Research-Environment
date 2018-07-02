@@ -28,7 +28,7 @@ public class ProjectList {
 	private static IEventBroker eventBroker;
 
 	private final static Logger LOGGER = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
-	private static Preferences preferences = InstanceScope.INSTANCE.getNode("org.historyresearchenvironment.client");
+	private static Preferences preferences = InstanceScope.INSTANCE.getNode("org.historyresearchenvironment");
 	private static List<ProjectModel> models;
 
 	/**

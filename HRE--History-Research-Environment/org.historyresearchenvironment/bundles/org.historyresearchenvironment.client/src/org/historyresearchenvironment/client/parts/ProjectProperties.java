@@ -32,7 +32,7 @@ import org.historyresearchenvironment.client.models.ProjectModel;
  */
 public class ProjectProperties {
 	// private static Preferences preferences =
-	// InstanceScope.INSTANCE.getNode("org.historyresearchenvironment.client");
+	// InstanceScope.INSTANCE.getNode("org.historyresearchenvironment");
 	private final static Logger LOGGER = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
 	private Table table;

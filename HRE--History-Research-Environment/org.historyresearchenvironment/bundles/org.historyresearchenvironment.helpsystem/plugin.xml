@@ -51,6 +51,10 @@
             file="xml/tocrodstest.xml"
             primary="false">
       </toc>
+      <toc
+            file="xml/javadoc.xml"
+            primary="false">
+      </toc>
    </extension>
    <extension
          point="org.eclipse.help.index">

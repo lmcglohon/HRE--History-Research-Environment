@@ -9,4 +9,7 @@
  <topic href="html/wordtoeclipsehelp/index.html" label="Convert Word to Eclipse Help System">
     <anchor id="wordtoeclipsehelp"/>
  </topic>
+ <topic href="html/javadoc/index.html" label="Javadoc">
+    <anchor id="javadoc"/>
+ </topic>
 </toc>

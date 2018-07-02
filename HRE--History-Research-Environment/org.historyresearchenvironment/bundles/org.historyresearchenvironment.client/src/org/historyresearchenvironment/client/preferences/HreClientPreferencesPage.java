@@ -146,7 +146,7 @@ public class HreClientPreferencesPage extends FieldEditorPreferencePage {
 	@Override
 	public void propertyChange(PropertyChangeEvent event) {
 		super.propertyChange(event);
-		final IEclipsePreferences iep = InstanceScope.INSTANCE.getNode("org.historyresearchenvironment.client");
+		final IEclipsePreferences iep = InstanceScope.INSTANCE.getNode("org.historyresearchenvironment");
 
 		if (event.getSource() == comboFieldEditorCsMode) {
 			final String newValue = event.getNewValue().toString();

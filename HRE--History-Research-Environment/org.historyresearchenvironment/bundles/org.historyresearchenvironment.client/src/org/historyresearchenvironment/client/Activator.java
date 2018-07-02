@@ -22,7 +22,7 @@ import org.osgi.service.prefs.Preferences;
 public class Activator implements BundleActivator {
 	private static BundleContext context;
 	private final static Logger LOGGER = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
-	private static Preferences preferences = InstanceScope.INSTANCE.getNode("org.historyresearchenvironment.client");
+	private static Preferences preferences = InstanceScope.INSTANCE.getNode("org.historyresearchenvironment");
 
 	/**
 	 * @return The bundle context

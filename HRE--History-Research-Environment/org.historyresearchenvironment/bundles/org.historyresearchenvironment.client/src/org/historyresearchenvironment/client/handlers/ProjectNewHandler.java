@@ -50,7 +50,7 @@ public class ProjectNewHandler {
 
 	@Inject
 	EModelService modelService;
-	private final Preferences preferences = InstanceScope.INSTANCE.getNode("org.historyresearchenvironment.client");
+	private final Preferences preferences = InstanceScope.INSTANCE.getNode("org.historyresearchenvironment");
 	private NewDatabaseProvider provider;
 
 	/**

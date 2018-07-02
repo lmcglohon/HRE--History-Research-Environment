@@ -19,7 +19,7 @@ import org.osgi.service.prefs.Preferences;
  */
 public class HreH2ConnectionPool {
 	private static JdbcConnectionPool connectionPool = null;
-	private static Preferences preferences = InstanceScope.INSTANCE.getNode("org.historyresearchenvironment.client");
+	private static Preferences preferences = InstanceScope.INSTANCE.getNode("org.historyresearchenvironment");
 	private static int h2TraceLevel = preferences.getInt("H2TRACELEVEL", 1);
 	private final static Logger LOGGER = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 

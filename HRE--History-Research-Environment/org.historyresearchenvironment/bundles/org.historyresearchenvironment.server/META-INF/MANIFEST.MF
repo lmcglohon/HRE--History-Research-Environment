@@ -9,10 +9,14 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.e4.core.services,
  org.historyresearchenvironment.dataaccess,
  org.eclipse.e4.core.di.annotations,
- org.historyresearchenvironment.sample.server
+ org.historyresearchenvironment.sample.server,
+ javax.servlet,
+ org.eclipse.jetty.server,
+ org.eclipse.e4.ui.model.workbench,
+ org.eclipse.e4.core.contexts,
+ org.eclipse.jetty.util
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Automatic-Module-Name: org.historyresearchenvironment.server
 Bundle-ActivationPolicy: lazy
-Export-Package: org.historyresearchenvironment.server;uses:="org.osgi.framework,org.historyresearchenvironment.dataaccess.providers",
- org.historyresearchenvironment.server.businesslogic;uses:="org.historyresearchenvironment.server",
- org.historyresearchenvironment.server.listeners
+Export-Package: org.historyresearchenvironment.server;uses:="org.osgi.framework,org.historyresearchenvironment.dataaccess.providers,org.historyresearchenvironment.sample.providers",
+ org.historyresearchenvironment.server.businesslogic;uses:="org.historyresearchenvironment.server"

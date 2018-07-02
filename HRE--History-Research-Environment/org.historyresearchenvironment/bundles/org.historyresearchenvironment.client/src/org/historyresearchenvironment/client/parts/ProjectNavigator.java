@@ -54,7 +54,7 @@ import org.osgi.service.prefs.Preferences;
  */
 @SuppressWarnings("restriction")
 public class ProjectNavigator {
-	private static Preferences preferences = InstanceScope.INSTANCE.getNode("org.historyresearchenvironment.client");
+	private static Preferences preferences = InstanceScope.INSTANCE.getNode("org.historyresearchenvironment");
 	private final static Logger LOGGER = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 	@Inject
 	private ECommandService commandService;

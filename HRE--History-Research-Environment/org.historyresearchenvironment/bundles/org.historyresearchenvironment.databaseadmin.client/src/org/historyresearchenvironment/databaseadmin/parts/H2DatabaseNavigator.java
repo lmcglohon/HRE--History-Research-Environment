@@ -52,7 +52,7 @@ public class H2DatabaseNavigator {
 	// private EModelService modelService;
 	// @Inject
 	// private MApplication application;
-	private final Preferences preferences = InstanceScope.INSTANCE.getNode("org.historyresearchenvironment.client");
+	private final Preferences preferences = InstanceScope.INSTANCE.getNode("org.historyresearchenvironment");
 	private Table table;
 	private String dbName;
 

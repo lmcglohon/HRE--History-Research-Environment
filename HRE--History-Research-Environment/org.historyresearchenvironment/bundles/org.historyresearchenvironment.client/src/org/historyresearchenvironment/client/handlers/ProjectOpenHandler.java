@@ -55,7 +55,7 @@ public class ProjectOpenHandler {
 	 */
 	@Execute
 	public void execute(EPartService partService, MApplication application, EModelService modelService, Shell shell) {
-		final Preferences preferences = InstanceScope.INSTANCE.getNode("org.historyresearchenvironment.client");
+		final Preferences preferences = InstanceScope.INSTANCE.getNode("org.historyresearchenvironment");
 		Connection conn = null;
 
 		// Open file dialog

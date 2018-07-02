@@ -18,7 +18,7 @@ import org.osgi.service.prefs.Preferences;
 public abstract class AbstractHreProvider {
 	protected final static Logger LOGGER = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 	protected Connection conn = null;
-	protected Preferences preferences = InstanceScope.INSTANCE.getNode("org.historyresearchenvironment.client");
+	protected Preferences preferences = InstanceScope.INSTANCE.getNode("org.historyresearchenvironment");
 
 	/**
 	 * Constructor

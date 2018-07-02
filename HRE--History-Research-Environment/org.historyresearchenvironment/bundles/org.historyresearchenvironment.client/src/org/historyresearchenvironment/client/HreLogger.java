@@ -18,7 +18,7 @@ import org.osgi.service.prefs.Preferences;
  *
  */
 public class HreLogger {
-	private static Preferences preferences = InstanceScope.INSTANCE.getNode("org.historyresearchenvironment.client");
+	private static Preferences preferences = InstanceScope.INSTANCE.getNode("org.historyresearchenvironment");
 	static private FileHandler handler;
 
 	/**
