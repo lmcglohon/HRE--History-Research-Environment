@@ -1,4 +1,4 @@
-package org.historyresearchenvironment.sample.models;
+package org.historyresearchenvironment.sample.client.models;
 
 import java.util.ArrayList;
 import java.util.List;

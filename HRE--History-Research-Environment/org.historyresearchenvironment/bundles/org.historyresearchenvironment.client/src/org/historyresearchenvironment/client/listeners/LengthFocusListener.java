@@ -1,4 +1,4 @@
-package org.historyresearchenvironment.databaseadmin.listeners;
+package org.historyresearchenvironment.client.listeners;
 
 import org.eclipse.swt.events.FocusEvent;
 import org.eclipse.swt.events.FocusListener;

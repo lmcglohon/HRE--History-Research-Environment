@@ -37,15 +37,15 @@ import org.eclipse.swt.widgets.DateTime;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
 import org.historyresearchenvironment.client.HreConstants;
+import org.historyresearchenvironment.client.listeners.HexFocusListener;
+import org.historyresearchenvironment.client.listeners.HexVerifyListener;
+import org.historyresearchenvironment.client.listeners.IntegerListener;
+import org.historyresearchenvironment.client.listeners.LengthFocusListener;
+import org.historyresearchenvironment.client.listeners.NumericVerifyListener;
+import org.historyresearchenvironment.client.listeners.SmallIntListener;
 import org.historyresearchenvironment.dataaccess.HreDataAccessConstants;
 import org.historyresearchenvironment.dataaccess.models.H2TableModel;
 import org.historyresearchenvironment.dataaccess.providers.H2TableProvider;
-import org.historyresearchenvironment.databaseadmin.listeners.HexFocusListener;
-import org.historyresearchenvironment.databaseadmin.listeners.HexVerifyListener;
-import org.historyresearchenvironment.databaseadmin.listeners.IntegerListener;
-import org.historyresearchenvironment.databaseadmin.listeners.LengthFocusListener;
-import org.historyresearchenvironment.databaseadmin.listeners.NumericVerifyListener;
-import org.historyresearchenvironment.databaseadmin.listeners.SmallIntListener;
 
 /**
  * Dynamically create an editor with the fields in the database catalog.

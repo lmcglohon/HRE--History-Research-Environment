@@ -44,29 +44,4 @@ public class SampleModelProvider extends AbstractHreProvider {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see org.historyresearchenvironment.dataaccess.providers.AbstractHreProvider#
-	 * readJson(java.lang.String)
-	 */
-	@Override
-	public void readJson(String string) {
-		// TODO Auto-generated method stub
-
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see org.historyresearchenvironment.dataaccess.providers.AbstractHreProvider#
-	 * importCsv(java.lang.String)
-	 */
-	@Override
-	public int importCsv(String string) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
 }

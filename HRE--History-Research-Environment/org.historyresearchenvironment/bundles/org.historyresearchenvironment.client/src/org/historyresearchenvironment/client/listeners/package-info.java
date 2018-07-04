@@ -5,4 +5,4 @@
  * @author Michael Erichsen, &copy; History Research Environment Ltd., 2018
  *
  */
-package org.historyresearchenvironment.databaseadmin.listeners;
+package org.historyresearchenvironment.client.listeners;

@@ -1,4 +1,4 @@
-package org.historyresearchenvironment.databaseadmin.listeners;
+package org.historyresearchenvironment.client.listeners;
 
 import org.eclipse.swt.widgets.Event;
 import org.eclipse.swt.widgets.Listener;

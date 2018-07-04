@@ -14,8 +14,12 @@ Require-Bundle: javax.inject,
  org.eclipse.e4.core.di.annotations,
  org.eclipse.core.runtime,
  org.historyresearchenvironment.client,
- org.historyresearchenvironment.server
+ org.historyresearchenvironment.server,
+ org.eclipse.e4.core.services,
+ org.eclipse.e4.ui.workbench,
+ org.historyresearchenvironment.sample.dataaccess
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Automatic-Module-Name: org.historyresearchenvironment.sample.client
-Import-Package: javax.annotation;version="1.2.0"
+Import-Package: javax.annotation;version="1.2.0",
+ org.historyresearchenvironment.dataaccess.providers
 Bundle-ActivationPolicy: lazy

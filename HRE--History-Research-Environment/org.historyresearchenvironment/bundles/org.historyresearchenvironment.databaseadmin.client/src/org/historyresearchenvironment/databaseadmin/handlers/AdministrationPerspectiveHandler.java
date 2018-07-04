@@ -8,7 +8,7 @@ import org.eclipse.e4.ui.workbench.modeling.EPartService;
 /**
  * Switch perspective to Database Administration.
  * 
- * @version 2018-07-01
+ * @version 2018-07-03
  * @author Michael Erichsen, &copy; History Research Environment Ltd., 2018
  *
  */
@@ -20,7 +20,6 @@ public class AdministrationPerspectiveHandler {
 	 */
 	@Execute
 	public void execute(MApplication app, EPartService partService, EModelService modelService) {
-
 		partService.switchPerspective("org.historyresearchenvironment.perspective.databaseadministration");
 	}
 }

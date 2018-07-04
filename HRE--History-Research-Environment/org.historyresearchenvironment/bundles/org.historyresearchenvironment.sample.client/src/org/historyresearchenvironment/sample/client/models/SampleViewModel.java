@@ -1,4 +1,4 @@
-package org.historyresearchenvironment.sample.models;
+package org.historyresearchenvironment.sample.client.models;
 
 /**
  * Model representing data in the sample view part.

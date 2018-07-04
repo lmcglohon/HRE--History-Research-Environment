@@ -1,4 +1,4 @@
-package org.historyresearchenvironment.sample.parts;
+package org.historyresearchenvironment.sample.client.parts;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
@@ -17,6 +17,7 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Table;
 import org.historyresearchenvironment.client.HreConstants;
 import org.historyresearchenvironment.client.parts.AbstractHreGuiPart;
+import org.historyresearchenvironment.sample.client.providers.SampleViewProvider;
 
 /**
  * A navigator view part for sample models.
@@ -34,11 +35,6 @@ public class SampleModelNavigator extends AbstractHreGuiPart {
 	 *
 	 */
 	public SampleModelNavigator() {
-	}
-
-	@Override
-	protected void callBusinessLayer(int key) {
-
 	}
 
 	/**
@@ -82,8 +78,8 @@ public class SampleModelNavigator extends AbstractHreGuiPart {
 
 	@Inject
 	@Optional
-	private void subscribeSampleModelUpdateTopic(@UIEventTopic(HreConstants.SAMPLE_MODEL_UPDATE_TOPIC) int key) {
-		callBusinessLayer(key);
+	private void subscribeSampleModelUpdateTopic(@UIEventTopic(HreConstants.SAMPLE_MODEL_UPDATE_TOPIC) String key) {
+		callBusinessLayer("GET", "sampleview", new SampleViewProvider(), key);
 	}
 
 	@Override

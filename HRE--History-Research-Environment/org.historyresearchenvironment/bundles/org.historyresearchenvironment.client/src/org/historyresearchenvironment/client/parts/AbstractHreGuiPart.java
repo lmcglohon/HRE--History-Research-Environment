@@ -5,35 +5,73 @@ import java.util.logging.Logger;
 import javax.inject.Inject;
 
 import org.eclipse.core.runtime.preferences.InstanceScope;
+import org.eclipse.e4.core.commands.ECommandService;
+import org.eclipse.e4.core.commands.EHandlerService;
 import org.eclipse.e4.core.services.events.IEventBroker;
 import org.eclipse.swt.graphics.Font;
 import org.eclipse.swt.graphics.FontData;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.wb.swt.SWTResourceManager;
 import org.historyresearchenvironment.client.serverinterface.BusinessLayerInterface;
+import org.historyresearchenvironment.client.serverinterface.BusinessLayerInterfaceFactory;
+import org.historyresearchenvironment.dataaccess.providers.AbstractHreProvider;
 import org.historyresearchenvironment.server.ServerRequest;
 import org.historyresearchenvironment.server.ServerResponse;
 import org.osgi.service.prefs.Preferences;
 
 /**
- * @version 2018-06-29
+ * Abstract class for GUI parts.
+ * 
+ * @version 2018-07-03
  * @author Michael Erichsen, &copy; History Research Environment Ltd., 2018
  *
  */
+@SuppressWarnings("restriction")
 public abstract class AbstractHreGuiPart {
-	protected static Preferences preferences = InstanceScope.INSTANCE.getNode("org.historyresearchenvironment");
-
-	protected final static Logger LOGGER = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
+	@Inject
+	ECommandService commandService;
+	@Inject
+	EHandlerService handlerService;
 	@Inject
 	protected IEventBroker eventBroker;
-	protected BusinessLayerInterface bli;
-	protected ServerRequest req;
-	protected ServerResponse resp;
 
-	/**
-	 * @param key
-	 */
-	protected abstract void callBusinessLayer(int key);
+	protected static Preferences preferences = InstanceScope.INSTANCE.getNode("org.historyresearchenvironment");
+	protected final static Logger LOGGER = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
+	protected BusinessLayerInterface bli;
+	protected ServerRequest request;
+	protected ServerResponse response;
+
+	protected void callBusinessLayer(String operation, String modelName, AbstractHreProvider provider, String key) {
+		bli = BusinessLayerInterfaceFactory.getBusinessLayerInterface();
+		provider.setKey(key);
+		request = new ServerRequest("GET", "sampleview", provider);
+
+		final long before = System.nanoTime();
+
+		response = bli.callBusinessLayer(request);
+
+		final long after = System.nanoTime();
+
+		LOGGER.info("Elapsed time in milliseconds: " + ((after - before) / 1000000));
+
+		if (response == null) {
+			eventBroker.post("MESSAGE", "Call not successful");
+			LOGGER.severe("Call not successful");
+		} else if (response.getReturnCode() != 0) {
+			eventBroker.post("MESSAGE", response.getReturnMessage());
+			LOGGER.severe(response.getReturnMessage());
+		} else {
+			provider = response.getProvider();
+
+			try {
+				updateGui();
+			} catch (final Exception e2) {
+				LOGGER.severe("Error in request " + request.getOperation() + " " + request.getModelName() + ", "
+						+ e2.getMessage());
+				eventBroker.post("MESSAGE", e2.getMessage());
+			}
+		}
+	}
 
 	/**
 	 * @param parent

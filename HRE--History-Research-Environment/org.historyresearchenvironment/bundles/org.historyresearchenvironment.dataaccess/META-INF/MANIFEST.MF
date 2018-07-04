@@ -5,11 +5,12 @@ Bundle-SymbolicName: org.historyresearchenvironment.dataaccess;singleton:=true
 Bundle-Version: 0.1.0.qualifier
 Export-Package: org.historyresearchenvironment.dataaccess,
  org.historyresearchenvironment.dataaccess.models;uses:="org.osgi.service.prefs",
- org.historyresearchenvironment.dataaccess.providers;uses:="org.osgi.service.prefs,org.eclipse.jface.viewers"
+ org.historyresearchenvironment.dataaccess.providers;uses:="org.osgi.service.prefs,org.eclipse.e4.core.services.events,org.eclipse.jface.viewers"
 Automatic-Module-Name: org.historyresearchenvironment.dataaccess
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-Vendor: History Research Environment Ltd.
-Bundle-ActivationPolicy: lazy
 Require-Bundle: org.eclipse.equinox.preferences,
  org.eclipse.jface,
- org.h2
+ org.h2,
+ org.eclipse.e4.core.services,
+ javax.inject
