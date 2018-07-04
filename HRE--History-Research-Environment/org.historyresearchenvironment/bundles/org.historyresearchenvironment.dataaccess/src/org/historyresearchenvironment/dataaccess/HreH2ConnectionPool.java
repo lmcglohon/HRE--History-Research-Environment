@@ -61,7 +61,7 @@ public class HreH2ConnectionPool {
 	 *             When failing
 	 */
 	public static Connection getConnection() throws SQLException {
-		final String dbName = preferences.get("DBNAME", "~\\HRE");
+		final String dbName = preferences.get("DBNAME", "./SAMPLE");
 
 		if (connectionPool == null) {
 			final String jdbcUrl = "jdbc:h2:" + dbName + ";IFEXISTS=TRUE;TRACE_LEVEL_FILE=" + h2TraceLevel

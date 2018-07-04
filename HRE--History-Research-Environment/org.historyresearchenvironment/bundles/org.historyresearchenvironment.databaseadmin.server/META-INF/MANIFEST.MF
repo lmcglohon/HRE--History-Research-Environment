@@ -8,3 +8,4 @@ Require-Bundle: org.eclipse.core.runtime
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Automatic-Module-Name: org.historyresearchenvironment.databaseadmin.server
 Bundle-ActivationPolicy: lazy
+Export-Package: org.historyresearchenvironment.databaseadmin.server;uses:="org.osgi.framework"

@@ -16,12 +16,14 @@ Export-Package: org.eclipse.wb.swt;uses:="org.eclipse.swt.graphics,org.eclipse.j
  org.historyresearchenvironment.client.listeners;uses:="org.eclipse.swt.events,org.eclipse.swt.widgets",
  org.historyresearchenvironment.client.models,
  org.historyresearchenvironment.client.parts;
-  uses:="org.osgi.service.prefs,
+  uses:="org.historyresearchenvironment.dataaccess.providers,
+   org.osgi.service.prefs,
    org.eclipse.swt.graphics,
    org.eclipse.swt.widgets,
    org.eclipse.e4.core.services.events,
    org.historyresearchenvironment.client.serverinterface,
-   org.historyresearchenvironment.server",
+   org.historyresearchenvironment.server,
+   org.eclipse.e4.core.commands",
  org.historyresearchenvironment.client.preferences;
   uses:="org.eclipse.jface.util,
    org.eclipse.jface.resource,

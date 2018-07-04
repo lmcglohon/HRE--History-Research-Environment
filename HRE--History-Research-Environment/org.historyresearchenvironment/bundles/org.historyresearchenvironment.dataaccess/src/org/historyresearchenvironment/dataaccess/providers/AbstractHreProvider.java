@@ -23,7 +23,7 @@ import org.json.JSONWriter;
 import org.osgi.service.prefs.Preferences;
 
 /**
- * @version 2018-07-03
+ * @version 2018-07-04
  * @author Michael Erichsen, &copy; History Research Environment Ltd., 2018
  *
  */
@@ -32,6 +32,7 @@ public abstract class AbstractHreProvider {
 	protected static IEventBroker eventBroker;
 
 	protected final static Logger LOGGER = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
+
 	/**
 	 * @param c
 	 * @param type
@@ -61,6 +62,7 @@ public abstract class AbstractHreProvider {
 			}
 		}
 	}
+
 	/**
 	 * @param model
 	 * @param arglist
@@ -114,6 +116,7 @@ public abstract class AbstractHreProvider {
 			throw new Exception("Too many arguments for implementation");
 		}
 	}
+
 	protected Preferences preferences = InstanceScope.INSTANCE.getNode("org.historyresearchenvironment");
 	protected Connection conn = null;
 

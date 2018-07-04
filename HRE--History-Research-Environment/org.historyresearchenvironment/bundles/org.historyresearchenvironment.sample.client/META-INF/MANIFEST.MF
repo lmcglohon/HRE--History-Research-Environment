@@ -5,17 +5,12 @@ Bundle-SymbolicName: org.historyresearchenvironment.sample.client;singleton:=tru
 Bundle-Version: 0.1.0.qualifier
 Bundle-Activator: org.historyresearchenvironment.sample.client.Activator
 Bundle-Vendor: History Research Environment Ltd.
-Require-Bundle: javax.inject,
- org.eclipse.osgi,
- org.eclipse.jface,
+Require-Bundle: org.eclipse.jface,
  org.eclipse.e4.ui.model.workbench,
  org.eclipse.e4.ui.di,
- org.eclipse.e4.ui.services,
  org.eclipse.e4.core.di.annotations,
  org.eclipse.core.runtime,
  org.historyresearchenvironment.client,
- org.historyresearchenvironment.server,
- org.eclipse.e4.core.services,
  org.eclipse.e4.ui.workbench,
  org.historyresearchenvironment.sample.dataaccess
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
@@ -23,3 +18,7 @@ Automatic-Module-Name: org.historyresearchenvironment.sample.client
 Import-Package: javax.annotation;version="1.2.0",
  org.historyresearchenvironment.dataaccess.providers
 Bundle-ActivationPolicy: lazy
+Export-Package: org.historyresearchenvironment.sample.client;uses:="org.osgi.framework",
+ org.historyresearchenvironment.sample.client.models,
+ org.historyresearchenvironment.sample.client.parts;uses:="org.historyresearchenvironment.sample.client.providers,org.eclipse.swt.widgets,org.historyresearchenvironment.client.parts",
+ org.historyresearchenvironment.sample.client.providers;uses:="org.historyresearchenvironment.dataaccess.providers"

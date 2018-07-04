@@ -43,7 +43,7 @@ public class H2DatabaseProvider implements IContentProvider {
 	 */
 	public H2DatabaseProvider() throws SQLException {
 		conn = HreH2ConnectionPool.getConnection();
-		final String dbName = preferences.get("DBNAME", "~\\HRE");
+		final String dbName = preferences.get("DBNAME", "./SAMPLE");
 
 		LOGGER.info("Database name: " + dbName);
 

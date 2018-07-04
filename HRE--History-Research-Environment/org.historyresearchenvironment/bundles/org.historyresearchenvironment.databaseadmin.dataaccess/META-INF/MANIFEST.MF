@@ -10,5 +10,6 @@ Require-Bundle: org.eclipse.core.runtime,
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Automatic-Module-Name: org.historyresearchenvironment.databaseadmin.dataaccess
 Bundle-ActivationPolicy: lazy
-Export-Package: org.historyresearchenvironment.databaseadmin.dataaccess.models,
- org.historyresearchenvironment.databaseadmin.dataaccess.providers
+Export-Package: org.historyresearchenvironment.databaseadmin.dataaccess;uses:="org.osgi.framework",
+ org.historyresearchenvironment.databaseadmin.dataaccess.models,
+ org.historyresearchenvironment.databaseadmin.dataaccess.providers;uses:="org.eclipse.jface.viewers"

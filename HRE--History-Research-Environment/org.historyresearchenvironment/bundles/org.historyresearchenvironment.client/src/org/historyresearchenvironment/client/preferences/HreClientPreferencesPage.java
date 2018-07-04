@@ -153,7 +153,7 @@ public class HreClientPreferencesPage extends FieldEditorPreferencePage {
 
 			if ((newValue.equals("DIRECT")) || (newValue.equals("SERVER"))) {
 
-				final String dbName = iep.get("DBNAME", "./TMG9");
+				final String dbName = iep.get("DBNAME", "./SAMPLE");
 				final String userId = iep.get("USERID", "sa");
 				final String passWord = iep.get("PASSWORD", "");
 

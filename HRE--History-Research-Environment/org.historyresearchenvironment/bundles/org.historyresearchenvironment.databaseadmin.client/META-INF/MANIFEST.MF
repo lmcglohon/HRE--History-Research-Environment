@@ -5,21 +5,21 @@ Bundle-SymbolicName: org.historyresearchenvironment.databaseadmin.client;singlet
 Bundle-Version: 0.1.0.qualifier
 Bundle-Activator: org.historyresearchenvironment.databaseadmin.client.Activator
 Bundle-Vendor: History Research Environment Ltd.
-Export-Package: org.historyresearchenvironment.databaseadmin.handlers;uses:="org.eclipse.e4.ui.model.application,org.eclipse.e4.ui.workbench.modeling",
+Export-Package: org.historyresearchenvironment.databaseadmin.client;uses:="org.osgi.framework,org.eclipse.ui.plugin",
+ org.historyresearchenvironment.databaseadmin.handlers;uses:="org.eclipse.e4.ui.model.application,org.eclipse.e4.ui.workbench.modeling",
  org.historyresearchenvironment.databaseadmin.parts;uses:="org.eclipse.swt.widgets"
 Require-Bundle: org.eclipse.ui,
-  org.eclipse.core.runtime,
-  org.eclipse.e4.ui.workbench,
-  org.eclipse.e4.ui.model.workbench,
-  org.eclipse.e4.core.di.annotations,
-  org.eclipse.e4.core.services,
-  org.eclipse.e4.core.commands,
-  org.eclipse.e4.ui.di,
-  org.historyresearchenvironment.dataaccess,
-  org.historyresearchenvironment.client,
-  org.h2,
-  org.historyresearchenvironment.databaseadmin.dataaccess,
-  org.eclipse.emf.emfstore.client.ui
+ org.eclipse.core.runtime,
+ org.eclipse.e4.ui.workbench,
+ org.eclipse.e4.ui.model.workbench,
+ org.eclipse.e4.core.di.annotations,
+ org.eclipse.e4.core.services,
+ org.eclipse.e4.core.commands,
+ org.eclipse.e4.ui.di,
+ org.historyresearchenvironment.dataaccess,
+ org.historyresearchenvironment.client,
+ org.h2,
+ org.historyresearchenvironment.databaseadmin.dataaccess
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Automatic-Module-Name: org.historyresearchenvironment.databaseadmin.client
 Bundle-ActivationPolicy: lazy

@@ -66,7 +66,7 @@ public class ProjectNewHandler {
 		// Open file dialog
 		final FileDialog dialog = new FileDialog(shell, SWT.SAVE);
 		dialog.setText("Create new HRE Project");
-		dialog.setFilterPath("~\\");
+		dialog.setFilterPath("./");
 		final String[] extensions = { "*.h2.db", "*.mv.db", "*.*" };
 		dialog.setFilterExtensions(extensions);
 		dialog.open();
