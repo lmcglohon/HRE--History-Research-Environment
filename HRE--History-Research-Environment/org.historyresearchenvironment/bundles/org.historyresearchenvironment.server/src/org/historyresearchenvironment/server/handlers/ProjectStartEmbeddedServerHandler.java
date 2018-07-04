@@ -7,7 +7,6 @@ import javax.inject.Inject;
 import org.eclipse.core.runtime.preferences.InstanceScope;
 import org.eclipse.e4.core.di.annotations.Execute;
 import org.eclipse.e4.core.services.events.IEventBroker;
-import org.eclipse.jetty.server.HttpConnectionFactory;
 import org.eclipse.jetty.server.Server;
 import org.osgi.service.prefs.Preferences;
 
@@ -42,15 +41,15 @@ public class ProjectStartEmbeddedServerHandler {
 				Server server = new Server(preferences.getInt("SERVERPORT", 8000));
 
 				try {
-					server.getConnectors()[0].getConnectionFactory(HttpConnectionFactory.class);
-					server.setHandler(new HreHttpRequestHandler());
-					server.setStopAtShutdown(true);
-					server.start();
+					// server.getConnectors()[0].getConnectionFactory(HttpConnectionFactory.class);
+					// server.setHandler(new HreHttpRequestHandler());
+					// server.setStopAtShutdown(true);
+					// server.start();
 
 					LOGGER.info("The server is running at " + server.getURI());
 					eventBroker.post("MESSAGE", "The server is running at " + server.getURI());
 
-					server.join();
+					// server.join();
 				} catch (Exception e) {
 					e.printStackTrace();
 					LOGGER.severe(
