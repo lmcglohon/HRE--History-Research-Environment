@@ -10,7 +10,7 @@ import org.osgi.service.prefs.BackingStoreException;
 /**
  * Create and open a new HRE project database
  * 
- * @version 2018-06-30
+ * @version 2018-07-11
  * @author Michael Erichsen, &copy; History Research Environment Ltd., 2018
  *
  */
@@ -316,27 +316,6 @@ public class NewDatabaseProvider {
 					+ " PUBLIC.SUBSTN_PARAM_VALUES.ALIAS_KEY, PUBLIC.SUBSTN_PARAM_VALUES.DEFLT_PARAM_STEP_PID"
 					+ " FROM PUBLIC.SUBSTN_PARAM_NAMES, PUBLIC.SUBSTN_PARAM_VALUES"
 					+ " WHERE PUBLIC.SUBSTN_PARAM_NAMES.PARAM_SET_KEY = PUBLIC.SUBSTN_PARAM_VALUES.PARAM_SET_KEY;" };
-
-	// TODO Create trigger
-	// Creates a new
-	// trigger.The trigger
-	//
-	// class must be
-	// public and implement
-	// org.h2.api.Trigger. Inner classes
-	// are not supported.The
-	//
-	// class must
-	// be available
-	// in the
-	// classpath of
-	// the database
-	//
-	// engine (when using the server mode, it must be in the classpath of the
-	// server).
-	// "CREATE TRIGGER SAMPLE_TRIGGER INSTEAD OF INSERT, UPDATE, DELETE ON
-	// SAMPLE_VIEW" + " FOR EACH ROW CALL "
-	// + NewDatabaseProvider.class.getName() + ";"};
 
 	/**
 	 * Constructor

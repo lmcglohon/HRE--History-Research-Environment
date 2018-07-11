@@ -9,4 +9,5 @@ Require-Bundle: org.eclipse.core.runtime,
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Automatic-Module-Name: org.historyresearchenvironment.sample.dataaccess
 Bundle-ActivationPolicy: lazy
-Export-Package: org.historyresearchenvironment.sample.dataaccess;uses:="org.osgi.framework,org.historyresearchenvironment.dataaccess.models"
+Export-Package: org.historyresearchenvironment.sample.dataaccess;uses:="org.osgi.framework,org.historyresearchenvironment.dataaccess.models",
+ org.historyresearchenvironment.sample.dataaccess.providers;uses:="org.historyresearchenvironment.dataaccess.providers"

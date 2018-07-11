@@ -29,12 +29,12 @@ import org.eclipse.swt.widgets.Text;
 import org.historyresearchenvironment.client.HreConstants;
 import org.historyresearchenvironment.client.listeners.NumericVerifyListener;
 import org.historyresearchenvironment.client.parts.AbstractHreGuiPart;
-import org.historyresearchenvironment.sample.client.providers.SampleViewProvider;
+import org.historyresearchenvironment.sample.dataaccess.providers.SampleViewProvider;
 
 /**
  * View part for the sample.
  * 
- * @version 2018-07-03
+ * @version 2018-07-07
  * @author Michael Erichsen, &copy; History Research Environment Ltd., 2018
  *
  */
@@ -47,8 +47,9 @@ public class SampleViewPart extends AbstractHreGuiPart {
 	private MApplication application;
 
 	SampleViewProvider provider = new SampleViewProvider();
-	private Text textSubstnParamNamePid;
+	private Text textparamSetKey;
 	private Text textDefltValue;
+	private Text textparamListKey;
 
 	/**
 	 * Constructor
@@ -65,18 +66,25 @@ public class SampleViewPart extends AbstractHreGuiPart {
 		parent.setLayout(new GridLayout(2, false));
 
 		final Label lblNewLabel = new Label(parent, SWT.NONE);
-		lblNewLabel.setLayoutData(new GridData(SWT.LEFT, SWT.TOP, false, false, 1, 1));
-		lblNewLabel.setText("Substitution Parameter Name Pid");
+		lblNewLabel.setLayoutData(new GridData(SWT.RIGHT, SWT.TOP, false, false, 1, 1));
+		lblNewLabel.setText("Paremeter Set Key");
 
-		textSubstnParamNamePid = new Text(parent, SWT.BORDER);
-		textSubstnParamNamePid.addVerifyListener(new NumericVerifyListener());
-		textSubstnParamNamePid.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
+		textparamSetKey = new Text(parent, SWT.BORDER);
+		textparamSetKey.addVerifyListener(new NumericVerifyListener());
+		textparamSetKey.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
 
 		final Label lblDefaultValue = new Label(parent, SWT.NONE);
 		lblDefaultValue.setText("Default Value");
 
 		textDefltValue = new Text(parent, SWT.BORDER);
 		textDefltValue.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
+
+		Label lblParameterListKey = new Label(parent, SWT.NONE);
+		lblParameterListKey.setLayoutData(new GridData(SWT.RIGHT, SWT.CENTER, false, false, 1, 1));
+		lblParameterListKey.setText("Parameter List Key");
+
+		textparamListKey = new Text(parent, SWT.BORDER);
+		textparamListKey.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
 
 		final Composite composite = new Composite(parent, SWT.NONE);
 		composite.setLayout(new RowLayout(SWT.HORIZONTAL));
@@ -86,7 +94,8 @@ public class SampleViewPart extends AbstractHreGuiPart {
 		btnOk.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseDown(MouseEvent e) {
-				// TODO Update
+				callBusinessLayer("GET", provider, Integer.parseInt(textparamSetKey.getText()));
+				updateGui();
 			}
 		});
 		btnOk.setText("OK");
@@ -111,7 +120,17 @@ public class SampleViewPart extends AbstractHreGuiPart {
 		});
 		btnClose.setText("Close");
 
-		callBusinessLayer("GET", "sampleview", new SampleViewProvider(), "1");
+		callBusinessLayer("GET", provider, "1");
+	}
+
+	/**
+	 * @param operation
+	 * @param provider2
+	 * @param parseInt
+	 */
+	protected void callBusinessLayer(String operation, SampleViewProvider provider2, int parseInt) {
+		// TODO Auto-generated method stub
+		
 	}
 
 	/**
@@ -136,7 +155,8 @@ public class SampleViewPart extends AbstractHreGuiPart {
 	 */
 	@Override
 	protected void updateGui() {
-		textSubstnParamNamePid.setText(Integer.toString(provider.getSubstnParamName()));
+		textparamListKey.setText(Integer.toString(provider.getParamListKey()));
+		textparamSetKey.setText(Integer.toString(provider.getParamSetKey()));
 		textDefltValue.setText(provider.getDefltValue());
 	}
 
@@ -147,7 +167,7 @@ public class SampleViewPart extends AbstractHreGuiPart {
 	@Optional
 	private void subscribeKeyUpdateTopic(@UIEventTopic(HreConstants.KEY_UPDATE_TOPIC) String key) {
 		LOGGER.info("Updating to " + key);
-		callBusinessLayer("GET", "sampleview", new SampleViewProvider(), key);
+		callBusinessLayer("GET", provider, key);
 	}
 
 }

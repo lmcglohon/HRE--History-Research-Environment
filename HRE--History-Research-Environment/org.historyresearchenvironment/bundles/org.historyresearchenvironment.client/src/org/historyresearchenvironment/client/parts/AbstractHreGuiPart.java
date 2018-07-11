@@ -41,7 +41,7 @@ public abstract class AbstractHreGuiPart {
 	protected ServerRequest request;
 	protected ServerResponse response;
 
-	protected void callBusinessLayer(String operation, String modelName, AbstractHreProvider provider, String key) {
+	protected void callBusinessLayer(String operation, AbstractHreProvider provider, String key) {
 		bli = BusinessLayerInterfaceFactory.getBusinessLayerInterface();
 		provider.setKey(key);
 		request = new ServerRequest("GET", "sampleview", provider);

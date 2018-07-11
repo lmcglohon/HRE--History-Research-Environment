@@ -18,15 +18,15 @@
    </license>
 
    <requires>
-      <import plugin="javax.inject"/>
-      <import plugin="org.eclipse.osgi"/>
       <import plugin="org.eclipse.jface"/>
       <import plugin="org.eclipse.e4.ui.model.workbench"/>
       <import plugin="org.eclipse.e4.ui.di"/>
-      <import plugin="org.eclipse.e4.ui.services"/>
       <import plugin="org.eclipse.e4.core.di.annotations"/>
       <import plugin="org.eclipse.core.runtime"/>
       <import plugin="javax.annotation"/>
+      <import plugin="org.historyresearchenvironment.client"/>
+      <import plugin="org.eclipse.e4.ui.workbench"/>
+      <import plugin="org.historyresearchenvironment.dataaccess"/>
    </requires>
 
    <plugin

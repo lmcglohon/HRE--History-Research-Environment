@@ -1,5 +1,6 @@
-
 package org.historyresearchenvironment.databaseadmin.parts;
+
+
 
 import javax.annotation.PostConstruct;
 
@@ -23,8 +24,7 @@ import org.eclipse.wb.swt.SWTResourceManager;
 public class WelcomePart {
 
 	/**
-	 * @param parent
-	 *            Shell
+	 * @param parent Shell
 	 */
 	@PostConstruct
 	public void postConstruct(Composite parent) {

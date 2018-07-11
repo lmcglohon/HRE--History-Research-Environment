@@ -7,6 +7,5 @@
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.pde.core.requiredPlugins"/>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="lib" path="C:/Program Files/HRE/eclipse/plugins/org.eclipse.jetty.util_9.4.8.v20171121.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

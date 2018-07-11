@@ -17,18 +17,17 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Table;
 import org.historyresearchenvironment.client.HreConstants;
 import org.historyresearchenvironment.client.parts.AbstractHreGuiPart;
-import org.historyresearchenvironment.sample.client.providers.SampleViewProvider;
 
 /**
  * A navigator view part for sample models.
  * 
- * @version 2018-06-29
+ * @version 2018-07-09
  * @author Michael Erichsen, &copy; History Research Environment Ltd., 2018
  *
  */
 public class SampleModelNavigator extends AbstractHreGuiPart {
 	private Table tableSampleModels;
-	// private final SampleModelProvider provider = new SampleModelProvider();
+	private final SampleViewProvider provider = new SampleViewProvider();
 
 	/**
 	 * Constructor
@@ -79,7 +78,17 @@ public class SampleModelNavigator extends AbstractHreGuiPart {
 	@Inject
 	@Optional
 	private void subscribeSampleModelUpdateTopic(@UIEventTopic(HreConstants.SAMPLE_MODEL_UPDATE_TOPIC) String key) {
-		callBusinessLayer("GET", "sampleview", new SampleViewProvider(), key);
+		callBusinessLayer("GET", provider, key);
+	}
+
+	/**
+	 * @param operation
+	 * @param provider2
+	 * @param key
+	 */
+	private void callBusinessLayer(String operation, SampleViewProvider provider2, String key) {
+		// TODO Auto-generated method stub
+		
 	}
 
 	@Override
