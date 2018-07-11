@@ -1,10 +1,10 @@
-package org.historyresearchenvironment.sample.client.providers;
+package org.historyresearchenvironment.sample.providers;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import org.historyresearchenvironment.dataaccess.providers.AbstractHreProvider;
-import org.historyresearchenvironment.sample.client.models.SampleViewModel;
+import org.historyresearchenvironment.sample.models.SampleEditorModel;
 
 /**
  * @version 2018-07-05
@@ -12,14 +12,14 @@ import org.historyresearchenvironment.sample.client.models.SampleViewModel;
  *
  */
 public class SampleNavigatorProvider extends AbstractHreProvider {
-	private List<SampleViewModel> modelList;
+	private List<SampleEditorModel> modelList;
 
 	/**
 	 * Constructor
 	 *
 	 */
 	public SampleNavigatorProvider() {
-		modelList = new ArrayList<SampleViewModel>();
+		modelList = new ArrayList<SampleEditorModel>();
 	}
 
 	/**
@@ -27,7 +27,7 @@ public class SampleNavigatorProvider extends AbstractHreProvider {
 	 *
 	 * @param modelList
 	 */
-	public SampleNavigatorProvider(List<SampleViewModel> modelList) {
+	public SampleNavigatorProvider(List<SampleEditorModel> modelList) {
 		super();
 		this.modelList = modelList;
 	}
@@ -47,14 +47,14 @@ public class SampleNavigatorProvider extends AbstractHreProvider {
 	/**
 	 * @return the modelList
 	 */
-	public List<SampleViewModel> getModelList() {
+	public List<SampleEditorModel> getModelList() {
 		return modelList;
 	}
 
 	/**
 	 * @param modelList the modelList to set
 	 */
-	public void setModelList(List<SampleViewModel> modelList) {
+	public void setModelList(List<SampleEditorModel> modelList) {
 		this.modelList = modelList;
 	}
 

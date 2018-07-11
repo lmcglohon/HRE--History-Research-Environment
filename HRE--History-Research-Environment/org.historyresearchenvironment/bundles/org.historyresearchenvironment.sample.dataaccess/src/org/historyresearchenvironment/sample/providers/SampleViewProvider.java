@@ -1,4 +1,4 @@
-package org.historyresearchenvironment.sample.server.providers;
+package org.historyresearchenvironment.sample.providers;
 
 import java.sql.SQLException;
 

@@ -1,4 +1,4 @@
-package org.historyresearchenvironment.sample.client.models;
+package org.historyresearchenvironment.sample.models;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,14 +11,14 @@ import java.util.List;
  *
  */
 public class SampleViewModelList {
-	private List<SampleViewModel> modelList;
+	private List<SampleEditorModel> modelList;
 
 	/**
 	 * Constructor
 	 *
 	 */
 	public SampleViewModelList() {
-		modelList = new ArrayList<SampleViewModel>();
+		modelList = new ArrayList<SampleEditorModel>();
 	}
 
 	/**
@@ -26,7 +26,7 @@ public class SampleViewModelList {
 	 *
 	 * @param modelList
 	 */
-	public SampleViewModelList(List<SampleViewModel> modelList) {
+	public SampleViewModelList(List<SampleEditorModel> modelList) {
 		super();
 		this.modelList = modelList;
 	}
@@ -34,14 +34,14 @@ public class SampleViewModelList {
 	/**
 	 * @param model
 	 */
-	public void add(SampleViewModel model) {
+	public void add(SampleEditorModel model) {
 		modelList.add(model);
 	}
 
 	/**
 	 * @return the modelList
 	 */
-	public List<SampleViewModel> getModelList() {
+	public List<SampleEditorModel> getModelList() {
 		return modelList;
 	}
 
@@ -49,7 +49,7 @@ public class SampleViewModelList {
 	 * @param modelList
 	 *            the modelList to set
 	 */
-	public void setModelList(List<SampleViewModel> modelList) {
+	public void setModelList(List<SampleEditorModel> modelList) {
 		this.modelList = modelList;
 	}
 

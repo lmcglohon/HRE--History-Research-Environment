@@ -1,4 +1,4 @@
-package org.historyresearchenvironment.sample.dataaccess.providers;
+package org.historyresearchenvironment.sample.providers;
 
 import java.sql.SQLException;
 
@@ -11,7 +11,7 @@ import org.historyresearchenvironment.dataaccess.providers.AbstractHreProvider;
  * @author Michael Erichsen, &copy; History Research Environment Ltd., 2018
  *
  */
-public class SampleViewProvider extends AbstractHreProvider {
+public class SampleViewProvider1 extends AbstractHreProvider {
 	private String defltValue;
 	private short paramListKey;
 	private short paramSetKey;
@@ -20,7 +20,7 @@ public class SampleViewProvider extends AbstractHreProvider {
 	 * Constructor
 	 * 
 	 */
-	public SampleViewProvider() {
+	public SampleViewProvider1() {
 		super();
 	}
 

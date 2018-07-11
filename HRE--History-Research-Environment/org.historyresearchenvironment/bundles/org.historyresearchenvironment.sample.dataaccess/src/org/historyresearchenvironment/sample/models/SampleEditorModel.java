@@ -1,4 +1,4 @@
-package org.historyresearchenvironment.sample.client.models;
+package org.historyresearchenvironment.sample.models;
 
 /**
  * Model representing data in the sample view part.
@@ -7,7 +7,7 @@ package org.historyresearchenvironment.sample.client.models;
  * @author Michael Erichsen, &copy; History Research Environment Ltd., 2018
  *
  */
-public class SampleViewModel {
+public class SampleEditorModel {
 	private int SubstnParamNamePid;
 	private String DefltValue;
 
@@ -15,7 +15,7 @@ public class SampleViewModel {
 	 * Constructor
 	 *
 	 */
-	public SampleViewModel() {
+	public SampleEditorModel() {
 	}
 
 	/**
@@ -24,7 +24,7 @@ public class SampleViewModel {
 	 * @param substnParamNamePid
 	 * @param defltValue
 	 */
-	public SampleViewModel(int substnParamNamePid, String defltValue) {
+	public SampleEditorModel(int substnParamNamePid, String defltValue) {
 		super();
 		SubstnParamNamePid = substnParamNamePid;
 		DefltValue = defltValue;

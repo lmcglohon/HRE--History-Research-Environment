@@ -9,7 +9,6 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.e4.core.services,
  org.historyresearchenvironment.dataaccess,
  org.eclipse.e4.core.di.annotations,
- org.historyresearchenvironment.sample.server,
  org.eclipse.jetty.server
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Automatic-Module-Name: org.historyresearchenvironment.server

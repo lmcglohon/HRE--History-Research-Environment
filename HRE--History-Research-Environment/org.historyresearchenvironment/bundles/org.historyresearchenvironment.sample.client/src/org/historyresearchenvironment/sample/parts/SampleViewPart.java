@@ -1,4 +1,4 @@
-package org.historyresearchenvironment.sample.client.parts;
+package org.historyresearchenvironment.sample.parts;
 
 import java.util.List;
 
@@ -29,7 +29,7 @@ import org.eclipse.swt.widgets.Text;
 import org.historyresearchenvironment.client.HreConstants;
 import org.historyresearchenvironment.client.listeners.NumericVerifyListener;
 import org.historyresearchenvironment.client.parts.AbstractHreGuiPart;
-import org.historyresearchenvironment.sample.dataaccess.providers.SampleViewProvider;
+import org.historyresearchenvironment.sample.providers.SampleViewProvider1;
 
 /**
  * View part for the sample.
@@ -46,7 +46,7 @@ public class SampleViewPart extends AbstractHreGuiPart {
 	@Inject
 	private MApplication application;
 
-	SampleViewProvider provider = new SampleViewProvider();
+	SampleViewProvider1 provider = new SampleViewProvider1();
 	private Text textparamSetKey;
 	private Text textDefltValue;
 	private Text textparamListKey;
@@ -128,7 +128,7 @@ public class SampleViewPart extends AbstractHreGuiPart {
 	 * @param provider2
 	 * @param parseInt
 	 */
-	protected void callBusinessLayer(String operation, SampleViewProvider provider2, int parseInt) {
+	protected void callBusinessLayer(String operation, SampleViewProvider1 provider2, int parseInt) {
 		// TODO Auto-generated method stub
 		
 	}

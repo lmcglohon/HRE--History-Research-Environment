@@ -5,9 +5,9 @@ Bundle-SymbolicName: org.historyresearchenvironment.sample.dataaccess
 Bundle-Version: 0.1.0.qualifier
 Bundle-Activator: org.historyresearchenvironment.sample.dataaccess.Activator
 Require-Bundle: org.eclipse.core.runtime,
- org.historyresearchenvironment.dataaccess
+ org.historyresearchenvironment.dataaccess,
+ org.eclipse.e4.ui.model.workbench
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Automatic-Module-Name: org.historyresearchenvironment.sample.dataaccess
 Bundle-ActivationPolicy: lazy
-Export-Package: org.historyresearchenvironment.sample.dataaccess;uses:="org.osgi.framework,org.historyresearchenvironment.dataaccess.models",
- org.historyresearchenvironment.sample.dataaccess.providers;uses:="org.historyresearchenvironment.dataaccess.providers"
+Export-Package: org.historyresearchenvironment.sample.providers
