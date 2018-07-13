@@ -6,7 +6,7 @@ import java.util.ArrayList;
 /**
  * The persistent class for the SUBSTN_PARAM_VALUES database table.
  * 
- * @version 2018-07-07
+ * @version 2018-07-13
  * @author Michael Erichsen, &copy; History Research Environment Ltd., 2018
  *
  */
@@ -145,6 +145,7 @@ public class SubstnParamValue extends AbstractHreDataModel {
 	@Override
 	public AbstractHreDataModel get(int key) throws SQLException {
 		ps = conn.prepareStatement(SELECT);
+		ps.setShort(1, (short) key);
 		rs = ps.executeQuery();
 
 		if (rs.next()) {

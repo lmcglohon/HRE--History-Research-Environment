@@ -13,6 +13,9 @@
   <fragments xsi:type="fragment:StringModelFragment" xmi:id="_ZClEQHxkEei8I8MlktFKsw" featurename="children" parentElementId="org.historyresearchenvironment.client.menu.perspectives">
     <elements xsi:type="menu:HandledMenuItem" xmi:id="_pNmZwH0GEeiesK64SdEsBQ" elementId="org.historyresearchenvironment.databaseadmin.client.handledmenuitem.databaseadministrationperspective" label="Database Administration Perspective" tooltip="Database Administration Perspective" command="_Q8zIUH0GEeiesK64SdEsBQ"/>
   </fragments>
+  <fragments xsi:type="fragment:StringModelFragment" xmi:id="_h-wq8Ia-Eeii7p3fU4-nBw" featurename="children" parentElementId="org.historyresearchenvironment.client.menu.views">
+    <elements xsi:type="menu:HandledMenuItem" xmi:id="_kzA7QIa-Eeii7p3fU4-nBw" elementId="org.historyresearchenvironment.databaseadmin.client.handledmenuitem.h2tables" label="H2 Tables" tooltip="H2 Tables" command="_zHkBYHxqEeikP7Mrub0BrQ"/>
+  </fragments>
   <fragments xsi:type="fragment:StringModelFragment" xmi:id="_eFgV4H0EEeiesK64SdEsBQ" featurename="children" parentElementId="org.historyresearchenvironment.client.perspectivestack.0">
     <elements xsi:type="advanced:Perspective" xmi:id="_lZx0wH0EEeiesK64SdEsBQ" elementId="org.historyresearchenvironment.perspective.databaseadministration" label="Database Administration" tooltip="Database Administration">
       <children xsi:type="basic:PartSashContainer" xmi:id="_tYGWMH0EEeiesK64SdEsBQ" elementId="org.historyresearchenvironment.databaseadmin.client.partsashcontainer.0" containerData="10000" horizontal="true">

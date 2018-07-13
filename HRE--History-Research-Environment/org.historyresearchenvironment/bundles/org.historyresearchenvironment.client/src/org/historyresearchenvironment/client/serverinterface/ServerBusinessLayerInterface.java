@@ -42,9 +42,11 @@ public class ServerBusinessLayerInterface implements BusinessLayerInterface {
 		try {
 
 			if (request.getOperation().equals("GET")) {
-				LOGGER.fine("Calling " + serverAddress + request.getModelName() + "/" + request.getProvider().getKey());
+				LOGGER.fine("Calling " + serverAddress + request.getProvider().getClass().getSimpleName() + "/"
+						+ request.getProvider().getKey());
 
-				final URL url = new URL(serverAddress + request.getModelName() + "/" + request.getProvider().getKey());
+				final URL url = new URL(serverAddress + request.getProvider().getClass().getSimpleName() + "/"
+						+ request.getProvider().getKey());
 				final BufferedReader br = new BufferedReader(new InputStreamReader(url.openStream()));
 
 				while (null != (s = br.readLine())) {

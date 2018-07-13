@@ -1,20 +1,18 @@
 package org.historyresearchenvironment.server;
 
 import org.historyresearchenvironment.dataaccess.providers.AbstractHreProvider;
+import org.historyresearchenvironment.server.businesslogic.AbstractHreBusinessLogic;
 
 /**
- * @version 2018-06-29
+ * @version 2018-07-13
  * @author Michael Erichsen, &copy; History Research Environment Ltd., 2018
  *
  */
 public class ServerRequest {
 	private String operation;
-	private String modelName;
 	private AbstractHreProvider provider;
+	private AbstractHreBusinessLogic businessLogic;
 
-	/**
-	 * 
-	 */
 	/**
 	 * Constructor
 	 *
@@ -27,18 +25,18 @@ public class ServerRequest {
 	 * @param operation
 	 * @param request
 	 */
-	public ServerRequest(String operation, String modelName, AbstractHreProvider provider) {
+	public ServerRequest(String operation, AbstractHreProvider provider, AbstractHreBusinessLogic businessLogic) {
 		super();
 		this.operation = operation;
-		this.modelName = modelName;
 		this.provider = provider;
+		this.businessLogic = businessLogic;
 	}
 
 	/**
-	 * @return the provider
+	 * @return the businessLogic
 	 */
-	public String getModelName() {
-		return modelName;
+	public AbstractHreBusinessLogic getBusinessLogic() {
+		return businessLogic;
 	}
 
 	/**
@@ -56,16 +54,14 @@ public class ServerRequest {
 	}
 
 	/**
-	 * @param provider
-	 *            the provider to set
+	 * @param businessLogic the businessLogic to set
 	 */
-	public void setModelName(String modelName) {
-		this.modelName = modelName;
+	public void setBusinessLogic(AbstractHreBusinessLogic businessLogic) {
+		this.businessLogic = businessLogic;
 	}
 
 	/**
-	 * @param operation
-	 *            the operation to set
+	 * @param operation the operation to set
 	 */
 	public void setOperation(String operation) {
 		this.operation = operation;

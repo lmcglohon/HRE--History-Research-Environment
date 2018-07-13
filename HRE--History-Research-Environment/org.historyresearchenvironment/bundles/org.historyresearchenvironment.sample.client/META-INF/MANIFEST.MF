@@ -12,11 +12,19 @@ Require-Bundle: org.eclipse.jface,
  org.eclipse.core.runtime,
  org.historyresearchenvironment.client,
  org.eclipse.e4.ui.workbench,
- org.historyresearchenvironment.sample.dataaccess,
- org.historyresearchenvironment.dataaccess,
  org.eclipse.e4.core.commands,
- org.eclipse.e4.core.services
+ org.eclipse.e4.core.services,
+ org.historyresearchenvironment.sample.server,
+ org.historyresearchenvironment.server,
+ org.historyresearchenvironment.dataaccess;bundle-version="0.1.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Automatic-Module-Name: org.historyresearchenvironment.sample.client
 Import-Package: javax.annotation
 Bundle-ActivationPolicy: lazy
+Export-Package: org.historyresearchenvironment.sample.client;uses:="org.osgi.framework",
+ org.historyresearchenvironment.sample.handlers;uses:="org.eclipse.e4.ui.model.application,org.eclipse.e4.ui.workbench.modeling",
+ org.historyresearchenvironment.sample.parts;
+  uses:="org.historyresearchenvironment.sample.businesslogic,
+   org.eclipse.swt.widgets,
+   org.historyresearchenvironment.client.parts,
+   org.historyresearchenvironment.sample.providers"

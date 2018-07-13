@@ -23,21 +23,17 @@
       <import plugin="org.eclipse.e4.ui.di"/>
       <import plugin="org.eclipse.e4.core.di.annotations"/>
       <import plugin="org.eclipse.core.runtime"/>
-      <import plugin="javax.annotation"/>
       <import plugin="org.historyresearchenvironment.client"/>
       <import plugin="org.eclipse.e4.ui.workbench"/>
       <import plugin="org.historyresearchenvironment.dataaccess"/>
+      <import plugin="javax.annotation"/>
+      <import plugin="org.eclipse.e4.core.commands"/>
+      <import plugin="org.eclipse.e4.core.services"/>
+      <import plugin="org.historyresearchenvironment.server"/>
    </requires>
 
    <plugin
          id="org.historyresearchenvironment.sample.client"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="org.historyresearchenvironment.sample.dataaccess"
          download-size="0"
          install-size="0"
          version="0.0.0"

@@ -7,6 +7,7 @@ import java.lang.reflect.Method;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Vector;
 import java.util.logging.Logger;
 
@@ -23,7 +24,7 @@ import org.json.JSONWriter;
 import org.osgi.service.prefs.Preferences;
 
 /**
- * @version 2018-07-04
+ * @version 2018-07-13
  * @author Michael Erichsen, &copy; History Research Environment Ltd., 2018
  *
  */
@@ -32,6 +33,22 @@ public abstract class AbstractHreProvider {
 	protected static IEventBroker eventBroker;
 
 	protected final static Logger LOGGER = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
+	protected Preferences preferences = InstanceScope.INSTANCE.getNode("org.historyresearchenvironment");
+	protected Connection conn = null;
+	protected PreparedStatement pst = null;
+	protected String key;
+
+	/**
+	 * No arg c:tor
+	 */
+	public AbstractHreProvider() {
+		super();
+		try {
+			conn = HreH2ConnectionPool.getConnection();
+		} catch (final Exception e) {
+			e.printStackTrace();
+		}
+	}
 
 	/**
 	 * @param c
@@ -69,7 +86,7 @@ public abstract class AbstractHreProvider {
 	 * @throws IllegalAccessException
 	 * @throws InvocationTargetException
 	 */
-	private static void invokeVararg(Object model, Vector<Object> arglist, Method method)
+	private static void invokeVararg(Object model, List<Object> arglist, Method method)
 			throws IllegalAccessException, InvocationTargetException, Exception {
 		switch (arglist.size()) {
 		case 0:
@@ -116,31 +133,17 @@ public abstract class AbstractHreProvider {
 		}
 	}
 
-	protected Preferences preferences = InstanceScope.INSTANCE.getNode("org.historyresearchenvironment");
-	protected Connection conn = null;
-
-	protected PreparedStatement pst = null;
-
-	protected String key;
-
-	/**
-	 * No arg c:tor
-	 */
-	public AbstractHreProvider() {
-		super();
-		try {
-			conn = HreH2ConnectionPool.getConnection();
-		} catch (final Exception e) {
-			e.printStackTrace();
-		}
-	}
-
 	/**
 	 * @return the key
 	 */
 	public String getKey() {
 		return key;
 	}
+
+	/**
+	 * 
+	 */
+	public abstract void readFromH2();
 
 	/**
 	 * @param i
@@ -250,8 +253,7 @@ public abstract class AbstractHreProvider {
 	}
 
 	/**
-	 * @param key
-	 *            the key to set
+	 * @param key the key to set
 	 */
 	public void setKey(String key) {
 		this.key = key;

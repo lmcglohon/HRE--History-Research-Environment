@@ -34,7 +34,7 @@ public class SampleNavigatorHandler {
 		part.setCloseable(true);
 		part.setVisible(true);
 		part.setContributionURI(
-				"bundleclass://org.historyresearchenvironment.sample.client/org.historyresearchenvironment.sample.parts.SampleNavigatorPart");
+				"bundleclass://org.historyresearchenvironment.sample.client/org.historyresearchenvironment.sample.parts.SampleNavigatorView");
 		final List<MPartStack> stacks = modelService.findElements(application, null, MPartStack.class, null);
 		stacks.get(stacks.size() - 2).getChildren().add(part);
 		partService.showPart(part, PartState.ACTIVATE);

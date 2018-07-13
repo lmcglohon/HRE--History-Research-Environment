@@ -47,7 +47,7 @@ public class H2TableProvider implements IContentProvider {
 	 * 
 	 * @param tableName
 	 *            Name of H2 table
-	 * @throws SQLException
+	 * @throws SQLExcepti
 	 *             When failing
 	 *
 	 */

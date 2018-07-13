@@ -3,10 +3,17 @@ package org.historyresearchenvironment.sample.client;
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
 
+/**
+ * @version 2018-07-12
+ * @author Michael Erichsen, &copy; History Research Environment Ltd., 2018
+ *
+ */
 public class Activator implements BundleActivator {
-
 	private static BundleContext context;
 
+	/**
+	 * @return
+	 */
 	static BundleContext getContext() {
 		return context;
 	}
@@ -32,5 +39,4 @@ public class Activator implements BundleActivator {
 	public void stop(BundleContext bundleContext) throws Exception {
 		Activator.context = null;
 	}
-
 }

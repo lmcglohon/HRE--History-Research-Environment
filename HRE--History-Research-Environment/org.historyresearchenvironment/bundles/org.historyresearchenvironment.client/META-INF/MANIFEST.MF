@@ -14,9 +14,9 @@ Export-Package: org.eclipse.wb.swt;uses:="org.eclipse.swt.graphics,org.eclipse.j
    org.eclipse.e4.ui.workbench,
    org.eclipse.e4.ui.workbench.modeling",
  org.historyresearchenvironment.client.listeners;uses:="org.eclipse.swt.events,org.eclipse.swt.widgets",
- org.historyresearchenvironment.client.models,
  org.historyresearchenvironment.client.parts;
-  uses:="org.historyresearchenvironment.dataaccess.providers,
+  uses:="org.historyresearchenvironment.server.businesslogic,
+   org.historyresearchenvironment.dataaccess.providers,
    org.osgi.service.prefs,
    org.eclipse.swt.graphics,
    org.eclipse.swt.widgets,

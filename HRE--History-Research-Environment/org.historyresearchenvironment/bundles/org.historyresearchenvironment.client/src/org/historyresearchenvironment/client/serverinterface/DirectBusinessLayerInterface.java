@@ -2,12 +2,12 @@ package org.historyresearchenvironment.client.serverinterface;
 
 import org.historyresearchenvironment.server.ServerRequest;
 import org.historyresearchenvironment.server.ServerResponse;
-import org.historyresearchenvironment.server.businesslogic.SampleBusinessLogic;
+import org.historyresearchenvironment.server.businesslogic.AbstractHreBusinessLogic;
 
 /**
  * Direct business layer interface for direct, local calls.
  * 
- * @version 2018-06-29
+ * @version 2018-07-13
  * @author Michael Erichsen, &copy; History Research Environment Ltd., 2018
  *
  */
@@ -22,9 +22,8 @@ public class DirectBusinessLayerInterface implements BusinessLayerInterface {
 	 */
 	@Override
 	public ServerResponse callBusinessLayer(ServerRequest request) {
-		// FIXME Needs some logic to select the right business logic class
-		final SampleBusinessLogic sbl = new SampleBusinessLogic(request);
-		final ServerResponse response = sbl.doSomethingWithRequest();
+		AbstractHreBusinessLogic businessLogic = request.getBusinessLogic();
+		final ServerResponse response = businessLogic.execute(request);
 		return response;
 	}
 }

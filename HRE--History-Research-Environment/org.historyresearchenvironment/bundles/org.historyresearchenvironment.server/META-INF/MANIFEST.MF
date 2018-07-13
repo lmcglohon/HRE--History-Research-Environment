@@ -13,6 +13,5 @@ Require-Bundle: org.eclipse.core.runtime,
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Automatic-Module-Name: org.historyresearchenvironment.server
 Bundle-ActivationPolicy: lazy
-Export-Package: org.historyresearchenvironment.server;uses:="org.osgi.framework,org.historyresearchenvironment.dataaccess.providers,org.historyresearchenvironment.sample.providers",
- org.historyresearchenvironment.server.businesslogic;uses:="org.historyresearchenvironment.server",
- org.historyresearchenvironment.server.handlers
+Export-Package: org.historyresearchenvironment.server;uses:="org.osgi.framework,org.historyresearchenvironment.server.businesslogic,org.historyresearchenvironment.dataaccess.providers",
+ org.historyresearchenvironment.server.businesslogic;uses:="org.historyresearchenvironment.server"

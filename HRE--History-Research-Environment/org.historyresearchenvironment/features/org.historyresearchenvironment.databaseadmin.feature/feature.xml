@@ -17,29 +17,26 @@
    </license>
 
    <requires>
-      <import plugin="org.eclipse.ui"/>
-      <import plugin="org.eclipse.core.runtime"/>
-      <import plugin="org.eclipse.e4.ui.workbench"/>
-      <import plugin="org.eclipse.e4.ui.model.workbench"/>
-      <import plugin="org.eclipse.e4.core.di.annotations"/>
-      <import plugin="org.eclipse.e4.core.services"/>
-      <import plugin="org.eclipse.e4.core.commands"/>
-      <import plugin="org.eclipse.e4.ui.di"/>
       <import plugin="org.historyresearchenvironment.dataaccess"/>
       <import plugin="org.historyresearchenvironment.client"/>
-      <import plugin="org.h2"/>
+      <import plugin="org.eclipse.e4.ui.model.workbench"/>
       <import plugin="org.eclipse.jface"/>
+      <import plugin="org.eclipse.e4.core.di.annotations"/>
+      <import plugin="org.eclipse.e4.ui.workbench"/>
+      <import plugin="org.eclipse.e4.ui.di"/>
+      <import plugin="org.h2"/>
+      <import plugin="org.eclipse.e4.core.commands"/>
+      <import plugin="org.eclipse.e4.core.services"/>
+      <import plugin="org.eclipse.ui.workbench"/>
+      <import plugin="org.eclipse.core.runtime"/>
+      <import plugin="org.eclipse.swt"/>
+      <import plugin="org.eclipse.osgi"/>
+      <import plugin="org.eclipse.equinox.preferences"/>
+      <import plugin="org.historyresearchenvironment.sample.server"/>
    </requires>
 
    <plugin
          id="org.historyresearchenvironment.databaseadmin.client"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="org.historyresearchenvironment.databaseadmin.dataaccess"
          download-size="0"
          install-size="0"
          version="0.0.0"
@@ -54,6 +51,13 @@
 
    <plugin
          id="org.historyresearchenvironment.databaseadmin.server"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.historyresearchenvironment.databaseadmin.dataaccess"
          download-size="0"
          install-size="0"
          version="0.0.0"

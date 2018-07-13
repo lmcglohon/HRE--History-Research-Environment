@@ -15,7 +15,7 @@ import org.eclipse.e4.ui.workbench.modeling.EPartService.PartState;
 /**
  * Handler to open the project properties.
  * 
- * @version 2018-06-10
+ * @version 2018-07-13
  * @author Michael Erichsen, &copy; History Research Environment Ltd., 2018
  *
  */
@@ -35,7 +35,8 @@ public class ProjectPropertiesHandler {
 		part.setContributionURI(
 				"bundleclass://org.historyresearchenvironment.client/org.historyresearchenvironment.client.parts.ProjectProperties");
 		final List<MPartStack> stacks = modelService.findElements(application, null, MPartStack.class, null);
-		stacks.get(stacks.size() - 1).getChildren().add(part);
+//		stacks.get(stacks.size() - 1).getChildren().add(part);
+		stacks.get(2).getChildren().add(part);
 		partService.showPart(part, PartState.ACTIVATE);
 	}
 

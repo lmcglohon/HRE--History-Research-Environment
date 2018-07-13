@@ -6,7 +6,7 @@ import java.util.ArrayList;
 /**
  * The persistent class for the SUBSTN_PARAM_NAMES database table.
  * 
- * @version 2018-07-07
+ * @version 2018-07-13
  * @author Michael Erichsen, &copy; History Research Environment Ltd., 2018
  *
  */
@@ -21,17 +21,18 @@ public class SubstnParamName extends AbstractHreDataModel {
 			+ " EVAL_DATA_SCRIPT_PID, PARAM_SET_KEY, DATA_TYPE_KEY, MUST_BE_ENTERED,"
 			+ " DEFLT_VALUE, DISPLAY_ORDER, SHOW) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,"
 			+ " ?, ?, ?, ?, ?, ?, ?, ?)";
-	private static final String SELECT = "SELECT SHOW, DISPLAY_ORDER, DEFLT_VALUE, MUST_BE_ENTERED, DATA_TYPE_KEY,"
-			+ " PARAM_SET_KEY, EVAL_DATA_SCRIPT_PID, EVAL_DATA_SCRIPT_GROUP_KEY,"
-			+ " DELETE_DATA_SCRIPT_PID, DELETE_DATA_SCRIPT_GROUP_KEY, MODIFY_DATA_SCRIPT_PID,"
-			+ " MODIFY_DATA_SCRIPT_GROUP_KEY, VIEW_DATA_SCRIPT_PID, VIEW_DATA_SCRIPT_GROUP_KEY,"
-			+ " IS_SYSTEM, SUBSTN_PARAM_NAME_PID, COMMIT_PID, SET_KEY, RECORD_NUM FROM PUBLIC.SUBSTN_PARAM_NAMES"
-			+ " WHERE PARAM_SET_KEY = ?";
-	private static final String SELECTALL = "SELECT SHOW, DISPLAY_ORDER, DEFLT_VALUE, MUST_BE_ENTERED, DATA_TYPE_KEY,"
-			+ " PARAM_SET_KEY, EVAL_DATA_SCRIPT_PID, EVAL_DATA_SCRIPT_GROUP_KEY,"
-			+ " DELETE_DATA_SCRIPT_PID, DELETE_DATA_SCRIPT_GROUP_KEY, MODIFY_DATA_SCRIPT_PID,"
-			+ " MODIFY_DATA_SCRIPT_GROUP_KEY, VIEW_DATA_SCRIPT_PID, VIEW_DATA_SCRIPT_GROUP_KEY,"
-			+ " IS_SYSTEM, SUBSTN_PARAM_NAME_PID, COMMIT_PID, SET_KEY, RECORD_NUM FROM PUBLIC.SUBSTN_PARAM_NAMES";
+	private static final String SELECT = "SELECT RECORD_NUM, SET_KEY, COMMIT_PID, "
+			+ " SUBSTN_PARAM_NAME_PID, IS_SYSTEM, VIEW_DATA_SCRIPT_GROUP_KEY, "
+			+ "	VIEW_DATA_SCRIPT_PID, MODIFY_DATA_SCRIPT_GROUP_KEY, MODIFY_DATA_SCRIPT_PID, "
+			+ "	DELETE_DATA_SCRIPT_GROUP_KEY, DELETE_DATA_SCRIPT_PID, EVAL_DATA_SCRIPT_GROUP_KEY, "
+			+ "	EVAL_DATA_SCRIPT_PID, PARAM_SET_KEY, DATA_TYPE_KEY, MUST_BE_ENTERED, "
+			+ "	DEFLT_VALUE, DISPLAY_ORDER, SHOW FROM PUBLIC.SUBSTN_PARAM_NAMES WHERE PARAM_SET_KEY = ?";
+	private static final String SELECTALL = "SELECT RECORD_NUM, SET_KEY, COMMIT_PID, "
+			+ "	SUBSTN_PARAM_NAME_PID, IS_SYSTEM, VIEW_DATA_SCRIPT_GROUP_KEY, "
+			+ "	VIEW_DATA_SCRIPT_PID, MODIFY_DATA_SCRIPT_GROUP_KEY, MODIFY_DATA_SCRIPT_PID, "
+			+ "	DELETE_DATA_SCRIPT_GROUP_KEY, DELETE_DATA_SCRIPT_PID, EVAL_DATA_SCRIPT_GROUP_KEY, "
+			+ "	EVAL_DATA_SCRIPT_PID, PARAM_SET_KEY, DATA_TYPE_KEY, MUST_BE_ENTERED, "
+			+ "	DEFLT_VALUE, DISPLAY_ORDER, SHOW FROM PUBLIC.SUBSTN_PARAM_NAMES";
 	private static final String UPDATE = "UPDATE PUBLIC.SUBSTN_PARAM_NAMES"
 			+ " SET RECORD_NUM = ?, SET_KEY = ?, COMMIT_PID = ?,"
 			+ " SUBSTN_PARAM_NAME_PID = ?, IS_SYSTEM = ?, VIEW_DATA_SCRIPT_GROUP_KEY = ?,"
@@ -132,7 +133,7 @@ public class SubstnParamName extends AbstractHreDataModel {
 			model.setSubstnParamNamePid(rs.getInt("SUBSTN_PARAM_NAME_PID"));
 			model.setIsSystem(rs.getBoolean("IS_SYSTEM"));
 			model.setViewDataScriptGroupKey(rs.getShort("VIEW_DATA_SCRIPT_GROUP_KEY"));
-			model.setViewDataScriptPid(rs.getInt(" VIEW_DATA_SCRIPT_PID"));
+			model.setViewDataScriptPid(rs.getInt("VIEW_DATA_SCRIPT_PID"));
 			model.setModifyDataScriptGroupKey(rs.getShort("MODIFY_DATA_SCRIPT_GROUP_KEY"));
 			model.setModifyDataScriptPid(rs.getInt("MODIFY_DATA_SCRIPT_PID"));
 			model.setDeleteDataScriptGroupKey(rs.getShort("DELETE_DATA_SCRIPT_GROUP_KEY"));
@@ -172,7 +173,7 @@ public class SubstnParamName extends AbstractHreDataModel {
 			setSubstnParamNamePid(rs.getInt("SUBSTN_PARAM_NAME_PID"));
 			setIsSystem(rs.getBoolean("IS_SYSTEM"));
 			setViewDataScriptGroupKey(rs.getShort("VIEW_DATA_SCRIPT_GROUP_KEY"));
-			setViewDataScriptPid(rs.getInt(" VIEW_DATA_SCRIPT_PID"));
+			setViewDataScriptPid(rs.getInt("VIEW_DATA_SCRIPT_PID"));
 			setModifyDataScriptGroupKey(rs.getShort("MODIFY_DATA_SCRIPT_GROUP_KEY"));
 			setModifyDataScriptPid(rs.getInt("MODIFY_DATA_SCRIPT_PID"));
 			setDeleteDataScriptGroupKey(rs.getShort("DELETE_DATA_SCRIPT_GROUP_KEY"));

@@ -13,19 +13,21 @@
   <fragments xsi:type="fragment:StringModelFragment" xmi:id="_UbXJwIUxEeidmNfZYr8rbQ" featurename="children" parentElementId="org.historyresearchenvironment.client.menu.perspectives">
     <elements xsi:type="menu:HandledMenuItem" xmi:id="_Zz7J4IUxEeidmNfZYr8rbQ" elementId="org.historyresearchenvironment.sample.client.handledmenuitem.sampleperspective" label="Sample Perspective" tooltip="Sample Perspective" command="_TrJDMIUwEeidmNfZYr8rbQ"/>
   </fragments>
+  <fragments xsi:type="fragment:StringModelFragment" xmi:id="_tA5isIa-Eeii7p3fU4-nBw" featurename="children" parentElementId="org.historyresearchenvironment.client.menu.views">
+    <elements xsi:type="menu:HandledMenuItem" xmi:id="_wTTHkIa-Eeii7p3fU4-nBw" elementId="org.historyresearchenvironment.sample.client.handledmenuitem.sampleitems" label="Sample Items" tooltip="Sample Items" command="_XcGzYIUwEeidmNfZYr8rbQ"/>
+  </fragments>
   <fragments xsi:type="fragment:StringModelFragment" xmi:id="_NdicAIUxEeidmNfZYr8rbQ" featurename="children" parentElementId="org.historyresearchenvironment.client.perspectivestack.0">
     <elements xsi:type="advanced:Perspective" xmi:id="_P1LBwIUxEeidmNfZYr8rbQ" elementId="org.historyresearchenvironment.perspective.sample" label="Sample Perspective" tooltip="Sample Perspective">
       <children xsi:type="basic:PartSashContainer" xmi:id="_1vmwoIU8EeidmNfZYr8rbQ" elementId="org.historyresearchenvironment.sample.client.partsashcontainer.0" containerData="10000" horizontal="true">
-        <children xsi:type="basic:PartSashContainer" xmi:id="_5oVVsIU8EeidmNfZYr8rbQ" elementId="org.historyresearchenvironment.sample.client.partsashcontainer.1" containerData="3000">
+        <children xsi:type="basic:PartSashContainer" xmi:id="_5oVVsIU8EeidmNfZYr8rbQ" elementId="org.historyresearchenvironment.sample.client.partsashcontainer.1" containerData="4000">
           <children xsi:type="basic:PartStack" xmi:id="_CKwCsIU9EeidmNfZYr8rbQ" elementId="org.historyresearchenvironment.sample.client.partstack.0">
-            <children xsi:type="basic:Part" xmi:id="_Eu_hEIU9EeidmNfZYr8rbQ" elementId="org.historyresearchenvironment.sample.client.part.samplenavigator" contributionURI="bundleclass://org.historyresearchenvironment.sample.client/org.historyresearchenvironment.sample.parts.SampleNavigatorPart" label="Sample Navigator" tooltip="Sample Navigator" closeable="true"/>
+            <children xsi:type="basic:Part" xmi:id="_Eu_hEIU9EeidmNfZYr8rbQ" elementId="org.historyresearchenvironment.sample.client.part.samplenavigator" contributionURI="bundleclass://org.historyresearchenvironment.sample.client/org.historyresearchenvironment.sample.parts.SampleNavigatorView" label="Sample Navigator" tooltip="Sample Navigator" closeable="true"/>
           </children>
         </children>
-        <children xsi:type="basic:PartSashContainer" xmi:id="_8kLbwIU8EeidmNfZYr8rbQ" elementId="org.historyresearchenvironment.sample.client.partsashcontainer.2" containerData="7000">
+        <children xsi:type="basic:PartSashContainer" xmi:id="_8kLbwIU8EeidmNfZYr8rbQ" elementId="org.historyresearchenvironment.sample.client.partsashcontainer.2" containerData="6000">
           <children xsi:type="basic:PartStack" xmi:id="_C2nqMIU9EeidmNfZYr8rbQ" elementId="org.historyresearchenvironment.sample.client.partstack.1" containerData="8000">
-            <children xsi:type="basic:Part" xmi:id="_MuUvIIU9EeidmNfZYr8rbQ" elementId="org.historyresearchenvironment.sample.client.part.sampleeditor" contributionURI="bundleclass://org.historyresearchenvironment.sample.client/org.historyresearchenvironment.sample.parts.SampleViewPart" label="Sample Editor" tooltip="Sample Editor"/>
+            <children xsi:type="basic:Part" xmi:id="_MuUvIIU9EeidmNfZYr8rbQ" elementId="org.historyresearchenvironment.sample.client.part.sampleeditor" contributionURI="bundleclass://org.historyresearchenvironment.sample.client/org.historyresearchenvironment.sample.parts.SampleEditorView" label="Sample Editor" tooltip="Sample Editor" closeable="true"/>
           </children>
-          <children xsi:type="basic:PartStack" xmi:id="_MAs0IIU9EeidmNfZYr8rbQ" elementId="org.historyresearchenvironment.sample.client.partstack.2" containerData="2000"/>
         </children>
       </children>
     </elements>

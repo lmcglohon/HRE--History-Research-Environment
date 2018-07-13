@@ -20,7 +20,6 @@
 		<module>org.historyresearchenvironment.helpsystem</module>
 		<module>org.historyresearchenvironment.server</module>
 		<module>org.historyresearchenvironment.sample.client</module>
-		<module>org.historyresearchenvironment.sample.dataaccess</module>
 		<module>org.historyresearchenvironment.sample.help</module>
 		<module>org.historyresearchenvironment.sample.server</module>
 		<module>org.historyresearchenvironment.databaseadmin.client</module>

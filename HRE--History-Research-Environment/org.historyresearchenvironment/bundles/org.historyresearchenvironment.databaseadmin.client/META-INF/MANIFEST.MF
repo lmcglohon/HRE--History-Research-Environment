@@ -20,7 +20,8 @@ Require-Bundle: org.historyresearchenvironment.dataaccess,
  org.eclipse.e4.core.commands,
  org.eclipse.e4.core.services,
  org.eclipse.ui.workbench,
- org.eclipse.core.runtime
+ org.eclipse.core.runtime,
+ org.historyresearchenvironment.sample.server
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Automatic-Module-Name: org.historyresearchenvironment.databaseadmin.client
 Bundle-ActivationPolicy: lazy

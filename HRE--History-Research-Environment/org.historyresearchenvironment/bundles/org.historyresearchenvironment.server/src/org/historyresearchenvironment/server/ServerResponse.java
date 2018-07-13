@@ -1,7 +1,8 @@
 package org.historyresearchenvironment.server;
 
+import java.awt.image.SampleModel;
+
 import org.historyresearchenvironment.dataaccess.providers.AbstractHreProvider;
-import org.historyresearchenvironment.sample.providers.SampleModelProvider;
 
 /**
  * @version 2018-06-29
@@ -39,7 +40,7 @@ public class ServerResponse {
 	 * @param i
 	 * @param string
 	 */
-	public ServerResponse(SampleModelProvider provider2, int i, String string) {
+	public ServerResponse(SampleModel provider2, int i, String string) {
 		// TODO Auto-generated constructor stub
 	}
 
@@ -65,24 +66,21 @@ public class ServerResponse {
 	}
 
 	/**
-	 * @param provider
-	 *            the provider to set
+	 * @param provider the provider to set
 	 */
 	public void setProvider(AbstractHreProvider provider) {
 		this.provider = provider;
 	}
 
 	/**
-	 * @param returnCode
-	 *            the returnCode to set
+	 * @param returnCode the returnCode to set
 	 */
 	public void setReturnCode(int returnCode) {
 		this.returnCode = returnCode;
 	}
 
 	/**
-	 * @param returnMessage
-	 *            the returnMessage to set
+	 * @param returnMessage the returnMessage to set
 	 */
 	public void setReturnMessage(String returnMessage) {
 		this.returnMessage = returnMessage;

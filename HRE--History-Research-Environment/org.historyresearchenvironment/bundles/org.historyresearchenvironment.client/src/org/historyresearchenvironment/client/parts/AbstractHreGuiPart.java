@@ -17,12 +17,13 @@ import org.historyresearchenvironment.client.serverinterface.BusinessLayerInterf
 import org.historyresearchenvironment.dataaccess.providers.AbstractHreProvider;
 import org.historyresearchenvironment.server.ServerRequest;
 import org.historyresearchenvironment.server.ServerResponse;
+import org.historyresearchenvironment.server.businesslogic.AbstractHreBusinessLogic;
 import org.osgi.service.prefs.Preferences;
 
 /**
  * Abstract class for GUI parts.
  * 
- * @version 2018-07-03
+ * @version 2018-07-13
  * @author Michael Erichsen, &copy; History Research Environment Ltd., 2018
  *
  */
@@ -41,10 +42,11 @@ public abstract class AbstractHreGuiPart {
 	protected ServerRequest request;
 	protected ServerResponse response;
 
-	protected void callBusinessLayer(String operation, AbstractHreProvider provider, String key) {
+	protected void callBusinessLayer(String operation, AbstractHreProvider provider,
+			AbstractHreBusinessLogic businessLogic, String key) {
 		bli = BusinessLayerInterfaceFactory.getBusinessLayerInterface();
 		provider.setKey(key);
-		request = new ServerRequest("GET", "sampleview", provider);
+		request = new ServerRequest("GET", provider, businessLogic);
 
 		final long before = System.nanoTime();
 
@@ -66,8 +68,9 @@ public abstract class AbstractHreGuiPart {
 			try {
 				updateGui();
 			} catch (final Exception e2) {
-				LOGGER.severe("Error in request " + request.getOperation() + " " + request.getModelName() + ", "
-						+ e2.getMessage());
+				LOGGER.severe("Error in request " + request.getOperation() + " "
+						+ request.getProvider().getClass().getSimpleName()
+						+ request.getBusinessLogic().getClass().getSimpleName() + ", " + e2.getMessage());
 				eventBroker.post("MESSAGE", e2.getMessage());
 			}
 		}
