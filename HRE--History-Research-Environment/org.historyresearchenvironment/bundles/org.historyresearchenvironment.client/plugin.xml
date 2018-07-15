@@ -4,8 +4,9 @@
    <extension
          point="org.eclipse.core.runtime.products">
       <product
-            name="org.historyresearchenvironment.client"
-            application="org.eclipse.e4.ui.workbench.swt.E4Application">
+            application="org.eclipse.e4.ui.workbench.swt.E4Application"
+            description="org.historyresearchenvironment.client"
+            name="History Research Environment">
          <property
                name="lifeCycleURI"
                value="bundleclass://org.historyresearchenvironment.client/org.historyresearchenvironment.client.E4LifeCycle">
@@ -17,6 +18,10 @@
          <property
                name="appName"
                value="org.historyresearchenvironment.client">
+         </property>
+         <property
+               name="preferenceCustomization"
+               value="plugin_customization.ini">
          </property>
       </product>
    </extension>
@@ -91,29 +96,13 @@
             application="org.eclipse.e4.ui.workbench.swt.E4Application"
             name="org.historyresearchenvironment">
          <property
-               name="appName"
-               value="org.historyresearchenvironment">
-         </property>
-         <property
                name="applicationCSS"
                value="platform:/plugin/org.historyresearchenvironment.client/css/default.css">
          </property>
-      </product>
-   </extension>
-   <extension
-         id="HRE"
-         point="org.eclipse.core.runtime.products">
-      <product
-            application="org.eclipse.e4.ui.workbench.swt.E4Application"
-            name="org.historyresearchenvironment">
-      </product>
-   </extension>
-   <extension
-         id="produc"
-         point="org.eclipse.core.runtime.products">
-      <product
-            application="org.eclipse.e4.ui.workbench.swt.E4Application"
-            name="HRE">
+         <property
+               name="appName"
+               value="org.historyresearchenvironment">
+         </property>
       </product>
    </extension>
 

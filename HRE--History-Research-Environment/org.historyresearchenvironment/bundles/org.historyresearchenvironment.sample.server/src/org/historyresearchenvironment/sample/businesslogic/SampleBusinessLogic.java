@@ -8,7 +8,7 @@ import org.historyresearchenvironment.server.ServerResponse;
 import org.historyresearchenvironment.server.businesslogic.AbstractHreBusinessLogic;
 
 /**
- * @version 2018-07-13
+ * @version 2018-07-15
  * @author Michael Erichsen, &copy; History Research Environment Ltd., 2018
  *
  */
@@ -39,7 +39,7 @@ public class SampleBusinessLogic extends AbstractHreBusinessLogic {
 		if (request.getProvider() instanceof SampleEditorProvider) {
 			final SampleEditorProvider provider = (SampleEditorProvider) request.getProvider();
 			final short paramSetKey = Short.parseShort(provider.getKey());
-			provider.readFromH2(paramSetKey);
+			provider.readFromDatabase(paramSetKey);
 			response = new ServerResponse(provider, 0, "OK");
 			LOGGER.info("Key: " + provider.getParamSetKey() + ", " + provider.getDefltValue());
 

@@ -7,7 +7,7 @@ import org.historyresearchenvironment.dataaccess.models.SubstnParamValue;
 import org.historyresearchenvironment.dataaccess.providers.AbstractHreProvider;
 
 /**
- * @version 2018-07-13
+ * @version 2018-07-15
  * @author Michael Erichsen, &copy; History Research Environment Ltd., 2018
  *
  */
@@ -49,10 +49,10 @@ public class SampleEditorProvider extends AbstractHreProvider {
 	 * (non-Javadoc)
 	 * 
 	 * @see org.historyresearchenvironment.dataaccess.providers.AbstractHreProvider#
-	 * readFromH2(int)
+	 * readFromDatabase(int)
 	 */
 	@Override
-	public void readFromH2(int paramSetKey) {
+	public void readFromDatabase(int paramSetKey) {
 		try {
 			this.paramSetKey = (short) paramSetKey;
 			final SubstnParamName spn = new SubstnParamName(this.paramSetKey);
@@ -99,10 +99,10 @@ public class SampleEditorProvider extends AbstractHreProvider {
 	 * (non-Javadoc)
 	 * 
 	 * @see org.historyresearchenvironment.dataaccess.providers.AbstractHreProvider#
-	 * readFromH2()
+	 * readFromDatabase()
 	 */
 	@Override
-	public void readFromH2() {
+	public void readFromDatabase() {
 		LOGGER.info("Does nothing");
 	}
 }

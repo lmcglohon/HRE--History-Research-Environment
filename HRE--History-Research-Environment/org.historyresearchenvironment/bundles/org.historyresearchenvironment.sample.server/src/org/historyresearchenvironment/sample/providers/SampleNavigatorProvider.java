@@ -13,7 +13,7 @@ import org.historyresearchenvironment.dataaccess.providers.AbstractHreProvider;
 /**
  * Provide H2 data to the sample navigator.
  * 
- * @version 2018-07-13
+ * @version 2018-07-15
  * @author Michael Erichsen, &copy; History Research Environment Ltd., 2018
  *
  */
@@ -27,7 +27,7 @@ public class SampleNavigatorProvider extends AbstractHreProvider {
 	 */
 	public SampleNavigatorProvider() {
 		modelList = new ArrayList<SampleEditorProvider>();
-		readFromH2();
+		readFromDatabase();
 
 	}
 
@@ -66,10 +66,10 @@ public class SampleNavigatorProvider extends AbstractHreProvider {
 	 * (non-Javadoc)
 	 * 
 	 * @see org.historyresearchenvironment.dataaccess.providers.AbstractHreProvider#
-	 * readFromH2()
+	 * readFromDatabase()
 	 */
 	@Override
-	public void readFromH2() {
+	public void readFromDatabase() {
 		SubstnParamName row;
 		short paramSetKey;
 		SubstnParamValue spv;
@@ -100,10 +100,10 @@ public class SampleNavigatorProvider extends AbstractHreProvider {
 	 * (non-Javadoc)
 	 * 
 	 * @see org.historyresearchenvironment.dataaccess.providers.AbstractHreProvider#
-	 * readFromH2(int)
+	 * readFromDatabase(int)
 	 */
 	@Override
-	public void readFromH2(int i) {
+	public void readFromDatabase(int i) {
 		LOGGER.info("Does nothing");
 
 	}

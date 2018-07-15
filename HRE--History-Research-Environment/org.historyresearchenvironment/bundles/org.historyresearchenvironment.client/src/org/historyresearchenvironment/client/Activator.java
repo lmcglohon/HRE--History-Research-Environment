@@ -15,7 +15,7 @@ import org.osgi.service.prefs.Preferences;
  * Eclipse plug-in life cycle control. Sets up the logger. Starts and stops the
  * Help System.
  * 
- * @version 2018-06-26
+ * @version 2018-07-15
  * @author Michael Erichsen, &copy; History Research Environment Ltd., 2018
  *
  */
@@ -23,6 +23,8 @@ public class Activator implements BundleActivator {
 	private static BundleContext context;
 	private final static Logger LOGGER = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 	private static Preferences preferences = InstanceScope.INSTANCE.getNode("org.historyresearchenvironment");
+
+	private static final String HELPCLASSPATH = "plugins\\\\org.eclipse.help.base_4.2.200.v20180611-0500.jar";
 
 	/**
 	 * @return The bundle context
@@ -69,7 +71,8 @@ public class Activator implements BundleActivator {
 		LOGGER.info("HRE Font: "
 				+ preferences.get("HREFONT", "1|Segoe UI|12.0|0|WINDOWS|1|-16|0|0|0|400|0|0|0|0|3|2|1|34|Segoe UI"));
 
-		final String command = "java -classpath plugins\\org.eclipse.help.base_4.2.153.v20180330-0640.jar org.eclipse.help.standalone.Infocenter -command start -port "
+		final String command = "java -classpath " + HELPCLASSPATH
+				+ " org.eclipse.help.standalone.Infocenter -command start -port "
 				+ preferences.getInt("HELPSYSTEMPORT", 8081)
 				+ " -product org.historyresearchenvironment.helpsystem -clean";
 
@@ -93,7 +96,8 @@ public class Activator implements BundleActivator {
 		preferences.flush();
 		HreH2ConnectionPool.dispose();
 
-		final String command = "java -classpath plugins\\org.eclipse.help.base_4.2.153.v20180330-0640.jar org.eclipse.help.standalone.Infocenter -command shutdown";
+		final String command = "java -classpath " + HELPCLASSPATH
+				+ " org.eclipse.help.standalone.Infocenter -command shutdown";
 
 		try {
 			Runtime.getRuntime().exec(command);

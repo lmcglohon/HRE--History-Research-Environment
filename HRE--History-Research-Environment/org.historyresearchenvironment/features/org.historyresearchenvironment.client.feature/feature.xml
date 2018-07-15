@@ -31,11 +31,13 @@
       <import plugin="org.eclipse.e4.ui.services"/>
       <import plugin="javax.inject"/>
       <import plugin="org.eclipse.swt"/>
+      <import plugin="org.eclipse.e4.core.di.annotations"/>
+      <import plugin="org.eclipse.jetty.server"/>
       <import plugin="org.eclipse.equinox.preferences"/>
       <import plugin="org.h2"/>
-      <import plugin="org.eclipse.e4.core.di.annotations"/>
-      <import plugin="org.historyresearchenvironment.sample.server"/>
-      <import plugin="org.eclipse.jetty.server"/>
+      <import plugin="org.eclipse.help.ui"/>
+      <import plugin="org.eclipse.help.webapp"/>
+      <import plugin="org.eclipse.ui.forms"/>
    </requires>
 
    <plugin

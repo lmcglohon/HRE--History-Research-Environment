@@ -67,6 +67,7 @@ public class SampleNavigatorView extends AbstractHreGuiPart {
 
 		tableViewer = new TableViewer(parent, SWT.BORDER | SWT.FULL_SELECTION);
 		table = tableViewer.getTable();
+		table.setToolTipText("Double click an item to open it in the Sample Editor");
 		table.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
 		table.setLinesVisible(true);
 		table.setHeaderVisible(true);

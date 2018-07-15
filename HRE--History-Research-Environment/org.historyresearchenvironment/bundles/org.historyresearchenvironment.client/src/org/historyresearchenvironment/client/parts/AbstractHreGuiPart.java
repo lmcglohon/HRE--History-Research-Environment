@@ -23,7 +23,7 @@ import org.osgi.service.prefs.Preferences;
 /**
  * Abstract class for GUI parts.
  * 
- * @version 2018-07-13
+ * @version 2018-07-14
  * @author Michael Erichsen, &copy; History Research Environment Ltd., 2018
  *
  */
@@ -69,7 +69,7 @@ public abstract class AbstractHreGuiPart {
 				updateGui();
 			} catch (final Exception e2) {
 				LOGGER.severe("Error in request " + request.getOperation() + " "
-						+ request.getProvider().getClass().getSimpleName()
+						+ request.getProvider().getClass().getSimpleName() + ", "
 						+ request.getBusinessLogic().getClass().getSimpleName() + ", " + e2.getMessage());
 				eventBroker.post("MESSAGE", e2.getMessage());
 			}

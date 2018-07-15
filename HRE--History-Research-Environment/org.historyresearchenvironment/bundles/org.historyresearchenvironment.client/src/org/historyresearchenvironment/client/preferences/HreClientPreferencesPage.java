@@ -23,7 +23,7 @@ import org.historyresearchenvironment.dataaccess.HreH2ConnectionPool;
 /**
  * General client preferences page.
  * 
- * @version 2018-06-24
+ * @version 2018-07-14
  * @author Michael Erichsen, &copy; History Research Environment Ltd., 2018
  *
  */
@@ -188,7 +188,7 @@ public class HreClientPreferencesPage extends FieldEditorPreferencePage {
 				LOGGER.setLevel(Level.INFO);
 			}
 
-			LOGGER.info("Client/server mode " + levelName);
+			LOGGER.info("Log level " + levelName);
 		} else if (event.getSource() == comboFieldEditorH2TraceLevel) {
 			int h2TraceLevel = 2;
 			final String levelName = event.getNewValue().toString();

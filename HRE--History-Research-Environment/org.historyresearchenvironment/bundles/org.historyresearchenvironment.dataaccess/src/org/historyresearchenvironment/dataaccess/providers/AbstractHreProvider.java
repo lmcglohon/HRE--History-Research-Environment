@@ -24,7 +24,7 @@ import org.json.JSONWriter;
 import org.osgi.service.prefs.Preferences;
 
 /**
- * @version 2018-07-13
+ * @version 2018-07-15
  * @author Michael Erichsen, &copy; History Research Environment Ltd., 2018
  *
  */
@@ -143,12 +143,12 @@ public abstract class AbstractHreProvider {
 	/**
 	 * 
 	 */
-	public abstract void readFromH2();
+	public abstract void readFromDatabase();
 
 	/**
 	 * @param i
 	 */
-	public abstract void readFromH2(int i);
+	public abstract void readFromDatabase(int i);
 
 	/**
 	 * @param jsonstring

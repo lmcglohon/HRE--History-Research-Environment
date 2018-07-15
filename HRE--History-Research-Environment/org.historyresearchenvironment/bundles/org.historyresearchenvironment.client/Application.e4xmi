@@ -41,7 +41,7 @@
         <children xsi:type="menu:Menu" xmi:id="_KmBB4H0FEeiesK64SdEsBQ" elementId="org.historyresearchenvironment.client.menu.perspectives" label="Perspectives">
           <children xsi:type="menu:HandledMenuItem" xmi:id="_Pf6wEH0FEeiesK64SdEsBQ" elementId="org.historyresearchenvironment.client.handledmenuitem.baseperspective" label="Base Perspective" tooltip="Base Perspective" command="_vnESsH0FEeiesK64SdEsBQ"/>
         </children>
-        <children xsi:type="menu:Menu" xmi:id="_KP0wcIa-Eeii7p3fU4-nBw" elementId="org.historyresearchenvironment.client.menu.views" label="Views" mnemonics="Views">
+        <children xsi:type="menu:Menu" xmi:id="_KP0wcIa-Eeii7p3fU4-nBw" elementId="org.historyresearchenvironment.client.menu.views" label="Show View" mnemonics="">
           <children xsi:type="menu:HandledMenuItem" xmi:id="_SE52UIa-Eeii7p3fU4-nBw" elementId="org.historyresearchenvironment.client.handledmenuitem.projects" label="Projects" tooltip="Projects" command="_zFcu8GVoEei5HIUyv56sSA"/>
         </children>
         <children xsi:type="menu:Menu" xmi:id="_XDECoGDQEeiQyf13ZGrzgA" elementId="org.historyresearchenvironment.client.menu.applicationlanguage" label="Application Language:"/>
