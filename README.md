@@ -231,9 +231,9 @@ available option.
         without loss of information and loss of an ability to use that data as
         it was in TMG
 
-    2.  Import GEDCOM v5.5 standard format files
+    2.  Import GEDCOM v5.5.1 standard format files
 
-    3.  Export data from HRE that conforms to the GEDCOM v5.5 standard
+    3.  Export data from HRE that conforms to the GEDCOM v5.5.1 specifications
 
     4.  Import data from other genealogical programs by use of the plug-in
         concept.
@@ -241,4 +241,4 @@ available option.
 ## 1.6 HRE IMPLEMENTATION STAGES
 
 As this part is a complex document in its own right, refer to ‘1.6
-Implementation Stages’ in the /docs folder.
+Implementation Stages’ in the /Specifications folder.
